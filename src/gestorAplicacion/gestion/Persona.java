@@ -6,7 +6,7 @@ public abstract class Persona {
 	private int cedula;
 	private CuentaBancaria cuentaBancaria;
 	private int salario;
-	private Boolean trabajo;
+	private int trabajo;
 	private static int personasTotales;
 	
 	/*-------------------Constructores-------------------------*/
