@@ -1,39 +1,26 @@
 package gestorAplicacion.produccion;
 
-public class TipoTransporte extends Transporte {
+public enum TipoTransporte {
     
-    //Atributos
-    String nombre;
-    int velocidadPromedio;
+    //los tipos de transporte que hay 
+    Camion(15000, 500),
+    Avion(30000, 10000),
+    Carro(10000,600),
+    Automovil(9000,400),
+    Camioneta(12000, 700), 
+    Bicicleta(5000,100),
+    Patines(3000,50),
+    Barco(20000, 400),
+    Caminando(5000, 20); 
 
-    //constructor que recibe todos los parametros teniendo en cuenta la herencia de Transporte
+    //cuanto vale cada uno 
+    private double precioEnvio; //dado en pesos
+    private double distanciaMax; //dado en kilometros recorridos en un día
 
-    public TipoTransporte(String matricula, TipoTransporte tipo, Double capacidad, int costo, String nombre,
-    int velocidadPromedio) {
-    super(matricula, tipo, capacidad, costo); //los atributos del papá
-    //Sus propios atributos
-    this.nombre = nombre;
-    this.velocidadPromedio = velocidadPromedio;
+    private TipoTransporte(double precioEnvio, double distanciaMax) {
+        precioEnvio = precioEnvio;
+        distanciaMax = distanciaMax;
     }
 
 
-    //métodos 
-    //setters y getters 
-
-    //para nombre
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    //para velocidadPromedio
-    public int getVelocidadPromedio() {
-        return velocidadPromedio;
-    }
-    public void setVelocidadPromedio(int velocidadPromedio) {
-        this.velocidadPromedio = velocidadPromedio;
-    }
-
-    
 }

@@ -6,6 +6,7 @@ public class Transporte {
      private TipoTransporte tipo; 
      private Double capacidad; 
      private int costo;
+     
 
         //Constructor que recibe todos los parametros 
 
