@@ -13,13 +13,15 @@ public class Factura {
     private static int facturasCreadas;
 
     // Constructor
-    public Factura(Tienda tienda, Transporte transporte, Producto producto, String fecha, String disclaimer, double total) {
+    public Factura(Tienda tienda, Transporte transporte, Producto producto, String fecha, String disclaimer) {
         this.tienda = tienda;
         this.transporte = transporte;
         this.producto = producto;
         this.fecha = fecha;
         this.disclaimer = disclaimer;
-        this.total = total;
+        
+        this.total = calcularTotal();
+
         this.id = ++facturasCreadas;
     }
 
@@ -39,7 +41,6 @@ public class Factura {
     public String generarFactura(){
 
         double tarifaEnvio = calcularTarifaEnvio();
-        double total = calcularTotal();
         String tipo = transporte.getTipo().name();
 
         return "Descripcion del producto: " + producto.getDescripcion() + "\n"
@@ -47,15 +48,7 @@ public class Factura {
         +      "Tipo de transporte: "       + tipo                      + "\n"
         +      "Tarifa de envio: "          + tarifaEnvio               + "\n"
         +      "Total a pagar: "            + total;  
-
     }
-
-
-
-
-
-
-
 
 
     // Getters
