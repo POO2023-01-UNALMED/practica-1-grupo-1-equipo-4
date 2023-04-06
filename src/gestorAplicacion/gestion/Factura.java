@@ -1,5 +1,10 @@
 package gestorAplicacion.gestion;
+import java.util.ArrayList;
+
 import gestorAplicacion.produccion.*;
+
+
+/* Algo con devoluciones */
 
 public class Factura {
     
@@ -11,6 +16,7 @@ public class Factura {
     private int id;
     private double total;
     private static int facturasCreadas;
+    private ArrayList<Factura> listaFacturas;
 
     // Constructor
     public Factura(Tienda tienda, Transporte transporte, Producto producto, String fecha, String disclaimer) {

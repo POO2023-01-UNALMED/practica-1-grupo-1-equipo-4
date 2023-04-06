@@ -13,6 +13,38 @@ public class CuentaBancaria {
         this.saldo = saldo;
     }
 
+    public void anadirFondos(double fondos){
+        this.saldo += fondos;
+    }
+
+    public void descontarFondos(double fondos){
+
+        if(this.saldo - fondos < 0)
+            System.out.println("Fondos insuficientes!"); //Esto debería ser una excepción
+        else
+            this.saldo -= fondos;
+        
+    }
+
+    public static void anadirFondos(Persona persona, double fondos){
+        persona.getCuentaBancaria().anadirFondos(1000);
+    }
+
+    public static void anadirFondos(Tienda tienda, double fondos){
+        tienda.getCuentaBancaria().anadirFondos(1000);
+    }
+
+    public static void descontarFondos(Persona persona, double fondos){
+        persona.getCuentaBancaria().descontarFondos(1000);
+    }
+
+    public static void descontarFondos(Tienda tienda, double fondos){
+        tienda.getCuentaBancaria().descontarFondos(1000);
+    }
+
+
+
+
     // Getters
     public int getNumeroCuenta() {
         return numeroCuenta;

@@ -53,7 +53,7 @@ public class Tienda {
         this.vendedor = vendedor;
     }
 
-    public CuentaBancaria getCuenta() {
+    public CuentaBancaria getCuentaBancaria() {
         return this.cuenta;
     }
 
