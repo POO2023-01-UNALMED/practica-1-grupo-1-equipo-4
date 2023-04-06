@@ -8,6 +8,11 @@ public abstract class Persona {
 	private int salario;
 	private Boolean trabajo;
 	private static int personasTotales;
+	
+	/*-------------------Constructores-------------------------*/
+	
+	
+	/*Constructor de la clase conductor que recibe todos los parametros*/
 	public Persona(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,int salario, Boolean trabajo) {
 		this.nombre=nombre;
 		this.edad=edad;
@@ -17,6 +22,13 @@ public abstract class Persona {
 		this.trabajo=trabajo;
 		personasTotales = getPersonasTotales() + 1;
 	}
+	/*Constructor de la clase persona que no recibe ninguna parametros*/
+	public Persona() {}
+	
+	
+	/*-------------------Getters y setters-------------------------*/
+	
+	
 	public String getNombre() {
 		return nombre;
 	}
@@ -55,4 +67,7 @@ public abstract class Persona {
 	public static int getPersonasTotales() {
 		return personasTotales;
 	}
+	
+	
+	/*------------------- Metodos -------------------------*/
 }
