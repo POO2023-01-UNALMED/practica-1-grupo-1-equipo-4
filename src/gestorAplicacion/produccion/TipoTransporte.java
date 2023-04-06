@@ -14,7 +14,7 @@ public enum TipoTransporte {
     Caminando(5000, 20); 
 
     //cuanto vale cada uno 
-    private double precioEnvio; //dado en pesos
+    public double precioEnvio; //dado en pesos
     private double distanciaMax; //dado en kilometros recorridos en un día
 
     private TipoTransporte(double precioEnvio, double distanciaMax) {

@@ -1,8 +1,6 @@
 package gestorAplicacion.gestion;
 import gestorAplicacion.produccion.*;
 
-
-
 public class Factura {
     
     private Tienda tienda;
@@ -25,7 +23,32 @@ public class Factura {
         this.id = ++facturasCreadas;
     }
 
+    private double calcularTarifaEnvio(){
 
+        double precioEnvio = transporte.getTipo().precioEnvio;
+
+        return producto.getPeso() * producto.getTamano() + precioEnvio;
+
+    }
+
+    public double calcularTotal(){
+
+        return producto.getValor() + calcularTarifaEnvio();
+    }
+
+    public String generarFactura(){
+
+        double tarifaEnvio = calcularTarifaEnvio();
+        double total = calcularTotal();
+        String tipo = transporte.getTipo().name();
+
+        return "Descripcion del producto: " + producto.getDescripcion() + "\n"
+        +      "Precio del producto: "      + producto.getValor()       + "\n"
+        +      "Tipo de transporte: "       + tipo                      + "\n"
+        +      "Tarifa de envio: "          + tarifaEnvio               + "\n"
+        +      "Total a pagar: "            + total;  
+
+    }
 
 
 
