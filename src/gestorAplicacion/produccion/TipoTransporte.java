@@ -22,5 +22,10 @@ public enum TipoTransporte {
         this.capacidadMax = capacidadMax;
     }
 
+    //Metodo para que muestre los detalles de transporte
+    @Override
+    public String toString() {
+        return "TipoTransporte{" + "Precio de Envío:" + precioEnvio + ", Capacidad Maxima=" + capacidadMax + '}';
+    }
 
 }

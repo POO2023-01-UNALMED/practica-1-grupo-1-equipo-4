@@ -53,5 +53,16 @@ public class Transporte {
         this.costo = costo;
     }
      
+        //Métodos 
 
+        //MetodoMostrarTipoTransporte
+        //muestra todos los tipos de transporte, su precio y su capacidadMax
+
+        public static void MostrarTipoTransporte(String[] args) {
+            TipoTransporte[] tipoTransportes = TipoTransporte.values();
+            for (int i = 0; i < tipoTransportes.length; i++) {
+                System.out.println(tipoTransportes[i]);
+        
+    }
+}
 }
