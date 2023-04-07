@@ -1,5 +1,8 @@
 package gestorAplicacion.produccion;
 import gestorAplicacion.gestion.CuentaBancaria;
+import gestorAplicacion.gestion.Operario;
+import gestorAplicacion.gestion.Vendedor;
+
 import java.util.ArrayList;
 
 public class Fabrica {
@@ -10,56 +13,77 @@ public class Fabrica {
     private static ArrayList<Tienda> listaTienda;
     private static CuentaBancaria CuentaBancaria;
 
-    //----------metodo estatico para generar el catalogo de prodcutos disponibles y los empleados-------------
 
-    static{ //NOTA: AÚN NO SE SI ESTO VA ACA EN UN METODO ESTATICO O DENTRO DEL CONSTRUCTOR
-    //productos disponibles en las fabricas:
-    ArrayList<Producto> catalogo = new ArrayList<Producto>();
-    Producto producto1 = new Producto("descricion vacia", 10000, 5, 20, null);
-    Producto producto2 = new Producto("descricion vacia", 10000, 5, 20, null);
-    Producto producto3 = new Producto("descricion vacia", 10000, 5, 20, null);
-    Producto producto4 = new Producto("descricion vacia", 10000, 5, 20, null);
-    Producto producto5 = new Producto("descricion vacia", 10000, 5, 20, null);
-    //se agregan al catalogo
-    catalogo.add(producto1);
-    catalogo.add(producto2);
-    catalogo.add(producto3);
-    catalogo.add(producto4);
-    catalogo.add(producto5);
-
-    //empleados de la fabrica:
-    ArrayList<Operario> nomina = new ArrayList<Operario>();
-    Operario operario1 = new operario("no se cuantos parametros lleve la clase operario","","");
-    Operario operario2 = new operario("no se cuantos parametros lleve la clase operario","","");
-    Operario operario3 = new operario("no se cuantos parametros lleve la clase operario","","");
-
-    nomina.add(operario1);
-    nomina.add(operario2);
-    nomina.add(operario3);
-
-    //tiendas disponibles
-    ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
-    Tienda tienda1 = new Tienda("tienda1",Vendedor vendedor,CuentaBancaria cuentaBancaria);
-    Tienda tienda2 = new Tienda("tienda2",Vendedor vendedor,CuentaBancaria cuentaBancaria);
-    Tienda tienda3 = new Tienda("tienda2",Vendedor vendedor,CuentaBancaria cuentaBancaria);
-
-    tiendas.add(tienda1);
-    tiendas.add(tienda2);
-    tiendas.add(tienda3);
-
-}
     // ------------- constructor -------------
-    public Fabrica(ArrayList<Tienda> listaTienda, CuentaBancaria cuentaBancaria) {
-        this.listaTrabajadores = nomina;
+    public Fabrica() {
+
+         //NOTA: AÚN NO SE SI ESTO VA ACA O EN UN METODO ESTATICO 
+
+            //productos disponibles en las fabricas:
+
+            ArrayList<Producto> catalogo = new ArrayList<Producto>();
+            Producto producto1 = new Producto("descricion vacia", 10000, 5, 20,null);
+            Producto producto2 = new Producto("descricion vacia", 10000, 5, 20,null);
+            Producto producto3 = new Producto("descricion vacia", 10000, 5, 20,null);
+            Producto producto4 = new Producto("descricion vacia", 10000, 5, 20,null);
+            Producto producto5 = new Producto("descricion vacia", 10000, 5, 20,null);
+            //se agregan al catalogo
+            catalogo.add(producto1);
+            catalogo.add(producto2);
+            catalogo.add(producto3);
+            catalogo.add(producto4);
+            catalogo.add(producto5);
+        
+            //empleados de la fabrica:
+            
+            //cuentas para los empleados:
+            CuentaBancaria cuentaOperario1 = new CuentaBancaria(55555, 100000);
+            CuentaBancaria cuentaOperario2 = new CuentaBancaria(66666, 100000);
+            CuentaBancaria cuentaOperario3 = new CuentaBancaria(77777, 100000);
+        
+            ArrayList<Operario> nomina = new ArrayList<Operario>();
+            Operario operario1 = new Operario("operador1",20,55555,cuentaOperario1,Fabrica, 0);//cada oeprador tiene cien mil *hay que sacar cuentas*
+            Operario operario2 = new Operario("operador2",21,66666,cuentaOperario2,Fabrica, 0);
+            Operario operario3 = new Operario("operador3",22,77777,cuentaOperario3,Fabrica, 0);
+            //se agg a la nomina
+            nomina.add(operario1);
+            nomina.add(operario2);
+            nomina.add(operario3);
+        
+            //tiendas disponibles
+
+            //se crean los empleados para las tiendas:
+            //cuentas para los empleados de la tienda:
+            CuentaBancaria cuentaVendedor1 = new CuentaBancaria(55555, 100000); //cada vendedor tiene cien mil *hay que sacar cuentas*
+            CuentaBancaria cuentaVendedor2 = new CuentaBancaria(66666, 100000);
+            CuentaBancaria cuentaVendedor3 = new CuentaBancaria(77777, 100000);
+            //vendedores
+            Vendedor vendedor1 = new Vendedor("vendedor1",20,55555,cuentaVendedor1,Fabrica, 0);
+            Vendedor vendedor2 = new Vendedor("vendedor2",21,66666,cuentaVendedor2,Fabrica, 0);
+            Vendedor vendedor3 = new Vendedor("vendedor3",22,77777,cuentaVendedor3,Fabrica, 0);
+
+            //tiendas
+            ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
+            Tienda tienda1 = new Tienda("tienda1",vendedor1,cuentaVendedor1);
+            Tienda tienda2 = new Tienda("tienda2",vendedor2,cuentaVendedor2);
+            Tienda tienda3 = new Tienda("tienda3",vendedor3,cuentaVendedor3);
+        
+            tiendas.add(tienda1);
+            tiendas.add(tienda2);
+            tiendas.add(tienda3);
+
+        //cuenta bancaria para la fabrica:
+        CuentaBancaria cuentaFabrica = new CuentaBancaria(00000, 1000000); //saldo = un millon
+
+        //asignacion a los atributos de la clase:
+
+        Fabrica.listaOperadores = nomina;
         Fabrica.listaProductos = catalogo;
         Fabrica.listaTienda = tiendas;
-        CuentaBancaria = cuentaBancaria;
+        CuentaBancaria = cuentaFabrica;
     }
 
     //----------- Getters and Setters ----------------
-
-
-
 
     public static ArrayList<Operario> getListaOperadores() {
         return listaOperadores;
@@ -110,14 +134,25 @@ public class Fabrica {
     // -------------- Metodos ------------------
     
     //muestra el catalogo en pantalla
-    public void mostrarCatalogo(){
+    public void mostrarProductos(){
         int i = 1;
-        for (Producto producto : catalogo) {
-            print(i+" "+producto.getNombre());
+        for (Producto producto : listaProductos) {
+            System.out.println(i+" "+producto.getNombre());
             i++;
         }
     }
-
+    //muestra las tiendas en pantalla
+    public void mostrarTiendas(){
+        int i = 1;
+        for (Tienda tienda : listaTienda) {
+            System.out.println(i+" "+tienda.getNombre());
+            i++;
+        }
+    }
+    public void PagarOperario(Fabrica fabrica, Operario operario, double monto){
+        CuentaBancaria.anadirFondos(operario, monto);
+        CuentaBancaria.descontarFondos(fabrica, monto);
+    }
     //Enviar productos a tienda:
 
 
