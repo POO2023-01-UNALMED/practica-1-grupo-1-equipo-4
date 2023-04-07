@@ -17,7 +17,7 @@ public class Tienda {
     private Map<Producto, Integer> listaCantidadProductos;
     private static int numTiendas=0; 
     
-    //Constructor que recibe solo nombre, vendedor y cuenta 
+    //Constructor
     public Tienda(String nombre,Vendedor vendedor,CuentaBancaria cuentaBancaria){
         this.nombre = nombre;
         this.vendedor = vendedor;
@@ -26,17 +26,7 @@ public class Tienda {
         this.listaCantidadProductos = new HashMap<Producto, Integer>();
         numTiendas++;
     }
-
-    //Constructor que recibe todos los parametros
-    public Tienda(String nombre, Vendedor vendedor, CuentaBancaria cuentaBancaria, ArrayList<Producto> listaProductos, Map<Producto,Integer> listaCantidadProductos) {
-        this.nombre = nombre;
-        this.vendedor = vendedor;
-        this.cuentaBancaria = cuentaBancaria;
-        this.listaProductos = listaProductos;
-        this.listaCantidadProductos = listaCantidadProductos;
-        numTiendas++;
-    }
-    
+   
     //Métodos
     public void mostrarProductos() {
         for (int i=0;i<listaProductos.size();i++) {
@@ -45,7 +35,7 @@ public class Tienda {
     }
 
     public String generarPedido(Producto producto, Transporte transporte, Cliente cliente){
-        if(listaProductos.contains(producto)){
+        if(listaProductos.contains(producto)){ //Cambiar
             if(cliente.getCuentaBancaria().getSaldo()>=producto.getValor()){
                 //Pedido pedido = new Pedido(producto,transporte,cliente);
                 listaCantidadProductos.put(producto, listaCantidadProductos.get(producto) - 1);
