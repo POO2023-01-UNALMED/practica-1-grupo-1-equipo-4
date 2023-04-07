@@ -1,6 +1,8 @@
 package gestorAplicacion.gestion;
 import gestorAplicacion.produccion.Tienda;
 public class Vendedor extends Persona {
+	/*-------------------Atributos-------------------------*/
+	
 	
 	private Tienda tienda;
 	
@@ -9,7 +11,7 @@ public class Vendedor extends Persona {
 	
 	/*Constructor de la clase conductor que recibe todos los parametros*/
 
-	public Vendedor(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,int salario, Boolean trabajo, Tienda tienda) {
+	public Vendedor(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,int salario, int trabajo, Tienda tienda) {
 		super(nombre, edad, cedula, cuentaBancaria,salario, trabajo);
 		this.tienda=tienda;
 	}
@@ -31,6 +33,6 @@ public class Vendedor extends Persona {
 	
 	
 	/*-------------------Metodos-------------------------*/
-
+	public void recibirSueldo() {}
 
 }

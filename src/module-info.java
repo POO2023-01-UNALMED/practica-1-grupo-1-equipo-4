@@ -5,5 +5,5 @@
  * @author Asus
  *
  */
-module DistribuidoraSAS {
+module A {
 }
