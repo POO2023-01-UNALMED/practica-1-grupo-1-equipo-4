@@ -2,7 +2,7 @@ package gestorAplicacion.produccion;
 
 public enum TipoTransporte {
     
-    //los tipos de transporte que hay 
+    //los tipos de transporte que hay
     Camion(15000, 16329),
     Avion(30000, 640000),
     Automovil(9000,500),
@@ -10,8 +10,16 @@ public enum TipoTransporte {
     Bicicleta(5000,35),
     Patines(3000,20),
     Barco(20000, 33565835),
-    Container(20000, 29000),
+    Container(20000, 29000),//cambielo por helicoptero :v ByLuis*
     Caminando(5000, 15); 
+
+
+    @Override
+    public String toString() {
+        return "TipoTransporte{" + "Precio de Envío:" + precioEnvio + ", Capacidad Maxima=" + capacidadMax + '}';
+    }
+
+    //Borrar todo de aca para abajo ---------------------
 
     //cuanto vale cada uno 
     public double precioEnvio; //dado en pesos
@@ -22,10 +30,6 @@ public enum TipoTransporte {
         this.capacidadMax = capacidadMax;
     }
 
-    //Metodo para que muestre los detalles de transporte
-    @Override
-    public String toString() {
-        return "TipoTransporte{" + "Precio de Envío:" + precioEnvio + ", Capacidad Maxima=" + capacidadMax + '}';
-    }
+    //Metodo para que muestre los detalles de transporte  **<-- este metodo va en la clase Transporte ByLuis*
 
 }

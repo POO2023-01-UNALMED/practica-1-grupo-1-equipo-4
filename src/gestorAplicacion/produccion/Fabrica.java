@@ -22,11 +22,11 @@ public class Fabrica {
             //productos disponibles en las fabricas:
 
             ArrayList<Producto> catalogo = new ArrayList<Producto>();
-            Producto producto1 = new Producto("descricion vacia", 10000, 5, 20,null);
-            Producto producto2 = new Producto("descricion vacia", 10000, 5, 20,null);
-            Producto producto3 = new Producto("descricion vacia", 10000, 5, 20,null);
-            Producto producto4 = new Producto("descricion vacia", 10000, 5, 20,null);
-            Producto producto5 = new Producto("descricion vacia", 10000, 5, 20,null);
+            Producto producto1 = new Producto("descricion vacia", 10000, 5, 20);
+            Producto producto2 = new Producto("descricion vacia", 10000, 5, 20);
+            Producto producto3 = new Producto("descricion vacia", 10000, 5, 20);
+            Producto producto4 = new Producto("descricion vacia", 10000, 5, 20);
+            Producto producto5 = new Producto("descricion vacia", 10000, 5, 20);
             //se agregan al catalogo
             catalogo.add(producto1);
             catalogo.add(producto2);
@@ -81,6 +81,7 @@ public class Fabrica {
         Fabrica.listaProductos = catalogo;
         Fabrica.listaTienda = tiendas;
         CuentaBancaria = cuentaFabrica;
+        cantidadProducto = 10;
     }
 
     //----------- Getters and Setters ----------------
@@ -154,8 +155,10 @@ public class Fabrica {
         CuentaBancaria.descontarFondos(fabrica, monto);
     }
     //Enviar productos a tienda:
-
-
+    //
+    public void Enviarproducto(Tienda tienda,Producto producto){
+        tienda.setListaCantidadProductos(map<producto,cantidadProducto>()); //aun no se muy bien como hacer esto xd
+    }
 
     
 }
