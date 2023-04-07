@@ -3,9 +3,6 @@ import java.util.ArrayList;
 
 import gestorAplicacion.produccion.*;
 
-
-/* Algo con devoluciones */
-
 public class Factura {
     
     private Tienda tienda;
@@ -27,6 +24,7 @@ public class Factura {
         this.disclaimer = disclaimer;
         
         this.total = calcularTotal();
+        this.listaFacturas = new ArrayList<>();
 
         this.id = ++facturasCreadas;
     }
@@ -44,7 +42,13 @@ public class Factura {
         return producto.getValor() + calcularTarifaEnvio();
     }
 
-    public String generarFactura(){
+    public void generarFactura(){
+
+        listaFacturas.add(this);
+        
+    }
+
+    public String toString(){
 
         double tarifaEnvio = calcularTarifaEnvio();
         String tipo = transporte.getTipo().name();
@@ -54,8 +58,8 @@ public class Factura {
         +      "Tipo de transporte: "       + tipo                      + "\n"
         +      "Tarifa de envio: "          + tarifaEnvio               + "\n"
         +      "Total a pagar: "            + total;  
-    }
 
+    }
 
     // Getters
     public Tienda getTienda() {

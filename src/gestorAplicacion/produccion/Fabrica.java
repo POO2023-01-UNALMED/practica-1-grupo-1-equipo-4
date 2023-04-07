@@ -156,8 +156,23 @@ public class Fabrica {
     }
     //Enviar productos a tienda:
     //
+
+
+
     public void Enviarproducto(Tienda tienda,Producto producto){
-        tienda.setListaCantidadProductos(map<producto,cantidadProducto>()); //aun no se muy bien como hacer esto xd
+       
+        for (int i = 0; i < tienda.getListaProductos().size(); i++){
+
+            
+
+        }
+
+        /*
+         * 
+         * 
+         * 
+         */
+
     }
 
     
