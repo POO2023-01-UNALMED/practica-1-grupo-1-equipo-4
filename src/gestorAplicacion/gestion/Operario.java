@@ -13,8 +13,8 @@ public class Operario extends Persona {
 	
 	/*Constructor de la clase operario que recibe todos los parametros*/
 
-	public Operario(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,int salario, int trabajo,Fabrica fabrica) {
-		super(nombre, edad, cedula, cuentaBancaria,salario, trabajo);
+	public Operario(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria, int trabajo,Fabrica fabrica) {
+		super(nombre, edad, cedula, cuentaBancaria, trabajo);
 		this.fabrica=fabrica;
 	}
 	/*Constructor de la clase operario que no recibe parametros*/
@@ -36,7 +36,7 @@ public class Operario extends Persona {
 	/*-------------------Metodos-------------------------*/
     @Override
 	public void recibirSueldo() {
-		super.getCuentaBancaria().descontarFondos(fabrica,1000*getTrabajo());
+		Fabrica.getCuentaBancaria().descontarFondos(fabrica,super.getSalario()*getTrabajo());
 		super.getCuentaBancaria().anadirFondos(this, 1000*getTrabajo());
 	}
 }

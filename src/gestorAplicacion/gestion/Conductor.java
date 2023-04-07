@@ -8,8 +8,8 @@ public class Conductor extends Persona {
 	
 	
 	/*Constructor de la clase conductor que recibe todos los parametros*/
-	public Conductor(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,int salario, int trabajo, Transporte transporte) {
-		super(nombre, edad, cedula, cuentaBancaria,salario, trabajo);
+	public Conductor(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,int trabajo, Transporte transporte) {
+		super(nombre, edad, cedula, cuentaBancaria, trabajo);
 		this.transporte=transporte;
 	}
 	/*Constructor de la clase conductor vacio*/
@@ -34,7 +34,7 @@ public class Conductor extends Persona {
 	/*-------------------Metodos-------------------------*/
     @Override
 	public void recibirSueldo() {
-		super.getCuentaBancaria().descontarFondos(fabrica,1000*getTrabajo());
+		Fabrica.getCuentaBancaria().descontarFondos(fabrica,super.getSalario()*getTrabajo());
 		super.getCuentaBancaria().anadirFondos(this, 1000*getTrabajo());
 	}
 }
