@@ -1,6 +1,11 @@
 package gestorAplicacion.gestion;
 
+import java.util.ArrayList;
+
 public abstract class Persona {
+	/*-------------------Atributos-------------------------*/
+	
+	
 	private String nombre;
 	private int edad;
 	private int cedula;
@@ -8,12 +13,13 @@ public abstract class Persona {
 	private int salario;
 	private int trabajo;
 	private static int personasTotales;
+	private static ArrayList<Persona> personas;
 	
 	/*-------------------Constructores-------------------------*/
 	
 	
 	/*Constructor de la clase conductor que recibe todos los parametros*/
-	public Persona(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,int salario, Boolean trabajo) {
+	public Persona(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,int salario, int trabajo) {
 		this.nombre=nombre;
 		this.edad=edad;
 		this.cedula=cedula;
@@ -21,6 +27,7 @@ public abstract class Persona {
 		this.salario=salario;
 		this.trabajo=trabajo;
 		personasTotales = getPersonasTotales() + 1;
+		personas.add(this);
 	}
 	/*Constructor de la clase persona que no recibe ninguna parametros*/
 	public Persona() {}
@@ -48,7 +55,7 @@ public abstract class Persona {
 		this.cedula = cedula;
 	}
 	public CuentaBancaria getCuentaBancaria() {
-		return nombre;
+		return cuentaBancaria;
 	}
 	public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
 		this.cuentaBancaria = cuentaBancaria;}
@@ -58,10 +65,10 @@ public abstract class Persona {
 	public void setSalario(int salario) {
 		this.salario = salario;
 	}
-	public Boolean getTrabajo() {
+	public int getTrabajo() {
 		return trabajo;
 	}
-	public void setTrabajo(Boolean trabajo) {
+	public void setTrabajo(int trabajo) {
 		this.trabajo = trabajo;
 	}
 	public static int getPersonasTotales() {
@@ -70,4 +77,7 @@ public abstract class Persona {
 	
 	
 	/*------------------- Metodos -------------------------*/
+	
+	public abstract void recibirSueldo(); 
+	
 }
