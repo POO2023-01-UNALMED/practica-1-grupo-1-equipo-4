@@ -22,7 +22,7 @@ public class Tienda {
         this.nombre = nombre;
         this.vendedor = vendedor;
         this.cuentaBancaria = cuentaBancaria;
-        this.listaProductos = new ArrayList<Producto>();
+        this.listaProductos = new ArrayList<Producto>(); //<--- borrar y todo lo que conlleve con este atributo.
         this.listaCantidadProductos = new HashMap<Producto, Integer>();
         numTiendas++;
     }

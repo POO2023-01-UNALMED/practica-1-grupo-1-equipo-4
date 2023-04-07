@@ -22,11 +22,17 @@ public class Fabrica {
             //productos disponibles en las fabricas:
 
             ArrayList<Producto> catalogo = new ArrayList<Producto>();
-            Producto producto1 = new Producto("descricion vacia", 10000, 5, 20);
-            Producto producto2 = new Producto("descricion vacia", 10000, 5, 20);
-            Producto producto3 = new Producto("descricion vacia", 10000, 5, 20);
-            Producto producto4 = new Producto("descricion vacia", 10000, 5, 20);
-            Producto producto5 = new Producto("descricion vacia", 10000, 5, 20);
+            //Producto(String nombre, String descripcion, Double valor, Double peso, Double tamano, Double costoDeProduccion);
+            Producto producto1 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
+            Producto producto2 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
+            Producto producto3 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
+            Producto producto4 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
+            Producto producto5 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
+            Producto producto6 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
+            Producto producto7 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
+            Producto producto8 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
+            Producto producto9 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
+            Producto producto10 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
             //se agregan al catalogo
             catalogo.add(producto1);
             catalogo.add(producto2);
@@ -72,6 +78,10 @@ public class Fabrica {
             tiendas.add(tienda2);
             tiendas.add(tienda3);
 
+            //se le asigna la tienda a cada vendedor:
+            vendedor1.setTienda(tienda1);
+            vendedor2.setTienda(tienda2);
+            vendedor3.setTienda(tienda3);
         //cuenta bancaria para la fabrica:
         CuentaBancaria cuentaFabrica = new CuentaBancaria(00000, 1000000); //saldo = un millon
 
@@ -82,6 +92,11 @@ public class Fabrica {
         Fabrica.listaTienda = tiendas;
         CuentaBancaria = cuentaFabrica;
         cantidadProducto = 10;
+
+        //unimos la fabrica creada con sus respectivosb
+        operario1.setFabrica(this);
+        operario2.setFabrica(this);
+        operario3.setFabrica(this);
     }
 
     //----------- Getters and Setters ----------------
@@ -151,29 +166,29 @@ public class Fabrica {
         }
     }
     public void PagarOperario(Fabrica fabrica, Operario operario, double monto){
-        CuentaBancaria.anadirFondos(operario, monto);
-        CuentaBancaria.descontarFondos(fabrica, monto);
+        operario.recibirSueldo();
     }
     //Enviar productos a tienda:
     //
+    public void Enviarproducto(Transporte transporte, Tienda tienda,Producto producto){
+        tienda.setListaCantidadProductos(map<producto,cantidadProducto>()); //aun no se muy bien como hacer esto xd
+    }
 
-
-
-    public void Enviarproducto(Tienda tienda,Producto producto){
+    public void Enviarproducto(Tienda tienda,Producto producto, int cantidad){
        
-        for (int i = 0; i < tienda.getListaProductos().size(); i++){
-
-            
-
-        }
-
         /*
-         * 
+         * 1. Se fija que el producto se va a enviar es uno de los que la tienda recibe en stock
          * 
          * 
          */
 
-    }
+        if(tienda.getListaProductos().contains(producto)){ //1. Se fija que el producto se va a enviar es uno de los que la tienda recibe en stock
+         
+            tienda.getListaCantidadProductos() //El DICCIONARIO de productos se aumenta el valor en la cantidad especificada
+                .put(producto, tienda.getListaCantidadProductos().get(producto) + cantidad);
 
-    
+        }else{
+            
+        }
+    }
 }
