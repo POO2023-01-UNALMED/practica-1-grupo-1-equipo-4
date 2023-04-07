@@ -4,13 +4,14 @@ import gestorAplicacion.gestion.Factura;
 public class Producto {
     
     //Atributos
+    //private String nombre; agg esto  ByLuis*
     private String descripcion;
     private Double valor;
     private Double peso;
     private Double tamano;
-    private Factura factura;
+    private Factura factura; // <-- esto hay que borrarlo ByLuis*
 
-    //Constructor 
+    //Constructor *RECUERDE QUE AL AGG EL ATRIBUTO NOMBRE DEBE INCLUIRLO EN EL CONSTRUCTOR Y QUITAR EL DE FACTURA ByLuis* tambien recuerde los setter y getters
     public Producto(String descripcion, Double valor, Double peso, Double tamano, Factura factura) {
         this.descripcion = descripcion;
         this.valor = valor;
