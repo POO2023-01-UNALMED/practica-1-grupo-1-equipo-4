@@ -1,28 +1,52 @@
 package gestorAplicacion.produccion;
-import gestorAplicacion.gestion.Factura;
+import java.util.ArrayList;
 
 public class Producto {
     
     //Atributos
+    private String nombre;
     private String descripcion;
     private Double valor;
     private Double peso;
     private Double tamano;
-    private Factura factura;
+    private Double costoDeProduccion;
+    private static int numProductos = 0;
+    private static ArrayList<Producto> listaProductos = new ArrayList<Producto>();
 
-    //Constructor 
-    public Producto(String descripcion, Double valor, Double peso, Double tamano, Factura factura) {
+    //Constructor
+
+    public Producto(String nombre, String descripcion, Double valor, Double peso, Double tamano, Double costoDeProduccion) {
+        this.nombre = nombre;
         this.descripcion = descripcion;
         this.valor = valor;
         this.peso = peso;
         this.tamano = tamano;
-        this.factura = factura;
+        this.costoDeProduccion = costoDeProduccion;
+        numProductos++;
+        listaProductos.add(this);
     }
-
+   
     //Métodos
+    @Override
+    public String toString() {
+        return "Nombre: "              + nombre           + "\n"
+        +      "Descripción: "         + descripcion      + "\n"
+        +      "Valor: "               + valor            + "\n"
+        +      "Peso: "                + peso             + "\n"
+        +      "Tamaño: "              + tamano           + "\n"
+        +      "Costo de produccion: " + costoDeProduccion;
+    }
 
 
     //Get and Set
+    public String getNombre() {
+        return this.nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getDescripcion() {
         return this.descripcion;
     }
@@ -55,13 +79,23 @@ public class Producto {
         this.tamano = tamano;
     }
 
-    public Factura getFactura() {
-        return this.factura;
+    public Double getCostoDeProduccion() {
+        return this.costoDeProduccion;
     }
 
-    public void setFactura(Factura factura) {
-        this.factura = factura;
+    public void setCostoDeProduccion(Double costoDeProduccion) {
+        this.costoDeProduccion = costoDeProduccion;
     }
+
+    public static int getNumProductos(){
+        return numProductos;
+    }
+
+    public static ArrayList<Producto> getListaProductos(){
+        return listaProductos;
+    }
+
+    
 
 
 
