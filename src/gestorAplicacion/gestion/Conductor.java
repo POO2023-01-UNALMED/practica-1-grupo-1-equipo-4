@@ -32,7 +32,7 @@ public class Conductor extends Persona {
 		this.fabrica = fabrica;
 	}
 	/*-------------------Metodos-------------------------*/
-	
+    @Override
 	public void recibirSueldo() {
 		super.getCuentaBancaria().descontarFondos(fabrica,1000*getTrabajo());
 		super.getCuentaBancaria().anadirFondos(this, 1000*getTrabajo());
