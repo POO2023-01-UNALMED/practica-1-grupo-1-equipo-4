@@ -11,8 +11,8 @@ public class Vendedor extends Persona {
 	
 	/*Constructor de la clase conductor que recibe todos los parametros*/
 
-	public Vendedor(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,int salario, int trabajo, Tienda tienda) {
-		super(nombre, edad, cedula, cuentaBancaria,salario, trabajo);
+	public Vendedor(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria, int trabajo, Tienda tienda) {
+		super(nombre, edad, cedula, cuentaBancaria, trabajo);
 		this.tienda=tienda;
 	}
 	/*Constructor de la clase vendedor que no recibe parametros*/
@@ -35,7 +35,7 @@ public class Vendedor extends Persona {
 	/*-------------------Metodos-------------------------*/
     @Override
 	public void recibirSueldo() {
-		super.getCuentaBancaria().descontarFondos(tienda,1000*getTrabajo());
+		tienda.getCuentaBancaria().descontarFondos(tienda,super.getSalario()*getTrabajo());
 		super.getCuentaBancaria().anadirFondos(this, 1000*getTrabajo());
 	}
 

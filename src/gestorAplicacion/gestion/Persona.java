@@ -10,7 +10,7 @@ public abstract class Persona {
 	private int edad;
 	private int cedula;
 	private CuentaBancaria cuentaBancaria;
-	private int salario;
+	private int salario=1000;
 	private int trabajo;
 	private static int personasTotales;
 	private static ArrayList<Persona> personas;
@@ -19,12 +19,11 @@ public abstract class Persona {
 	
 	
 	/*Constructor de la clase conductor que recibe todos los parametros*/
-	public Persona(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,int salario, int trabajo) {
+	public Persona(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria, int trabajo) {
 		this.nombre=nombre;
 		this.edad=edad;
 		this.cedula=cedula;
 		this.cuentaBancaria=cuentaBancaria;
-		this.salario=salario;
 		this.trabajo=trabajo;
 		personasTotales = getPersonasTotales() + 1;
 		personas.add(this);
