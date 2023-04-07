@@ -1,4 +1,5 @@
 package gestorAplicacion.produccion;
+import gestorAplicacion.gestion.Cliente;
 import gestorAplicacion.gestion.CuentaBancaria;
 import gestorAplicacion.gestion.Vendedor;
 import java.util.ArrayList;
@@ -11,31 +12,59 @@ public class Tienda {
     //Atributos
     private String nombre;
     private Vendedor vendedor;
-    private CuentaBancaria cuenta;
+    private CuentaBancaria cuentaBancaria;
     private ArrayList<Producto> listaProductos; 
-    private Map<Producto, Integer> listaCantidadProductos; 
+    private Map<Producto, Integer> listaCantidadProductos;
+    private static int numTiendas=0; 
     
     //Constructor que recibe solo nombre, vendedor y cuenta 
-    public Tienda(String nombre,Vendedor vendedor,CuentaBancaria cuenta){
+    public Tienda(String nombre,Vendedor vendedor,CuentaBancaria cuentaBancaria){
         this.nombre = nombre;
         this.vendedor = vendedor;
-        this.cuenta = cuenta;
+        this.cuentaBancaria = cuentaBancaria;
         this.listaProductos = new ArrayList<Producto>();
         this.listaCantidadProductos = new HashMap<Producto, Integer>();
+        numTiendas++;
     }
 
     //Constructor que recibe todos los parametros
-    public Tienda(String nombre, Vendedor vendedor, CuentaBancaria cuenta, ArrayList<Producto> listaProductos, Map<Producto,Integer> listaCantidadProductos) {
+    public Tienda(String nombre, Vendedor vendedor, CuentaBancaria cuentaBancaria, ArrayList<Producto> listaProductos, Map<Producto,Integer> listaCantidadProductos) {
         this.nombre = nombre;
         this.vendedor = vendedor;
-        this.cuenta = cuenta;
+        this.cuentaBancaria = cuentaBancaria;
         this.listaProductos = listaProductos;
         this.listaCantidadProductos = listaCantidadProductos;
+        numTiendas++;
     }
     
     //Métodos
+    public void mostrarProductos() {
+        for (int i=0;i<listaProductos.size();i++) {
+            listaProductos.get(i).toString();
+        }
+    }
 
-    
+    public String generarPedido(Producto producto, Transporte transporte, Cliente cliente){
+        if(listaProductos.contains(producto)){
+            if(cliente.getCuentaBancaria().getSaldo()>=producto.getValor()){
+                //Pedido pedido = new Pedido(producto,transporte,cliente);
+                listaCantidadProductos.put(producto, listaCantidadProductos.get(producto) - 1);
+                return "Pedido realizado con exito";
+            }else{
+                return "Error al realizar el pedido, el cliente no tiene saldo suficiente para comprar el producto";
+            }
+        }else{
+            return "Error al realizar el pedido, el producto que seleccionaste no está disponible";
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        return "Nombre: "              + nombre           + "\n"
+        +      "Vendedor: "            + vendedor;
+    }
+
     //Get and Set
     public String getNombre() {
         return this.nombre;
@@ -54,11 +83,11 @@ public class Tienda {
     }
 
     public CuentaBancaria getCuentaBancaria() {
-        return this.cuenta;
+        return this.cuentaBancaria;
     }
 
-    public void setCuenta(CuentaBancaria cuenta) {
-        this.cuenta = cuenta;
+    public void setCuenta(CuentaBancaria cuentaBancaria) {
+        this.cuentaBancaria = cuentaBancaria;
     }
 
     public ArrayList<Producto> getListaProductos() {
@@ -77,4 +106,7 @@ public class Tienda {
         this.listaCantidadProductos = listaCantidadProductos;
     }
 
+    public static int getNumTiendas(){
+        return numTiendas;
+    }
 }
