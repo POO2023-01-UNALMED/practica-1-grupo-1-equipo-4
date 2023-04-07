@@ -34,5 +34,8 @@ public class Operario extends Persona {
 
 	
 	/*-------------------Metodos-------------------------*/
-	public void recibirSueldo() {}
+	public void recibirSueldo() {
+		super.getCuentaBancaria().descontarFondos(fabrica,1000*getTrabajo());
+		super.getCuentaBancaria().anadirFondos(this, 1000*getTrabajo());
+	}
 }

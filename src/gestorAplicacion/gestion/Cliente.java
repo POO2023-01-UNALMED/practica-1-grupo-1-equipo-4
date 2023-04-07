@@ -1,16 +1,21 @@
 package gestorAplicacion.gestion;
 
+
+
 public class Cliente{
 	private String nombre;
 	private String direccion;
 	private CuentaBancaria cuentaBancaria;
-
+	
+	
 	public Cliente(String nombre, String direccion, CuentaBancaria cuentaBancaria) {
         this.nombre = nombre;
         this.direccion = direccion;
         this.cuentaBancaria = cuentaBancaria;
     }
-
+	public Cliente() {}
+	
+	
 	  // Getters
 	  public String getNombre() {
         return nombre;
@@ -36,6 +41,8 @@ public class Cliente{
     public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
         this.cuentaBancaria = cuentaBancaria;
     }
+    
+
 }
 
 

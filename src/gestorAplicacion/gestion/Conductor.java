@@ -1,7 +1,9 @@
 package gestorAplicacion.gestion;
+import gestorAplicacion.produccion.Fabrica;
 import gestorAplicacion.produccion.Transporte;
 public class Conductor extends Persona {
 	private Transporte transporte;
+	private Fabrica fabrica;
 	/*-------------------Constructores-------------------------*/
 	
 	
@@ -23,8 +25,16 @@ public class Conductor extends Persona {
 		this.transporte = transporte;
 	}
 	
-	
+	public Fabrica getFabrica() {
+		return fabrica;
+	}
+	public void setFabrica(Fabrica fabrica) {
+		this.fabrica = fabrica;
+	}
 	/*-------------------Metodos-------------------------*/
 	
-	public void recibirSueldo() {}
+	public void recibirSueldo() {
+		super.getCuentaBancaria().descontarFondos(fabrica,1000*getTrabajo());
+		super.getCuentaBancaria().anadirFondos(this, 1000*getTrabajo());
+	}
 }

@@ -25,26 +25,43 @@ public class CuentaBancaria {
             this.saldo -= fondos;
         
     }
+    
+    /*Quite esto cuando lo lea, Yo, Jaider le quite el static a estos metodos ya que no tenia 
+     * sentido que lo tuviera y cambie los 1000 por la variable fondos*/
 
-    public static void anadirFondos(Persona persona, double fondos){
-        persona.getCuentaBancaria().anadirFondos(1000);
+    public void anadirFondos(Persona persona, double fondos){
+        persona.getCuentaBancaria().anadirFondos(fondos); /*1000 -> fondos*/
     }
 
-    public static void anadirFondos(Tienda tienda, double fondos){
-        tienda.getCuentaBancaria().anadirFondos(1000);
+    public void anadirFondos(Tienda tienda, double fondos){
+        tienda.getCuentaBancaria().anadirFondos(fondos);
     }
 
-    public static void descontarFondos(Persona persona, double fondos){
-        persona.getCuentaBancaria().descontarFondos(1000);
+    public void descontarFondos(Persona persona, double fondos){
+        persona.getCuentaBancaria().descontarFondos(fondos);
     }
 
-    public static void descontarFondos(Tienda tienda, double fondos){
-        tienda.getCuentaBancaria().descontarFondos(1000);
+    public void descontarFondos(Tienda tienda, double fondos){
+        tienda.getCuentaBancaria().descontarFondos(fondos);
+    }
+    
+    
+    
+    /*Añadido por Jaider para cuenta de fabrica*/
+    
+    public void anadirFondos(Fabrica fabrica, double fondos){
+        Fabrica.getCuentaBancaria().anadirFondos(fondos);
     }
 
+    public void descontarFondos(Fabrica fabrica, double fondos){
+        Fabrica.getCuentaBancaria().descontarFondos(fondos);
+    }
+  
+    /*Añadido por Jaider para cuenta de fabrica*/
 
 
-
+    
+    
     // Getters
     public int getNumeroCuenta() {
         return numeroCuenta;
