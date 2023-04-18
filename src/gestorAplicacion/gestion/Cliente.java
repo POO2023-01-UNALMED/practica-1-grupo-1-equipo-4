@@ -1,11 +1,14 @@
 package gestorAplicacion.gestion;
 
+import gestorAplicacion.produccion.Producto; 
 
 
 public class Cliente{
 	private String nombre;
 	private String direccion;
 	private CuentaBancaria cuentaBancaria;
+	private Producto producto;
+	
 	
 	
 	public Cliente(String nombre, String direccion, CuentaBancaria cuentaBancaria) {
