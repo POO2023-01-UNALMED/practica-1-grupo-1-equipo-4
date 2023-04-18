@@ -6,16 +6,16 @@ public class Producto {
     //Atributos
     private String nombre;
     private String descripcion;
-    private Double valor;
-    private Double peso;
-    private Double tamano;
-    private Double costoDeProduccion;
+    private double valor;
+    private double peso;
+    private double tamano;
+    private double costoDeProduccion;
     private static int numProductos = 0;
     private static ArrayList<Producto> listaProductos = new ArrayList<Producto>();
 
     //Constructor
 
-    public Producto(String nombre, String descripcion, Double valor, Double peso, Double tamano, Double costoDeProduccion) {
+    public Producto(String nombre, String descripcion, double valor, double peso, double tamano, double costoDeProduccion) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.valor = valor;
