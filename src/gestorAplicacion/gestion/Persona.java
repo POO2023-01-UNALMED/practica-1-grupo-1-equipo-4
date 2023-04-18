@@ -65,10 +65,10 @@ public abstract class Persona {
 		this.salario = salario;
 	}
 	public int getTrabajo() {
-		return trabajo;
+		return Bono;
 	}
 	public void setTrabajo(int trabajo) {
-		this.trabajo = trabajo;
+		this.Bono = trabajo;
 	}
 	public static int getPersonasTotales() {
 		return personasTotales;
