@@ -9,34 +9,19 @@ import java.util.ArrayList;
 
 public class Fabrica implements Financiero{
 
-<<<<<<< Updated upstream
     private ArrayList<Operario> listaOperadores;
     private ArrayList<Producto> listaProductos;
-    private int cantidadProducto; //se supone que esta es la cantidad a repartir y va a ser fija, puede quitarse el atributo o no xd (consultar)
     private ArrayList<Tienda> listaTienda;
-    private CuentaBancaria CuentaBancaria;
-=======
-    private static ArrayList<Operario> listaOperadores;
-    private static ArrayList<Producto> listaProductos;
-    private static ArrayList<Tienda> listaTienda;
-    private static CuentaBancaria CuentaBancaria;
->>>>>>> Stashed changes
+    private CuentaBancaria cuentaBancaria;
 
 
     // ------------- constructor -------------
     public Fabrica(ArrayList<Operario> listaOperadores, ArrayList<Producto> listaProductos,
             ArrayList<Tienda> listaTienda,CuentaBancaria cuentaBancaria) {
-<<<<<<< Updated upstream
         this.listaOperadores = listaOperadores;
         this.listaProductos = listaProductos;
-        this.cantidadProducto = cantidadProducto;
         this.listaTienda = listaTienda;
-=======
-        Fabrica.listaOperadores = listaOperadores;
-        Fabrica.listaProductos = listaProductos;
-        Fabrica.listaTienda = listaTienda;
->>>>>>> Stashed changes
-        CuentaBancaria = cuentaBancaria;
+        this.cuentaBancaria = cuentaBancaria;
     }
 
     public Fabrica(){}
@@ -58,19 +43,7 @@ public class Fabrica implements Financiero{
         this.listaProductos = listaProductos;
     }
 
-<<<<<<< Updated upstream
-    public int getCantidadProducto() {
-        return cantidadProducto;
-    }
-
-    public void setCantidadProducto(int cantidadProducto) {
-        this.cantidadProducto = cantidadProducto;
-    }
-
     public ArrayList<Tienda> getListaTienda() {
-=======
-    public static ArrayList<Tienda> getListaTienda() {
->>>>>>> Stashed changes
         return listaTienda;
     }
 
@@ -79,11 +52,11 @@ public class Fabrica implements Financiero{
     }
 
     public CuentaBancaria getCuentaBancaria() {
-        return CuentaBancaria;
+        return cuentaBancaria;
     }
 
     public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
-        CuentaBancaria = cuentaBancaria;
+        this.cuentaBancaria = cuentaBancaria;
     }
 
     //toString para saber que imprimir cuando se llame al objeto Fabrica     
