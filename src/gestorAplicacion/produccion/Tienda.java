@@ -29,6 +29,10 @@ public class Tienda implements Financiero{
         this.listaCantidadProductos = new HashMap<Producto, Integer>();
         numTiendas++;
     }
+
+    public Tienda(){
+        
+    }
    
     //Métodos
     public void mostrarProductos() {

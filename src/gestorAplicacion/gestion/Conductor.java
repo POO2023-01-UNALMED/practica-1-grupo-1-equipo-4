@@ -34,7 +34,7 @@ public class Conductor extends Persona {
 	/*-------------------Metodos-------------------------*/
     @Override
 	public void recibirSueldo() {
-		Fabrica.getCuentaBancaria().descontarFondos(super.getSalario()*getTrabajo());
+		fabrica.getCuentaBancaria().descontarFondos(super.getSalario()*getTrabajo());
 		super.getCuentaBancaria().anadirFondos(1000*getTrabajo());
 	}
 }

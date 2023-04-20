@@ -13,7 +13,6 @@ public abstract class Persona implements Financiero {
 	private int salario=1000;
 	private int Bono;
 	private static int personasTotales;
-	private static ArrayList<Persona> personas;
 	
 	/*-------------------Constructores-------------------------*/
 	
@@ -25,9 +24,7 @@ public abstract class Persona implements Financiero {
 		this.cedula=cedula;
 		this.cuentaBancaria=cuentaBancaria;
 		this.Bono=Bono;
-		personasTotales = getPersonasTotales() + 1;
-		personas.add(this);
-	}
+		}
 	/*Constructor de la clase persona que no recibe ninguna parametros*/
 	public Persona() {}
 	
