@@ -14,7 +14,7 @@ public class Factura {
     private int id;
     private double total;
     private static int facturasCreadas;
-    private ArrayList<Factura> listaFacturas = new ArrayList<Factura>();
+    private static ArrayList<Factura> listaFacturas = new ArrayList<Factura>();
 
     // Constructor
     public Factura(Tienda tienda, Cliente cliente, Transporte transporte, Producto producto, int fecha, String disclaimer) {
@@ -49,7 +49,7 @@ public class Factura {
             ArrayList<Factura> facturasEntreFechas= new ArrayList<Factura>();
             
 
-            for(Factura factura: this.listaFacturas){
+            for(Factura factura: listaFacturas){
                 if(factura.fecha >= fecha1 && factura.fecha <= fecha2)
                     facturasEntreFechas.add(factura); 
             }
@@ -62,7 +62,7 @@ public class Factura {
         ArrayList<Integer> listaFechas = new ArrayList<Integer>();
         
 
-        for(Factura factura: this.listaFacturas){
+        for(Factura factura: listaFacturas){
             if(factura.fecha >= fecha1 && factura.fecha <= fecha2 && !listaFechas.contains(factura.fecha))
                 listaFechas.add(factura.fecha);
         }
@@ -224,7 +224,7 @@ public HashMap<Integer, Double> aumentoPorcentual(int fecha1, int fecha2){
         return facturasCreadas;
     }
     
-    public ArrayList<Factura> getListaFacturas() {
+    public static ArrayList<Factura> getListaFacturas() {
         return listaFacturas;
     }
     
@@ -260,10 +260,6 @@ public HashMap<Integer, Double> aumentoPorcentual(int fecha1, int fecha2){
 
     public void setTotal(double total) {
         this.total = total;
-    }
-
-    public void setListaFacturas(ArrayList<Factura> listaFacturas) {
-        this.listaFacturas = listaFacturas;
     }
 
   

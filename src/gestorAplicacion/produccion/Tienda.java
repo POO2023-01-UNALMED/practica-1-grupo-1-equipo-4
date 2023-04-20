@@ -7,8 +7,6 @@ import gestorAplicacion.gestion.Factura;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Date;
-
 
 
 public class Tienda implements Financiero{
@@ -49,11 +47,9 @@ public class Tienda implements Financiero{
         }
     }
 
-    public Factura enviarPedido(Producto producto, Transporte transporte, Cliente cliente){
+    public Factura enviarPedido(Producto producto, Transporte transporte, Cliente cliente, int dia){
         listaCantidadProductos.put(producto, listaCantidadProductos.get(producto)-1);
-        Date date = new Date();        
-		String dateToStr = String.format("%1$tY-%1$tm-%1$td", date);
-        Factura factura = new Factura(this,cliente,transporte,producto,dateToStr,"DISCLAIMER");
+        Factura factura = new Factura(this,cliente,transporte,producto,dia,"DISCLAIMER");
         return factura;
     }
 
