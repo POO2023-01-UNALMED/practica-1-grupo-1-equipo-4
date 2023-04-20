@@ -35,8 +35,8 @@ public class Vendedor extends Persona {
 	/*-------------------Metodos-------------------------*/
     @Override
 	public void recibirSueldo() {
-		tienda.getCuentaBancaria().descontarFondos(tienda,super.getSalario()*getTrabajo());
-		super.getCuentaBancaria().anadirFondos(this, 1000*getTrabajo());
+		tienda.getCuentaBancaria().descontarFondos(super.getSalario()*getTrabajo());
+		super.getCuentaBancaria().anadirFondos(1000*getTrabajo());
 	}
 
 }

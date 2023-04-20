@@ -2,7 +2,7 @@ package gestorAplicacion.gestion;
 
 import java.util.ArrayList;
 
-public abstract class Persona {
+public abstract class Persona implements Financiero {
 	/*-------------------Atributos-------------------------*/
 	
 	
@@ -77,6 +77,6 @@ public abstract class Persona {
 	
 	/*------------------- Metodos -------------------------*/
 	
-	public abstract void recibirSueldo(); 
+	public abstract void recibirSueldo();
 	
 }
