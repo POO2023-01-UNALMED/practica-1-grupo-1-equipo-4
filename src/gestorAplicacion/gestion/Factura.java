@@ -76,6 +76,10 @@ public class Factura {
         return transporte;
     }
 
+    public Producto getProducto() {
+        return producto;
+    }
+
     public String getFecha() {
         return fecha;
     }
@@ -95,6 +99,11 @@ public class Factura {
     public static int getFacturasCreadas() {
         return facturasCreadas;
     }
+    
+    public ArrayList<Factura> getListaFacturas() {
+        return listaFacturas;
+    }
+    
 
     // Setters
     public void setTienda(Tienda tienda) {
@@ -107,6 +116,10 @@ public class Factura {
 
     public void setTransporte(Transporte transporte) {
         this.transporte = transporte;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 
     public void setFecha(String fecha) {
@@ -124,4 +137,10 @@ public class Factura {
     public void setTotal(double total) {
         this.total = total;
     }
+
+    public void setListaFacturas(ArrayList<Factura> listaFacturas) {
+        this.listaFacturas = listaFacturas;
+    }
+
+  
 }
