@@ -4,25 +4,19 @@ public class CuentaBancaria {
     
     private int numeroCuenta;
     private int saldo;
-    private Financiero financiero;
     
     // Constructor
-    public CuentaBancaria(int numeroCuenta, int saldo, Financiero finanicero) {
+    public CuentaBancaria(int numeroCuenta, int saldo) {
         this.numeroCuenta = numeroCuenta;
         this.saldo = saldo;
-        this.financiero = finanicero;
     }
 
     public void anadirFondos(double fondos){
-        financiero
-            .getCuentaBancaria()
-            .anadirFondos(fondos);
+        saldo+= fondos;
     }
 
     public void descontarFondos(double fondos){
-        financiero
-            .getCuentaBancaria()
-            .descontarFondos(fondos);
+        saldo += fondos;
     }
   
     /*Quite esto cuando lo lea, Yo, Jaider le quite el static a estos metodos ya que no tenia 
