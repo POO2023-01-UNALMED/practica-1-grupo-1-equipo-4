@@ -4,68 +4,67 @@ import gestorAplicacion.produccion.Tienda;
 import gestorAplicacion.produccion.Producto;
 import gestorAplicacion.gestion.Financiero;
 import gestorAplicacion.gestion.Operario;
-import gestorAplicacion.gestion.Vendedor;
 
 import java.util.ArrayList;
 
 public class Fabrica implements Financiero{
 
-    private static ArrayList<Operario> listaOperadores;
-    private static ArrayList<Producto> listaProductos;
-    private static int cantidadProducto; //se supone que esta es la cantidad a repartir y va a ser fija, puede quitarse el atributo o no xd (consultar)
-    private static ArrayList<Tienda> listaTienda;
-    private static CuentaBancaria CuentaBancaria;
+    private ArrayList<Operario> listaOperadores;
+    private ArrayList<Producto> listaProductos;
+    private int cantidadProducto; //se supone que esta es la cantidad a repartir y va a ser fija, puede quitarse el atributo o no xd (consultar)
+    private ArrayList<Tienda> listaTienda;
+    private CuentaBancaria CuentaBancaria;
 
 
     // ------------- constructor -------------
     public Fabrica(ArrayList<Operario> listaOperadores, ArrayList<Producto> listaProductos, int cantidadProducto,
             ArrayList<Tienda> listaTienda,CuentaBancaria cuentaBancaria) {
-        Fabrica.listaOperadores = listaOperadores;
-        Fabrica.listaProductos = listaProductos;
-        Fabrica.cantidadProducto = cantidadProducto;
-        Fabrica.listaTienda = listaTienda;
+        this.listaOperadores = listaOperadores;
+        this.listaProductos = listaProductos;
+        this.cantidadProducto = cantidadProducto;
+        this.listaTienda = listaTienda;
         CuentaBancaria = cuentaBancaria;
     }
 
     //----------- Getters and Setters ----------------
 
-    public static ArrayList<Operario> getListaOperadores() {
+    public ArrayList<Operario> getListaOperadores() {
         return listaOperadores;
     }
 
-    public static void setListaOperadores(ArrayList<Operario> listaOperadores) {
-        Fabrica.listaOperadores = listaOperadores;
+    public void setListaOperadores(ArrayList<Operario> listaOperadores) {
+        this.listaOperadores = listaOperadores;
     }
 
-    public static ArrayList<Producto> getListaProductos() {
+    public ArrayList<Producto> getListaProductos() {
         return listaProductos;
     }
 
-    public static void setListaProductos(ArrayList<Producto> listaProductos) {
-        Fabrica.listaProductos = listaProductos;
+    public void setListaProductos(ArrayList<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
     }
 
-    public static int getCantidadProducto() {
+    public int getCantidadProducto() {
         return cantidadProducto;
     }
 
-    public static void setCantidadProducto(int cantidadProducto) {
-        Fabrica.cantidadProducto = cantidadProducto;
+    public void setCantidadProducto(int cantidadProducto) {
+        this.cantidadProducto = cantidadProducto;
     }
 
-    public static ArrayList<Tienda> getListaTienda() {
+    public ArrayList<Tienda> getListaTienda() {
         return listaTienda;
     }
 
-    public static void setListaTienda(ArrayList<Tienda> listaTienda) {
-        Fabrica.listaTienda = listaTienda;
+    public void setListaTienda(ArrayList<Tienda> listaTienda) {
+        this.listaTienda = listaTienda;
     }
 
-    public static CuentaBancaria getCuentaBancaria() {
+    public CuentaBancaria getCuentaBancaria() {
         return CuentaBancaria;
     }
 
-    public static void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
+    public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
         CuentaBancaria = cuentaBancaria;
     }
 
