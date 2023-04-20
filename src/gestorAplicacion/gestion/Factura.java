@@ -14,7 +14,7 @@ public class Factura {
     private int id;
     private double total;
     private static int facturasCreadas;
-    private ArrayList<Factura> listaFacturas;
+    private ArrayList<Factura> listaFacturas = new ArrayList<Factura>();
 
     // Constructor
     public Factura(Tienda tienda, Cliente cliente, Transporte transporte, Producto producto, String fecha, String disclaimer) {
@@ -26,7 +26,7 @@ public class Factura {
         this.disclaimer = disclaimer;
         
         this.total = calcularTotal();
-        this.listaFacturas = new ArrayList<>();
+        listaFacturas.add(this);
 
         this.id = ++facturasCreadas;
     }
@@ -42,12 +42,6 @@ public class Factura {
     public double calcularTotal(){
 
         return producto.getValor() + calcularTarifaEnvio();
-    }
-
-    public void generarFactura(){
-
-        listaFacturas.add(this);
-        
     }
 
     public String toString(){

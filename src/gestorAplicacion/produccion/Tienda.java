@@ -3,9 +3,12 @@ import gestorAplicacion.gestion.Cliente;
 import gestorAplicacion.gestion.CuentaBancaria;
 import gestorAplicacion.gestion.Financiero;
 import gestorAplicacion.gestion.Vendedor;
+import gestorAplicacion.gestion.Factura;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Date;
+
 
 
 public class Tienda implements Financiero{
@@ -23,7 +26,6 @@ public class Tienda implements Financiero{
         this.nombre = nombre;
         this.vendedor = vendedor;
         this.cuentaBancaria = cuentaBancaria;
-        this.listaProductos = new ArrayList<Producto>(); //<--- borrar y todo lo que conlleve con este atributo.
         this.listaCantidadProductos = new HashMap<Producto, Integer>();
         numTiendas++;
     }
@@ -35,25 +37,20 @@ public class Tienda implements Financiero{
         }
     }
 
-    public String generarPedido(Producto producto, Transporte transporte, Cliente cliente){
-        if(listaProductos.contains(producto)){ //Cambiar
-            if(cliente.getCuentaBancaria().getSaldo()>=producto.getValor()){
-                //Pedido pedido = new Pedido(producto,transporte,cliente);
-                listaCantidadProductos.put(producto, listaCantidadProductos.get(producto) - 1);
-                return "Pedido realizado con exito";
-            }else{
-                return "Error al realizar el pedido, el cliente no tiene saldo suficiente para comprar el producto";
+    public void elegirTransporte(Producto producto){
+        for(int i=0; i<TipoTransporte.values().length; i++) {
+			if (TipoTransporte.values()[i].getCapacidadMax()<=producto.getPeso()){
+                TipoTransporte.values()[i].toString();
             }
-        }else{
-            return "Error al realizar el pedido, el producto que seleccionaste no está disponible";
         }
-
     }
 
-    @Override
-    public String toString() {
-        return "Nombre: "              + nombre           + "\n"
-        +      "Vendedor: "            + vendedor;
+    public Factura enviarPedido(Producto producto, Transporte transporte, Cliente cliente){
+        listaCantidadProductos.put(producto, listaCantidadProductos.get(producto)-1);
+        Date date = new Date();        
+		String dateToStr = String.format("%1$tY-%1$tm-%1$td", date);
+        Factura factura = new Factura(this,cliente,transporte,producto,dateToStr,"DISCLAIMER");
+        return factura;
     }
 
     //Get and Set
