@@ -1,50 +1,115 @@
 package gestorAplicacion.gestion;
 
+import java.util.ArrayList;
+
 import gestorAplicacion.produccion.Producto; 
 
 
 public class Cliente{
+	/*-------------------Atributos-------------------------*/
+	
+
 	private String nombre;
 	private String direccion;
 	private CuentaBancaria cuentaBancaria;
+	private String productoDeseado;
 	private Producto producto;
+	static private ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 	
 	
-	
-	public Cliente(String nombre, String direccion, CuentaBancaria cuentaBancaria) {
+	/*-------------------Constructores-------------------------*/
+
+	public Cliente(String nombre, String direccion, String productoDeseado,CuentaBancaria cuentaBancaria) {
         this.nombre = nombre;
         this.direccion = direccion;
+        this.productoDeseado=productoDeseado;
         this.cuentaBancaria = cuentaBancaria;
+        
+        listaClientes.add(this);
+        
     }
 	public Cliente() {}
 	
 	
-	  // Getters
-	  public String getNombre() {
-        return nombre;
-    }
+	/*-------------------Getters y setters-------------------------*/
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	
+	public String getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+	
+	
+	public CuentaBancaria getCuentaBancaria() {
+		return cuentaBancaria;
+	}
+	public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
+		this.cuentaBancaria = cuentaBancaria;
+	}
+	
+	
+	public String getProductoDeseado() {
+		return productoDeseado;
+	}
+	public void setProductoDeseado(String productoDeseado) {
+		this.productoDeseado = productoDeseado;
+	}
+	
+	
+	public Producto getProducto() {
+		return producto;
+	}
+	public void setProducto(Producto producto) {
+		this.producto = producto;
+	}
     
-    public String getDireccion() {
-        return direccion;
-    }
-    
-    public CuentaBancaria getCuentaBancaria() {
-        return cuentaBancaria;
-    }
-    
-    // Setters
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-    
-    public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
-        this.cuentaBancaria = cuentaBancaria;
-    }
-    
+	
+	public static ArrayList<Cliente> getListaClientes() {
+		return listaClientes;
+	}
+	public static void setListaClientes(ArrayList<Cliente> listaClientes) {
+		Cliente.listaClientes = listaClientes;
+	}
+	/*------------------- Metodos -------------------------*/
+	
+
+
+
+	public static String mostrarClientes() {
+		String cadena="";
+		int index = 1;
+		/*Se recorre la lista y se retornan todos los elementos pero solo como String*/
+		for(Cliente cliente:listaClientes) {
+			cadena +=index+". "+cliente+"\n"; /*Se hace uso del metodo toString asi devolvemos el objeto como tal*/
+			index++;
+		}
+		return cadena;
+	}
+	
+	public static Cliente seleccionarCliente(int index) {
+		Cliente clienteSeleccionado = null;
+		/*El ciclo while en caso de que retorne null debe estar en el main*/
+		if(index-1>=0 && index<=listaClientes.size()) {
+			index=index-1;
+			clienteSeleccionado= listaClientes.remove(index);
+		}else {
+			return clienteSeleccionado;
+		}
+		return clienteSeleccionado;
+	}
+	
+	public String toString() {
+		return this.getNombre()+" "+this.getDireccion()+" "+this.getProductoDeseado();
+	}
 
 }
 
