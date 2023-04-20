@@ -1,11 +1,12 @@
 package gestorAplicacion.produccion;
 import gestorAplicacion.gestion.CuentaBancaria;
+import gestorAplicacion.gestion.Financiero;
 import gestorAplicacion.gestion.Operario;
 import gestorAplicacion.gestion.Vendedor;
 
 import java.util.ArrayList;
 
-public class Fabrica {
+public class Fabrica implements Financiero{
 
     private static ArrayList<Operario> listaOperadores;
     private static ArrayList<Producto> listaProductos;

@@ -1,13 +1,14 @@
 package gestorAplicacion.produccion;
 import gestorAplicacion.gestion.Cliente;
 import gestorAplicacion.gestion.CuentaBancaria;
+import gestorAplicacion.gestion.Financiero;
 import gestorAplicacion.gestion.Vendedor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class Tienda {
+public class Tienda implements Financiero{
 
     //Atributos
     private String nombre;
