@@ -6,6 +6,7 @@ import gestorAplicacion.produccion.*;
 public class Factura {
     
     private Tienda tienda;
+    private Cliente cliente;
     private Transporte transporte;
     private Producto producto;
     private String fecha;
@@ -16,8 +17,9 @@ public class Factura {
     private ArrayList<Factura> listaFacturas;
 
     // Constructor
-    public Factura(Tienda tienda, Transporte transporte, Producto producto, String fecha, String disclaimer) {
+    public Factura(Tienda tienda, Cliente cliente, Transporte transporte, Producto producto, String fecha, String disclaimer) {
         this.tienda = tienda;
+        this.cliente = cliente;
         this.transporte = transporte;
         this.producto = producto;
         this.fecha = fecha;
@@ -66,6 +68,10 @@ public class Factura {
         return tienda;
     }
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
     public Transporte getTransporte() {
         return transporte;
     }
@@ -93,6 +99,10 @@ public class Factura {
     // Setters
     public void setTienda(Tienda tienda) {
         this.tienda = tienda;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public void setTransporte(Transporte transporte) {
