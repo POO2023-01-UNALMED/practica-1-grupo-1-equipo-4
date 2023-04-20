@@ -1,14 +1,15 @@
 package uiMain;
 
 import gestorAplicacion.gestion.*;
+import gestorAplicacion.produccion.*;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class UiMenu {
     static Scanner sc = new Scanner(System.in);
 
 	static{
-		/* 
 		//NOTA: Toca arreglar los constructores y unas cosas pa ver donde va a ir eso 
 
             //productos disponibles en la fabrica:
@@ -31,23 +32,29 @@ public class UiMenu {
             catalogo.add(producto3);
             catalogo.add(producto4);
             catalogo.add(producto5);
+            catalogo.add(producto6);
+            catalogo.add(producto7);
+            catalogo.add(producto8);
+            catalogo.add(producto9);
+            catalogo.add(producto10);
         
-            //empleados de la fabrica:
-            
+            //Cuenta de la empresa:
+            CuentaBancaria cuentaEmpresa = new CuentaBancaria(9999999, 1000000000);
             //cuentas para los empleados:
             CuentaBancaria cuentaOperario1 = new CuentaBancaria(55555, 100000);
             CuentaBancaria cuentaOperario2 = new CuentaBancaria(66666, 100000);
             CuentaBancaria cuentaOperario3 = new CuentaBancaria(77777, 100000);
-        
-            ArrayList<Operario> nomina = new ArrayList<Operario>();
-            Operario operario1 = new Operario("operador1",20,55555,cuentaOperario1,Fabrica, 0);//cada oeprador tiene cien mil *hay que sacar cuentas*
-            Operario operario2 = new Operario("operador2",21,66666,cuentaOperario2,Fabrica, 0); //para ese atriubuto fabrica primero hay que crear una frabica para asignarselo
-            Operario operario3 = new Operario("operador3",22,77777,cuentaOperario3,Fabrica, 0);
+
+            //Operarios
+            ArrayList<Operario> listaOperarios = new ArrayList<Operario>();
+            Operario operario1 = new Operario("operador1",20,55555,cuentaOperario1,0, null);//cada oeprador tiene cien mil *hay que sacar cuentas*
+            Operario operario2 = new Operario("operador2",21,66666,cuentaOperario2,0, null); //para ese atriubuto fabrica primero hay que crear una frabica para asignarselo
+            Operario operario3 = new Operario("operador3",22,77777,cuentaOperario3,0, null);
             //se agg a la nomina
-            nomina.add(operario1);
-            nomina.add(operario2);
-            nomina.add(operario3);
-        
+            listaOperarios.add(operario1);
+            listaOperarios.add(operario2);
+            listaOperarios.add(operario3);
+
             //tiendas disponibles
 
             //se crean los empleados para las tiendas: (uno para cada una)
@@ -56,28 +63,38 @@ public class UiMenu {
             CuentaBancaria cuentaVendedor2 = new CuentaBancaria(66666, 100000);
             CuentaBancaria cuentaVendedor3 = new CuentaBancaria(77777, 100000);
             //vendedores
-            Vendedor vendedor1 = new Vendedor("vendedor1",20,55555,cuentaVendedor1,Fabrica, 0);
-            Vendedor vendedor2 = new Vendedor("vendedor2",21,66666,cuentaVendedor2,Fabrica, 0);
-            Vendedor vendedor3 = new Vendedor("vendedor3",22,77777,cuentaVendedor3,Fabrica, 0);
-
+            Vendedor vendedor1 = new Vendedor("vendedor1",20,55555,cuentaVendedor1,0, null);
+            Vendedor vendedor2 = new Vendedor("vendedor2",21,66666,cuentaVendedor2,0, null);
+            Vendedor vendedor3 = new Vendedor("vendedor3",22,77777,cuentaVendedor3,0, null);
+            
             //tiendas
             ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
-            Tienda tienda1 = new Tienda("tienda1",vendedor1,cuentaVendedor1); //eso atributo de la cuenta del vendedor hay que cambiarlo ya que 
-            Tienda tienda2 = new Tienda("tienda2",vendedor2,cuentaVendedor2); //cambiamos de opinion y ahora sera una solo cuenta para todas las tiendas.
-            Tienda tienda3 = new Tienda("tienda3",vendedor3,cuentaVendedor3);
-        
+            Tienda tienda1 = new Tienda("tienda1",vendedor1,cuentaEmpresa); //eso atributo de la cuenta del vendedor hay que cambiarlo ya que 
+            Tienda tienda2 = new Tienda("tienda2",vendedor2,cuentaEmpresa); //cambiamos de opinion y ahora sera una solo cuenta para todas las tiendas.
+            Tienda tienda3 = new Tienda("tienda3",vendedor3,cuentaEmpresa);
+            
             tiendas.add(tienda1);
             tiendas.add(tienda2);
             tiendas.add(tienda3);
+            //cambiar las tiendas de los vendedores
+            vendedor1.setTienda(tienda1);
+            vendedor2.setTienda(tienda2);
+            vendedor3.setTienda(tienda3);
 
             //se le asigna la tienda a cada vendedor:
             vendedor1.setTienda(tienda1);
             vendedor2.setTienda(tienda2);
             vendedor3.setTienda(tienda3);
-        //cuenta bancaria para la fabrica: // **la cuenta de la fabrica y de las tiendas deben ser las mismas **
-        CuentaBancaria cuentaFabrica = new CuentaBancaria(00000, 1000000); //saldo = un millon
 
-		*/   
+            
+            //cuenta bancaria para la fabrica: // **la cuenta de la fabrica y de las tiendas deben ser las mismas **
+            Fabrica fabrica = new Fabrica(listaOperarios, catalogo, tiendas, cuentaEmpresa);
+
+            //Cambiar null de los operarios
+
+            operario1.setFabrica(fabrica);
+            operario2.setFabrica(fabrica);
+            operario3.setFabrica(fabrica);
 	}
 	public static void main(String[] args) {
         int opcion;
@@ -103,7 +120,7 @@ public class UiMenu {
                     pagarATrabajadores();
                     break;
                 case 3:
-                    abastecerTiendas();
+                    UiAbastecer.abastecerTiendas();
                     break;
                 case 4:
                     gestionarDevoluciones();
@@ -128,9 +145,7 @@ public class UiMenu {
     public static void pagarATrabajadores(){
     }
 
-    public static void abastecerTiendas(){
-    }
-
+    
     public static void gestionarDevoluciones(){
     }
 
