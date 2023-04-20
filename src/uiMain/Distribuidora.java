@@ -1,6 +1,12 @@
 package uiMain;
+
 import gestorAplicacion.gestion.*;
+
+import java.util.Scanner;
+
 public class Distribuidora {
+    static Scanner sc = new Scanner(System.in);
+
 	static{
 		/* 
 		//NOTA: Toca arreglar los constructores y unas cosas pa ver donde va a ir eso 
@@ -74,7 +80,63 @@ public class Distribuidora {
 		*/   
 	}
 	public static void main(String[] args) {
-		
+        int opcion;
+
+		do{
+            System.out.println("\n\nMenú principal Distribuidora SAS");
+			System.out.println("1. Enviar pedido");
+			System.out.println("2. Pagar a trabajadores");
+			System.out.println("3. Abastecer tiendas");
+			System.out.println("4. Gestionar devoluciones");
+            System.out.println("5. Mostrar estadísticas");
+            System.out.println("6. Salir");
+
+			System.out.print("Ingrese el número de la opción que desea utilizar: ");
+
+            opcion = sc.nextInt();
+
+            switch(opcion){
+                case 1:
+                    gestionarPedido();
+                    break;
+                case 2:
+                    pagarATrabajadores();
+                    break;
+                case 3:
+                    abastecerTiendas();
+                    break;
+                case 4:
+                    gestionarDevoluciones();
+                    break;
+                case 5:
+                    mostrarEstadisticas();
+                    break;
+                case 6:
+                    System.out.println("Gracias por visitarnos");
+                    break;
+                default:
+                    System.out.println("Digitó una opción incorrecta");
+                    
+            }
+        }while(opcion != 6);
 	
 	}
+
+    public static void gestionarPedido(){
+    }
+
+    public static void pagarATrabajadores(){
+    }
+
+    public static void abastecerTiendas(){
+    }
+
+    public static void gestionarDevoluciones(){
+    }
+
+    public static void mostrarEstadisticas (){
+    }
+
+
 }
+
