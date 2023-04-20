@@ -4,7 +4,7 @@ import gestorAplicacion.gestion.*;
 
 import java.util.Scanner;
 
-public class Distribuidora {
+public class UiMenu {
     static Scanner sc = new Scanner(System.in);
 
 	static{
