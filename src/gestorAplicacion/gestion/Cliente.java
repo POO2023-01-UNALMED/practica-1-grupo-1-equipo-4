@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import gestorAplicacion.produccion.Producto; 
 
 
-public class Cliente{
+public class Cliente implements Moda{
+
 	/*-------------------Atributos-------------------------*/
 	
 

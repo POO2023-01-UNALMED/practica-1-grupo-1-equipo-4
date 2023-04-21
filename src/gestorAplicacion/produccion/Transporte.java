@@ -1,11 +1,12 @@
 package gestorAplicacion.produccion;
 
 import java.util.ArrayList;
+import gestorAplicacion.gestion.Moda;
 
 
 import gestorAplicacion.gestion.Conductor;
 
-public class Transporte {
+public class Transporte implements Moda {
     //Atributos
     private String matricula;
     private TipoTransporte tipo; 

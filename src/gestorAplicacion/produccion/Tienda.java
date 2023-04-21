@@ -4,12 +4,13 @@ import gestorAplicacion.gestion.CuentaBancaria;
 import gestorAplicacion.gestion.Financiero;
 import gestorAplicacion.gestion.Vendedor;
 import gestorAplicacion.gestion.Factura;
+import gestorAplicacion.gestion.Moda;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class Tienda implements Financiero{
+public class Tienda implements Financiero, Moda{
 
     //Atributos
     private String nombre;

@@ -1,5 +1,6 @@
 package gestorAplicacion.gestion;
 import java.util.*;
+import java.util.Map.Entry;
 
 import gestorAplicacion.produccion.*;
 
@@ -15,6 +16,7 @@ public class Factura {
     private double total;
     private static int facturasCreadas;
     private static ArrayList<Factura> listaFacturas = new ArrayList<Factura>();
+    private HashMap<String, Moda> infoAtributos;
 
     // Constructor
     public Factura(Tienda tienda, Cliente cliente, Transporte transporte, Producto producto, int fecha, String disclaimer) {
@@ -24,6 +26,11 @@ public class Factura {
         this.producto = producto;
         this.fecha = fecha;
         this.disclaimer = disclaimer;
+
+        infoAtributos.put("tienda", tienda);
+        infoAtributos.put("transporte", transporte);
+        infoAtributos.put("cliente", cliente);
+
         
         this.total = calcularTotal();
         listaFacturas.add(this);
@@ -44,7 +51,7 @@ public class Factura {
         return producto.getValor() + calcularTarifaEnvio();
     }
 
-    public ArrayList<Factura> getFacturasEntreFechas(int fecha1, int fecha2){
+    public static ArrayList<Factura> getFacturasEntreFechas(int fecha1, int fecha2){
 
             ArrayList<Factura> facturasEntreFechas= new ArrayList<Factura>();
             
@@ -57,7 +64,7 @@ public class Factura {
             return facturasEntreFechas;
     }
 
-    public ArrayList<Integer> getListaFechas(int fecha1, int fecha2){
+    public static ArrayList<Integer> getListaFechas(int fecha1, int fecha2){
 
         ArrayList<Integer> listaFechas = new ArrayList<Integer>();
         
@@ -70,7 +77,7 @@ public class Factura {
         return listaFechas;
 }
 
-    public HashMap<Integer, Double> gananciasDiscretas(ArrayList<Integer> fechas){
+    public static HashMap<Integer, Double> gananciasDiscretas(ArrayList<Integer> fechas){
 
         int fecha1 = fechas.get(0);
         int fecha2 = fechas.get(fechas.size() - 1);
@@ -100,7 +107,7 @@ public class Factura {
     }
 
 
-    public HashMap<Integer, Double> gananciasDiscretas(int fecha1, int fecha2){
+    public static HashMap<Integer, Double> gananciasDiscretas(int fecha1, int fecha2){
 
         ArrayList<Integer> fechas = getListaFechas(fecha1, fecha2);
 
@@ -108,7 +115,7 @@ public class Factura {
 
     }
 
-public double gananciasTotales(int fecha1, int fecha2){
+public static double gananciasTotales(int fecha1, int fecha2){
 
     HashMap<Integer, Double> dictGananciasDiscretas = gananciasDiscretas(fecha1, fecha2);
 
@@ -116,7 +123,7 @@ public double gananciasTotales(int fecha1, int fecha2){
 
 }
 
-public double gananciasTotales(HashMap<Integer, Double> dictGananciasDiscretas){
+public static double gananciasTotales(HashMap<Integer, Double> dictGananciasDiscretas){
 
     double suma = 0;
 
@@ -128,13 +135,13 @@ public double gananciasTotales(HashMap<Integer, Double> dictGananciasDiscretas){
 
 }
 
-public double promedioPorDia(double gananciasTotales, int numFechas){
+public static double promedioPorDia(double gananciasTotales, int numFechas){
 
     return gananciasTotales / numFechas;
 
 } 
 
-public double promedioPorDia(int fecha1, int fecha2){
+public static double promedioPorDia(int fecha1, int fecha2){
 
     Double gananciasTotales = gananciasTotales(fecha1, fecha2);
 
@@ -144,7 +151,7 @@ public double promedioPorDia(int fecha1, int fecha2){
 
 }
 
-public HashMap<Integer, Double> aumentoPorcentual(HashMap<Integer, Double> dictGananciasDiscretas){
+public static HashMap<Integer, Double> aumentoPorcentual(HashMap<Integer, Double> dictGananciasDiscretas){
 
     ArrayList<Integer> fechas = new ArrayList<Integer>(dictGananciasDiscretas.keySet());
 
@@ -166,13 +173,49 @@ public HashMap<Integer, Double> aumentoPorcentual(HashMap<Integer, Double> dictG
 
 }
 
-public HashMap<Integer, Double> aumentoPorcentual(int fecha1, int fecha2){
+public static HashMap<Integer, Double> aumentoPorcentual(int fecha1, int fecha2){
 
     HashMap<Integer, Double> dictGananciasDiscretas = gananciasDiscretas(fecha1, fecha2);
 
     return aumentoPorcentual(dictGananciasDiscretas);
 
 }
+
+//Brujería que encontré en StackOverflow para sacar el elemento más común de un ArrayList
+
+public static <T> T masComun(List<T> list) {
+    Map<T, Integer> map = new HashMap<>();
+
+    for (T t : list) {
+        Integer val = map.get(t);
+        map.put(t, val == null ? 1 : val + 1);
+    }
+
+    Entry<T, Integer> max = null;
+
+    for (Entry<T, Integer> e : map.entrySet()) {
+        if (max == null || e.getValue() > max.getValue())
+            max = e;
+    }
+
+    return max.getKey();
+}
+
+public static Moda moda(int fecha1, int fecha2, String atributo){
+
+    ArrayList<Factura> facturas = Factura.getFacturasEntreFechas(fecha1, fecha2);
+
+    ArrayList<Moda> objetos = new ArrayList<Moda>(); 
+
+    for(Factura factura: facturas){
+
+        objetos.add(factura.getAtributos().get(atributo));
+    }
+
+    return Factura.masComun(objetos);
+}
+
+
 //------muestra las faturas que hay en pantalla ------
 public static String mostrarFacturas(){
     String textoFactura="";
@@ -208,6 +251,12 @@ public static String mostrarFacturas(){
     // Getters
     public Tienda getTienda() {
         return tienda;
+    }
+
+    public HashMap<String, Moda> getAtributos(){
+
+        return infoAtributos;
+
     }
 
     public Cliente getCliente() {
