@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import gestorAplicacion.gestion.Conductor;
+import gestorAplicacion.gestion.CuentaBancaria;
 import gestorAplicacion.gestion.Factura;
 import gestorAplicacion.gestion.Operario;
 import gestorAplicacion.gestion.Persona;
@@ -21,7 +22,7 @@ public class UiPagarTrabajadores {
         System.out.println("3. Conductores\n");
         System.out.println("Por favor, digite el número del tipo de trabajador al cual deseas pagar: ");
         
-        ArrayList<Persona> listaTrabajadores;
+        
         int opcion = sc.nextInt();
 
         switch (opcion) {
@@ -38,13 +39,13 @@ public class UiPagarTrabajadores {
                 System.out.println("Digitó una opción incorrecta");
         }
 
-        /*listaTrabajadores = Tienda.busquedaTrabajo(Factura.getListaFacturas());
+        ArrayList<Persona> listaTrabajadores = Fabrica.busquedaTrabajo(Factura.getListaFacturas());
         
         for (Persona i: listaTrabajadores) {
                 i.toString();   //USO DE LIGADURA DINÁMICA
         }
 
-        System.out.println("Por favor, ingrese el nombre del trbajador al cual desea pagarle");
+        System.out.println("Por favor, ingrese el nombre del trabajador al cual desea pagarle");
         String nombre = sc.nextLine().toLowerCase();
         Persona trabajador;
         for (Persona i: listaTrabajadores) {
@@ -55,11 +56,13 @@ public class UiPagarTrabajadores {
             }
         }
 
-        total costo = */
+        int total = CuentaBancaria.calcularPago(trabajador);
+        
+        System.out.println("Al trabajor " + trabajador.getNombre() + "Se le pagará " + total);
         
 
 
-
+        sc.close();
 
     }
     

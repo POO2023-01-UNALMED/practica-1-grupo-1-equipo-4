@@ -50,7 +50,14 @@ public class Tienda implements Financiero{
     }
 
     public Factura enviarPedido(Producto producto, Transporte transporte, Cliente cliente, int dia){
+        //Resto 1 unidad de las cantidades de los productos, pues se envio
         listaCantidadProductos.put(producto, listaCantidadProductos.get(producto)-1);
+        //Añado la suma de trabajo a los trabajadores
+        //Al vendedor
+        this.getVendedor().setTrabajo(this.getVendedor().getTrabajo()+1);
+        //Al conductor
+        transporte.getConductor().setTrabajo(transporte.getConductor().getTrabajo()+1);
+        //Al Operario
         Factura factura = new Factura(this,cliente,transporte,producto,dia,"DISCLAIMER");
         return factura;
     }

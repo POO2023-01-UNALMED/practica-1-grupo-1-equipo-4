@@ -1,12 +1,14 @@
 package gestorAplicacion.produccion;
 
+import gestorAplicacion.gestion.Conductor;
+
 public class Transporte {
      //Atributos
      private String matricula;
      private TipoTransporte tipo; 
      private Double capacidad; 
      private int costo;
-    
+     private Conductor conductor;
      
 
         //Constructor que recibe todos los parametros 
@@ -72,5 +74,12 @@ public class Transporte {
         this.costo = costo;
     }
 
+    public Conductor getConductor() {
+        return conductor;
+    }
+
+    public void setConductor(Conductor conductor) {
+        this.conductor = conductor;
+    }
 }
 

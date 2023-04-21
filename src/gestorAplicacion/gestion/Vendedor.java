@@ -12,7 +12,7 @@ public class Vendedor extends Persona {
 	/*Constructor de la clase conductor que recibe todos los parametros*/
 
 	public Vendedor(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria, int trabajo, Tienda tienda) {
-		super(nombre, edad, cedula, cuentaBancaria, trabajo);
+		super(nombre, edad, cedula, cuentaBancaria);
 		this.tienda=tienda;
 	}
 	/*Constructor de la clase vendedor que no recibe parametros*/
