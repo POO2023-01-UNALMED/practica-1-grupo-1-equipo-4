@@ -27,6 +27,8 @@ public class Menu {
 
         El primer atributo es el enunciado, el segundo son las opciones, y el tercero es el enunciado de la opción 0. La línea de código anterior lo que hace es efectivamente empezar el proceso del menu. La opción
         seleccionada (de 0 a n) es la opción escogida por el usuario.
+
+        Hay un constructor que solo recibe enunciado y opciones, y por default pone la opción 0 como "Cancelar"
         
         Si quieren puedo hacer para que no necesariamente haya opción 0.
 
