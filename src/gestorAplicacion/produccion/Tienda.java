@@ -33,10 +33,12 @@ public class Tienda implements Financiero{
     }
    
     //Métodos
-    public void mostrarProductos() {
+    public String mostrarProductos() {
+        String  str="";
         for (int i=0;i<listaProductos.size();i++) {
-            listaProductos.get(i).toString();
+            str+="\n"+(i+1)+listaProductos.get(i).toString()+"\n";
         }
+        return str;
     }
 
     public void elegirTransporte(Producto producto){

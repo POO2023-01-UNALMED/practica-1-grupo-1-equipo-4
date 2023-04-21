@@ -29,7 +29,7 @@ public class Producto {
     //Métodos
     @Override
     public String toString() {
-        return "Nombre: "              + nombre           + "\n"
+        return "\nNombre: "              + nombre           + "\n"
         +      "Descripción: "         + descripcion      + "\n"
         +      "Valor: "               + valor            + "\n"
         +      "Peso: "                + peso             + "\n"

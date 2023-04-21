@@ -14,6 +14,7 @@ public abstract class Persona implements Financiero {
 	private int Bono;
 	private static int personasTotales;
 	
+	
 	/*-------------------Constructores-------------------------*/
 	
 	

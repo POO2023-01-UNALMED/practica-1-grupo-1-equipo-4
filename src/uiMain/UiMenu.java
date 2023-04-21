@@ -5,10 +5,11 @@ import gestorAplicacion.produccion.*;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class UiMenu {
     static Scanner sc = new Scanner(System.in);
-
+    public static Fabrica fabrica;
 	static{
 		//NOTA: Toca arreglar los constructores y unas cosas pa ver donde va a ir eso 
 
@@ -72,6 +73,10 @@ public class UiMenu {
             Tienda tienda1 = new Tienda("tienda1",vendedor1,cuentaEmpresa); //eso atributo de la cuenta del vendedor hay que cambiarlo ya que 
             Tienda tienda2 = new Tienda("tienda2",vendedor2,cuentaEmpresa); //cambiamos de opinion y ahora sera una solo cuenta para todas las tiendas.
             Tienda tienda3 = new Tienda("tienda3",vendedor3,cuentaEmpresa);
+            //agregar productos a tiendas
+            tienda1.setListaProductos(new ArrayList<>(Arrays.asList(producto1,producto2,producto3)));
+            tienda2.setListaProductos(new ArrayList<>(Arrays.asList(producto4,producto5,producto6)));
+            tienda3.setListaProductos(new ArrayList<>(Arrays.asList(producto7,producto8,producto9)));
             
             tiendas.add(tienda1);
             tiendas.add(tienda2);
@@ -88,7 +93,7 @@ public class UiMenu {
 
             
             //cuenta bancaria para la fabrica: // **la cuenta de la fabrica y de las tiendas deben ser las mismas **
-            Fabrica fabrica = new Fabrica(listaOperarios, catalogo, tiendas, cuentaEmpresa);
+            fabrica = new Fabrica(listaOperarios, catalogo, tiendas, cuentaEmpresa);
 
             //Cambiar null de los operarios
 
@@ -100,7 +105,7 @@ public class UiMenu {
         int opcion;
 
 		do{
-            System.out.println("\n\nMenú principal Distribuidora SAS");
+            System.out.println("\nMenú principal Distribuidora SAS");
 			System.out.println("1. Enviar pedido");
 			System.out.println("2. Pagar a trabajadores");
 			System.out.println("3. Abastecer tiendas");
