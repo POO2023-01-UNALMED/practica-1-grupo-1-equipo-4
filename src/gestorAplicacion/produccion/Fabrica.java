@@ -4,22 +4,23 @@ import gestorAplicacion.produccion.Tienda;
 import gestorAplicacion.produccion.Producto;
 import gestorAplicacion.gestion.Financiero;
 import gestorAplicacion.gestion.Operario;
+import gestorAplicacion.gestion.Persona;
 import gestorAplicacion.gestion.Factura;
 
 import java.util.ArrayList;
 
 public class Fabrica implements Financiero{
 
-    private ArrayList<Operario> listaOperadores;
+    private Operario operario;
     private ArrayList<Producto> listaProductos;
     private ArrayList<Tienda> listaTienda;
     private CuentaBancaria cuentaBancaria;
 
 
     // ------------- constructor -------------
-    public Fabrica(ArrayList<Operario> listaOperadores, ArrayList<Producto> listaProductos,
+    public Fabrica(Operario operario, ArrayList<Producto> listaProductos,
             ArrayList<Tienda> listaTienda,CuentaBancaria cuentaBancaria) {
-        this.listaOperadores = listaOperadores;
+        this.operario = operario;
         this.listaProductos = listaProductos;
         this.listaTienda = listaTienda;
         this.cuentaBancaria = cuentaBancaria;
@@ -28,12 +29,12 @@ public class Fabrica implements Financiero{
     public Fabrica(){}
     //----------- Getters and Setters ----------------
 
-    public ArrayList<Operario> getListaOperadores() {
-        return listaOperadores;
+    public Operario getOperario() {
+        return operario;
     }
 
-    public void setListaOperadores(ArrayList<Operario> listaOperadores) {
-        this.listaOperadores = listaOperadores;
+    public void setOperario(Operario operario) {
+        this.operario = operario;
     }
 
     public ArrayList<Producto> getListaProductos() {
@@ -116,5 +117,26 @@ public class Fabrica implements Financiero{
             listaAbastecer.add(producto);
         }
         return listaAbastecer;
+    }    
+    //
+    public static ArrayList<Persona> busquedaTrabajo(ArrayList<Factura> listaFacturas,int tipo){
+        ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
+        for (Factura factura: listaFacturas){
+            if(tipo==1){
+                
+            }
+            if(tipo==2){
+                if (!listaPersonas.contains(factura.getTransporte().getConductor())){} {
+                    listaPersonas.add(factura.getTransporte().getConductor());
+                }
+            }
+            if(tipo==3){
+                if (!listaPersonas.contains(factura.getTienda().getVendedor())){} {
+                    listaPersonas.add(factura.getTienda().getVendedor());
+                }
+            }
+        }
+        return listaPersonas;
+        
     }
 }

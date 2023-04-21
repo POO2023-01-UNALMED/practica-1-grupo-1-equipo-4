@@ -1,6 +1,5 @@
 package gestorAplicacion.gestion;
 
-import java.util.ArrayList;
 
 public abstract class Persona implements Financiero {
 	/*-------------------Atributos-------------------------*/
@@ -11,20 +10,19 @@ public abstract class Persona implements Financiero {
 	private int cedula;
 	private CuentaBancaria cuentaBancaria;
 	private int salario=1000;
-	private int Bono;
+	private int trabajo;
 	private static int personasTotales;
-	
 	
 	/*-------------------Constructores-------------------------*/
 	
 	
 	/*Constructor de la clase conductor que recibe todos los parametros*/
-	public Persona(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria, int Bono) {
+	public Persona(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria) {
 		this.nombre=nombre;
 		this.edad=edad;
 		this.cedula=cedula;
 		this.cuentaBancaria=cuentaBancaria;
-		this.Bono=Bono;
+		this.trabajo = 0;
 		}
 	/*Constructor de la clase persona que no recibe ninguna parametros*/
 	public Persona() {}
@@ -63,10 +61,10 @@ public abstract class Persona implements Financiero {
 		this.salario = salario;
 	}
 	public int getTrabajo() {
-		return Bono;
+		return trabajo;
 	}
 	public void setTrabajo(int trabajo) {
-		this.Bono = trabajo;
+		this.trabajo = trabajo;
 	}
 	public static int getPersonasTotales() {
 		return personasTotales;
