@@ -53,6 +53,15 @@ public class Tienda implements Financiero{
         return factura;
     }
 
+    //devuelve el producto en base a la factura que se le pase de la funcionalidad devoluciones
+    public Cliente devolverProducto(Factura factura){
+        Producto producto = factura.getProducto();
+        listaProductos.add(producto); //se duevuelve el producto
+        ArrayList<Factura> listaFacturas = Factura.getListaFacturas(); 
+        listaFacturas.remove(factura); // se elimina la factura de la lista
+        return factura.getCliente();
+    }
+
     //Get and Set
     public String getNombre() {
         return this.nombre;
