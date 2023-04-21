@@ -12,8 +12,8 @@ public class UiEstadisticas {
 
         Scanner sc = new Scanner(System.in);
 
-        int opcion = new Menu("REPORTE", new String[]{"1. Analizar toda la información", 
-                                                    "2. Ingresar fechas específicas"}).mostrar();
+        int opcion = new Menu("REPORTE", new String[]{"Analizar toda la información", 
+                                                    "Ingresar fechas específicas"}).mostrar();
        
         int fechaMin = Factura.fechaMin();
         int fechaMax = Factura.fechaMax();
@@ -89,8 +89,6 @@ public class UiEstadisticas {
             default:
 
                 return;
-
-            break;
             
         }
 

@@ -4,6 +4,39 @@ import java.util.Scanner;
 
 public class Menu {
 
+    /*
+     * 
+     *  INSTRUCCIONES:
+     * 
+     *  Digamos que queremos ejecutar el siguiente menu, el cual valide correctamente que se ingrese la opción correctamente:
+     * 
+     *  Ingrese información a obtener
+     * 
+     *  1. Ganancias discretas
+     *  2. Ganancias totales
+     *  3. Promedio por día
+     *  4. Aumento porcentual
+     *  0. Retroceder
+     * 
+     *  > ... [input del usuario]
+     * 
+     *  Entonces hacemos lo siguiente:
+     * 
+     *  int opcion = new Menu("Ingrese información a obtener", new String[]{"Ganancias Discretas", "Ganancias Totales", 
+                "Promedio por día", "Aumento porcentual", "Cambiar fechas"}, "Retroceder")
+
+        El primer atributo es el enunciado, el segundo son las opciones, y el tercero es el enunciado de la opción 0 que mata
+        el proceso. La línea de código anterior lo que hace es efectivamente empezar el proceso del menu. La opción
+        seleccionada (de 1 a n) es la opción escogida por el usuario.
+        
+        Si quieren puedo hacer para que no necesariamente se pueda "devolver", pero me tienen que decir. 
+
+        El ejemplo anterior está en el método estadística de la clase UiEstadística por si lo quieren checar más a detalle. 
+     * 
+     * 
+     * 
+     */
+
     private String[] opciones;
     private int numOpciones;
     private String enunciado;
@@ -14,6 +47,7 @@ public class Menu {
         this.opciones = opciones;
         numOpciones = opciones.length;
         this.enunciado = enunciado;
+        opcionDefault = "Cancelar";
     }
 
     public Menu(String enunciado, String[] opciones, String opcionDefault){
@@ -32,7 +66,7 @@ public class Menu {
             System.out.println((i + 1) + ". " + opciones[i]);
         }
 
-        System.out.println("0. Cancelar");
+        System.out.println("0. " +  opcionDefault);
 
         Scanner sc = new Scanner(System.in);
 
@@ -98,8 +132,5 @@ public class Menu {
         }
 
         return input;
-
     }
-
-    
 }
