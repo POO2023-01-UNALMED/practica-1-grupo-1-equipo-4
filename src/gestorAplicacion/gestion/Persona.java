@@ -73,6 +73,6 @@ public abstract class Persona implements Financiero {
 	
 	/*------------------- Metodos -------------------------*/
 	
-	public abstract void recibirSueldo();
+	public abstract void recibirSueldo(int total);
 	
 }

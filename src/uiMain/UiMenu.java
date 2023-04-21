@@ -123,22 +123,23 @@ public class UiMenu {
 
             switch(opcion){
                 case 1:
-                    gestionarPedido();
+                    //gestionarPedido();
                     break;
                 case 2:
-                    pagarATrabajadores();
+                    UiPagarTrabajadores.pagartrabajadores();
                     break;
                 case 3:
                     UiAbastecer.abastecerTiendas();
                     break;
                 case 4:
-                    gestionarDevoluciones();
+                    //gestionarDevoluciones();
                     break;
                 case 5:
-                    mostrarEstadisticas();
+                    //mostrarEstadisticas();
                     break;
                 case 6:
                     System.out.println("Gracias por visitarnos");
+                    System.out.println("Vuelva pronto");
                     break;
                 default:
                     System.out.println("Digitó una opción incorrecta");
@@ -147,19 +148,6 @@ public class UiMenu {
         }while(opcion != 6);
 	
 	}
-
-    public static void gestionarPedido(){
-    }
-
-    public static void pagarATrabajadores(){
-    }
-
-    
-    public static void gestionarDevoluciones(){
-    }
-
-    public static void mostrarEstadisticas (){
-    }
 
 
 }

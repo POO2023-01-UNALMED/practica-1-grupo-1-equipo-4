@@ -24,6 +24,23 @@ public class CuentaBancaria {
         CuentaBancaria cuenta = cliente.getCuentaBancaria();
         cuenta.anadirFondos(total);
     }
+
+    //Aún no sé si colocar este método acá o en otra parte
+    //Método que calcula el pago que se debe hacer a los trabajadores
+    public static int calcularPago(Persona persona){
+        int trabajo = persona.getTrabajo();
+        int salarioBase = persona.getSalario();
+        int total = 0;
+        //Diferentes pagos según el salario base para cada uno de los tipos
+        if (persona instanceof Operario){
+            total =+ (salarioBase + 3000)*trabajo;
+        }else if (persona instanceof Vendedor){
+            total =+ (salarioBase + 5000)*trabajo;
+        }else if(persona instanceof Conductor){
+            total =+ (salarioBase + 4500)*trabajo;
+        }
+        return total;
+    }
   
     /*Quite esto cuando lo lea, Yo, Jaider le quite el static a estos metodos ya que no tenia 
      * sentido que lo tuviera y cambie los 1000 por la variable fondos*/

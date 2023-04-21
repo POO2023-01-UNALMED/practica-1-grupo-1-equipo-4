@@ -3,14 +3,10 @@ package uiMain;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import gestorAplicacion.gestion.Conductor;
 import gestorAplicacion.gestion.CuentaBancaria;
 import gestorAplicacion.gestion.Factura;
-import gestorAplicacion.gestion.Operario;
 import gestorAplicacion.gestion.Persona;
-import gestorAplicacion.gestion.Vendedor;
 import gestorAplicacion.produccion.Fabrica;
-import gestorAplicacion.produccion.Tienda;
 
 public class UiPagarTrabajadores {
     
@@ -45,31 +41,38 @@ public class UiPagarTrabajadores {
         ArrayList<Persona> listaTrabajadores = Fabrica.busquedaTrabajo(Factura.getListaFacturas(),opcion);
         
         //Imprime la lista que se devolvió anteriormente
+        int indice = 1;
+
         for (Persona i: listaTrabajadores) {
-                i.toString();   //USO DE LIGADURA DINÁMICA
+            System.out.print(indice + i.toString() + "/n"); //USO DE LIGADURA DINÁMICA
+            indice++;               
         }
 
-        //Pide el nombre del trabajador (Tambien se puede hacer por #)
-        System.out.println("Por favor, ingrese el nombre del trabajador al cual desea pagarle");
-        String nombre = sc.nextLine().toLowerCase();
-        Persona trabajador;
-        for (Persona i: listaTrabajadores) {
-            if (i.getNombre().equals(nombre)){
-                trabajador = i;
-            }else{
-                System.out.println("El nombre que ingresó no corresponde a ningún trabajador");
-            }
+        
+        //Pide el # del trabajador
+        System.out.println("Por favor, ingrese el número del trabajador al cual desea pagarle [1-" + listaTrabajadores.size()+"]: ");
+        int opcTrabajador = sc.nextInt();
+
+        if (opcTrabajador <= 0 || opcTrabajador > listaTrabajadores.size()){
+            System.out.println("Opción de trabajador incorrecta");
+
+        }else{
+
+            Persona trabajadorEscogido = listaTrabajadores.get(opcTrabajador-1);
+
+            //Método #2
+            //Calcula el pago que se le va a dar al trabajador escogido
+            int total = CuentaBancaria.calcularPago(trabajadorEscogido);
+            
+            System.out.println("Al trabajor " + trabajadorEscogido.getNombre() + "Se le pagará " + total);
+            
+            //Método #3
+            //Envia el dinero que calculamos antes a la cuenta del trabajador
+            // y se lo resta a la cuenta de la fabrica
+            trabajadorEscogido.recibirSueldo(total);
+            
+            System.out.println("El pago fue realizado con éxito");
         }
-        
-        //Calcula el pago que se le va a dar al trabajador escogido
-        int total = CuentaBancaria.calcularPago(trabajador);
-        
-        System.out.println("Al trabajor " + trabajador.getNombre() + "Se le pagará " + total);
-        
-        //Envia el dinero que calculamos antes a la cuenta del trabajador
-        // y se lo resta a la cuenta de la fabrica
-        trabajador.recibirSueldo(total);
-        System.out.println("El pago fue realizado con éxito");
 
         sc.close();
 
