@@ -103,7 +103,10 @@ public class UiEnviarPedido {
                         System.out.print("Ha seleccionado el producto # " +numProductoSeleccionado);
                     }
                     }
-               case 4: //seleccionar tipo de transporte 
+                case 4: //seleccionar tipo de transporte
+
+                Transporte.MostrarTipoTransporte(null);
+
 
  
             }
