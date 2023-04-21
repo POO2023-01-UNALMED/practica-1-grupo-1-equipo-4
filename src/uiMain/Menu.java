@@ -25,7 +25,8 @@ public class Menu {
      *  int opcion = new Menu("Ingrese información a obtener", new String[]{"Ganancias Discretas", "Ganancias Totales", 
                 "Promedio por día", "Aumento porcentual", "Cambiar fechas"}, "Retroceder")
 
-        El primer atributo es el enunciado, el segundo son las opciones, y el tercero es el enunciado de la opción 0. La línea de código anterior lo que hace es efectivamente empezar el proceso del menu. La opción
+        El primer atributo es el enunciado, el segundo son las opciones, y el tercero es el enunciado de la opción 0. La línea de código anterior lo que hace es 
+        efectivamente empezar el proceso del menu. La opción
         seleccionada (de 0 a n) es la opción escogida por el usuario.
 
         Hay un constructor que solo recibe enunciado y opciones, y por default pone la opción 0 como "Cancelar"
@@ -36,7 +37,7 @@ public class Menu {
 
 
         El método mostrarReturnString() hace lo mismo, pero en lugar de devolver el número, de la opción, devuelve el
-        string del enunciado en mayúsculas
+        string del enunciado en mayúsculas.
      * 
      * 
      * 
@@ -132,7 +133,7 @@ public class Menu {
         while(input < limite1 || input > limite2){
 
             System.out.println("El valor ingresado no es válido. Inténtelo nuevamente por favor");
-            
+            System.out.print("\n> ");
             input = sc.nextInt();
         }
 
