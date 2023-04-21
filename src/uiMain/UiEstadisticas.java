@@ -12,8 +12,8 @@ public class UiEstadisticas {
 
         Scanner sc = new Scanner(System.in);
 
-        int opcion = new Menu("REPORTE", new String[]{"1. Analizar toda la información", 
-                                                    "2. Ingresar fechas específicas"}).mostrar();
+        int opcion = new Menu("REPORTE", new String[]{"Analizar toda la información", 
+                                                    "Ingresar fechas específicas"}).mostrar();
        
         int fechaMin = Factura.fechaMin();
         int fechaMax = Factura.fechaMax();
@@ -59,19 +59,37 @@ public class UiEstadisticas {
 
             case "GANANCIAS DISCRETAS":
 
+                    System.out.println(disc);
+
                 break;
 
             case "GANANCIAS TOTALES":
+
+                    System.out.println(Factura.gananciasTotales(disc));
 
                 break;
 
             case "PROMEDIO POR DIA":
 
+                    System.out.println(Factura.promedioPorDia(fecha1, fecha2));
+
                 break;
 
             case "AUMENTO PORCENTUAL":
 
+                    System.out.println(Factura.aumentoPorcentual(fecha1, fecha2));
+
                 break;
+
+            case "CAMBIAR FECHAS":
+
+
+                break;
+
+            default:
+
+                return;
+            
         }
 
     }

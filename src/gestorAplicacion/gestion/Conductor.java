@@ -8,7 +8,7 @@ public class Conductor extends Persona {
 	
 	
 	/*Constructor de la clase conductor que recibe todos los parametros*/
-	public Conductor(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,int trabajo, Transporte transporte) {
+	public Conductor(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,Transporte transporte) {
 		super(nombre, edad, cedula, cuentaBancaria);
 		this.transporte=transporte;
 	}

@@ -1,7 +1,5 @@
 package gestorAplicacion.produccion;
 import gestorAplicacion.gestion.CuentaBancaria;
-import gestorAplicacion.produccion.Tienda;
-import gestorAplicacion.produccion.Producto;
 import gestorAplicacion.gestion.Financiero;
 import gestorAplicacion.gestion.Operario;
 import gestorAplicacion.gestion.Persona;
@@ -11,16 +9,15 @@ import java.util.ArrayList;
 
 public class Fabrica implements Financiero{
 
-    private Operario operario;
+    private static Operario operario;
     private ArrayList<Producto> listaProductos;
     private ArrayList<Tienda> listaTienda;
     private CuentaBancaria cuentaBancaria;
 
 
     // ------------- constructor -------------
-    public Fabrica(Operario operario, ArrayList<Producto> listaProductos,
+    public Fabrica(ArrayList<Producto> listaProductos,
             ArrayList<Tienda> listaTienda,CuentaBancaria cuentaBancaria) {
-        this.operario = operario;
         this.listaProductos = listaProductos;
         this.listaTienda = listaTienda;
         this.cuentaBancaria = cuentaBancaria;
@@ -29,12 +26,12 @@ public class Fabrica implements Financiero{
     public Fabrica(){}
     //----------- Getters and Setters ----------------
 
-    public Operario getOperario() {
+    public static Operario getOperario() {
         return operario;
     }
 
-    public void setOperario(Operario operario) {
-        this.operario = operario;
+    public static void setOperario(Operario operario) {
+        Fabrica.operario = operario;
     }
 
     public ArrayList<Producto> getListaProductos() {
@@ -123,7 +120,9 @@ public class Fabrica implements Financiero{
         ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
         for (Factura factura: listaFacturas){
             if(tipo==1){
-                
+                if (Fabrica.getOperario().getTrabajo()>0){} {
+                    listaPersonas.add(Fabrica.getOperario());
+                }
             }
             if(tipo==2){
                 if (!listaPersonas.contains(factura.getTransporte().getConductor())){} {
