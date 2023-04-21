@@ -12,66 +12,84 @@ import uiMain.UiMenu;
 
 public class UiAbastecer {
     public static void abastecerTiendas() {
+
         int x = 1; //Pivote que nos permitira manejar el menu
-        int eleccion;
+        int eleccion=1;
+        int escanerInt=1;
+
         Scanner escaner1 = new Scanner(System.in);
         Scanner escaner2 = new Scanner(System.in);
+
         Boolean interruptor = true;
         Tienda tiendaSeleccionada = null;
         Producto productoSeleccionado;
+
+        ArrayList<Producto> listaDeProductos;
         while (interruptor) {
 
-            switch(x){
-                if (x == 0) {
+            switch(eleccion){
+                case 0:
+                    interruptor=false;
                     break;
-                }
-                // Visto en pantalla
-                System.out.println("\n");
-                System.out.println("Abastecer tiendas - Apartado de tiendas");
-                System.out.println("0. Volver al menu anterior");
-                System.out.println(UiMenu.fabrica.mostrarTiendas());
-                // Seleccionar tienda
-                System.out.print("Seleccione la tienda a la que desea enviar: ");
-                x = escaner1.nextInt();
-                while (interruptor && x != 0) {
-                    // Se establece el intervalo en el que estan las tiendas
+                case 1:
+                    // Visto en pantalla
 
-                    if (x > 0 && x <= UiMenu.fabrica.getListaTienda().size()) {
-                        tiendaSeleccionada = UiMenu.fabrica.getListaTienda().get(x - 1);
-                        break;} 
-                    else {System.out.print("Por favor seleccione una tienda dentro del rango: ");}
+                    System.out.println("\n");
+                    System.out.println("Abastecer tiendas - Apartado de tiendas");
+                    System.out.println("0. Volver al menu anterior");
+                    System.out.println(UiMenu.fabrica.mostrarTiendas());
 
+                    // Seleccionar tienda
+                    System.out.print("Seleccione la tienda a la que desea enviar: ");
+
+                    //Entero seleccionado
                     x = escaner1.nextInt();
+                    while (interruptor) {
+                        // Se establece el intervalo en el que estan las tiendas
+                        if (x == 0) {
+                            eleccion = 0;
+                            break;}
 
-                    if (x == 0) {break;}
+                        if (x > 0 && x <= UiMenu.fabrica.getListaTienda().size()) {
+                            tiendaSeleccionada = UiMenu.fabrica.getListaTienda().get(x - 1);
+                            eleccion = 2;
+                            break;} 
+                        else if(x!=0) {System.out.print("Por favor seleccione una tienda dentro del rango: ");
+                        x = escaner1.nextInt();}}
 
-                }
+                        
+                case 2:
+                    System.out.println("\nAbastecer tiendas - Apartado de productos");
 
-                System.out.println("\nAbastecer tiendas - Apartado de productos");
-
-                if (x != 0) {
                     System.out.println("0. Regresar al menu anterior");
-                    System.out.println(tiendaSeleccionada.mostrarProductos());}
-
-                while (x != 0) {
-                    eleccion = escaner2.nextInt();
-                    // Se establece el intervalo en el que estan los productos
-
-                    if (x > 0 && x <= tiendaSeleccionada.getListaProductos().size()) {
-                        productoSeleccionado = tiendaSeleccionada.getListaProductos().remove(x - 1);
-                        break;} 
-                    else {System.out.print("Por favor seleccione un producto dentro del rango: ");}
-
-                    if (x == 0) {
-                        x = 1;
-                        break;
+                    System.out.println(UiMenu.fabrica.mostrarProductos());
+                    System.out.print("Seleccione el producto que desea enviar: ");
+                    while (x != 0) {
+                        escanerInt = escaner2.nextInt();
+                        // Se establece el intervalo en el que estan los productos
+                        
+                        if (escanerInt == 0) {
+                            eleccion = 1;
+                            break;
+                        }  
+                        if (escanerInt > 0 && escanerInt <= UiMenu.fabrica.getListaProductos().size()) {
+                            productoSeleccionado = UiMenu.fabrica.getListaProductos().remove(x - 1);
+                            eleccion = 3;
+                            break;} 
+                        else {System.out.print("Por favor seleccione un producto dentro del rango: ");}
                     }
 
-                }   
-            }   
+                
+            
+                case 3:
+                    System.out.print("\nEscriba la cantidad de productos que desea abastecer: ");
+                    escanerInt = escaner2.nextInt();
 
-        
-        }
+                    UiMenu.fabrica
+                }
+            }
+
+
     }
 
 }

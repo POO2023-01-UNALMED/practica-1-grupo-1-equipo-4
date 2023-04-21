@@ -107,4 +107,14 @@ public class Fabrica implements Financiero{
         cuentaAdmin.descontarFondos(total); //nota no se si genere un problea que el atributo saldo de cuenta es un entero y se le resta un double
         return total;
     }
+
+    //Devuelve un lista de n productos
+
+    public ArrayList<Producto> cantidadProductos(int cantidad, Producto producto){
+        ArrayList<Producto> listaAbastecer = new ArrayList<>();
+        for(int i=0;i<cantidad;i++){
+            listaAbastecer.add(producto);
+        }
+        return listaAbastecer;
+    }
 }
