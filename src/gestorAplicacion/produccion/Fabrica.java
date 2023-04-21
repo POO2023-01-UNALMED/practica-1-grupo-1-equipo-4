@@ -4,6 +4,7 @@ import gestorAplicacion.produccion.Tienda;
 import gestorAplicacion.produccion.Producto;
 import gestorAplicacion.gestion.Financiero;
 import gestorAplicacion.gestion.Operario;
+import gestorAplicacion.gestion.Factura;
 
 import java.util.ArrayList;
 
@@ -94,8 +95,16 @@ public class Fabrica implements Financiero{
     // se selecciona la tienda en base a la opcion digitada por pantalla
     public Tienda seleccionarTienda(int opcion) {
 		
-        Tienda tiendaSeleccionada = listaTienda.get(opcion);
+        Tienda tiendaSeleccionada = listaTienda.get(opcion-1);
 
 		return tiendaSeleccionada;
 	}
+
+    //quita el dinero de la cuenta de la fabrica/admin
+    public double descontarDineroCuentaAdmin(Factura factura){
+        double total = factura.getTotal();
+        CuentaBancaria cuentaAdmin = getCuentaBancaria();
+        cuentaAdmin.descontarFondos(total); //nota no se si genere un problea que el atributo saldo de cuenta es un entero y se le resta un double
+        return total;
+    }
 }

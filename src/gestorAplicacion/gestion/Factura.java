@@ -173,6 +173,24 @@ public HashMap<Integer, Double> aumentoPorcentual(int fecha1, int fecha2){
     return aumentoPorcentual(dictGananciasDiscretas);
 
 }
+//------muestra las faturas que hay en pantalla ------
+public static String mostrarFacturas(){
+    String textoFactura="";
+    int indice = 1;
+    //se recorre la lista para obtener cada nombre de las facturas disponibles:
+    for(Factura factura:listaFacturas) {
+        textoFactura += indice+". ID: "+factura.getId()+"\n"; //se almacenan todos lo ID's de las facturas en un string
+        indice++;
+    }
+    return textoFactura;
+}
+    // se selecciona la factura en base a la opcion digitada por pantalla
+    public static Factura seleccionarFactura(int opcion) {
+		
+        Factura facturaSeleccionada = listaFacturas.get(opcion-1);
+
+		return facturaSeleccionada;
+	}
 
     public String toString(){
 
