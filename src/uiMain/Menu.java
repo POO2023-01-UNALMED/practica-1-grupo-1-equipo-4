@@ -25,11 +25,10 @@ public class Menu {
      *  int opcion = new Menu("Ingrese información a obtener", new String[]{"Ganancias Discretas", "Ganancias Totales", 
                 "Promedio por día", "Aumento porcentual", "Cambiar fechas"}, "Retroceder")
 
-        El primer atributo es el enunciado, el segundo son las opciones, y el tercero es el enunciado de la opción 0 que mata
-        el proceso. La línea de código anterior lo que hace es efectivamente empezar el proceso del menu. La opción
-        seleccionada (de 1 a n) es la opción escogida por el usuario.
+        El primer atributo es el enunciado, el segundo son las opciones, y el tercero es el enunciado de la opción 0. La línea de código anterior lo que hace es efectivamente empezar el proceso del menu. La opción
+        seleccionada (de 0 a n) es la opción escogida por el usuario.
         
-        Si quieren puedo hacer para que no necesariamente se pueda "devolver", pero me tienen que decir. 
+        Si quieren puedo hacer para que no necesariamente haya opción 0.
 
         El ejemplo anterior está en el método estadística de la clase UiEstadística por si lo quieren checar más a detalle. 
      * 
