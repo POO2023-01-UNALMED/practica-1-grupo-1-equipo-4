@@ -73,7 +73,7 @@ public class UiAbastecer {
                             break;
                         }  
                         if (escanerInt > 0 && escanerInt <= UiMenu.fabrica.getListaProductos().size()) {
-                            productoSeleccionado = UiMenu.fabrica.getListaProductos().remove(x - 1);
+                            productoSeleccionado = UiMenu.fabrica.getListaProductos().get(x-1);
                             eleccion = 3;
                             break;} 
                         else {System.out.print("Por favor seleccione un producto dentro del rango: ");}
@@ -85,10 +85,29 @@ public class UiAbastecer {
                     System.out.print("\nEscriba la cantidad de productos que desea abastecer: ");
                     escanerInt = escaner2.nextInt();
                     listaDeProductos = UiMenu.fabrica.cantidadProductos(escanerInt, productoSeleccionado);
-
                     //Aqui lo que se hace es meter todo en el camion basicamente luego haremos una comprobacion de que si sea la tienda a la que se le esta enviando
 
                     UiMenu.transporteAbastecer.abastecerProducto(tiendaSeleccionada, listaDeProductos);
+
+                    //Se llega a la tienda y se sacan los productos del transporte pero primero se comprueba que el transporte si vaya hacia esa tienda
+
+                    if(UiMenu.transporteAbastecer.getTienda().equals(tiendaSeleccionada)==true){
+                        tiendaSeleccionada.descargarProducto(UiMenu.transporteAbastecer, 0);   
+                    }else{System.out.println("El envio no se pudo realizar a esa tienda");}
+                    //Ciclo final para ver si sale o se reinicia la funcionalidad
+                    System.out.println("0.Volver al menu principal"+"\n"+"1. Realizar mas envios");
+                    while(true){
+                        escanerInt = escaner2.nextInt();
+                        if(escanerInt==0){
+                            eleccion=0;
+                            break;
+                        }else if(escanerInt==1){
+                            eleccion=1;
+                            break;
+                        }else{
+                            System.out.println("Seleccione una de las opciones disponibles: ");
+                        }
+                    }
                     
                 }
 

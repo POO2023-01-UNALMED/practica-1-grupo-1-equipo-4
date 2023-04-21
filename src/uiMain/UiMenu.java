@@ -94,7 +94,7 @@ public class UiMenu {
 
             
             //cuenta bancaria para la fabrica: // **la cuenta de la fabrica y de las tiendas deben ser las mismas **
-            fabrica = new Fabrica(listaOperarios, catalogo, tiendas, cuentaEmpresa);
+            fabrica = new Fabrica(operario1, catalogo, tiendas, cuentaEmpresa);
 
             //Cambiar null de los operarios
 

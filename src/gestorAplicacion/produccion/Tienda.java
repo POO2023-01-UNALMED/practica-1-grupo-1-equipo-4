@@ -71,6 +71,12 @@ public class Tienda implements Financiero{
         return factura.getCliente();
     }
 
+    public void descargarProducto(Transporte transporte,int fecha){
+        while(transporte.getListaDeProductos().size()>0){
+            listaProductos.add(transporte.getListaDeProductos().remove(0));
+        }
+    }
+
     //Get and Set
     public String getNombre() {
         return this.nombre;
