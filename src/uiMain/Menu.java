@@ -33,6 +33,10 @@ public class Menu {
         Si quieren puedo hacer para que no necesariamente haya opción 0.
 
         El ejemplo anterior está en el método estadística de la clase UiEstadística por si lo quieren checar más a detalle. 
+
+
+        El método mostrarReturnString() hace lo mismo, pero en lugar de devolver el número, de la opción, devuelve el
+        string del enunciado en mayúsculas
      * 
      * 
      * 
@@ -110,10 +114,10 @@ public class Menu {
         }
 
         if(input == 0){
-            return "Volver al inicio";
+            return "Volver al inicio".toUpperCase();
         }
 
-        return opciones[input - 1];
+        return opciones[input - 1].toUpperCase();
 
     }
 
