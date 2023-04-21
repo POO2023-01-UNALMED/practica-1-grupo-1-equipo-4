@@ -1,17 +1,25 @@
 package gestorAplicacion.produccion;
 
+import java.util.ArrayList;
+
+
 import gestorAplicacion.gestion.Conductor;
 
 public class Transporte {
-     //Atributos
-     private String matricula;
-     private TipoTransporte tipo; 
-     private Double capacidad; 
-     private int costo;
-     private Conductor conductor;
+    //Atributos
+    private String matricula;
+    private TipoTransporte tipo; 
+    private Double capacidad; 
+    private int costo;
+    private Conductor conductor;
      
+    //Atributos creados por Jaider
+    private Tienda tienda;
+    private ArrayList<Producto> listaDeProductos;
+
 
         //Constructor que recibe todos los parametros 
+
 
 
     public Transporte(String matricula, TipoTransporte tipo, Double capacidad, int costo) {
@@ -81,5 +89,34 @@ public class Transporte {
     public void setConductor(Conductor conductor) {
         this.conductor = conductor;
     }
+
+    public Tienda getTienda() {
+        return tienda;
+    }
+
+    public void setTienda(Tienda tienda) {
+        this.tienda = tienda;
+    }
+
+    public ArrayList<Producto> getListaDeProductos() {
+        return listaDeProductos;
+    }
+
+    public void setListaDeProductos(ArrayList<Producto> listaDeProductos) {
+        this.listaDeProductos = listaDeProductos;
+    }
+
+    // -------------- Metodos ------------------
+    public int abastecerProducto(Tienda tienda, ArrayList<Producto> listaDeProductos){
+        this.setTienda(tienda);
+        this.setListaDeProductos(listaDeProductos);
+        int gastos = 0;
+        for(Producto producto:listaDeProductos){
+            gastos+=producto.getCostoDeProduccion();
+        }
+        gastos += tipo.getPrecioEnvio();
+        return gastos;
+    }
+
 }
 

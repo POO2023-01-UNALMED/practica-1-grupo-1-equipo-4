@@ -10,6 +10,7 @@ import java.util.Arrays;
 public class UiMenu {
     static Scanner sc = new Scanner(System.in);
     public static Fabrica fabrica;
+    public static Transporte transporteAbastecer;
 	static{
 		//NOTA: Toca arreglar los constructores y unas cosas pa ver donde va a ir eso 
 
@@ -48,9 +49,9 @@ public class UiMenu {
 
             //Operarios
             ArrayList<Operario> listaOperarios = new ArrayList<Operario>();
-            Operario operario1 = new Operario("operador1",20,55555,cuentaOperario1, null);//cada oeprador tiene cien mil *hay que sacar cuentas*
-            Operario operario2 = new Operario("operador2",21,66666,cuentaOperario2, null); //para ese atriubuto fabrica primero hay que crear una frabica para asignarselo
-            Operario operario3 = new Operario("operador3",22,77777,cuentaOperario3, null);
+            Operario operario1 = new Operario("operador1",20,55555,cuentaOperario1,0, null);//cada oeprador tiene cien mil *hay que sacar cuentas*
+            Operario operario2 = new Operario("operador2",21,66666,cuentaOperario2,0, null); //para ese atriubuto fabrica primero hay que crear una frabica para asignarselo
+            Operario operario3 = new Operario("operador3",22,77777,cuentaOperario3,0, null);
             //se agg a la nomina
             listaOperarios.add(operario1);
             listaOperarios.add(operario2);
@@ -64,9 +65,9 @@ public class UiMenu {
             CuentaBancaria cuentaVendedor2 = new CuentaBancaria(66666, 100000);
             CuentaBancaria cuentaVendedor3 = new CuentaBancaria(77777, 100000);
             //vendedores
-            Vendedor vendedor1 = new Vendedor("vendedor1",20,55555,cuentaVendedor1,null);
-            Vendedor vendedor2 = new Vendedor("vendedor2",21,66666,cuentaVendedor2,null);
-            Vendedor vendedor3 = new Vendedor("vendedor3",22,77777,cuentaVendedor3,null);
+            Vendedor vendedor1 = new Vendedor("vendedor1",20,55555,cuentaVendedor1,0, null);
+            Vendedor vendedor2 = new Vendedor("vendedor2",21,66666,cuentaVendedor2,0, null);
+            Vendedor vendedor3 = new Vendedor("vendedor3",22,77777,cuentaVendedor3,0, null);
             
             //tiendas
             ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
@@ -93,13 +94,16 @@ public class UiMenu {
 
             
             //cuenta bancaria para la fabrica: // **la cuenta de la fabrica y de las tiendas deben ser las mismas **
-            fabrica = new Fabrica(operario1, catalogo, tiendas, cuentaEmpresa);
+            fabrica = new Fabrica(listaOperarios, catalogo, tiendas, cuentaEmpresa);
 
             //Cambiar null de los operarios
 
             operario1.setFabrica(fabrica);
             operario2.setFabrica(fabrica);
             operario3.setFabrica(fabrica);
+
+            //Transporte para abastecer
+            transporteAbastecer = new Transporte("kkk555", TipoTransporte.CAMION, TipoTransporte.CAMION.getCapacidadMax(), (int)TipoTransporte.CAMION.getCapacidadMax());
 	}
 	public static void main(String[] args) {
         int opcion;

@@ -22,7 +22,7 @@ public class UiAbastecer {
 
         Boolean interruptor = true;
         Tienda tiendaSeleccionada = null;
-        Producto productoSeleccionado;
+        Producto productoSeleccionado = null;
 
         ArrayList<Producto> listaDeProductos;
         while (interruptor) {
@@ -84,9 +84,15 @@ public class UiAbastecer {
                 case 3:
                     System.out.print("\nEscriba la cantidad de productos que desea abastecer: ");
                     escanerInt = escaner2.nextInt();
+                    listaDeProductos = UiMenu.fabrica.cantidadProductos(escanerInt, productoSeleccionado);
 
-                    UiMenu.fabrica
+                    //Aqui lo que se hace es meter todo en el camion basicamente luego haremos una comprobacion de que si sea la tienda a la que se le esta enviando
+
+                    UiMenu.transporteAbastecer.abastecerProducto(tiendaSeleccionada, listaDeProductos);
+                    
                 }
+
+
             }
 
 

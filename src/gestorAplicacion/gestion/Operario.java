@@ -13,7 +13,7 @@ public class Operario extends Persona {
 	
 	/*Constructor de la clase operario que recibe todos los parametros*/
 
-	public Operario(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,Fabrica fabrica) {
+	public Operario(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria, int trabajo,Fabrica fabrica) {
 		super(nombre, edad, cedula, cuentaBancaria);
 		this.fabrica=fabrica;
 	}

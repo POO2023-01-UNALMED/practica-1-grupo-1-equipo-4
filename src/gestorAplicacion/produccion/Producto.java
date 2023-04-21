@@ -34,7 +34,7 @@ public class Producto {
         +      "Valor: "               + valor            + "\n"
         +      "Peso: "                + peso             + "\n"
         +      "Tamaño: "              + tamano           + "\n"
-        +      "Costo de produccion: " + costoDeProduccion;
+        +      "Costo de produccion: " + costoDeProduccion+ "\n";
     }
 
 
