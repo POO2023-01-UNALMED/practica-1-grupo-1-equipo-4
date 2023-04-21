@@ -109,13 +109,13 @@ public class UiMenu {
         int opcion;
 
 		do{
-            System.out.println("\nMenú principal Distribuidora SAS");
+            System.out.println("\nMenú principal Distribuidora SAS\n");
 			System.out.println("1. Enviar pedido");
 			System.out.println("2. Pagar a trabajadores");
 			System.out.println("3. Abastecer tiendas");
 			System.out.println("4. Gestionar devoluciones");
             System.out.println("5. Mostrar estadísticas");
-            System.out.println("6. Salir");
+            System.out.println("6. Salir\n");
 
 			System.out.print("Ingrese el número de la opción que desea utilizar: ");
 
@@ -142,7 +142,7 @@ public class UiMenu {
                     System.out.println("Vuelva pronto");
                     break;
                 default:
-                    System.out.println("Digitó una opción incorrecta");
+                    System.out.println("\nDigitó una opción incorrecta");
                     
             }
         }while(opcion != 6);

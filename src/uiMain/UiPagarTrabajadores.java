@@ -9,73 +9,97 @@ import gestorAplicacion.gestion.Persona;
 import gestorAplicacion.produccion.Fabrica;
 
 public class UiPagarTrabajadores {
-    
+
     public static void pagartrabajadores() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Has escogido la opción de pagar a trabajadores");
-        System.out.println("¿A qué tipo de trabajador desea pagarle?\n");
-        System.out.println("1. Operarios");
-        System.out.println("2. Vendedores");
-        System.out.println("3. Conductores\n");
-        System.out.println("Por favor, digite el número del tipo de trabajador al cual deseas pagar: ");
-        
-        
-        int opcion = sc.nextInt();
 
-        switch (opcion) {
-            case 1:
-                System.out.println("Esta es la lista de operarios que han trabajado"); 
-                break;
-            case 2:
-                System.out.println("Esta es la lista de vendedores que han trabajado");
-                break;
-            case 3:
-                System.out.println("Esta es la lista de conductores que han trabajado");
-                break;
-            default:
-                System.out.println("Digitó una opción incorrecta");
-        }
+        System.out.println("\nHas escogido la opción pagar a trabajadores");
 
-        //Método #1 Verifica los trabajadores del tipo que seleccionó
-        //que salen en las facturas que han sido creadas
-        ArrayList<Persona> listaTrabajadores = Fabrica.busquedaTrabajo(Factura.getListaFacturas(),opcion);
-        
-        //Imprime la lista que se devolvió anteriormente
-        int indice = 1;
+        boolean verificador1 = true;
 
-        for (Persona i: listaTrabajadores) {
-            System.out.print(indice + i.toString() + "/n"); //USO DE LIGADURA DINÁMICA
-            indice++;               
-        }
+        while(verificador1){
 
-        
-        //Pide el # del trabajador
-        System.out.println("Por favor, ingrese el número del trabajador al cual desea pagarle [1-" + listaTrabajadores.size()+"]: ");
-        int opcTrabajador = sc.nextInt();
+            Scanner sc = new Scanner(System.in);
+            int opcSalida;
+            boolean verificador2 = true;
 
-        if (opcTrabajador <= 0 || opcTrabajador > listaTrabajadores.size()){
-            System.out.println("Opción de trabajador incorrecta");
-
-        }else{
-
-            Persona trabajadorEscogido = listaTrabajadores.get(opcTrabajador-1);
-
-            //Método #2
-            //Calcula el pago que se le va a dar al trabajador escogido
-            int total = CuentaBancaria.calcularPago(trabajadorEscogido);
+            int opcion = new Menu("¿A qué tipo de trabajador desea pagarle?", new String[]{"Operarios", "Vendedores", 
+                        "Conductores"}, "Retroceder").mostrar();
             
-            System.out.println("Al trabajor " + trabajadorEscogido.getNombre() + "Se le pagará " + total);
+            switch (opcion) {
+                case 1:
+                    System.out.println("Esta es la lista de operarios que han trabajado"); 
+                    break;
+                case 2:
+                    System.out.println("Esta es la lista de vendedores que han trabajado");
+                    break;
+                case 3:
+                    System.out.println("Esta es la lista de conductores que han trabajado");
+                    break;
+                default:
+                    System.out.println("Digitó una opción incorrecta");
+            }
+
+            //Método #1 Verifica los trabajadores del tipo que seleccionó
+            //que salen en las facturas que han sido creadas
+            ArrayList<Persona> listaTrabajadores = Fabrica.busquedaTrabajo(Factura.getListaFacturas(),opcion);
             
-            //Método #3
-            //Envia el dinero que calculamos antes a la cuenta del trabajador
-            // y se lo resta a la cuenta de la fabrica
-            trabajadorEscogido.recibirSueldo(total);
-            
-            System.out.println("El pago fue realizado con éxito");
+            //Imprime la lista que se devolvió anteriormente
+            int indice = 1;
+
+            for (Persona i: listaTrabajadores) {
+                System.out.print(indice + i.toString() + "/n"); //USO DE LIGADURA DINÁMICA
+                indice++;               
+            }
+
+
+            while(verificador2){
+                //Pide el # del trabajador
+                System.out.println("Por favor, ingrese el número del trabajador al cual desea pagarle [1-" + listaTrabajadores.size()+"]: ");
+                int opcTrabajador = sc.nextInt();
+
+                if (opcTrabajador <= 0 || opcTrabajador > listaTrabajadores.size()){
+                    System.out.println("Opción de trabajador incorrecta");
+
+                }else{
+                    Persona trabajadorEscogido = listaTrabajadores.get(opcTrabajador-1);
+
+                    //Método #2
+                    //Calcula el pago que se le va a dar al trabajador escogido
+                    int total = CuentaBancaria.calcularPago(trabajadorEscogido);
+                    
+                    System.out.println("Al trabajor " + trabajadorEscogido.getNombre() + "Se le pagará " + total);
+                    
+                    //Método #3
+                    //Envia el dinero que calculamos antes a la cuenta del trabajador
+                    // y se lo resta a la cuenta de la fabrica
+                    trabajadorEscogido.recibirSueldo(total);
+                    
+                    System.out.println("El pago fue realizado con éxito");
+                    verificador2 = false;
+                    break;
+                }
+
+            }
+
+            //Ciclo final para ver si sale o se reinicia la funcionalidad
+            System.out.println("1. Realizar mas envios"+"\n"+"1.Volver al menu principal");
+            while(true){
+                opcSalida = sc.nextInt();
+                if(opcSalida==1){
+                    verificador1=true;
+                    break;
+                }else if(opcSalida==2){
+                    verificador2=false;
+                    break;
+                }else{
+                    System.out.println("Seleccione una de las opciones disponibles: ");
+                }
+            }
+            sc.close();
+
         }
+        
 
-        sc.close();
-
-    }
+    }    
     
 }

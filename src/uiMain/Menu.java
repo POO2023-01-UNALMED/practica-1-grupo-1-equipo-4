@@ -80,7 +80,7 @@ public class Menu {
 
         int input = sc.nextInt();
 
-        while(input > 0 || input > numOpciones){
+        while(input < 0 || input > numOpciones){
 
             System.out.println("El valor ingresado no es válido. Ingreselo nuevamente por favor.");
             System.out.print("> ");
@@ -107,7 +107,7 @@ public class Menu {
 
         int input = sc.nextInt();
 
-        while(input > 0 || input > numOpciones){
+        while(input < 0 || input > numOpciones){
 
             System.out.println("El valor ingresado no es válido. Ingreselo nuevamente por favor.");
             System.out.print("> ");

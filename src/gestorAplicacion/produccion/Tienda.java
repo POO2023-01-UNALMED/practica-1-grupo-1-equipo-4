@@ -58,7 +58,8 @@ public class Tienda implements Financiero, Moda{
         this.getVendedor().setTrabajo(this.getVendedor().getTrabajo()+1);
         //Al conductor
         transporte.getConductor().setTrabajo(transporte.getConductor().getTrabajo()+1);
-        //Al Operario
+        //Al operario
+        
         Factura factura = new Factura(this,cliente,transporte,producto,dia,"DISCLAIMER");
         return factura;
     }
