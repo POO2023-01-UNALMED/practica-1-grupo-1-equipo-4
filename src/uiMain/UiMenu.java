@@ -135,7 +135,7 @@ public class UiMenu {
                     //gestionarDevoluciones();
                     break;
                 case 5:
-                    //mostrarEstadisticas();
+                    UiEstadisticas.ingresarFechas();
                     break;
                 case 6:
                     System.out.println("Gracias por visitarnos");

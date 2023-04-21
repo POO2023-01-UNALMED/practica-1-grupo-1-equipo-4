@@ -59,19 +59,39 @@ public class UiEstadisticas {
 
             case "GANANCIAS DISCRETAS":
 
+                    System.out.println(disc);
+
                 break;
 
             case "GANANCIAS TOTALES":
+
+                    System.out.println(Factura.gananciasTotales(disc));
 
                 break;
 
             case "PROMEDIO POR DIA":
 
+                    System.out.println(Factura.promedioPorDia(fecha1, fecha2));
+
                 break;
 
             case "AUMENTO PORCENTUAL":
 
+                    System.out.println(Factura.aumentoPorcentual(fecha1, fecha2));
+
                 break;
+
+            case "CAMBIAR FECHAS":
+
+
+                break;
+
+            default:
+
+                return;
+
+            break;
+            
         }
 
     }
