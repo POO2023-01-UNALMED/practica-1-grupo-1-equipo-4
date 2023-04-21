@@ -29,7 +29,7 @@ public class CuentaBancaria {
     //Método que calcula el pago que se debe hacer a los trabajadores
     public static int calcularPago(Persona persona){
         int trabajo = persona.getTrabajo();
-        int salarioBase = persona.getSalario();
+        int salarioBase = Persona.getSalario();
         int total = 0;
         //Diferentes pagos según el salario base para cada uno de los tipos
         if (persona instanceof Operario){

@@ -9,7 +9,7 @@ public abstract class Persona implements Financiero {
 	private int edad;
 	private int cedula;
 	private CuentaBancaria cuentaBancaria;
-	private int salario=1000;
+	private static final int salario=1000;
 	private int trabajo;
 	private static int personasTotales;
 	
@@ -54,12 +54,12 @@ public abstract class Persona implements Financiero {
 	}
 	public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
 		this.cuentaBancaria = cuentaBancaria;}
-	public int getSalario() {
+	public static int getSalario() {
 		return salario;
 	}
-	public void setSalario(int salario) {
-		this.salario = salario;
-	}
+	//public void setSalario(int salario) {
+	//	this.salario = salario;
+	//}
 	public int getTrabajo() {
 		return trabajo;
 	}

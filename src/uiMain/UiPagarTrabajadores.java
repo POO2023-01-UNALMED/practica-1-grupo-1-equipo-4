@@ -82,7 +82,7 @@ public class UiPagarTrabajadores {
             }
 
             //Ciclo final para ver si sale o se reinicia la funcionalidad
-            System.out.println("1. Realizar mas envios"+"\n"+"1.Volver al menu principal");
+            System.out.println("1. Realizar mas envios"+"\n"+"2.Volver al menu principal");
             while(true){
                 opcSalida = sc.nextInt();
                 if(opcSalida==1){
