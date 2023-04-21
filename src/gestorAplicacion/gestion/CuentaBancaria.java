@@ -16,7 +16,13 @@ public class CuentaBancaria {
     }
 
     public void descontarFondos(double fondos){
-        saldo += fondos;
+        saldo -= fondos;
+    }
+
+    //meotod devolver dinero de la funcionalidad devoluciones
+    public void devolverDinero(double total, Cliente cliente){
+        CuentaBancaria cuenta = cliente.getCuentaBancaria();
+        cuenta.anadirFondos(total);
     }
   
     /*Quite esto cuando lo lea, Yo, Jaider le quite el static a estos metodos ya que no tenia 
