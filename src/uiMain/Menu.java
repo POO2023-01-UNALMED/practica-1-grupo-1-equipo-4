@@ -8,7 +8,7 @@ public class Menu {
      * 
      *  INSTRUCCIONES:
      * 
-     *  Digamos que queremos ejecutar el siguiente menu, el cual valide correctamente que se ingrese la opción correctamente:
+     *  Digamos que queremos ejecutar el siguiente menu, el cual valide correctamente que se ingrese la opción correcta:
      * 
      *  Ingrese información a obtener
      * 
