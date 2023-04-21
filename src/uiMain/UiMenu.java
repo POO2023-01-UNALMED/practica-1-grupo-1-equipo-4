@@ -104,6 +104,20 @@ public class UiMenu {
 
             //Transporte para abastecer
             transporteAbastecer = new Transporte("kkk555", TipoTransporte.CAMION, TipoTransporte.CAMION.getCapacidadMax(), (int)TipoTransporte.CAMION.getCapacidadMax());
+
+            // Crear objetos de Cliente
+            ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+            CuentaBancaria cuenta1 = new CuentaBancaria(11111, 5000000);
+                Cliente cliente1 = new Cliente("Juan Pérez", "Calle 123", "producto", cuenta1);
+            CuentaBancaria cuenta2 = new CuentaBancaria(22222, 100000);
+            Cliente cliente2 = new Cliente("María García", "Avenida 456", "producto", cuenta2);
+            CuentaBancaria cuenta3 = new CuentaBancaria(33333,20000);
+            Cliente cliente3 = new Cliente("Pedro Gómez", "Carrera 789", "producto", cuenta3);
+
+            // Agregar los objetos de Cliente a la lista de clientes
+            listaClientes.add(cliente1);
+            listaClientes.add(cliente2);
+            listaClientes.add(cliente3);
 	}
 	public static void main(String[] args) {
         int opcion;
@@ -123,7 +137,7 @@ public class UiMenu {
 
             switch(opcion){
                 case 1:
-                    //gestionarPedido();
+                    UiEnviarPedido.enviarPedido();
                     break;
                 case 2:
                     UiPagarTrabajadores.pagartrabajadores();
