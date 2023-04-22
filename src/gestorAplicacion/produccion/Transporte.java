@@ -11,8 +11,10 @@ public class Transporte implements Moda {
     private String matricula;
     private TipoTransporte tipo; 
     private Double capacidad; 
-    private int costo;
+    private double costo;
     private Conductor conductor;
+    private ArrayList<TipoTransporte> listaTransportes;
+    
      
     //Atributos creados por Jaider
     private Tienda tienda;
@@ -23,7 +25,7 @@ public class Transporte implements Moda {
 
 
 
-    public Transporte(String matricula, TipoTransporte tipo, Double capacidad, int costo) {
+    public Transporte(String matricula, TipoTransporte tipo, Double capacidad, double costo) {
         this.matricula = matricula;
         this.tipo = tipo;
         this.capacidad = capacidad;
@@ -76,11 +78,11 @@ public class Transporte implements Moda {
         this.capacidad = capacidad;
     }
     //para costo 
-    public int getCosto() {
+    public double getCosto() {
         return costo;
     }
 
-    public void setCosto(int costo) {
+    public void setCosto (double costo) {
         this.costo = costo;
     }
 
@@ -107,6 +109,14 @@ public class Transporte implements Moda {
     public void setListaDeProductos(ArrayList<Producto> listaDeProductos) {
         this.listaDeProductos = listaDeProductos;
     }
+    public ArrayList<TipoTransporte> getListaTransportes() {
+        return listaTransportes;
+    }
+
+    public void setListaTransportes(ArrayList<TipoTransporte> listaTransportes) {
+        this.listaTransportes = listaTransportes;
+    }
+    
 
     // -------------- Metodos ------------------
     public int abastecerProducto(Tienda tienda, ArrayList<Producto> listaDeProductos){
@@ -119,6 +129,7 @@ public class Transporte implements Moda {
         gastos += tipo.getPrecioEnvio();
         return gastos;
     }
+
 
 }
 

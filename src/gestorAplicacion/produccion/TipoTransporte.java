@@ -1,5 +1,7 @@
 package gestorAplicacion.produccion;
 
+import java.util.ArrayList;
+
 public enum TipoTransporte {
     
     //los tipos de transporte que hay
@@ -39,20 +41,42 @@ public enum TipoTransporte {
     
     
 
-    private TipoTransporte(double precioEnvio, double capacidadMax, String nombre) {
+    private TipoTransporte(int precioEnvio, double capacidadMax, String nombre) {
         this.precioEnvio = precioEnvio;
         this.capacidadMax = capacidadMax;
         Nombre = nombre;
     }
 
-    public String mostrarTipoTransporteSegunCarga(Producto producto){
-		String textoTransFiltrado="";
-		int indice = 1;
+    public ArrayList<TipoTransporte> crearTipoTransporteSegunCarga(Producto producto){
+		ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
 		for(TipoTransporte tipoTransportes : TipoTransporte.values()) {
+            if(tipoTransportes.getCapacidadMax() >= producto.getPeso()){
+                listaTransFiltrada.add(tipoTransportes); 
+            }
+	}
+    return listaTransFiltrada;
+}
+    
+
+    public String mostrarTipoTransporteSegunCarga(ArrayList<TipoTransporte> ListaFiltrada){
+		String textoTransFiltrado="";
+        int indice = 0;
+		for(TipoTransporte tipoTransportes : ListaFiltrada) {
 			textoTransFiltrado += indice+". "+ tipoTransportes.getNombre()+"\n"; //se almacenan todos lo nombres de las tiendas en un string
 			indice++;
+        
 		}
-		return textoTransFiltrado;
-	}
-    
+        return  textoTransFiltrado;
+}
+
+    public Transporte seleccionarTransporte(ArrayList<TipoTransporte> ListaFiltrada,int opcion){
+        String matricula ="kkk555";
+        TipoTransporte tipo = ListaFiltrada.get(opcion-1);
+        Double capacidad= ListaFiltrada.get(opcion-1).getCapacidadMax();
+        Double precioEnvio = ListaFiltrada.get(opcion-1).getPrecioEnvio();
+
+        Transporte transporte = new Transporte(matricula,tipo,capacidad,precioEnvio);
+
+        return transporte;
+    }
 }
