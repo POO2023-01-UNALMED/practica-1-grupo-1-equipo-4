@@ -22,6 +22,7 @@ public class UiEnviarPedido {
         Cliente clienteSeleccionado = null;
         Tienda TiendaSeleccionada = null;
         Producto productoSeleccionado = null;
+        Transporte transporteSeleccionado = null;
 
         ArrayList<Producto> listaDeProductos;
         while (interruptor) {
@@ -127,16 +128,18 @@ public class UiEnviarPedido {
                         System.out.println("Número de transporte inválido, por favor seleccione un producto en la lista");
                         eleccion = 3;
                         break;} 
-                    else {
-                    Transporte transporteSeleccionado = tipoTransportes.seleccionarTransporte(listaTransFiltrada, numTransporteSeleccionado);
+                    
+                    else{
+                    //Transporte transporteSeleccionado = tipoTransportes.seleccionarTransporte(listaTransFiltrada, numTransporteSeleccionado);
                     transporteSeleccionado = tipoTransportes.seleccionarTransporte(listaTransFiltrada, numTransporteSeleccionado);
                     System.out.print("Ha seleccionado el transporte # " +numTransporteSeleccionado + "El pedido se enviará por" + transporteSeleccionado.getTipo().getNombre());
+                    }
                     
 
                 case 5: //retorna factura
                     System.out.println("Digite el día del mes:");
                     int dia = sc.nextInt();
-                    Tienda.enviarPedido(productoSeleccionado, transporteSeleccionado , clienteSeleccionado, dia);
+                    tienda.enviarPedido(productoSeleccionado, transporteSeleccionado , clienteSeleccionado, dia);
 
 
 
