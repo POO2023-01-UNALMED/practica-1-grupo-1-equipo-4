@@ -51,7 +51,7 @@ public class UiEnviarPedido {
                     }
                     else{
                         clienteSeleccionado = Cliente.getListaClientes().get(numClienteSeleccionado-1);
-                        System.out.print("Has seleccionado al cliente # " + numClienteSeleccionado +"\nEl cliente es:" + clienteSeleccionado);
+                        System.out.print("Has seleccionado al cliente # " + numClienteSeleccionado +"\nEl cliente es: " + clienteSeleccionado.getNombre());
                         eleccion = 2;
                     }
                 case 2: //seleccionar la tienda 
@@ -104,8 +104,13 @@ public class UiEnviarPedido {
                     }
                     }
                 case 4: //seleccionar tipo de transporte
+                System.out.println("\nSeleccione en que medio de treansporte quiere enviar este producto");
+                System.out.println("\nAdvertencia: Los tipos de transporte han sido filtrados de manera que solo puede seleccionar los que puedan soportar el peso de su producto.");
 
-                Transporte.MostrarTipoTransporte(null);
+                    System.out.println("0. Regresar al menu anterior");
+                    // TipoTransporte.mostrarTipoTransporteSegunCarga(productoSeleccionado);
+                    System.out.println(UiMenu.transporte.MostrarTipoTransporte());
+                    System.out.print("Seleccione el tipo de transporte: ");
 
 
  

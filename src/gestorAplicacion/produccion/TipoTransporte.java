@@ -37,4 +37,13 @@ public enum TipoTransporte {
         this.capacidadMax = capacidadMax;
     }
 
+    public static void mostrarTipoTransporteSegunCarga(Producto producto) {
+        TipoTransporte[] tipoTransportes = TipoTransporte.values();
+        for (TipoTransporte tipoTransporte : tipoTransportes) {
+            if (tipoTransporte.getCapacidadMax() >= producto.getPeso()) {
+                System.out.println(tipoTransporte);
+            }
+        }
+    }
+    
 }

@@ -40,6 +40,7 @@ public class Transporte implements Moda {
             for (int i = 0; i < tipoTransportes.length; i++) {
                 System.out.println(tipoTransportes[i]);
         }
+
     }
     //metodo para imprimir nombre, precio y capacidad de algún tipo de transporte
     public void imprimirTipoTransporte(TipoTransporte tipoTransporte) {
