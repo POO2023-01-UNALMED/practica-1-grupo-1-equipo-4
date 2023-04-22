@@ -25,18 +25,21 @@ public class UiPagarTrabajadores {
             int opcion = new Menu("¿A qué tipo de trabajador desea pagarle?", new String[]{"Operarios", "Vendedores", 
                         "Conductores"}, "Retroceder").mostrar();
             
+            if (opcion == 0){
+                verificador1 = false;
+                break;
+            } 
+            
             switch (opcion) {
                 case 1:
-                    System.out.println("Esta es la lista de operarios que han trabajado"); 
+                    System.out.println("\nEsta es la lista de operarios que han trabajado"); 
                     break;
                 case 2:
-                    System.out.println("Esta es la lista de vendedores que han trabajado");
+                    System.out.println("\nEsta es la lista de vendedores que han trabajado");
                     break;
                 case 3:
-                    System.out.println("Esta es la lista de conductores que han trabajado");
+                    System.out.println("\nEsta es la lista de conductores que han trabajado");
                     break;
-                default:
-                    System.out.println("Digitó una opción incorrecta");
             }
 
             //Método #1 Verifica los trabajadores del tipo que seleccionó
@@ -89,7 +92,7 @@ public class UiPagarTrabajadores {
                     verificador1=true;
                     break;
                 }else if(opcSalida==2){
-                    verificador2=false;
+                    verificador1=false;
                     break;
                 }else{
                     System.out.println("Seleccione una de las opciones disponibles: ");
@@ -98,7 +101,6 @@ public class UiPagarTrabajadores {
             sc.close();
 
         }
-        
 
     }    
     

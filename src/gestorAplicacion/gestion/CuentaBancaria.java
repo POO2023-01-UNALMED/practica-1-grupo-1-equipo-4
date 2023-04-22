@@ -30,7 +30,8 @@ public class CuentaBancaria {
     public static int calcularPago(Persona persona){
         int trabajo = persona.getTrabajo();
         int salarioBase = Persona.getSalario();
-        int total = 0;
+        int total = 0;     
+
         //Diferentes pagos según el salario base para cada uno de los tipos
         if (persona instanceof Operario){
             total =+ (salarioBase + 3000)*trabajo;
@@ -39,6 +40,12 @@ public class CuentaBancaria {
         }else if(persona instanceof Conductor){
             total =+ (salarioBase + 4500)*trabajo;
         }
+
+        //Asignamos de nuevo 0 al trabajo, para que si se le paga de nuevo,
+        //no se le pague más de una vez por el mismo trabajo
+        persona.setTrabajo(0);
+
+        //retornamos el total
         return total;
     }
   
