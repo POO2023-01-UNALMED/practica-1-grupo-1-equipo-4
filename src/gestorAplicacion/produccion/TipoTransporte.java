@@ -3,16 +3,16 @@ package gestorAplicacion.produccion;
 public enum TipoTransporte {
     
     //los tipos de transporte que hay
-    CAMION(15000, 16329),
-    AVION(30000, 640000),
-    AUTOMOVIL(9000,500),
-    CAMIONETA(12000, 650), 
-    BICICLETA(5000,35),
-    PATINES(3000,20),
-    BARCO(20000, 33565835),
-    HELICOPTERO(70000, 29000),
-    TREN(20000,30000),
-    CAMINANDO(5000, 15); 
+    CAMION(15000, 16329, "Camion"),
+    AVION(30000, 640000,"Avion"),
+    AUTOMOVIL(9000,500,"Automovil"),
+    CAMIONETA(12000, 650,"Camioneta"), 
+    BICICLETA(5000,35,"Bicicleta"),
+    PATINES(3000,20,"Patines"),
+    BARCO(20000, 33565835,"Barco"),
+    HELICOPTERO(70000, 29000,"Helicoptero"),
+    TREN(20000,30000,"Tren"),
+    CAMINANDO(5000, 15,"Caminando"); 
 
 
 
@@ -29,21 +29,30 @@ public enum TipoTransporte {
         return capacidadMax;
     }
 
-    public double precioEnvio; //dado en pesos
-    public double capacidadMax; //dado en kilogramos
-    
-    private TipoTransporte(double precioEnvio, double capacidadMax) {
-        this.precioEnvio = precioEnvio;
-        this.capacidadMax = capacidadMax;
+    public String getNombre() {
+        return Nombre;
     }
 
-    public static void mostrarTipoTransporteSegunCarga(Producto producto) {
-        TipoTransporte[] tipoTransportes = TipoTransporte.values();
-        for (TipoTransporte tipoTransporte : tipoTransportes) {
-            if (tipoTransporte.getCapacidadMax() >= producto.getPeso()) {
-                System.out.println(tipoTransporte);
-            }
-        }
+    public double precioEnvio; //dado en pesos
+    public double capacidadMax; //dado en kilogramos
+    public String Nombre;
+    
+    
+
+    private TipoTransporte(double precioEnvio, double capacidadMax, String nombre) {
+        this.precioEnvio = precioEnvio;
+        this.capacidadMax = capacidadMax;
+        Nombre = nombre;
     }
+
+    public String mostrarTipoTransporteSegunCarga(Producto producto){
+		String textoTransFiltrado="";
+		int indice = 1;
+		for(TipoTransporte tipoTransportes : TipoTransporte.values()) {
+			textoTransFiltrado += indice+". "+ tipoTransportes.getNombre()+"\n"; //se almacenan todos lo nombres de las tiendas en un string
+			indice++;
+		}
+		return textoTransFiltrado;
+	}
     
 }

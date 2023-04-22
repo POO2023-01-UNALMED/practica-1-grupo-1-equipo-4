@@ -108,8 +108,9 @@ public class UiEnviarPedido {
                 System.out.println("\nAdvertencia: Los tipos de transporte han sido filtrados de manera que solo puede seleccionar los que puedan soportar el peso de su producto.");
 
                     System.out.println("0. Regresar al menu anterior");
-                    // TipoTransporte.mostrarTipoTransporteSegunCarga(productoSeleccionado);
-                    System.out.println(UiMenu.transporte.MostrarTipoTransporte());
+                    //dios me abandonó 
+                    //System.out.println(TipoTransporte.mostrarTipoTransporteSegunCarga(productoSeleccionado));
+                    //System.out.println(UiMenu.TipoTransporte.MostrarTipoTransporte(productoSeleccionado));
                     System.out.print("Seleccione el tipo de transporte: ");
 
 
