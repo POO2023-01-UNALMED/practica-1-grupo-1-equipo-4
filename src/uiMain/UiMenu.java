@@ -144,7 +144,7 @@ public class UiMenu {
                     UiAbastecer.abastecerTiendas();
                     break;
                 case 4:
-                    //gestionarDevoluciones();
+                    UiDevoluciones.gestionarDevoluciones();
                     break;
                 case 5:
                     UiEstadisticas.ingresarFechas();
