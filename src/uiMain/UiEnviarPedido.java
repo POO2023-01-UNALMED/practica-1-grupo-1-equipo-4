@@ -141,6 +141,7 @@ public class UiEnviarPedido {
                     System.out.println("\nDigite el día del mes: ");
                     int dia = sc.nextInt();
                     System.out.println("\n"+ tiendaSeleccionada.enviarPedido(productoSeleccionado, transporteSeleccionado , clienteSeleccionado, dia));
+                    interruptor = false;
                     break;
  
             }
