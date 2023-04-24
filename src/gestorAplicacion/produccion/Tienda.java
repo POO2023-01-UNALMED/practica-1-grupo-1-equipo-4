@@ -41,7 +41,24 @@ public class Tienda implements Financiero, Moda{
         }
         return str;
     }
+    public String cantidadProductos(){
+        listaCantidadProductos = new HashMap<Producto,Integer>(); 
+        String cadena = "";
+        /*Ciclo para agregar los valores al diccionario y hacer el conteo */
+        for(int i=0;i<listaProductos.size();i++){
+            if(listaCantidadProductos.containsKey(listaProductos.get(i))){
+                listaCantidadProductos.put(listaProductos.get(i), listaCantidadProductos.get(listaProductos.get(i))+1);
+            }else{
+                listaCantidadProductos.put(listaProductos.get(i),1);
+            }
+        }
+        /*Bucle for each para generar la cadena con la cantidad de cada producto */
+        for(Map.Entry<Producto, Integer> entrada:listaCantidadProductos.entrySet()){
+            cadena +="\n"+ entrada.getKey().getNombre() + ": " + entrada.getValue() + " "; 
+        }
 
+        return cadena;
+    }
     public void elegirTransporte(Producto producto){
         for(int i=0; i<TipoTransporte.values().length; i++) {
 			if (TipoTransporte.values()[i].getCapacidadMax()<=producto.getPeso()){

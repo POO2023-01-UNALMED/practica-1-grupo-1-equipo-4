@@ -18,16 +18,16 @@ public class UiMenu {
 
             ArrayList<Producto> catalogo = new ArrayList<Producto>();
             //Producto(String nombre, String descripcion, Double valor, Double peso, Double tamano, Double costoDeProduccion);
-            Producto producto1 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto2 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto3 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto4 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto5 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto6 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto7 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto8 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto9 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto10 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
+            Producto producto1 = new Producto("producto1","descricion vacia", 10000, 5, 20,1);
+            Producto producto2 = new Producto("producto2","descricion vacia", 10000, 5, 20,1);
+            Producto producto3 = new Producto("producto3","descricion vacia", 10000, 5, 20,1);
+            Producto producto4 = new Producto("producto4","descricion vacia", 10000, 5, 20,1);
+            Producto producto5 = new Producto("producto5","descricion vacia", 10000, 5, 20,1);
+            Producto producto6 = new Producto("producto6","descricion vacia", 10000, 5, 20,1);
+            Producto producto7 = new Producto("producto7","descricion vacia", 10000, 5, 20,1);
+            Producto producto8 = new Producto("producto8","descricion vacia", 10000, 5, 20,1);
+            Producto producto9 = new Producto("producto9","descricion vacia", 10000, 5, 20,1);
+            Producto producto10 = new Producto("producto10","descricion vacia", 10000, 5, 20,1);
             //se agregan al catalogo
             catalogo.add(producto1);
             catalogo.add(producto2);
@@ -106,7 +106,7 @@ public class UiMenu {
             // Crear objetos de Cliente
             ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
             CuentaBancaria cuenta1 = new CuentaBancaria(11111, 5000000);
-                Cliente cliente1 = new Cliente("Juan Pérez", "Calle 123", "producto", cuenta1);
+            Cliente cliente1 = new Cliente("Juan Pérez", "Calle 123", "producto", cuenta1);
             CuentaBancaria cuenta2 = new CuentaBancaria(22222, 100000);
             Cliente cliente2 = new Cliente("María García", "Avenida 456", "producto", cuenta2);
             CuentaBancaria cuenta3 = new CuentaBancaria(33333,20000);
@@ -116,6 +116,13 @@ public class UiMenu {
             listaClientes.add(cliente1);
             listaClientes.add(cliente2);
             listaClientes.add(cliente3);
+
+
+            //FACTURAS DE PRUEBA:
+            Factura factura = new Factura(tienda3, cliente3, transporteAbastecer, producto10, 0, "hola");
+            Factura factura1 = new Factura(tienda2, cliente3, transporteAbastecer, producto10, 0, "hola22");
+            Factura factura2= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 0, "hola33");
+            
 	}
 	public static void main(String[] args) {
         int opcion;
@@ -144,7 +151,7 @@ public class UiMenu {
                     UiAbastecer.abastecerTiendas();
                     break;
                 case 4:
-                    //gestionarDevoluciones();
+                    UiDevoluciones.gestionarDevoluciones();
                     break;
                 case 5:
                     UiEstadisticas.ingresarFechas();

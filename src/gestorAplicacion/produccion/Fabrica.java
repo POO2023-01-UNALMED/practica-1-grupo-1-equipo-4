@@ -85,7 +85,7 @@ public class Fabrica implements Financiero{
 		int indice = 1;
 		//se recorre la lista para obtener cada nombre de las tiendas disponibles:
 		for(Tienda tienda:listaTienda) {
-			textoTiendas += indice+". "+tienda.getNombre()+"\n"; //se almacenan todos lo nombres de las tiendas en un string
+			textoTiendas += indice+". "+tienda.getNombre()+" Productos: "+tienda.cantidadProductos() + "\n"; //se almacenan todos lo nombres de las tiendas en un string
 			indice++;
 		}
 		return textoTiendas;

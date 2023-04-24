@@ -16,7 +16,7 @@ public class Factura {
     private double total;
     private static int facturasCreadas;
     private static ArrayList<Factura> listaFacturas = new ArrayList<Factura>();
-    private HashMap<String, Moda> infoAtributos;
+    private HashMap<String, Moda> infoAtributos = new HashMap<String,Moda>();
 
     // Constructor
     public Factura(Tienda tienda, Cliente cliente, Transporte transporte, Producto producto, int fecha, String disclaimer) {
@@ -222,7 +222,7 @@ public static String mostrarFacturas(){
     int indice = 1;
     //se recorre la lista para obtener cada nombre de las facturas disponibles:
     for(Factura factura:listaFacturas) {
-        textoFactura += indice+". ID: "+factura.getId()+"\n"; //se almacenan todos lo ID's de las facturas en un string
+        textoFactura += indice+". ID: "+factura.getId()+" Cliente: "+factura.getCliente().getNombre()+"\n"; //se almacenan todos lo ID's de las facturas en un string
         indice++;
     }
     return textoFactura;
