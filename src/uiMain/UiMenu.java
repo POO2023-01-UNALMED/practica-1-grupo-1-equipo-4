@@ -106,7 +106,7 @@ public class UiMenu {
             // Crear objetos de Cliente
             ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
             CuentaBancaria cuenta1 = new CuentaBancaria(11111, 5000000);
-                Cliente cliente1 = new Cliente("Juan Pérez", "Calle 123", "producto", cuenta1);
+            Cliente cliente1 = new Cliente("Juan Pérez", "Calle 123", "producto", cuenta1);
             CuentaBancaria cuenta2 = new CuentaBancaria(22222, 100000);
             Cliente cliente2 = new Cliente("María García", "Avenida 456", "producto", cuenta2);
             CuentaBancaria cuenta3 = new CuentaBancaria(33333,20000);
@@ -116,6 +116,13 @@ public class UiMenu {
             listaClientes.add(cliente1);
             listaClientes.add(cliente2);
             listaClientes.add(cliente3);
+
+
+            //FACTURAS DE PRUEBA:
+            Factura factura = new Factura(tienda3, cliente3, transporteAbastecer, producto10, 0, "hola");
+            Factura factura1 = new Factura(tienda2, cliente3, transporteAbastecer, producto10, 0, "hola22");
+            Factura factura2= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 0, "hola33");
+            
 	}
 	public static void main(String[] args) {
         int opcion;

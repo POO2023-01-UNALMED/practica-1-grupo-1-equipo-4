@@ -30,12 +30,13 @@ public class UiDevoluciones {
 
                     while(condicion2){
                     String facturas = Factura.mostrarFacturas(); //se almacenan las facturas en un string
-                    System.out.println("Por favor seleccione el número que le corresponda\n"+
+                    System.out.println("\nPor favor seleccione el número que le corresponda\n"+
                                         "a la factura para realizar la devolucion\n");
                     System.out.println("0. Volver al menu principal");
                     System.out.println(facturas); //se muestran las facturas en pantalla
+                    System.out.print("Digite su opcion: ");
                     int op = sc.nextInt(); // se pide la opcion al admin
-
+                    System.out.println("");
                     if (op == 0){
                         eleccion = 0;
                         condicion = false;
@@ -48,13 +49,13 @@ public class UiDevoluciones {
 
                         //temporizador para que se vea mas real la eliminacion.
                         try {
-                            Thread.sleep(1000); // Espera 1 segundo
+                            Thread.sleep(500); // Espera 1 segundo
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        System.out.println("⌛🕗 Realizando devolución ... Por favor espere 🕔⌛");
+                        System.out.println("... Realizando devolución ... Por favor espere ...");
                         try {
-                            Thread.sleep(2000); // Espera 2 segundos
+                            Thread.sleep(2200); // Espera 2 segundos
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -64,17 +65,18 @@ public class UiDevoluciones {
             
                         cliente.getCuentaBancaria().devolverDinero(total, cliente);
                         cliente.setProducto(null);
-                        System.out.println("✅ El producto ha sido devuelto exitosamente ✅");
+                        System.out.println("¡¡ El producto ha sido devuelto exitosamente !!\n");
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(750);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
 
                         eleccion = 2; //para que entre al ultimo caso
+                        break;
                     }    
                     else {
-                        System.out.println("❌ La opcion que digitó es incorrecta ❌");}
+                        System.out.println("La opcion que digitó es incorrecta");}
                     }
                     break;
 
@@ -96,7 +98,7 @@ public class UiDevoluciones {
                             break;
                         }
                         else{
-                            System.out.println("❌ La opcion que digitó es incorrecta ❌");
+                            System.out.println(" La opcion que digitó es incorrecta ");
                         }
                     }
                     break;
