@@ -23,6 +23,7 @@ public class UiEnviarPedido {
         Tienda TiendaSeleccionada = null;
         Producto productoSeleccionado = null;
         Transporte transporteSeleccionado = null;
+        TipoTransporte tipoTransportes = null;
 
         ArrayList<Producto> listaDeProductos;
         while (interruptor) {
@@ -111,7 +112,7 @@ public class UiEnviarPedido {
                     System.out.println("0. Regresar al menu anterior");
                     
                     System.out.print("Seleccione el tipo de transporte: ");
-                    TipoTransporte tipoTransportes;
+                    //TipoTransporte tipoTransportes;
                     ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
                     listaTransFiltrada = tipoTransportes.crearTipoTransporteSegunCarga(productoSeleccionado);
                     //System.out.println(UiMenu.tipoTransportes.mostrarTipoTransporteSegunCarga(productoSeleccionado));
