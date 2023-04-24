@@ -2,8 +2,6 @@ package uiMain;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import gestorAplicacion.gestion.Mostrable;
-
 
 public class Menu {
 
@@ -47,7 +45,7 @@ public class Menu {
      */
 
     private String[] opciones;
-    private Mostrable[] opcionesMostrables;
+   // private Mostrable[] opcionesMostrables;
     private int numOpciones;
     private String enunciado;
     private String opcionDefault;
@@ -60,13 +58,13 @@ public class Menu {
         opcionDefault = "Cancelar";
     }
 
-    public Menu(String enunciado, Mostrable[] opcionesMostrables){
+  /*    public Menu(String enunciado, Mostrable[] opcionesMostrables){
 
         this.opcionesMostrables = opcionesMostrables;
         numOpciones = opciones.length;
         this.enunciado = enunciado;
         opcionDefault = "Cancelar";
-    }
+    }*/
 
     public Menu(String enunciado, String[] opciones, String opcionDefault){
 
@@ -80,16 +78,16 @@ public class Menu {
 
         System.out.println(enunciado + "\n");
 
-        if(opciones != null){
+        //if(opciones != null){
             for(int i = 0; i < numOpciones; i++){
                 System.out.println((i + 1) + ". " + opciones[i]);
             }
-        }else{
+        /* }else{
 
             for(int i = 0; i < numOpciones; i++){
                 System.out.println((i + 1) + ". " + opcionesMostrables[i].getNombre());
             }
-        }
+        }*/
         System.out.println("0. " +  opcionDefault);
 
         Scanner sc = new Scanner(System.in);

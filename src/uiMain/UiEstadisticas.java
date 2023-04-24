@@ -78,7 +78,7 @@ public class UiEstadisticas {
 
 
         String opciones[] = new String[]{"Ganancias Discretas", "Ganancias Totales", 
-                "Promedio por día", "Aumento porcentual", "Modas estadísticas", "Cambiar fechas"};
+                "Promedio por dia", "Aumento porcentual", "Modas estadisticas", "Cambiar fechas"};
 
         String opcion = new Menu("Ingrese información a obtener", opciones, "Volver al inicio").mostrarReturnString();
 
@@ -122,6 +122,12 @@ public class UiEstadisticas {
     
                     break;
 
+                case "MODAS ESTADISTICAS":
+
+                        modas(fecha1, fecha2);
+
+                    break;
+
                 case "VOLVER AL INICIO":
 
                         return;
@@ -149,19 +155,19 @@ public class UiEstadisticas {
 
                 case 1:
 
-                    System.out.println("La tienda más usada a sido " + Factura.moda(fecha1, fecha2, "tienda").getNombre());
+                    System.out.println("La tienda más usada ha sido " + Factura.moda(fecha1, fecha2, "tienda").getNombre());
 
                     break;
 
                 case 2:     
 
-                    System.out.println("El transporte más usado a sido " + Factura.moda(fecha1, fecha2, "transporte").getNombre());
+                    System.out.println("El transporte más usado ha sido " + Factura.moda(fecha1, fecha2, "transporte").getNombre());
 
                     break;
 
                 case 3:
 
-                    System.out.println("El cliente al que más se le ha vendido a sido " + Factura.moda(fecha1, fecha2, "cliente").getNombre());
+                    System.out.println("El cliente al que más se le ha vendido ha sido " + Factura.moda(fecha1, fecha2, "cliente").getNombre());
 
                 case 0:
 
