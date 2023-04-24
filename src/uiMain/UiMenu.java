@@ -18,16 +18,16 @@ public class UiMenu {
 
             ArrayList<Producto> catalogo = new ArrayList<Producto>();
             //Producto(String nombre, String descripcion, Double valor, Double peso, Double tamano, Double costoDeProduccion);
-            Producto producto1 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto2 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto3 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto4 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto5 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto6 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto7 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto8 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto9 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
-            Producto producto10 = new Producto("producto","descricion vacia", 10000, 5, 20,1);
+            Producto producto1 = new Producto("producto1","descricion vacia", 10000, 5, 20,1);
+            Producto producto2 = new Producto("producto2","descricion vacia", 10000, 5, 20,1);
+            Producto producto3 = new Producto("producto3","descricion vacia", 10000, 5, 20,1);
+            Producto producto4 = new Producto("producto4","descricion vacia", 10000, 5, 20,1);
+            Producto producto5 = new Producto("producto5","descricion vacia", 10000, 5, 20,1);
+            Producto producto6 = new Producto("producto6","descricion vacia", 10000, 5, 20,1);
+            Producto producto7 = new Producto("producto7","descricion vacia", 10000, 5, 20,1);
+            Producto producto8 = new Producto("producto8","descricion vacia", 10000, 5, 20,1);
+            Producto producto9 = new Producto("producto9","descricion vacia", 10000, 5, 20,1);
+            Producto producto10 = new Producto("producto10","descricion vacia", 10000, 5, 20,1);
             //se agregan al catalogo
             catalogo.add(producto1);
             catalogo.add(producto2);

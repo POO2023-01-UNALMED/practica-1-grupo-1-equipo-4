@@ -94,6 +94,8 @@ public class UiAbastecer {
                     if(UiMenu.transporteAbastecer.getTienda().equals(tiendaSeleccionada)==true){
                         tiendaSeleccionada.descargarProducto(UiMenu.transporteAbastecer, 0);   
                     }else{System.out.println("El envio no se pudo realizar a esa tienda");}
+
+                    
                     //Ciclo final para ver si sale o se reinicia la funcionalidad
                     System.out.println("0.Volver al menu principal"+"\n"+"1. Realizar mas envios");
                     while(true){
