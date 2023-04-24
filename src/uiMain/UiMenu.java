@@ -154,7 +154,7 @@ public class UiMenu {
                     UiDevoluciones.gestionarDevoluciones();
                     break;
                 case 5:
-                    UiEstadisticas.ingresarFechas();
+                    UiEstadisticas.estadistica();
                     break;
                 case 6:
                     System.out.println("Gracias por visitarnos");

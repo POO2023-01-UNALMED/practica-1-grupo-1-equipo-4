@@ -8,6 +8,16 @@ import gestorAplicacion.gestion.Factura;
 
 public class UiEstadisticas {
 
+
+    public static void estadistica(){
+
+        int[] fechas = ingresarFechas();
+
+        analisis(fechas[0], fechas[1]);
+
+
+    }
+
     public static int[] ingresarFechas(){
 
         Scanner sc = new Scanner(System.in);
@@ -15,16 +25,16 @@ public class UiEstadisticas {
         int opcion = new Menu("REPORTE", new String[]{"Analizar toda la información", 
                                                     "Ingresar fechas específicas"}).mostrar();
        
-        int fechaMin = Factura.fechaMin();
-        int fechaMax = Factura.fechaMax();
+        int fechaMin = Factura.getFechaMin();
+        int fechaMax = Factura.getFechaMax();
+
+        while(opcion != 0){
 
         switch(opcion){
 
             case 1:
 
                 return new int[]{fechaMin, fechaMax};
-
-            break;
 
             case 2:
 
@@ -36,63 +46,139 @@ public class UiEstadisticas {
                 
                 return new int[]{fecha1, fecha2};
 
-            break;
-
-            default:
+            case 0:
 
                 return new int[]{-1, -1}; 
 
-            break;
+            default:
+
+            System.out.println("Ha ingresado un valor no válido. Por favor vuelva a intentarlo");
+
+                break;
+
         }
+
+        opcion = new Menu("REPORTE", new String[]{"Analizar toda la información", 
+                                                    "Ingresar fechas específicas"}).mostrar();
     }
 
-    public void estadistica(int fecha1, int fecha2){
+    return new int[]{-1, -1}; 
+
+}
+
+    public static void analisis(int fecha1, int fecha2){
+
+        if(fecha1 == -1 && fecha2 == -1){
+            return;
+        }
+
+            
+        int fechaMin = Factura.getFechaMin();
+        int fechaMax = Factura.getFechaMax();
+
 
         String opciones[] = new String[]{"Ganancias Discretas", "Ganancias Totales", 
-                "Promedio por día", "Aumento porcentual", "Cambiar fechas"};
+                "Promedio por dia", "Aumento porcentual", "Modas estadisticas", "Cambiar fechas"};
 
         String opcion = new Menu("Ingrese información a obtener", opciones, "Volver al inicio").mostrarReturnString();
 
        HashMap<Integer, Double> disc =  Factura.gananciasDiscretas(fecha1, fecha2);
         
-        switch(opcion){
+        while(opcion!= "Volver al inicio"){
 
-            case "GANANCIAS DISCRETAS":
+            switch(opcion){
 
-                    System.out.println(disc);
+                case "GANANCIAS DISCRETAS":
+    
+                        System.out.println(disc);
+    
+                    break;
+    
+                case "GANANCIAS TOTALES":
+    
+                        System.out.println(Factura.gananciasTotales(disc));
+    
+                    break;
+    
+                case "PROMEDIO POR DIA":
+    
+                        System.out.println(Factura.promedioPorDia(fecha1, fecha2));
+    
+                    break;
+    
+                case "AUMENTO PORCENTUAL":
+    
+                        System.out.println(Factura.aumentoPorcentual(fecha1, fecha2));
+    
+                    break;
+    
+                case "CAMBIAR FECHAS":
+    
+                    System.out.println("\nLa fecha mínima es " + fechaMin + " y la fecha máxima es " + fechaMax);
+                    System.out.println("Ingrese fecha de inicio: ");
+    
+                    fecha1 = Menu.ingresarConLimites(fechaMin, fechaMax);
+                    fecha2 = Menu.ingresarConLimites(fecha1, fechaMax);
+    
+                    break;
 
-                break;
+                case "MODAS ESTADISTICAS":
 
-            case "GANANCIAS TOTALES":
+                        modas(fecha1, fecha2);
 
-                    System.out.println(Factura.gananciasTotales(disc));
+                    break;
 
-                break;
+                case "VOLVER AL INICIO":
 
-            case "PROMEDIO POR DIA":
+                        return;
+    
+                default:
 
-                    System.out.println(Factura.promedioPorDia(fecha1, fecha2));
+                    System.out.println("Ha ingresado un valor no válido. Por favor vuelva a intentarlo");
+    
+                
+            }
 
-                break;
-
-            case "AUMENTO PORCENTUAL":
-
-                    System.out.println(Factura.aumentoPorcentual(fecha1, fecha2));
-
-                break;
-
-            case "CAMBIAR FECHAS":
-
-
-                break;
-
-            default:
-
-                return;
-            
+            opcion = new Menu("Ingrese información a obtener", opciones, "Volver al inicio").mostrarReturnString();
         }
-
     }
 
-    
+    public static void modas(int fecha1, int fecha2){
+
+        String opciones[] = new String[]{"Tienda más usada", "Transporte más usado", "Cliente al que más se le ha vendido"};
+
+        int opcion = new Menu("Seleccione moda: ", opciones).mostrar();
+
+        while(opcion != 0){
+
+            switch(opcion){
+
+                case 1:
+
+                    System.out.println("La tienda más usada ha sido " + Factura.moda(fecha1, fecha2, "tienda").getNombre());
+
+                    break;
+
+                case 2:     
+
+                    System.out.println("El transporte más usado ha sido " + Factura.moda(fecha1, fecha2, "transporte").getNombre());
+
+                    break;
+
+                case 3:
+
+                    System.out.println("El cliente al que más se le ha vendido ha sido " + Factura.moda(fecha1, fecha2, "cliente").getNombre());
+
+                case 0:
+
+                    return;
+
+                default:
+
+                    System.out.println("Ha ingresado un valor no válido. Por favor vuelva a intentarlo");
+
+                break;
+            }
+        }
+    }
 }
