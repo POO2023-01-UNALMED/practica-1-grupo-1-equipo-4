@@ -54,7 +54,7 @@ public class Tienda implements Financiero, Moda{
         }
         /*Bucle for each para generar la cadena con la cantidad de cada producto */
         for(Map.Entry<Producto, Integer> entrada:listaCantidadProductos.entrySet()){
-            cadena += entrada.getKey().getNombre() + " " + entrada.getValue() + " "; 
+            cadena +="\n"+ entrada.getKey().getNombre() + ": " + entrada.getValue() + " "; 
         }
 
         return cadena;
