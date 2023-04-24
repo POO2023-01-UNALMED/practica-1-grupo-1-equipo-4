@@ -77,6 +77,18 @@ public class Factura {
         return listaFechas;
 }
 
+    public static ArrayList<Integer> getListaFechas(){
+
+        ArrayList<Integer> listaFechas = new ArrayList<Integer>();
+        
+        for(Factura factura: listaFacturas){
+            if(!listaFechas.contains(factura.fecha))
+                listaFechas.add(factura.fecha);
+        }
+
+        return listaFechas;
+    }
+
     public static HashMap<Integer, Double> gananciasDiscretas(ArrayList<Integer> fechas){
 
         int fecha1 = fechas.get(0);
@@ -213,6 +225,18 @@ public static Moda moda(int fecha1, int fecha2, String atributo){
     }
 
     return Factura.masComun(objetos);
+}
+
+public static int getFechaMax(){
+
+    return Collections.max(getListaFechas());
+
+}
+
+public static int getFechaMin(){
+
+    return Collections.min(getListaFechas());
+
 }
 
 

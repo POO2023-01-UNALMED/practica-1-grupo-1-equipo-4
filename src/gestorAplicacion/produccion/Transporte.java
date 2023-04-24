@@ -58,6 +58,10 @@ public class Transporte implements Moda {
         return this.matricula; 
      }
 
+     public String getNombre(){
+        return tipo.getNombre();
+     }
+
      public void setMatricula(String matricula){
         this.matricula = matricula; 
      }
