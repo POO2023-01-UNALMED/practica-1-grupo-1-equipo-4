@@ -2,6 +2,10 @@ package gestorAplicacion.produccion;
 
 import java.util.ArrayList;
 
+import gestorAplicacion.gestion.Conductor;
+
+import java.util.Random;
+
 public enum TipoTransporte {
     
     //los tipos de transporte que hay
@@ -47,7 +51,7 @@ public enum TipoTransporte {
         Nombre = nombre;
     }
 
-    public ArrayList<TipoTransporte> crearTipoTransporteSegunCarga(Producto producto){
+    public static ArrayList<TipoTransporte> crearTipoTransporteSegunCarga(Producto producto){
 		ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
 		for(TipoTransporte tipoTransportes : TipoTransporte.values()) {
             if(tipoTransportes.getCapacidadMax() >= producto.getPeso()){
@@ -58,9 +62,9 @@ public enum TipoTransporte {
 }
     
 
-    public String mostrarTipoTransporteSegunCarga(ArrayList<TipoTransporte> ListaFiltrada){
+    public static String mostrarTipoTransporteSegunCarga(ArrayList<TipoTransporte> ListaFiltrada){
 		String textoTransFiltrado="";
-        int indice = 0;
+        int indice = 1;
 		for(TipoTransporte tipoTransportes : ListaFiltrada) {
 			textoTransFiltrado += indice+". "+ tipoTransportes.getNombre()+"\n"; //se almacenan todos lo nombres de las tiendas en un string
 			indice++;
@@ -69,14 +73,21 @@ public enum TipoTransporte {
         return  textoTransFiltrado;
 }
 
-    public Transporte seleccionarTransporte(ArrayList<TipoTransporte> ListaFiltrada,int opcion){
-        String matricula ="kkk555";
+    public static Transporte seleccionarTransporte(ArrayList<TipoTransporte> ListaFiltrada,int opcion){
+        
+        int min = 0; // valor mínimo
+        int max = Conductor.getListaConductores().size()-1; // valor máximo
+
+        Random random = new Random();
+        int randomNumber = random.nextInt(max - min + 1) + min; //se genera un nuero aleatorio
+
+        Conductor conductor = Conductor.getListaConductores().remove(randomNumber);
         TipoTransporte tipo = ListaFiltrada.get(opcion-1);
         Double capacidad= ListaFiltrada.get(opcion-1).getCapacidadMax();
         Double precioEnvio = ListaFiltrada.get(opcion-1).getPrecioEnvio();
 
-        Transporte transporte = new Transporte(matricula,tipo,capacidad,precioEnvio);
-
+        Transporte transporte = new Transporte(tipo,capacidad,precioEnvio,conductor);
+        System.out.println("--------------------------" + conductor.getNombre());
         return transporte;
     }
 }

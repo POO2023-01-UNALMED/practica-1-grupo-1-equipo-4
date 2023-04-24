@@ -18,7 +18,7 @@ public class UiMenu {
 
             ArrayList<Producto> catalogo = new ArrayList<Producto>();
             //Producto(String nombre, String descripcion, Double valor, Double peso, Double tamano, Double costoDeProduccion);
-            Producto producto1 = new Producto("producto1","descricion vacia", 10000, 5, 20,1);
+            Producto producto1 = new Producto("producto1","descricion vacia", 10000, 50, 20,1);
             Producto producto2 = new Producto("producto2","descricion vacia", 10000, 5, 20,1);
             Producto producto3 = new Producto("producto3","descricion vacia", 10000, 5, 20,1);
             Producto producto4 = new Producto("producto4","descricion vacia", 10000, 5, 20,1);
@@ -100,8 +100,11 @@ public class UiMenu {
             //operario2.setFabrica(fabrica);
             //operario3.setFabrica(fabrica);
 
+            //conductores
+            Conductor conductor = new Conductor("joseito", 17, 12345, cuentaVendedor3,null);
+
             //Transporte para abastecer
-            transporteAbastecer = new Transporte("kkk555", TipoTransporte.CAMION, TipoTransporte.CAMION.getCapacidadMax(), (int)TipoTransporte.CAMION.getCapacidadMax());
+            transporteAbastecer = new Transporte(TipoTransporte.CAMION, TipoTransporte.CAMION.getCapacidadMax(),TipoTransporte.CAMION.getCapacidadMax(),conductor);
 
             // Crear objetos de Cliente
             ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
@@ -117,7 +120,10 @@ public class UiMenu {
             listaClientes.add(cliente2);
             listaClientes.add(cliente3);
 
-
+            //inicializar el map de los productos
+            tienda1.cantidadProductosVentas();
+            tienda2.cantidadProductosVentas();
+            tienda3.cantidadProductosVentas();
             //FACTURAS DE PRUEBA:
             Factura factura = new Factura(tienda3, cliente3, transporteAbastecer, producto10, 0, "hola");
             Factura factura1 = new Factura(tienda2, cliente3, transporteAbastecer, producto10, 0, "hola22");
