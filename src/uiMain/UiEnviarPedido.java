@@ -114,9 +114,9 @@ public class UiEnviarPedido {
                     System.out.print("Seleccione el tipo de transporte: ");
                     //TipoTransporte tipoTransportes;
                     ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
-                    listaTransFiltrada = tipoTransportes.crearTipoTransporteSegunCarga(productoSeleccionado);
+                    listaTransFiltrada = TipoTransporte.crearTipoTransporteSegunCarga(productoSeleccionado);
                     //System.out.println(UiMenu.tipoTransportes.mostrarTipoTransporteSegunCarga(productoSeleccionado));
-                    System.out.println(tipoTransportes.mostrarTipoTransporteSegunCarga(listaTransFiltrada));
+                    System.out.println(TipoTransporte.mostrarTipoTransporteSegunCarga(listaTransFiltrada));
 
                     int numTransporteSeleccionado = sc.nextInt();
                     
@@ -132,7 +132,7 @@ public class UiEnviarPedido {
                     
                     else{
                     //Transporte transporteSeleccionado = tipoTransportes.seleccionarTransporte(listaTransFiltrada, numTransporteSeleccionado);
-                    transporteSeleccionado = tipoTransportes.seleccionarTransporte(listaTransFiltrada, numTransporteSeleccionado);
+                    transporteSeleccionado = TipoTransporte.seleccionarTransporte(listaTransFiltrada, numTransporteSeleccionado);
                     System.out.print("Ha seleccionado el transporte # " +numTransporteSeleccionado + "El pedido se enviará por" + transporteSeleccionado.getTipo().getNombre());
                     }
                     
@@ -140,7 +140,7 @@ public class UiEnviarPedido {
                 case 5: //retorna factura
                     System.out.println("Digite el día del mes:");
                     int dia = sc.nextInt();
-                    tienda.enviarPedido(productoSeleccionado, transporteSeleccionado , clienteSeleccionado, dia);
+                    TiendaSeleccionada.enviarPedido(productoSeleccionado, transporteSeleccionado , clienteSeleccionado, dia);
 
 
 

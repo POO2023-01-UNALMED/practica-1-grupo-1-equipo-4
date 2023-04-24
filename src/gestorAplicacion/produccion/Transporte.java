@@ -25,7 +25,8 @@ public class Transporte implements Moda {
 
 
 
-    public Transporte(String matricula, TipoTransporte tipo, Double capacidad, double costo) {
+    public Transporte(String matricula, TipoTransporte tipo, Double capacidad, double costo, Conductor conductor) {
+        this.conductor = conductor;
         this.matricula = matricula;
         this.tipo = tipo;
         this.capacidad = capacidad;

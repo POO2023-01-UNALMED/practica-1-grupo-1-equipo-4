@@ -2,6 +2,8 @@ package gestorAplicacion.produccion;
 
 import java.util.ArrayList;
 
+import gestorAplicacion.gestion.Conductor;
+
 public enum TipoTransporte {
     
     //los tipos de transporte que hay
@@ -47,7 +49,7 @@ public enum TipoTransporte {
         Nombre = nombre;
     }
 
-    public ArrayList<TipoTransporte> crearTipoTransporteSegunCarga(Producto producto){
+    public static ArrayList<TipoTransporte> crearTipoTransporteSegunCarga(Producto producto){
 		ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
 		for(TipoTransporte tipoTransportes : TipoTransporte.values()) {
             if(tipoTransportes.getCapacidadMax() >= producto.getPeso()){
@@ -58,7 +60,7 @@ public enum TipoTransporte {
 }
     
 
-    public String mostrarTipoTransporteSegunCarga(ArrayList<TipoTransporte> ListaFiltrada){
+    public static String mostrarTipoTransporteSegunCarga(ArrayList<TipoTransporte> ListaFiltrada){
 		String textoTransFiltrado="";
         int indice = 0;
 		for(TipoTransporte tipoTransportes : ListaFiltrada) {
@@ -69,13 +71,14 @@ public enum TipoTransporte {
         return  textoTransFiltrado;
 }
 
-    public Transporte seleccionarTransporte(ArrayList<TipoTransporte> ListaFiltrada,int opcion){
+    public static Transporte seleccionarTransporte(ArrayList<TipoTransporte> ListaFiltrada,int opcion){
         String matricula ="kkk555";
+        Conductor conductor =null;
         TipoTransporte tipo = ListaFiltrada.get(opcion-1);
         Double capacidad= ListaFiltrada.get(opcion-1).getCapacidadMax();
         Double precioEnvio = ListaFiltrada.get(opcion-1).getPrecioEnvio();
 
-        Transporte transporte = new Transporte(matricula,tipo,capacidad,precioEnvio);
+        Transporte transporte = new Transporte(matricula,tipo,capacidad,precioEnvio,conductor);
 
         return transporte;
     }
