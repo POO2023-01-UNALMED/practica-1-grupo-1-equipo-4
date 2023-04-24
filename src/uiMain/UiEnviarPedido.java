@@ -20,7 +20,7 @@ public class UiEnviarPedido {
 
         Boolean interruptor = true;
         Cliente clienteSeleccionado = null;
-        Tienda TiendaSeleccionada = null;
+        Tienda tiendaSeleccionada = null;
         Producto productoSeleccionado = null;
         Transporte transporteSeleccionado = null;
         TipoTransporte tipoTransportes = null;
@@ -53,7 +53,7 @@ public class UiEnviarPedido {
                     }
                     else{
                         clienteSeleccionado = Cliente.getListaClientes().get(numClienteSeleccionado-1);
-                        System.out.print("Has seleccionado al cliente # " + numClienteSeleccionado +"\nEl cliente es: " + clienteSeleccionado.getNombre());
+                        System.out.print("Has seleccionado al cliente #" + numClienteSeleccionado +"\nEl cliente es: " + clienteSeleccionado.getNombre());
                         eleccion = 2;
                     }
                 case 2: //seleccionar la tienda 
@@ -78,7 +78,7 @@ public class UiEnviarPedido {
                     eleccion = 2;
                     break;} 
                 else {
-                    TiendaSeleccionada = UiMenu.fabrica.getListaTienda().get(numTiendaSeleccionada-1);
+                    tiendaSeleccionada = UiMenu.fabrica.getListaTienda().get(numTiendaSeleccionada-1);
                     System.out.println("Has seleccionado la tienda: " + numTiendaSeleccionada);
                     eleccion = 3; 
                 }    
@@ -86,7 +86,7 @@ public class UiEnviarPedido {
                 System.out.println("\nSeleccione el producto que desea enviarle al cliente");
 
                     System.out.println("0. Regresar al menu anterior");
-                    System.out.println(UiMenu.fabrica.mostrarProductos());
+                    System.out.println(tiendaSeleccionada.cantidadProductosVentas());
                     System.out.print("Seleccione el producto que desea enviar: ");
                     
                 numProductoSeleccionado = sc.nextInt();
@@ -102,7 +102,7 @@ public class UiEnviarPedido {
                     break;} 
                 else {
                 productoSeleccionado=UiMenu.fabrica.getListaProductos().get(numProductoSeleccionado-1);
-                System.out.print("Ha seleccionado el producto # " +numProductoSeleccionado);
+                System.out.print("Ha seleccionado el producto #" +numProductoSeleccionado);
             }
                     
                 case 4: //seleccionar tipo de transporte
@@ -133,17 +133,15 @@ public class UiEnviarPedido {
                     else{
                     //Transporte transporteSeleccionado = tipoTransportes.seleccionarTransporte(listaTransFiltrada, numTransporteSeleccionado);
                     transporteSeleccionado = TipoTransporte.seleccionarTransporte(listaTransFiltrada, numTransporteSeleccionado);
-                    System.out.print("Ha seleccionado el transporte # " +numTransporteSeleccionado + "\nEl pedido se enviará por " + transporteSeleccionado.getTipo().getNombre());
+                    System.out.print("Ha seleccionado el transporte #" +(numTransporteSeleccionado-1) + "El pedido se enviará por" + transporteSeleccionado.getTipo().getNombre());
                     }
                     
 
                 case 5: //retorna factura
                     System.out.println("\nDigite el día del mes: ");
                     int dia = sc.nextInt();
-                    TiendaSeleccionada.enviarPedido(productoSeleccionado, transporteSeleccionado , clienteSeleccionado, dia);
-
-
-
+                    System.out.println("\n"+ tiendaSeleccionada.enviarPedido(productoSeleccionado, transporteSeleccionado , clienteSeleccionado, dia));
+                    break;
  
             }
 

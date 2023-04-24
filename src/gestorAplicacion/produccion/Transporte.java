@@ -8,7 +8,7 @@ import gestorAplicacion.gestion.Conductor;
 
 public class Transporte implements Moda {
     //Atributos
-    private String matricula;
+
     private TipoTransporte tipo; 
     private Double capacidad; 
     private double costo;
@@ -25,9 +25,8 @@ public class Transporte implements Moda {
 
 
 
-    public Transporte(String matricula, TipoTransporte tipo, Double capacidad, double costo, Conductor conductor) {
+    public Transporte(TipoTransporte tipo, Double capacidad, double costo, Conductor conductor) {
         this.conductor = conductor;
-        this.matricula = matricula;
         this.tipo = tipo;
         this.capacidad = capacidad;
         this.costo = costo;
@@ -54,17 +53,8 @@ public class Transporte implements Moda {
 
      //Getters y setters 
 
-
-     public String getMatricula(){
-        return this.matricula; 
-     }
-
      public String getNombre(){
         return tipo.getNombre();
-     }
-
-     public void setMatricula(String matricula){
-        this.matricula = matricula; 
      }
     //para tipo
      public TipoTransporte getTipo() {

@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+
 public class Tienda implements Financiero, Moda{
 
     //Atributos
@@ -41,6 +42,7 @@ public class Tienda implements Financiero, Moda{
         }
         return str;
     }
+    //mostrar productos abastecer :)))
     public String cantidadProductos(){
         listaCantidadProductos = new HashMap<Producto,Integer>(); 
         String cadena = "";
@@ -59,6 +61,28 @@ public class Tienda implements Financiero, Moda{
 
         return cadena;
     }
+    //mostrar el procto que va a ser enviado
+    public String cantidadProductosVentas(){
+        listaCantidadProductos = new HashMap<Producto,Integer>(); 
+        String cadena = "";
+        int indice = 1; 
+        /*Ciclo para agregar los valores al diccionario y hacer el conteo */
+        for(int i=0;i<listaProductos.size();i++){
+            if(listaCantidadProductos.containsKey(listaProductos.get(i))){
+                listaCantidadProductos.put(listaProductos.get(i), listaCantidadProductos.get(listaProductos.get(i))+1);
+            }else{
+                listaCantidadProductos.put(listaProductos.get(i),1);
+            }
+        }
+        /*Bucle for each para generar la cadena con la cantidad de cada producto */
+        for(Map.Entry<Producto, Integer> entrada:listaCantidadProductos.entrySet()){
+            cadena +="\n"+indice+". "+ entrada.getKey().getNombre() + ": " + entrada.getValue() + " "; 
+            indice++; 
+        }
+
+        return cadena;
+    }
+
     public void elegirTransporte(Producto producto){
         for(int i=0; i<TipoTransporte.values().length; i++) {
 			if (TipoTransporte.values()[i].getCapacidadMax()<=producto.getPeso()){
@@ -69,7 +93,8 @@ public class Tienda implements Financiero, Moda{
 
     public Factura enviarPedido(Producto producto, Transporte transporte, Cliente cliente, int dia){
         //Resto 1 unidad de las cantidades de los productos, pues se envio
-        listaCantidadProductos.put(producto, listaCantidadProductos.get(producto)-1);
+        //------listaCantidadProductos.put(producto, listaCantidadProductos.get(producto)-1);
+        listaProductos.remove(producto);
         //Añado la suma de trabajo a los trabajadores
         //Al vendedor
         this.getVendedor().setTrabajo(this.getVendedor().getTrabajo()+1);

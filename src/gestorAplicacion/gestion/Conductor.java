@@ -1,9 +1,12 @@
 package gestorAplicacion.gestion;
+import java.util.ArrayList;
+
 import gestorAplicacion.produccion.Fabrica;
 import gestorAplicacion.produccion.Transporte;
 public class Conductor extends Persona {
 	private Transporte transporte;
 	private Fabrica fabrica;
+	private static ArrayList<Conductor> listaConductores = new ArrayList<Conductor>();
 	/*-------------------Constructores-------------------------*/
 	
 	
@@ -11,6 +14,7 @@ public class Conductor extends Persona {
 	public Conductor(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,Transporte transporte) {
 		super(nombre, edad, cedula, cuentaBancaria);
 		this.transporte=transporte;
+		listaConductores.add(this);
 	}
 	/*Constructor de la clase conductor vacio*/
 	public Conductor() {
@@ -20,6 +24,12 @@ public class Conductor extends Persona {
 	/*-------------------Getter y setter-------------------------*/
 	public Transporte getTransporte() {
 		return transporte;
+	}
+	public static ArrayList<Conductor> getListaConductores() {
+		return listaConductores;
+	}
+	public static void setListaConductores(ArrayList<Conductor> listaConductores) {
+		Conductor.listaConductores = listaConductores;
 	}
 	public void setTransporte(Transporte transporte) {
 		this.transporte = transporte;
