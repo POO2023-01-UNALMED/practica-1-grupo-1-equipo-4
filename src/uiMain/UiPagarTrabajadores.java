@@ -12,18 +12,17 @@ public class UiPagarTrabajadores {
 
     public static void pagartrabajadores() {
 
+        Scanner sc = new Scanner(System.in);
         System.out.println("\nHas escogido la opción pagar a trabajadores");
 
         boolean verificador1 = true;
 
         while(verificador1){
-
-            Scanner sc = new Scanner(System.in);
             int opcSalida;
             boolean verificador2 = true;
 
-            int opcion = new Menu("¿A qué tipo de trabajador desea pagarle?", new String[]{"Operarios", "Vendedores", 
-                        "Conductores"}, "Retroceder").mostrar();
+            int opcion = new Menu("¿A qué tipo de trabajador desea pagarle?", new String[]{"Operarios", "Conductores", 
+                        "Vendedores"}, "Retroceder").mostrar();
             
             if (opcion == 0){
                 verificador1 = false;
@@ -32,28 +31,29 @@ public class UiPagarTrabajadores {
             
             switch (opcion) {
                 case 1:
-                    System.out.println("\nEsta es la lista de operarios que han trabajado"); 
+                    System.out.println("\nEsta es la lista de operarios que han trabajado\n"); 
                     break;
                 case 2:
-                    System.out.println("\nEsta es la lista de vendedores que han trabajado");
+                    System.out.println("\nEsta es la lista de conductores que han trabajado\n");
                     break;
                 case 3:
-                    System.out.println("\nEsta es la lista de conductores que han trabajado");
+                    System.out.println("\nEsta es la lista de vendedores que han trabajado\n");
                     break;
             }
 
             //Método #1 Verifica los trabajadores del tipo que seleccionó
             //que salen en las facturas que han sido creadas
+            //System.out.println("El error está acá");
+            //System.out.println(Factura.getListaFacturas());
             ArrayList<Persona> listaTrabajadores = Fabrica.busquedaTrabajo(Factura.getListaFacturas(),opcion);
             
             //Imprime la lista que se devolvió anteriormente
             int indice = 1;
 
             for (Persona i: listaTrabajadores) {
-                System.out.print(indice + i.toString() + "/n"); //USO DE LIGADURA DINÁMICA
+                System.out.print("Trabajador "+indice + i.toString() + "\n"); //USO DE LIGADURA DINÁMICA
                 indice++;               
             }
-
 
             while(verificador2){
                 //Pide el # del trabajador
@@ -98,10 +98,10 @@ public class UiPagarTrabajadores {
                     System.out.println("Seleccione una de las opciones disponibles: ");
                 }
             }
-            sc.close();
+
 
         }
-
+        //sc.close();
     }    
     
 }
