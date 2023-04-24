@@ -111,7 +111,7 @@ public class UiEnviarPedido {
                     
                     System.out.println("0. Regresar al menu anterior");
                     
-                    System.out.print("Seleccione el tipo de transporte: ");
+                    System.out.print("Seleccione el tipo de transporte: \n");
                     //TipoTransporte tipoTransportes;
                     ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
                     listaTransFiltrada = TipoTransporte.crearTipoTransporteSegunCarga(productoSeleccionado);
@@ -133,12 +133,12 @@ public class UiEnviarPedido {
                     else{
                     //Transporte transporteSeleccionado = tipoTransportes.seleccionarTransporte(listaTransFiltrada, numTransporteSeleccionado);
                     transporteSeleccionado = TipoTransporte.seleccionarTransporte(listaTransFiltrada, numTransporteSeleccionado);
-                    System.out.print("Ha seleccionado el transporte # " +numTransporteSeleccionado + "El pedido se enviará por" + transporteSeleccionado.getTipo().getNombre());
+                    System.out.print("Ha seleccionado el transporte # " +numTransporteSeleccionado + "\nEl pedido se enviará por " + transporteSeleccionado.getTipo().getNombre());
                     }
                     
 
                 case 5: //retorna factura
-                    System.out.println("Digite el día del mes:");
+                    System.out.println("\nDigite el día del mes: ");
                     int dia = sc.nextInt();
                     TiendaSeleccionada.enviarPedido(productoSeleccionado, transporteSeleccionado , clienteSeleccionado, dia);
 

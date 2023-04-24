@@ -73,7 +73,7 @@ public enum TipoTransporte {
 
     public static Transporte seleccionarTransporte(ArrayList<TipoTransporte> ListaFiltrada,int opcion){
         String matricula ="kkk555";
-        Conductor conductor =null;
+        Conductor conductor = null;
         TipoTransporte tipo = ListaFiltrada.get(opcion-1);
         Double capacidad= ListaFiltrada.get(opcion-1).getCapacidadMax();
         Double precioEnvio = ListaFiltrada.get(opcion-1).getPrecioEnvio();
