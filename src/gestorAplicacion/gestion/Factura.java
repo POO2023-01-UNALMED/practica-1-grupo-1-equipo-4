@@ -16,7 +16,7 @@ public class Factura {
     private double total;
     private static int facturasCreadas;
     private static ArrayList<Factura> listaFacturas = new ArrayList<Factura>();
-    private HashMap<String, Moda> infoAtributos = new HashMap<String,Moda>();
+    private static HashMap<String, Moda> infoAtributos = new HashMap<String,Moda>();
 
     // Constructor
     public Factura(Tienda tienda, Cliente cliente, Transporte transporte, Producto producto, int fecha, String disclaimer) {
