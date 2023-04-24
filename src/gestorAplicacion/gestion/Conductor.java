@@ -37,4 +37,14 @@ public class Conductor extends Persona {
 		fabrica.getCuentaBancaria().descontarFondos(total);
 		super.getCuentaBancaria().anadirFondos(total);
 	}
+
+
+	//Falta terminar
+	@Override
+	public String toString() {
+		return "\nNombre: "            + getNombre()            + "\n"
+        +      "Edad: "                + getEdad()              + "\n"
+        +      "Cedula: "              + getCedula()            + "\n";
+		
+	}
 }
