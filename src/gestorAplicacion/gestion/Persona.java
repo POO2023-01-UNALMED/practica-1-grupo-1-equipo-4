@@ -17,7 +17,7 @@ public abstract class Persona implements Financiero {
 	
 	
 	/*Constructor de la clase conductor que recibe todos los parametros*/
-	public Persona(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria) {
+	protected Persona(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria) {
 		this.nombre=nombre;
 		this.edad=edad;
 		this.cedula=cedula;
