@@ -123,6 +123,7 @@ public class Tienda implements Financiero, Moda{
         }
         transporte.getConductor().setTrabajo(transporte.getConductor().getTrabajo()+1);
         vendedor.setTrabajo(vendedor.getTrabajo()+1);
+        Fabrica.operario.setTrabajo(Fabrica.operario.getTrabajo()+1);
     }
 
     //Get and Set
