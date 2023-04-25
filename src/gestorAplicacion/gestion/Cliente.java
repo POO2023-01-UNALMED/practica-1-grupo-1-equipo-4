@@ -14,7 +14,7 @@ public class Cliente implements Moda{
 	private String direccion;
 	private CuentaBancaria cuentaBancaria;
 	private String productoDeseado;
-	private Producto producto;
+	private ArrayList<Producto> productos;
 	static private ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 	
 	
@@ -66,11 +66,11 @@ public class Cliente implements Moda{
 	}
 	
 	
-	public Producto getProducto() {
-		return producto;
+	public ArrayList<Producto> getProducto() {
+		return productos;
 	}
-	public void setProducto(Producto producto) {
-		this.producto = producto;
+	public void setProducto(ArrayList<Producto> productos) {
+		this.productos = productos;
 	}
     
 	

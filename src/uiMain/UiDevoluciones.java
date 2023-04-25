@@ -64,7 +64,7 @@ public class UiDevoluciones {
                         Cliente cliente = factura.getTienda().devolverProducto(factura);
             
                         cliente.getCuentaBancaria().devolverDinero(total, cliente);
-                        cliente.setProducto(null);
+                        //cliente.setProducto(null);
                         System.out.println("¡¡ El producto ha sido devuelto exitosamente !!\n");
                         try {
                             Thread.sleep(750);
