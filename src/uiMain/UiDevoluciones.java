@@ -1,13 +1,8 @@
 package uiMain;
 
 import gestorAplicacion.gestion.*;
-import gestorAplicacion.produccion.*;
-
 import java.util.Scanner;
-import java.util.ArrayList;
 import java.lang.Thread;
-
-import uiMain.UiMenu;
 
 public class UiDevoluciones {
 
