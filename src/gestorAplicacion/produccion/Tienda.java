@@ -45,7 +45,7 @@ public class Tienda implements Financiero, Moda{
     //mostrar productos abastecer :)))
     public String cantidadProductos(){
         listaCantidadProductos = new HashMap<Producto,Integer>(); 
-        String cadena = "";
+        String cadena = "    ";
         /*Ciclo para agregar los valores al diccionario y hacer el conteo */
         for(int i=0;i<listaProductos.size();i++){
             if(listaCantidadProductos.containsKey(listaProductos.get(i))){
@@ -64,7 +64,7 @@ public class Tienda implements Financiero, Moda{
     //mostrar el procto que va a ser enviado
     public String cantidadProductosVentas(){
         listaCantidadProductos = new HashMap<Producto,Integer>(); 
-        String cadena = "";
+        String cadena = "    ";
         int indice = 1; 
         /*Ciclo para agregar los valores al diccionario y hacer el conteo */
         for(int i=0;i<listaProductos.size();i++){
