@@ -124,12 +124,12 @@ public class Fabrica implements Financiero{
                     listaPersonas.add(Fabrica.getOperario());
                 }
             }else if(tipo==2){
-                if (!listaPersonas.contains(factura.getTransporte().getConductor())){
+                if (!listaPersonas.contains(factura.getTransporte().getConductor()) && factura.getTransporte().getConductor().getTrabajo()>0 ){
                     listaPersonas.add(factura.getTransporte().getConductor());
                 }
                     
             }else if(tipo==3){
-                if (!listaPersonas.contains(factura.getTienda().getVendedor())){
+                if (!listaPersonas.contains(factura.getTienda().getVendedor()) && factura.getTienda().getVendedor().getTrabajo()>0){
                     listaPersonas.add(factura.getTienda().getVendedor());
                 }
             }

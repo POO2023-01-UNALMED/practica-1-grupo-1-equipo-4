@@ -22,7 +22,7 @@ public class UiPagarTrabajadores {
             boolean verificador2 = true;
 
             int opcion = new Menu("\n¿A qué tipo de trabajador desea pagarle?", new String[]{"Operarios", "Conductores", 
-                        "Vendedores"}, "Retroceder").mostrar();
+                        "Vendedores"}, "Volver al menú principal").mostrar();
             
             if (opcion == 0){
                 verificador1 = false;
@@ -99,7 +99,7 @@ public class UiPagarTrabajadores {
             }
             
             //Ciclo final para ver si sale o se reinicia la funcionalidad
-            System.out.println("\n¿Qué desea hacer?\n1. Pagar a otro trabajador\n2.Volver al menu principal");
+            System.out.println("\n¿Qué desea hacer?\n1. Pagar a otro trabajador\n0.Volver al menu principal");
             while(true){
                 System.out.print("> ");
                 opcSalida = sc.nextInt();
@@ -107,7 +107,7 @@ public class UiPagarTrabajadores {
                 if(opcSalida==1){
                     verificador1=true;
                     break;
-                }else if(opcSalida==2){
+                }else if(opcSalida==0){
                     verificador1=false;
                     break;
                 }else{

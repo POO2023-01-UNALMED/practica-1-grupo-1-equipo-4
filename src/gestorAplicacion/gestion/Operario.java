@@ -44,7 +44,7 @@ public class Operario extends Persona {
 	public String toString() {
 		return "\nNombre: "            + getNombre()            + "\n"
         +      "Edad: "                + getEdad()              + "\n"
-        +      "Cedula: "              + getCedula()            + "\n";
-		
+        +      "Cedula: "              + getCedula()            + "\n"
+		+ 	   "Fabrica: "			   + getFabrica()           + "\n";
 	}
 }

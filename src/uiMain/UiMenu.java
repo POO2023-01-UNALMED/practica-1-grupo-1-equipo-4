@@ -104,7 +104,8 @@ public class UiMenu {
 
             //Transporte para abastecer
             transporteAbastecer = new Transporte(TipoTransporte.CAMION, TipoTransporte.CAMION.getCapacidadMax(),TipoTransporte.CAMION.getCapacidadMax(),conductor);
-
+            conductor.setTransporte(transporteAbastecer);
+            
             // Crear objetos de Cliente
             ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
             CuentaBancaria cuenta1 = new CuentaBancaria(11111, 5000000);
