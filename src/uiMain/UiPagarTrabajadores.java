@@ -104,7 +104,7 @@ public class UiPagarTrabajadores {
 
 
         }
-        sc.close();
+        //sc.close();
     }    
     
 }

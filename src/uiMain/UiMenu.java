@@ -82,10 +82,6 @@ public class UiMenu {
             tiendas.add(tienda1);
             tiendas.add(tienda2);
             tiendas.add(tienda3);
-            //cambiar las tiendas de los vendedores
-            vendedor1.setTienda(tienda1);
-            vendedor2.setTienda(tienda2);
-            vendedor3.setTienda(tienda3);
 
             //se le asigna la tienda a cada vendedor:
             vendedor1.setTienda(tienda1);
@@ -127,10 +123,23 @@ public class UiMenu {
             tienda2.cantidadProductosVentas();
             tienda3.cantidadProductosVentas();
             //FACTURAS DE PRUEBA:
-            Factura factura = new Factura(tienda3, cliente3, transporteAbastecer, producto10, 0, "hola");
-            Factura factura1 = new Factura(tienda2, cliente3, transporteAbastecer, producto10, 0, "hola22");
-            Factura factura2= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 0, "hola33");
-            Factura factura3= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 0, "hola33");
+            Factura factura = new Factura(tienda3, cliente3, transporteAbastecer, producto10, 1, "hola");
+            Factura factura1 = new Factura(tienda2, cliente3, transporteAbastecer, producto10, 2, "hola22");
+            Factura factura2= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 3, "hola33");
+            Factura factura3= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 3, "hola34");
+            Factura factura5= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 4, "hola3234235");
+            Factura factura6= new Factura(tienda2, cliente3, transporteAbastecer, producto10, 4, "hola3453453");
+            Factura factura7= new Factura(tienda2, cliente2, transporteAbastecer, producto10, 2, "hola33453");
+            Factura factura4= new Factura(tienda2, cliente2, transporteAbastecer, producto10, 4, "hola3534");
+            Factura factura8= new Factura(tienda2, cliente2, transporteAbastecer, producto10, 1, "hola33");
+            Factura factura9= new Factura(tienda1, cliente2, transporteAbastecer, producto10, 4, "hola33");
+            Factura factura10= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 5, "hola33");
+            Factura factura11= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 6, "hola33");
+            Factura factura12= new Factura(tienda1, cliente1, transporteAbastecer, producto10, 6, "hola33");
+            Factura factura13= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 4, "hola33");
+            Factura factura14= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 2, "hola33");
+            Factura factura15= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 2, "hola33");
+            Factura factura16= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 5, "hola33");
             
 	}
 	public static void main(String[] args) {
