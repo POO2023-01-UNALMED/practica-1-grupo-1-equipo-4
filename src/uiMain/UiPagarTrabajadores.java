@@ -21,7 +21,7 @@ public class UiPagarTrabajadores {
             int opcSalida;
             boolean verificador2 = true;
 
-            int opcion = new Menu("¿A qué tipo de trabajador desea pagarle?", new String[]{"Operarios", "Conductores", 
+            int opcion = new Menu("\n¿A qué tipo de trabajador desea pagarle?", new String[]{"Operarios", "Conductores", 
                         "Vendedores"}, "Retroceder").mostrar();
             
             if (opcion == 0){
@@ -58,6 +58,7 @@ public class UiPagarTrabajadores {
             while(verificador2){
                 //Pide el # del trabajador
                 System.out.println("Por favor, ingrese el número del trabajador al cual desea pagarle [1-" + listaTrabajadores.size()+"]: ");
+                System.out.print("> ");
                 int opcTrabajador = sc.nextInt();
 
                 if (opcTrabajador <= 0 || opcTrabajador > listaTrabajadores.size()){
@@ -70,14 +71,14 @@ public class UiPagarTrabajadores {
                     //Calcula el pago que se le va a dar al trabajador escogido
                     int total = CuentaBancaria.calcularPago(trabajadorEscogido);
                     
-                    System.out.println("Al trabajor " + trabajadorEscogido.getNombre() + "Se le pagará " + total);
+                    System.out.println("\nAl trabajor " + trabajadorEscogido.getNombre() + " se le pagará " + total);
                     
                     //Método #3
                     //Envia el dinero que calculamos antes a la cuenta del trabajador
                     // y se lo resta a la cuenta de la fabrica
                     trabajadorEscogido.recibirSueldo(total);
                     
-                    System.out.println("El pago fue realizado con éxito");
+                    System.out.println("\nEl pago fue realizado con éxito");
                     verificador2 = false;
                     break;
                 }
@@ -85,9 +86,11 @@ public class UiPagarTrabajadores {
             }
 
             //Ciclo final para ver si sale o se reinicia la funcionalidad
-            System.out.println("1. Realizar mas envios"+"\n"+"2.Volver al menu principal");
+            System.out.println("\n¿Qué desea hacer?\n1. Realizar mas envios\n2.Volver al menu principal");
             while(true){
+                System.out.print("> ");
                 opcSalida = sc.nextInt();
+
                 if(opcSalida==1){
                     verificador1=true;
                     break;
@@ -101,7 +104,7 @@ public class UiPagarTrabajadores {
 
 
         }
-        //sc.close();
+        sc.close();
     }    
     
 }

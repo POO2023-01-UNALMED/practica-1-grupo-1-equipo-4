@@ -130,6 +130,7 @@ public class UiMenu {
             Factura factura = new Factura(tienda3, cliente3, transporteAbastecer, producto10, 0, "hola");
             Factura factura1 = new Factura(tienda2, cliente3, transporteAbastecer, producto10, 0, "hola22");
             Factura factura2= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 0, "hola33");
+            Factura factura3= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 0, "hola33");
             
 	}
 	public static void main(String[] args) {
