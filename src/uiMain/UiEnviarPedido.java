@@ -17,6 +17,7 @@ public class UiEnviarPedido {
         int numProductoSeleccionado=1;
 
         Scanner sc = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
 
         Boolean interruptor = true;
         Cliente clienteSeleccionado = null;
@@ -96,14 +97,16 @@ public class UiEnviarPedido {
                     eleccion = 0;
                     break;
                 }  
-                if (numProductoSeleccionado >  UiMenu.fabrica.getListaProductos().size()) {
+                if (numProductoSeleccionado >  tiendaSeleccionada.getListaProductos().size()) {
                     System.out.println("Número de producto inválido, por favor seleccione un producto en la lista");
                     eleccion = 3;
                     break;} 
                 else {
-                productoSeleccionado=UiMenu.fabrica.getListaProductos().get(numProductoSeleccionado-1);
+                productoSeleccionado=tiendaSeleccionada.getListaProductos().get(numProductoSeleccionado-1);
                 System.out.print("Ha seleccionado el producto #" +numProductoSeleccionado);
-            }
+                    eleccion = 4;    
+                    break;
+                }
                     
                 case 4: //seleccionar tipo de transporte
                 System.out.println("\nSeleccione en que medio de treansporte quiere enviar este producto");
@@ -127,22 +130,44 @@ public class UiEnviarPedido {
                     
                     if (numTransporteSeleccionado > listaTransFiltrada.size()) {
                         System.out.println("Número de transporte inválido, por favor seleccione un producto en la lista");
-                        eleccion = 3;
+                        eleccion = 4;
                         break;} 
                     
                     else{
                     //Transporte transporteSeleccionado = tipoTransportes.seleccionarTransporte(listaTransFiltrada, numTransporteSeleccionado);
                     transporteSeleccionado = TipoTransporte.seleccionarTransporte(listaTransFiltrada, numTransporteSeleccionado);
-                    System.out.print("Ha seleccionado el transporte #" +(numTransporteSeleccionado-1) + "El pedido se enviará por" + transporteSeleccionado.getTipo().getNombre());
+                    System.out.print("Ha seleccionado el transporte #" +(numTransporteSeleccionado-1) + "El pedido se enviará por " + transporteSeleccionado.getTipo().getNombre());
+                    eleccion = 5;
+                    break;
                     }
                     
-
                 case 5: //retorna factura
                     System.out.println("\nDigite el día del mes: ");
                     int dia = sc.nextInt();
                     System.out.println("\n"+ tiendaSeleccionada.enviarPedido(productoSeleccionado, transporteSeleccionado , clienteSeleccionado, dia));
+                
+                    System.out.println("¿Desea hacer otra devolucion o volver al menu principal?\n");
+                    System.out.println("0. Volver al menu principal");
+                    System.out.println("1. Realizar otro  envio");
+                    int opcion =  sc2.nextInt();
+                    while(true){
+                        if (opcion == 0){
+                            eleccion = 0;
+                            interruptor = false;
+                            break;
+                        }
+                        else if(opcion ==1){
+                            eleccion = 1;
+                            break;
+                        }
+                        else{
+                            System.out.println(" La opcion que digitó es incorrecta ");
+                        }
+                    }
                     break;
+                    
  
+            
             }
 
     }

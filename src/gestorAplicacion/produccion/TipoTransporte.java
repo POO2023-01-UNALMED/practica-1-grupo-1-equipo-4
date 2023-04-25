@@ -81,13 +81,14 @@ public enum TipoTransporte {
         Random random = new Random();
         int randomNumber = random.nextInt(max - min + 1) + min; //se genera un nuero aleatorio
 
-        Conductor conductor = Conductor.getListaConductores().remove(randomNumber);
+        Conductor conductor = Conductor.getListaConductores().get(randomNumber);
         TipoTransporte tipo = ListaFiltrada.get(opcion-1);
         Double capacidad= ListaFiltrada.get(opcion-1).getCapacidadMax();
         Double precioEnvio = ListaFiltrada.get(opcion-1).getPrecioEnvio();
 
         Transporte transporte = new Transporte(tipo,capacidad,precioEnvio,conductor);
-        System.out.println("--------------------------" + conductor.getNombre());
+        conductor.setTransporte(transporte);
+
         return transporte;
     }
 }

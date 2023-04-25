@@ -102,6 +102,8 @@ public class UiMenu {
 
             //conductores
             Conductor conductor = new Conductor("joseito", 17, 12345, cuentaVendedor3,null);
+            //Conductor conductor1 = new Conductor("felipe", 17, 12345, cuentaVendedor2,null);
+            //Conductor conductor2 = new Conductor("Alejandro", 17, 12345, cuentaVendedor2,null);
 
             //Transporte para abastecer
             transporteAbastecer = new Transporte(TipoTransporte.CAMION, TipoTransporte.CAMION.getCapacidadMax(),TipoTransporte.CAMION.getCapacidadMax(),conductor);
@@ -132,7 +134,7 @@ public class UiMenu {
 	}
 	public static void main(String[] args) {
         int opcion;
-
+        
 		do{
             System.out.println("\nMenú principal Distribuidora SAS\n");
 			System.out.println("1. Enviar pedido");
