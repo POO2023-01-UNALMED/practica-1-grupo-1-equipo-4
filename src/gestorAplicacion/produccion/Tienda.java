@@ -120,6 +120,8 @@ public class Tienda implements Financiero, Moda{
         while(transporte.getListaDeProductos().size()>0){
             listaProductos.add(transporte.getListaDeProductos().remove(0));
         }
+        transporte.getConductor().setTrabajo(transporte.getConductor().getTrabajo()++);
+        this.setTrabajo(this.getTrabajo++);
     }
 
     //Get and Set
