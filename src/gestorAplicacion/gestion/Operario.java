@@ -31,7 +31,6 @@ public class Operario extends Persona {
 	public void setFabrica(Fabrica fabrica) {
 		this.fabrica = fabrica;
 	}
-
 	
 	/*-------------------Metodos-------------------------*/
     @Override
