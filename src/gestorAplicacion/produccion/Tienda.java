@@ -95,6 +95,7 @@ public class Tienda implements Financiero, Moda{
         //Resto 1 unidad de las cantidades de los productos, pues se envio
         //------listaCantidadProductos.put(producto, listaCantidadProductos.get(producto)-1);
         listaProductos.remove(producto);
+        System.out.println(listaProductos);
         //Añado la suma de trabajo a los trabajadores
         //Al vendedor
         this.getVendedor().setTrabajo(this.getVendedor().getTrabajo()+1);
@@ -120,6 +121,8 @@ public class Tienda implements Financiero, Moda{
         while(transporte.getListaDeProductos().size()>0){
             listaProductos.add(transporte.getListaDeProductos().remove(0));
         }
+        transporte.getConductor().setTrabajo(transporte.getConductor().getTrabajo()++);
+        this.setTrabajo(this.getTrabajo++);
     }
 
     //Get and Set
