@@ -121,18 +121,15 @@ public class Fabrica implements Financiero{
         for (Factura factura: listaFacturas){
             if(tipo==1){
                 if (Fabrica.getOperario().getTrabajo()>0){
-                    System.out.println("entra por operario");
                     listaPersonas.add(Fabrica.getOperario());
                 }
             }else if(tipo==2){
                 if (!listaPersonas.contains(factura.getTransporte().getConductor())){
-                    System.out.println("entra por conductor");
                     listaPersonas.add(factura.getTransporte().getConductor());
                 }
                     
             }else if(tipo==3){
                 if (!listaPersonas.contains(factura.getTienda().getVendedor())){
-                    System.out.println("entra por vendedor");
                     listaPersonas.add(factura.getTienda().getVendedor());
                 }
             }
