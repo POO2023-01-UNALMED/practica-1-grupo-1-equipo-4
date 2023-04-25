@@ -38,6 +38,13 @@ public class Factura {
         this.id = ++facturasCreadas;
     }
 
+    public Factura(Tienda tienda, Cliente cliente, Transporte transporte, Producto producto, int fecha) {
+        this(tienda, cliente, transporte, producto, fecha, "SIN DISCLAIMER");
+    }
+
+
+
+
     private double calcularTarifaEnvio(){
 
         double precioEnvio = transporte.getTipo().precioEnvio;
