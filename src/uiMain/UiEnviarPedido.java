@@ -126,7 +126,7 @@ public class UiEnviarPedido {
                     // System.out.println(UiMenu.tipoTransportes.mostrarTipoTransporteSegunCarga(productoSeleccionado));
                     System.out.println(TipoTransporte.mostrarTipoTransporteSegunCarga(listaTransFiltrada));
 
-                    System.out.print(">");
+                    System.out.print("> ");
                     int numTransporteSeleccionado = sc.nextInt();
 
                     if (numTransporteSeleccionado == 0) {
@@ -151,11 +151,12 @@ public class UiEnviarPedido {
                     }
 
                 case 5: // retorna factura
-                    System.out.print("\nDigite el día del mes: \n> ");
+                    System.out.print("\nDigite el día del mes: ");
+                    System.out.print("> ");
                     int dia = sc.nextInt();
                     //System.out.println(clienteSeleccionado);
                     
-                    System.out.println("\n************************************" + tiendaSeleccionada.enviarPedido(productoSeleccionado,
+                    System.out.println("\n************************************\n" + tiendaSeleccionada.enviarPedido(productoSeleccionado,
                             transporteSeleccionado, clienteSeleccionado, dia)+"\n************************************");
 
                     System.out.println("¿Desea hacer otro envio o volver al menu principal?\n");
