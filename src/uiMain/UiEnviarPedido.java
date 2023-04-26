@@ -125,7 +125,7 @@ public class UiEnviarPedido {
                     listaTransFiltrada = TipoTransporte.crearTipoTransporteSegunCarga(productoSeleccionado);
                     // System.out.println(UiMenu.tipoTransportes.mostrarTipoTransporteSegunCarga(productoSeleccionado));
                     System.out.println(TipoTransporte.mostrarTipoTransporteSegunCarga(listaTransFiltrada));
-
+                    System.out.print("> ");
                     int numTransporteSeleccionado = sc.nextInt();
 
                     if (numTransporteSeleccionado == 0) {
@@ -154,6 +154,7 @@ public class UiEnviarPedido {
 
                 case 5: // retorna factura
                     System.out.println("\nDigite el día del mes: ");
+                    System.out.print("> ");
                     int dia = sc.nextInt();
                     System.out.println("\n" + tiendaSeleccionada.enviarPedido(productoSeleccionado,
                             transporteSeleccionado, clienteSeleccionado, dia));

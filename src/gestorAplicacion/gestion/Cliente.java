@@ -98,7 +98,7 @@ public class Cliente implements Moda{
 	}
 	
 	public String toString() {
-		return this.getNombre()+" "+this.getDireccion();
+		return this.getNombre()+" Dir. "+this.getDireccion();
 	}
 
 }
