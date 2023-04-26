@@ -24,7 +24,7 @@ public enum TipoTransporte {
 
     @Override
     public String toString() {
-        return "TipoTransporte{" + "Precio de Envío:" + precioEnvio + ", Capacidad Maxima=" + capacidadMax + '}';
+        return this.getNombre();
     }
  
     public double getPrecioEnvio() {
