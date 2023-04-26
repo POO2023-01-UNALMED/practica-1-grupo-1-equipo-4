@@ -154,19 +154,15 @@ public static double gananciasTotales(HashMap<Integer, Double> dictGananciasDisc
 
 }
 
-public static double promedioPorDia(double gananciasTotales, int numFechas){
+public static double promedioPorDia(HashMap<Integer, Double> dictGananciasDiscretas){
 
-    return gananciasTotales / numFechas;
+    return gananciasTotales(dictGananciasDiscretas) / dictGananciasDiscretas.size();
 
 } 
 
 public static double promedioPorDia(int fecha1, int fecha2){
 
-    Double gananciasTotales = gananciasTotales(fecha1, fecha2);
-
-    int numFechas = gananciasDiscretas(fecha1, fecha2).size();
-
-    return promedioPorDia(gananciasTotales, numFechas);
+    return promedioPorDia(gananciasDiscretas(fecha1, fecha2));
 
 }
 
