@@ -9,16 +9,16 @@ import java.util.Random;
 public enum TipoTransporte {
     
     //los tipos de transporte que hay
-    CAMION(15000, 16329, "Camion"),
-    AVION(30000, 640000,"Avion"),
-    AUTOMOVIL(9000,500,"Automovil"),
-    CAMIONETA(12000, 650,"Camioneta"), 
-    BICICLETA(5000,35,"Bicicleta"),
-    PATINES(3000,20,"Patines"),
-    BARCO(20000, 33565835,"Barco"),
-    HELICOPTERO(70000, 29000,"Helicoptero"),
-    TREN(20000,30000,"Tren"),
-    CAMINANDO(5000, 15,"Caminando"); 
+    CAMION(5, 16329, "Camion"),
+    AVION(10, 640000,"Avion"),
+    AUTOMOVIL(3,500,"Automovil"),
+    CAMIONETA(4, 650,"Camioneta"), 
+    BICICLETA(1,35,"Bicicleta"),
+    PATINES(1,20,"Patines"),
+    BARCO(15, 33565835,"Barco"),
+    HELICOPTERO(22, 29000,"Helicoptero"),
+    TREN(33,30000,"Tren"),
+    CAMINANDO(1, 15,"Caminando"); 
 
 
 
