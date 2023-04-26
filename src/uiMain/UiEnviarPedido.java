@@ -43,6 +43,7 @@ public class UiEnviarPedido {
                     System.out.println(Cliente.mostrarClientes());
 
                     // Entero seleccionado
+                    System.out.print("> ");
                     int numClienteSeleccionado = sc.nextInt();
                     if (numClienteSeleccionado == 0) {
                         eleccion = 0;
@@ -63,13 +64,14 @@ public class UiEnviarPedido {
 
                     System.out.println("\n");
                     System.out.println("Su pedido se enviará desde alguna de estas tiendas, por favor seleccione una:");
-                    System.out.println("0. Volver al menu anterior");
+                    System.out.println("0. Volver al menu principal");
                     System.out.println(UiMenu.fabrica.mostrarTiendas());
 
                     // Seleccionar tienda
-                    System.out.print("Seleccione la tienda a la que desea enviar: ");
+                    System.out.println("Seleccione la tienda a la que desea enviar: ");
 
                     // Entero seleccionado
+                    System.out.print("> ");
                     int numTiendaSeleccionada = sc.nextInt();
                     if (numTiendaSeleccionada == 0) {
                         eleccion = 0;
@@ -88,7 +90,7 @@ public class UiEnviarPedido {
                 case 3: // seleccionar el producto
                     System.out.println("\nSeleccione el producto que desea enviarle al cliente");
 
-                    System.out.println("0. Regresar al menu anterior");
+                    System.out.println("0. Regresar al menu principal");
                     System.out.println(tiendaSeleccionada.cantidadProductosVentas());
                     System.out.print("Seleccione el producto que desea enviar: ");
 
@@ -116,7 +118,7 @@ public class UiEnviarPedido {
                             "\nAdvertencia: Los tipos de transporte han sido filtrados de manera que solo puede seleccionar los que puedan soportar el peso de su producto.");
 
                     System.out.print("Seleccione el tipo de transporte: \n");
-                    System.out.println("0. Regresar al menu anterior");
+                    System.out.println("0. Regresar al menu principal");
 
                     // TipoTransporte tipoTransportes;
                     ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
@@ -156,9 +158,10 @@ public class UiEnviarPedido {
                     System.out.println("\n" + tiendaSeleccionada.enviarPedido(productoSeleccionado,
                             transporteSeleccionado, clienteSeleccionado, dia));
 
-                    System.out.println("¿Desea hacer otra devolucion o volver al menu principal?\n");
+                    System.out.println("¿Desea hacer otro envio o volver al menu principal?\n");
                     System.out.println("0. Volver al menu principal");
                     System.out.println("1. Realizar otro  envio");
+                    System.out.print("> ");
                     int opcion = sc2.nextInt();
                     while (true) {
                         if (opcion == 0) {

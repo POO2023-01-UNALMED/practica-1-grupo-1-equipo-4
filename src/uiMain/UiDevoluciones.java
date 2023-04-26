@@ -29,9 +29,12 @@ public class UiDevoluciones {
                                         "a la factura para realizar la devolucion\n");
                     System.out.println("0. Volver al menu principal");
                     System.out.println(facturas); //se muestran las facturas en pantalla
-                    System.out.print("Digite su opcion: ");
+
+                    System.out.println("Digite su opcion: ");
+                    System.out.print("> ");
                     int op = sc.nextInt(); // se pide la opcion al admin
                     System.out.println("");
+
                     if (op == 0){
                         eleccion = 0;
                         condicion = false;
@@ -50,7 +53,7 @@ public class UiDevoluciones {
                         }
                         System.out.println("... Realizando devolución ... Por favor espere ...");
                         try {
-                            Thread.sleep(1800); // Espera 2 segundos
+                            Thread.sleep(1500); // Espera 1,5 segundos
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -59,7 +62,7 @@ public class UiDevoluciones {
                         Cliente cliente = factura.getTienda().devolverProducto(factura);
             
                         cliente.getCuentaBancaria().devolverDinero(total, cliente);
-                        //cliente.setProducto(null);
+                        cliente.getProductos().remove(factura.getProducto());
                         System.out.println("¡¡ El producto ha sido devuelto exitosamente !!\n");
                         try {
                             Thread.sleep(750);
@@ -81,6 +84,7 @@ public class UiDevoluciones {
                     System.out.println("0. Volver al menu principal");
                     System.out.println("1. Realizar otra devolución");
 
+                    System.out.print("> ");
                     int opcion =  sc2.nextInt();
                     while(true){
                         if (opcion == 0){

@@ -61,10 +61,12 @@ public class UiAbastecer {
                     }
                     break;
                 case 2: 
+
                     System.out.println("\nAbastecer tiendas - Apartado de productos");
                     System.out.println("0. Regresar al menu anterior");
                     System.out.println(UiMenu.fabrica.mostrarProductos());
                     System.out.print("Seleccione el producto que desea enviar: ");
+                    
                     while (x != 0) {
                         escanerInt = escaner2.nextInt();
                         // Se establece el intervalo en el que estan los productos

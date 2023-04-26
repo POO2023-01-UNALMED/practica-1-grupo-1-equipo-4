@@ -99,7 +99,6 @@ public class Tienda implements Financiero, Moda {
         // ------listaCantidadProductos.put(producto,
         // listaCantidadProductos.get(producto)-1);
         listaProductos.remove(producto);
-        System.out.println(listaProductos);
         // Añado la suma de trabajo a los trabajadores
         // Al vendedor
         this.getVendedor().setTrabajo(this.getVendedor().getTrabajo() + 1);

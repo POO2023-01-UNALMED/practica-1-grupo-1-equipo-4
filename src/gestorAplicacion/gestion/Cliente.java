@@ -13,17 +13,15 @@ public class Cliente implements Moda{
 	private String nombre;
 	private String direccion;
 	private CuentaBancaria cuentaBancaria;
-	private String productoDeseado;
-	private ArrayList<Producto> productos;
+	private ArrayList<Producto> productos = new ArrayList<Producto>();
 	static private ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 	
 	
 	/*-------------------Constructores-------------------------*/
 
-	public Cliente(String nombre, String direccion, String productoDeseado,CuentaBancaria cuentaBancaria) {
+	public Cliente(String nombre, String direccion,CuentaBancaria cuentaBancaria) {
         this.nombre = nombre;
         this.direccion = direccion;
-        this.productoDeseado=productoDeseado;
         this.cuentaBancaria = cuentaBancaria;
         
         listaClientes.add(this);
@@ -56,20 +54,11 @@ public class Cliente implements Moda{
 	public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
 		this.cuentaBancaria = cuentaBancaria;
 	}
-	
-	
-	public String getProductoDeseado() {
-		return productoDeseado;
-	}
-	public void setProductoDeseado(String productoDeseado) {
-		this.productoDeseado = productoDeseado;
-	}
-	
-	
-	public ArrayList<Producto> getProducto() {
+		
+	public ArrayList<Producto> getProductos() {
 		return productos;
 	}
-	public void setProducto(ArrayList<Producto> productos) {
+	public void setProductos(ArrayList<Producto> productos) {
 		this.productos = productos;
 	}
     
@@ -109,7 +98,7 @@ public class Cliente implements Moda{
 	}
 	
 	public String toString() {
-		return this.getNombre()+" "+this.getDireccion()+" "+this.getProductoDeseado();
+		return this.getNombre()+" "+this.getDireccion();
 	}
 
 }
