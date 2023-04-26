@@ -147,7 +147,7 @@ public class UiEnviarPedido {
                         transporteSeleccionado = TipoTransporte.seleccionarTransporte(listaTransFiltrada,
                                 numTransporteSeleccionado);
                         System.out.print("Ha seleccionado el transporte #" + (numTransporteSeleccionado)
-                                + "El pedido se enviará por " + transporteSeleccionado.getTipo().getNombre());
+                                + "\nEl pedido se enviará por " + transporteSeleccionado.getTipo().getNombre());
                         eleccion = 5;
                         break;
                     }
