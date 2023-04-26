@@ -109,7 +109,7 @@ public class Tienda implements Financiero, Moda {
 
         cliente.getProductos().add(producto);
 
-        Factura factura = new Factura(this, cliente, transporte, producto, dia, "DISCLAIMER");
+        Factura factura = new Factura(this, cliente, transporte, producto, dia, "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.");
         return factura;
     }
 
