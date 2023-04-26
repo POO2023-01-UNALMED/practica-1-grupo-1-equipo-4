@@ -1,4 +1,4 @@
-package uiMain;
+package UiMain;
 
 import gestorAplicacion.gestion.*;
 import gestorAplicacion.produccion.*;
@@ -18,16 +18,16 @@ public class UiMenu {
 
             ArrayList<Producto> catalogo = new ArrayList<Producto>();
             //Producto(String nombre, String descripcion, Double valor, Double peso, Double tamano, Double costoDeProduccion);
-            Producto producto1 = new Producto("producto1","descricion vacia", 10000, 50, 20,1);
-            Producto producto2 = new Producto("producto2","descricion vacia", 10000, 5, 20,1);
-            Producto producto3 = new Producto("producto3","descricion vacia", 10000, 5, 20,1);
-            Producto producto4 = new Producto("producto4","descricion vacia", 10000, 5, 20,1);
-            Producto producto5 = new Producto("producto5","descricion vacia", 10000, 5, 20,1);
-            Producto producto6 = new Producto("producto6","descricion vacia", 10000, 5, 20,1);
-            Producto producto7 = new Producto("producto7","descricion vacia", 10000, 5, 20,1);
-            Producto producto8 = new Producto("producto8","descricion vacia", 10000, 5, 20,1);
-            Producto producto9 = new Producto("producto9","descricion vacia", 10000, 5, 20,1);
-            Producto producto10 = new Producto("producto10","descricion vacia", 10000, 5, 20,1);
+            Producto producto1 = new Producto("Cemento Portland","Cemento de uso general en construcción", 100, 50, 24000,30);
+            Producto producto2 = new Producto("Grafeno","Material compuesto por átomos de carbono en una estructura de red hexagonal", 500000, 1, 100,1000);
+            Producto producto3 = new Producto("Ladrillo"," Bloque utilizado en paredes y estructuras", 1, 2.5, 10374,0.25);
+            Producto producto4 = new Producto("Bloque de Hormigón","Bloque sólido utilizado en paredes y estructuras", 100, 675, 200000,20);
+            Producto producto5 = new Producto("Hojas de Acero","acero enrejado utilizado en refuerzos estructurales", 75, 60, 10000,15);
+            Producto producto6 = new Producto("Adhesivo","Adhesivo multiusos", 20, 0.3, 20000,5);
+            Producto producto7 = new Producto("Calcita","Mineral de carbonato utilizado como componente en el concreto y la cal", 3090, 271, 20,10);
+            Producto producto8 = new Producto("Cuarzo","Mineral utilizado como componente en el concreto y la fabricación de vidrio", 30000, 265, 20,1000);
+            Producto producto9 = new Producto("Marmol","Roca metamórfica utilizada para la decoración y acabado de interiores", 20345, 3000000, 20,1000);
+            Producto producto10 = new Producto("Granito","Roca ígnea utilizada en encimeras, pisos y paredes", 10000, 27800, 20,750);
             //se agregan al catalogo
             catalogo.add(producto1);
             catalogo.add(producto2);
@@ -71,9 +71,9 @@ public class UiMenu {
             
             //tiendas
             ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
-            Tienda tienda1 = new Tienda("tienda1",vendedor1,cuentaEmpresa); //eso atributo de la cuenta del vendedor hay que cambiarlo ya que 
-            Tienda tienda2 = new Tienda("tienda2",vendedor2,cuentaEmpresa); //cambiamos de opinion y ahora sera una solo cuenta para todas las tiendas.
-            Tienda tienda3 = new Tienda("tienda3",vendedor3,cuentaEmpresa);
+            Tienda tienda1 = new Tienda("Hefesto Construcciones",vendedor1,cuentaEmpresa); //eso atributo de la cuenta del vendedor hay que cambiarlo ya que 
+            Tienda tienda2 = new Tienda("Vitruvio Edificios",vendedor2,cuentaEmpresa); //cambiamos de opinion y ahora sera una solo cuenta para todas las tiendas.
+            Tienda tienda3 = new Tienda("Zaha Hadid Arquitectura ",vendedor3,cuentaEmpresa);
             //agregar productos a tiendas
             tienda1.setListaProductos(new ArrayList<>(Arrays.asList(producto1,producto2,producto3)));
             tienda2.setListaProductos(new ArrayList<>(Arrays.asList(producto4,producto5,producto6)));

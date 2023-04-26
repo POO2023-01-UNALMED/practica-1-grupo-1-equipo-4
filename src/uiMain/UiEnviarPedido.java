@@ -1,11 +1,12 @@
-package uiMain;
+package UiMain;
 
 import gestorAplicacion.gestion.*;
 import gestorAplicacion.produccion.*;
 
-import uiMain.UiMenu;
-
 import java.util.Scanner;
+
+import UiMain.UiMenu;
+
 import java.util.ArrayList;
 
 public class UiEnviarPedido {
@@ -113,11 +114,11 @@ public class UiEnviarPedido {
                     }
 
                 case 4: // seleccionar tipo de transporte
-                    System.out.println("\nSeleccione en que medio de treansporte quiere enviar este producto");
+                    System.out.println("\n\nSeleccione en que medio de transporte quiere enviar este producto");
                     System.out.println(
                             "\nAdvertencia: Los tipos de transporte han sido filtrados de manera que solo puede seleccionar los que puedan soportar el peso de su producto.");
 
-                    System.out.print("Seleccione el tipo de transporte: \n");
+                    System.out.println("Seleccione el tipo de transporte: ");
                     System.out.println("0. Regresar al menu principal");
 
                     // TipoTransporte tipoTransportes;
@@ -125,6 +126,7 @@ public class UiEnviarPedido {
                     listaTransFiltrada = TipoTransporte.crearTipoTransporteSegunCarga(productoSeleccionado);
                     // System.out.println(UiMenu.tipoTransportes.mostrarTipoTransporteSegunCarga(productoSeleccionado));
                     System.out.println(TipoTransporte.mostrarTipoTransporteSegunCarga(listaTransFiltrada));
+
                     System.out.print("> ");
                     int numTransporteSeleccionado = sc.nextInt();
 
@@ -141,9 +143,6 @@ public class UiEnviarPedido {
                     }
 
                     else {
-                        // Transporte transporteSeleccionado =
-                        // tipoTransportes.seleccionarTransporte(listaTransFiltrada,
-                        // numTransporteSeleccionado);
                         transporteSeleccionado = TipoTransporte.seleccionarTransporte(listaTransFiltrada,
                                 numTransporteSeleccionado);
                         System.out.print("Ha seleccionado el transporte #" + (numTransporteSeleccionado)
@@ -153,11 +152,13 @@ public class UiEnviarPedido {
                     }
 
                 case 5: // retorna factura
-                    System.out.println("\nDigite el día del mes: ");
+                    System.out.print("\nDigite el día del mes: ");
                     System.out.print("> ");
                     int dia = sc.nextInt();
-                    System.out.println("\n" + tiendaSeleccionada.enviarPedido(productoSeleccionado,
-                            transporteSeleccionado, clienteSeleccionado, dia));
+                    //System.out.println(clienteSeleccionado);
+                    
+                    System.out.println("\n************************************\n" + tiendaSeleccionada.enviarPedido(productoSeleccionado,
+                            transporteSeleccionado, clienteSeleccionado, dia)+"\n************************************");
 
                     System.out.println("¿Desea hacer otro envio o volver al menu principal?\n");
                     System.out.println("0. Volver al menu principal");

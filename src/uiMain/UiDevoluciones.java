@@ -1,6 +1,7 @@
-package uiMain;
+package UiMain;
 
 import gestorAplicacion.gestion.*;
+import gestorAplicacion.produccion.*;
 import java.util.Scanner;
 import java.lang.Thread;
 

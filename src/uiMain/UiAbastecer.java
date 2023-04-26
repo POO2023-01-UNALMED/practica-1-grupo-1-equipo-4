@@ -1,14 +1,16 @@
-package uiMain;
+package UiMain;
 
 import gestorAplicacion.gestion.*;
 import gestorAplicacion.produccion.*;
 
 import java.util.Scanner;
+
+import UiMain.UiMenu;
+
 import java.util.Scanner;
 import java.util.ArrayList;
 
 import java.util.ArrayList;
-import uiMain.UiMenu;
 
 public class UiAbastecer {
     public static void abastecerTiendas() {
@@ -75,7 +77,7 @@ public class UiAbastecer {
                             break;
                         }
                         if (escanerInt > 0 && escanerInt <= UiMenu.fabrica.getListaProductos().size()) {
-                            productoSeleccionado = UiMenu.fabrica.getListaProductos().get(x - 1);
+                            productoSeleccionado = UiMenu.fabrica.getListaProductos().get(escanerInt - 1);
                             eleccion = 3;
                             break;
                         } else {
@@ -102,7 +104,7 @@ public class UiAbastecer {
                         System.out.println("El envio no se pudo realizar a esa tienda");
                     }
                     // Ciclo final para ver si sale o se reinicia la funcionalidad
-                    System.out.println("0.Volver al menu principal" + "\n" + "1. Realizar mas envios");
+                    System.out.println("0.Volver al menu principal" + "\n" + "1. Realizar más abastecimientos");
                     while (true) {
                         escanerInt = escaner2.nextInt();
                         if (escanerInt == 0) {
