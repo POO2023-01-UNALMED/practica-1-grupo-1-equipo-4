@@ -120,7 +120,7 @@ public class Fabrica implements Financiero{
         ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
         for (Factura factura: listaFacturas){
             if(tipo==1){
-                if (Fabrica.getOperario().getTrabajo()>0){
+                if (Fabrica.getOperario().getTrabajo()>0 && !listaPersonas.contains(Fabrica.getOperario())){
                     listaPersonas.add(Fabrica.getOperario());
                 }
             }else if(tipo==2){

@@ -82,8 +82,13 @@ public class UiPagarTrabajadores {
                         //Calcula el pago que se le va a dar al trabajador escogido
                         int total = CuentaBancaria.calcularPago(trabajadorEscogido);
                         
-                        System.out.println("\nAl trabajor " + trabajadorEscogido.getNombre() + " se le pagará " + total);
+                        System.out.println("\nAl trabajor " + trabajadorEscogido.getNombre() + " se le pagará " + total + " por trabajar " + trabajadorEscogido.getTrabajo() + " veces");
                         
+
+                        //Asignamos de nuevo 0 al trabajo, para que si se le paga de nuevo,
+                        //no se le pague más de una vez por el mismo trabajo
+                        trabajadorEscogido.setTrabajo(0);
+
                         //Método #3
                         //Envia el dinero que calculamos antes a la cuenta del trabajador
                         // y se lo resta a la cuenta de la fabrica

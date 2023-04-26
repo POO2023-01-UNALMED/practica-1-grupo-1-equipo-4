@@ -125,7 +125,7 @@ public class UiMenu {
             tienda2.cantidadProductosVentas();
             tienda3.cantidadProductosVentas();
             //FACTURAS DE PRUEBA:
-            Factura factura = new Factura(tienda3, cliente3, transporteAbastecer, producto10, 1, "hola");
+            /*Factura factura = new Factura(tienda3, cliente3, transporteAbastecer, producto10, 1, "hola");
             Factura factura1 = new Factura(tienda2, cliente3, transporteAbastecer, producto10, 2, "hola22");
             Factura factura2= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 3, "hola33");
             Factura factura3= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 3, "hola34");
@@ -141,7 +141,7 @@ public class UiMenu {
             Factura factura13= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 4, "hola33");
             Factura factura14= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 2, "hola33");
             Factura factura15= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 2, "hola33");
-            Factura factura16= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 5, "hola33");
+            Factura factura16= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 5, "hola33");*/
             
 	}
 	public static void main(String[] args) {
@@ -156,8 +156,8 @@ public class UiMenu {
             System.out.println("5. Mostrar estadísticas");
             System.out.println("6. Salir\n");
 
-			System.out.print("Ingrese el número de la opción que desea utilizar: ");
-
+			System.out.println("Ingrese el número de la opción que desea utilizar");
+            System.out.print("> ");
             opcion = sc.nextInt();
 
             switch(opcion){
