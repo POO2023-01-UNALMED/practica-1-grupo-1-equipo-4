@@ -25,7 +25,9 @@ public class UiEnviarPedido {
         Transporte transporteSeleccionado = null;
         TipoTransporte tipoTransportes = null;
 
-        ArrayList<Producto> listaDeProductos;
+        ArrayList<Producto> listaDeProductos = new ArrayList<Producto>();
+        //ArrayList<Producto> listaDeProductos;
+        
         while (interruptor) {
 
             switch (eleccion) {
@@ -86,29 +88,46 @@ public class UiEnviarPedido {
                         eleccion = 3;
                     }
                 case 3: // seleccionar el producto
-                    System.out.println("\nSeleccione el producto que desea enviarle al cliente");
-
-                    System.out.println("0. Regresar al menu principal");
-                    System.out.println(tiendaSeleccionada.cantidadProductosVentas());
-                    System.out.println("Seleccione el producto que desea enviar: ");
-                    System.out.print("> ");
-                    numProductoSeleccionado = sc.nextInt();
-                    // Se establece el intervalo en el que estan los productos
-
-                    if (numProductoSeleccionado == 0) {
-                        eleccion = 0;
-                        break;
-                    }
-                    if (numProductoSeleccionado > tiendaSeleccionada.getListaProductos().size()) {
-                        System.out.println("Número de producto inválido, por favor seleccione un producto en la lista");
+                    System.out.println("¿Cuantos productos deseas comprar de esta tienda? \n Máximo 5 productos por cliente");
+                    int cuantos = sc.nextInt();
+                    if (cuantos > 5){
+                        System.out.println("No es válido, elija un numero menor o igual a 5");
                         eleccion = 3;
                         break;
-                    } else {
-                        productoSeleccionado = tiendaSeleccionada.getListaProductos().get(numProductoSeleccionado - 1);
-                        System.out.print("Ha seleccionado el producto #" + numProductoSeleccionado);
-                        eleccion = 4;
-                        break;
                     }
+                    else if (cuantos <= 5 && cuantos > 0){
+                    for (int i = 0; i < cuantos; i++){
+                        
+                        System.out.println("\nSeleccione el producto que desea enviarle al cliente");
+
+                        System.out.println("0. Regresar al menu principal");
+                        System.out.println(tiendaSeleccionada.cantidadProductosVentas());
+                        System.out.println("Seleccione el producto que desea enviar: ");
+                        System.out.print("> ");
+                        numProductoSeleccionado = sc.nextInt();
+                        // Se establece el intervalo en el que estan los productos
+                        int PesoProducto = 0;
+    
+                        if (numProductoSeleccionado == 0) {
+                            eleccion = 0;
+                            break;
+                        }
+                        if (numProductoSeleccionado > tiendaSeleccionada.getListaProductos().size()) {
+                            System.out.println("Número de producto inválido, por favor seleccione un producto en la lista");
+                            eleccion = 3;
+                            break;
+                        } else {
+                            productoSeleccionado = tiendaSeleccionada.getListaProductos().get(numProductoSeleccionado - 1);
+                            System.out.print("Ha seleccionado el producto #" + numProductoSeleccionado);
+                            listaDeProductos.add(productoSeleccionado);
+                            PesoProducto += productoSeleccionado.getPeso();
+                            System.out.println(PesoProducto);
+                            eleccion = 4;
+                            break;
+                        }
+    
+
+                    }}
 
                 case 4: // seleccionar tipo de transporte
                     System.out.println("\n\nSeleccione en que medio de transporte quiere enviar este producto");
