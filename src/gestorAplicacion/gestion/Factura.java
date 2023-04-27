@@ -9,7 +9,7 @@ public class Factura {
     private Tienda tienda;
     private Cliente cliente;
     private Transporte transporte;
-    private Producto producto;
+    private ArrayList<Producto> listaProductos;
     private int fecha;
     private String disclaimer;
     private int id;
@@ -19,11 +19,11 @@ public class Factura {
     private static HashMap<String, Moda> infoAtributos = new HashMap<String,Moda>();
 
     // Constructor
-    public Factura(Tienda tienda, Cliente cliente, Transporte transporte, Producto producto, int fecha, String disclaimer) {
+    public Factura(Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos, int fecha, String disclaimer) {
         this.tienda = tienda;
         this.cliente = cliente;
         this.transporte = transporte;
-        this.producto = producto;
+        this.listaProductos = listaProductos;
         this.fecha = fecha;
         this.disclaimer = disclaimer;
 
@@ -38,8 +38,8 @@ public class Factura {
         this.id = ++facturasCreadas;
     }
 
-    public Factura(Tienda tienda, Cliente cliente, Transporte transporte, Producto producto, int fecha) {
-        this(tienda, cliente, transporte, producto, fecha, "SIN DISCLAIMER");
+    public Factura(Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos, int fecha) {
+        this(tienda, cliente, transporte, listaProductos, fecha, "SIN DISCLAIMER");
     }
 
 
@@ -47,15 +47,25 @@ public class Factura {
 
     private double calcularTarifaEnvio(){
 
+        double totalParcial = 0;
+        for(int i=0; i<listaProductos.size(); i++){
+            double precioProducto = listaProductos.get(i).getPeso() * listaProductos.get(i).getTamano();
+            totalParcial+=precioProducto;
+        }
         double precioEnvio = transporte.getTipo().precioEnvio;
 
-        return producto.getPeso() * producto.getTamano() + precioEnvio;
-
+        return totalParcial+precioEnvio;
     }
 
     public double calcularTotal(){
 
-        return producto.getValor() + calcularTarifaEnvio();
+        double totalParcial = 0;
+        for(int i=0; i<listaProductos.size(); i++){
+            double precioProducto = listaProductos.get(i).getValor();
+            totalParcial+=precioProducto;
+        }
+
+        return totalParcial + calcularTarifaEnvio();
     }
 
     public static ArrayList<Factura> getFacturasEntreFechas(int fecha1, int fecha2){
@@ -267,8 +277,12 @@ public static String mostrarFacturas(){
         double tarifaEnvio = calcularTarifaEnvio();
         String tipo = transporte.getTipo().name();
 
-        return "Descripcion del producto: " + producto.getDescripcion() + "\n"
-        +      "Precio del producto: "      + producto.getValor()       + "\n"
+        String textoProductos = "";
+        for(int i=0; i<listaProductos.size(); i++){
+            textoProductos += "Nombre: " + listaProductos.get(i).getNombre()+"\n"+ "Precio del producto: "+ listaProductos.get(i).getValor()+"\n";
+        }
+
+        return  textoProductos
         +      "Tipo de transporte: "       + tipo                      + "\n"
         +      "Tarifa de envio: "          + tarifaEnvio               + "\n"
         +      "Total a pagar: "            + total;  
@@ -294,8 +308,8 @@ public static String mostrarFacturas(){
         return transporte;
     }
 
-    public Producto getProducto() {
-        return producto;
+    public ArrayList<Producto> getlistaProductos() {
+        return listaProductos;
     }
 
     public int getFecha() {
@@ -336,8 +350,8 @@ public static String mostrarFacturas(){
         this.transporte = transporte;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public void setListaProductos(ArrayList<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
     }
 
     public void setFecha(int fecha) {
