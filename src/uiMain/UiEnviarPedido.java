@@ -116,7 +116,7 @@ public class UiEnviarPedido {
                     System.out.println(
                             "\nAdvertencia: Los tipos de transporte han sido filtrados de manera que solo puede seleccionar los que puedan soportar el peso de su producto.");
 
-                    System.out.println("Seleccione el tipo de transporte: ");
+                    
                     System.out.println("0. Regresar al menu principal");
 
                     // TipoTransporte tipoTransportes;
@@ -124,7 +124,7 @@ public class UiEnviarPedido {
                     listaTransFiltrada = TipoTransporte.crearTipoTransporteSegunCarga(productoSeleccionado);
                     // System.out.println(UiMenu.tipoTransportes.mostrarTipoTransporteSegunCarga(productoSeleccionado));
                     System.out.println(TipoTransporte.mostrarTipoTransporteSegunCarga(listaTransFiltrada));
-
+                    System.out.println("Seleccione el número del tipo de transporte: ");
                     System.out.print("> ");
                     int numTransporteSeleccionado = sc.nextInt();
 
@@ -150,7 +150,7 @@ public class UiEnviarPedido {
                     }
 
                 case 5: // retorna factura
-                    System.out.print("\nDigite el día del mes: ");
+                    System.out.println("\nDigite el día del mes: ");
                     System.out.print("> ");
                     int dia = sc.nextInt();
                     //System.out.println(clienteSeleccionado);
