@@ -84,7 +84,6 @@ public class UiEnviarPedido {
                         tiendaSeleccionada = UiMenu.fabrica.getListaTienda().get(numTiendaSeleccionada - 1);
                         System.out.println("Has seleccionado la tienda: " + numTiendaSeleccionada);
                         eleccion = 3;
-                        System.out.println(tiendaSeleccionada.getListaProductos());
                     }
                 case 3: // seleccionar el producto
                     System.out.println("\nSeleccione el producto que desea enviarle al cliente");
@@ -154,7 +153,6 @@ public class UiEnviarPedido {
                     System.out.print("> ");
                     int dia = sc.nextInt();
                     //System.out.println(clienteSeleccionado);
-                    System.out.println(tiendaSeleccionada.getListaProductos());
 
                     System.out.println("\n************************************\n" + tiendaSeleccionada.enviarPedido(productoSeleccionado,
                             transporteSeleccionado, clienteSeleccionado, dia)+"\n************************************");
