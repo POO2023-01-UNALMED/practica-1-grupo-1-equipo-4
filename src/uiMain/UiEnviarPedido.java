@@ -24,10 +24,9 @@ public class UiEnviarPedido {
         Producto productoSeleccionado = null;
         Transporte transporteSeleccionado = null;
         TipoTransporte tipoTransportes = null;
-        int PesoTotalProductos = 0;
 
-        ArrayList<Producto> listaDeProductos = new ArrayList<Producto>();
-        //ArrayList<Producto> listaDeProductos;
+        ArrayList<Producto> listaProductosPedidos = new ArrayList<Producto>();
+        //ArrayList<Producto> listaProductosPedidos = new;
         
         while (interruptor) {
 
@@ -107,7 +106,7 @@ public class UiEnviarPedido {
                         System.out.print("> ");
                         numProductoSeleccionado = sc.nextInt();
                         // Se establece el intervalo en el que estan los productos
-                        
+                        int PesoProducto = 0;
     
                         if (numProductoSeleccionado == 0) {
                             eleccion = 0;
@@ -115,20 +114,19 @@ public class UiEnviarPedido {
                         }
                         if (numProductoSeleccionado > tiendaSeleccionada.getListaProductos().size()) {
                             System.out.println("Número de producto inválido, por favor seleccione un producto en la lista");
-                            eleccion = 3;
-                            break;
+                            cuantos++;
                         } else {
                             productoSeleccionado = tiendaSeleccionada.getListaProductos().get(numProductoSeleccionado - 1);
                             System.out.print("Ha seleccionado el producto #" + numProductoSeleccionado);
-                            listaDeProductos.add(productoSeleccionado);
-                            PesoTotalProductos += productoSeleccionado.getPeso();
-                            //System.out.println(PesoTotalProducto);
+                            listaProductosPedidos.add(productoSeleccionado);
+                            PesoProducto += productoSeleccionado.getPeso();
+                            System.out.println(PesoProducto);
                             eleccion = 4;
-                            break;
                         }
-    
 
-                    }}
+                    }
+                    break;
+                }
 
                 case 4: // seleccionar tipo de transporte
                     System.out.println("\n\nSeleccione en que medio de transporte quiere enviar este producto");
@@ -140,7 +138,7 @@ public class UiEnviarPedido {
 
                     // TipoTransporte tipoTransportes;
                     ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
-                    listaTransFiltrada = TipoTransporte.crearTipoTransporteSegunCarga(PesoTotalProductos);
+                    listaTransFiltrada = TipoTransporte.crearTipoTransporteSegunCarga(productoSeleccionado);
                     // System.out.println(UiMenu.tipoTransportes.mostrarTipoTransporteSegunCarga(productoSeleccionado));
                     System.out.println(TipoTransporte.mostrarTipoTransporteSegunCarga(listaTransFiltrada));
                     System.out.println("Seleccione el número del tipo de transporte: ");
@@ -174,7 +172,7 @@ public class UiEnviarPedido {
                     int dia = sc.nextInt();
                     //System.out.println(clienteSeleccionado);
 
-                    System.out.println("\n************************************\n" + tiendaSeleccionada.enviarPedido(listaDeProductos,
+                    System.out.println("\n************************************\n" + tiendaSeleccionada.enviarPedido(listaProductosPedidos,
                             transporteSeleccionado, clienteSeleccionado, dia)+"\n************************************");
 
                     System.out.println("¿Desea hacer otro envio o volver al menu principal?\n");

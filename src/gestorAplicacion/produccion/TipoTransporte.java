@@ -51,10 +51,10 @@ public enum TipoTransporte {
         Nombre = nombre;
     }
 
-    public static ArrayList<TipoTransporte> crearTipoTransporteSegunCarga(int PesoTotalProductos){
+    public static ArrayList<TipoTransporte> crearTipoTransporteSegunCarga(Producto producto){
 		ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
 		for(TipoTransporte tipoTransportes : TipoTransporte.values()) {
-            if(tipoTransportes.getCapacidadMax() >= PesoTotalProductos){
+            if(tipoTransportes.getCapacidadMax() >= producto.getPeso()){
                 listaTransFiltrada.add(tipoTransportes); 
             }
 	}
