@@ -64,7 +64,7 @@ public class UiEnviarPedido {
                     System.out.println("\n");
                     System.out.println("Su pedido se enviará desde alguna de estas tiendas, por favor seleccione una:");
                     System.out.println("0. Volver al menu principal");
-                    System.out.println(UiMenu.fabrica.mostrarTiendas());
+                    System.out.print(UiMenu.fabrica.mostrarTiendas());
 
                     // Seleccionar tienda
                     System.out.println("Seleccione la tienda a la que desea enviar: ");
@@ -84,15 +84,14 @@ public class UiEnviarPedido {
                         tiendaSeleccionada = UiMenu.fabrica.getListaTienda().get(numTiendaSeleccionada - 1);
                         System.out.println("Has seleccionado la tienda: " + numTiendaSeleccionada);
                         eleccion = 3;
-                        System.out.println(tiendaSeleccionada.getListaProductos());
                     }
                 case 3: // seleccionar el producto
                     System.out.println("\nSeleccione el producto que desea enviarle al cliente");
 
                     System.out.println("0. Regresar al menu principal");
                     System.out.println(tiendaSeleccionada.cantidadProductosVentas());
-                    System.out.print("Seleccione el producto que desea enviar: ");
-
+                    System.out.println("Seleccione el producto que desea enviar: ");
+                    System.out.print("> ");
                     numProductoSeleccionado = sc.nextInt();
                     // Se establece el intervalo en el que estan los productos
 
@@ -154,7 +153,6 @@ public class UiEnviarPedido {
                     System.out.print("> ");
                     int dia = sc.nextInt();
                     //System.out.println(clienteSeleccionado);
-                    System.out.println(tiendaSeleccionada.getListaProductos());
 
                     System.out.println("\n************************************\n" + tiendaSeleccionada.enviarPedido(productoSeleccionado,
                             transporteSeleccionado, clienteSeleccionado, dia)+"\n************************************");
