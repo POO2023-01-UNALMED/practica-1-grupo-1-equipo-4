@@ -1,12 +1,10 @@
-package UiMain;
+package uiMain;
 
 import gestorAplicacion.gestion.*;
 import gestorAplicacion.produccion.*;
+import uiMain.UiMenu;
 
 import java.util.Scanner;
-
-import UiMain.UiMenu;
-
 import java.util.ArrayList;
 
 public class UiEnviarPedido {

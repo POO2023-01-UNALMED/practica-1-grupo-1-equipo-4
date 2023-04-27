@@ -1,4 +1,4 @@
-package UiMain;
+package uiMain;
 
 import gestorAplicacion.gestion.*;
 import gestorAplicacion.produccion.*;

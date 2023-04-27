@@ -1,4 +1,4 @@
-package UiMain;
+package uiMain;
 
 import gestorAplicacion.produccion.*;
 import java.util.Scanner;
