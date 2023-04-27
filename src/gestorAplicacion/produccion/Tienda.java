@@ -94,22 +94,27 @@ public class Tienda implements Financiero, Moda {
         }
     }
 
-    public Factura enviarPedido(Producto producto, Transporte transporte, Cliente cliente, int dia) {
+    public Factura enviarPedido(ArrayList<Producto> listaProductosPedidos, Transporte transporte, Cliente cliente, int dia) {
         // Resto 1 unidad de las cantidades de los productos, pues se envio
         // ------listaCantidadProductos.put(producto,
         // listaCantidadProductos.get(producto)-1);
-        listaProductos.remove(producto);
+        for(int i=0; i<listaProductosPedidos.size(); i++){
+            listaProductos.remove(listaProductosPedidos.get(i));
+        }
         // Añado la suma de trabajo a los trabajadores
         // Al vendedor
-        this.getVendedor().setTrabajo(this.getVendedor().getTrabajo() + 1);
+        this.getVendedor().setTrabajo(this.getVendedor().getTrabajo() + listaProductosPedidos.size());
         // Al conductor
         transporte.getConductor().setTrabajo(transporte.getConductor().getTrabajo() + 1);
         // Al operario
         Fabrica.getOperario().setTrabajo(Fabrica.getOperario().getTrabajo() + 1);
 
-        cliente.getProductos().add(producto);
+        for(int i=0; i<listaProductosPedidos.size(); i++){
+            cliente.getProductos().add(listaProductosPedidos.get(i));
+        }
 
-        Factura factura = new Factura(this, cliente, transporte, producto, dia, "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.");
+
+        Factura factura = new Factura(this, cliente, transporte, listaProductos, dia, "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.");
         return factura;
     }
 
