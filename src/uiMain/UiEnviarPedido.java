@@ -25,8 +25,8 @@ public class UiEnviarPedido {
         Transporte transporteSeleccionado = null;
         TipoTransporte tipoTransportes = null;
 
-        ArrayList<Producto> listaDeProductos = new ArrayList<Producto>();
-        //ArrayList<Producto> listaDeProductos;
+        ArrayList<Producto> listaProductosPedidos = new ArrayList<Producto>();
+        //ArrayList<Producto> listaProductosPedidos = new;
         
         while (interruptor) {
 
@@ -119,7 +119,7 @@ public class UiEnviarPedido {
                         } else {
                             productoSeleccionado = tiendaSeleccionada.getListaProductos().get(numProductoSeleccionado - 1);
                             System.out.print("Ha seleccionado el producto #" + numProductoSeleccionado);
-                            listaDeProductos.add(productoSeleccionado);
+                            listaProductosPedidos.add(productoSeleccionado);
                             PesoProducto += productoSeleccionado.getPeso();
                             System.out.println(PesoProducto);
                             eleccion = 4;
@@ -173,7 +173,7 @@ public class UiEnviarPedido {
                     int dia = sc.nextInt();
                     //System.out.println(clienteSeleccionado);
 
-                    System.out.println("\n************************************\n" + tiendaSeleccionada.enviarPedido(productoSeleccionado,
+                    System.out.println("\n************************************\n" + tiendaSeleccionada.enviarPedido(listaProductosPedidos,
                             transporteSeleccionado, clienteSeleccionado, dia)+"\n************************************");
 
                     System.out.println("¿Desea hacer otro envio o volver al menu principal?\n");
