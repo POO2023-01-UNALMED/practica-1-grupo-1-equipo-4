@@ -24,6 +24,7 @@ public class UiEnviarPedido {
         Producto productoSeleccionado = null;
         Transporte transporteSeleccionado = null;
         TipoTransporte tipoTransportes = null;
+        int PesoTotalProductos = 0;
 
         ArrayList<Producto> listaProductosPedidos = new ArrayList<Producto>();
         //ArrayList<Producto> listaProductosPedidos = new;
@@ -106,7 +107,6 @@ public class UiEnviarPedido {
                         System.out.print("> ");
                         numProductoSeleccionado = sc.nextInt();
                         // Se establece el intervalo en el que estan los productos
-                        int PesoProducto = 0;
     
                         if (numProductoSeleccionado == 0) {
                             eleccion = 0;
@@ -119,8 +119,8 @@ public class UiEnviarPedido {
                             productoSeleccionado = tiendaSeleccionada.getListaProductos().get(numProductoSeleccionado - 1);
                             System.out.print("Ha seleccionado el producto #" + numProductoSeleccionado);
                             listaProductosPedidos.add(productoSeleccionado);
-                            PesoProducto += productoSeleccionado.getPeso();
-                            System.out.println(PesoProducto);
+                            PesoTotalProductos += productoSeleccionado.getPeso();
+                            System.out.println(PesoTotalProductos);
                             eleccion = 4;
                         }
 
@@ -138,7 +138,7 @@ public class UiEnviarPedido {
 
                     // TipoTransporte tipoTransportes;
                     ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
-                    listaTransFiltrada = TipoTransporte.crearTipoTransporteSegunCarga(productoSeleccionado);
+                    listaTransFiltrada = TipoTransporte.crearTipoTransporteSegunCarga(PesoTotalProductos);
                     // System.out.println(UiMenu.tipoTransportes.mostrarTipoTransporteSegunCarga(productoSeleccionado));
                     System.out.println(TipoTransporte.mostrarTipoTransporteSegunCarga(listaTransFiltrada));
                     System.out.println("Seleccione el número del tipo de transporte: ");
