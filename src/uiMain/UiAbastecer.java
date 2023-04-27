@@ -1,16 +1,9 @@
 package UiMain;
 
-import gestorAplicacion.gestion.*;
 import gestorAplicacion.produccion.*;
-
-import java.util.Scanner;
-
-import UiMain.UiMenu;
-
 import java.util.Scanner;
 import java.util.ArrayList;
 
-import java.util.ArrayList;
 
 public class UiAbastecer {
     public static void abastecerTiendas() {
@@ -103,7 +96,7 @@ public class UiAbastecer {
                         System.out.println("El envio no se pudo realizar a esa tienda");
                     }
                     // Ciclo final para ver si sale o se reinicia la funcionalidad
-                    System.out.println("0.Volver al menu principal" + "\n" + "1. Realizar más abastecimientos");
+                    System.out.println("\n0.Volver al menu principal" + "\n" + "1. Realizar más abastecimientos");
                     System.out.print("> ");
                     while (true) {
                         escanerInt = escaner2.nextInt();
