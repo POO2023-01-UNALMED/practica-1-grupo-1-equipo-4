@@ -114,8 +114,7 @@ public class UiEnviarPedido {
                         }
                         if (numProductoSeleccionado > tiendaSeleccionada.getListaProductos().size()) {
                             System.out.println("Número de producto inválido, por favor seleccione un producto en la lista");
-                            eleccion = 3;
-                            break;
+                            cuantos++;
                         } else {
                             productoSeleccionado = tiendaSeleccionada.getListaProductos().get(numProductoSeleccionado - 1);
                             System.out.print("Ha seleccionado el producto #" + numProductoSeleccionado);
@@ -123,11 +122,11 @@ public class UiEnviarPedido {
                             PesoProducto += productoSeleccionado.getPeso();
                             System.out.println(PesoProducto);
                             eleccion = 4;
-                            break;
                         }
-    
 
-                    }}
+                    }
+                    break;
+                }
 
                 case 4: // seleccionar tipo de transporte
                     System.out.println("\n\nSeleccione en que medio de transporte quiere enviar este producto");

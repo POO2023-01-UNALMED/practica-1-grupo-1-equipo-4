@@ -114,7 +114,7 @@ public class Tienda implements Financiero, Moda {
         }
 
 
-        Factura factura = new Factura(this, cliente, transporte, listaProductos, dia, "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.");
+        Factura factura = new Factura(this, cliente, transporte, listaProductosPedidos, dia, "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.");
         return factura;
     }
 
