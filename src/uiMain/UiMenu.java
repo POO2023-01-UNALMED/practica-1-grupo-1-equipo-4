@@ -12,7 +12,7 @@ public class UiMenu {
     public static Fabrica fabrica;
     public static Transporte transporteAbastecer;
 	static{
-		//NOTA: Toca arreglar los constructores y unas cosas pa ver donde va a ir eso 
+		//NOTA: Toca arreglar los constructores y unas cosas pa ver donde va a ir eso aaaaaaaaaaaaaaaaaaaaaaaa
 
             //productos disponibles en la fabrica:
 
