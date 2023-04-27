@@ -34,17 +34,16 @@ public class UiAbastecer {
                     interruptor = false;
                     break;
                 }
-                case 1: 
+                case 1:
                     // Visto en pantalla
                     System.out.println("\n");
                     System.out.println("Abastecer tiendas - Apartado de tiendas");
-                    System.out.println("0. Volver al menu anterior");
-                    System.out.println(UiMenu.fabrica.mostrarTiendas());
+                    System.out.println("\n0. Volver al menu anterior\n");
+                    System.out.print(UiMenu.fabrica.mostrarTiendas());
                     // Seleccionar tienda
                     System.out.print("Seleccione la tienda a la que desea enviar: ");
                     // Entero seleccionado
                     x = escaner1.nextInt();
-                    System.out.println(x);
                     while (interruptor) {
                         // Se establece el intervalo en el que estan las tiendas
                         if (x == 0) {
@@ -62,13 +61,13 @@ public class UiAbastecer {
                         }
                     }
                     break;
-                case 2: 
+                case 2:
 
                     System.out.println("\nAbastecer tiendas - Apartado de productos");
-                    System.out.println("0. Regresar al menu anterior");
+                    System.out.println("\n0. Regresar al menu anterior");
                     System.out.println(UiMenu.fabrica.mostrarProductos());
                     System.out.print("Seleccione el producto que desea enviar: ");
-                    
+
                     while (x != 0) {
                         escanerInt = escaner2.nextInt();
                         // Se establece el intervalo en el que estan los productos
@@ -86,7 +85,7 @@ public class UiAbastecer {
                     }
                     break;
 
-                case 3: 
+                case 3:
                     System.out.print("\nEscriba la cantidad de productos que desea abastecer: ");
                     escanerInt = escaner2.nextInt();
                     listaDeProductos = UiMenu.fabrica.cantidadProductos(escanerInt, productoSeleccionado);
@@ -98,13 +97,14 @@ public class UiAbastecer {
                     if (UiMenu.transporteAbastecer.getTienda().equals(tiendaSeleccionada) == true) {
                         tiendaSeleccionada.descargarProducto(UiMenu.transporteAbastecer, 0);
                         System.out
-                                .println("El producto fue enviado con exito ahora la tienda tienda tiene \nProductos: "
+                                .println("El producto fue enviado con exito ahora la tienda tienda tiene \nPRODUCTOS: "
                                         + tiendaSeleccionada.cantidadProductos());
                     } else {
                         System.out.println("El envio no se pudo realizar a esa tienda");
                     }
                     // Ciclo final para ver si sale o se reinicia la funcionalidad
                     System.out.println("0.Volver al menu principal" + "\n" + "1. Realizar más abastecimientos");
+                    System.out.print("> ");
                     while (true) {
                         escanerInt = escaner2.nextInt();
                         if (escanerInt == 0) {
