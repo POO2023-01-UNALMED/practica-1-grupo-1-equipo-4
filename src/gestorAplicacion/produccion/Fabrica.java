@@ -5,9 +5,10 @@ import gestorAplicacion.gestion.Operario;
 import gestorAplicacion.gestion.Persona;
 import gestorAplicacion.gestion.Factura;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Fabrica implements Financiero{
+public class Fabrica implements Financiero, Serializable{
 
     private static Operario operario;
     private ArrayList<Producto> listaProductos;

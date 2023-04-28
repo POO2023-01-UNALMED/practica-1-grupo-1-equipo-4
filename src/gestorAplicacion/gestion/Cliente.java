@@ -1,11 +1,12 @@
 package gestorAplicacion.gestion;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import gestorAplicacion.produccion.Producto; 
 
 
-public class Cliente implements Moda{
+public class Cliente implements Moda, Serializable{
 
 	/*-------------------Atributos-------------------------*/
 	

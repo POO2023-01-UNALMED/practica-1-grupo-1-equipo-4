@@ -1,12 +1,13 @@
 package gestorAplicacion.produccion;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import gestorAplicacion.gestion.Moda;
 
 
 import gestorAplicacion.gestion.Conductor;
 
-public class Transporte implements Moda {
+public class Transporte implements Moda, Serializable{
     //Atributos
 
     private TipoTransporte tipo; 

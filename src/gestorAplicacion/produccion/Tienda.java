@@ -6,11 +6,13 @@ import gestorAplicacion.gestion.Financiero;
 import gestorAplicacion.gestion.Vendedor;
 import gestorAplicacion.gestion.Factura;
 import gestorAplicacion.gestion.Moda;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Tienda implements Financiero, Moda {
+public class Tienda implements Financiero, Moda, Serializable {
 
     // Atributos
     private String nombre;

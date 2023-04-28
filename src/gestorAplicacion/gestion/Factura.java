@@ -1,11 +1,15 @@
 package gestorAplicacion.gestion;
+import java.io.Serializable;
 import java.util.*;
 import java.util.Map.Entry;
 
+import baseDatos.Deserializador;
 import gestorAplicacion.produccion.*;
 
-public class Factura {
-    
+public class Factura implements Serializable {
+   
+    private static final long serialVersionUID = 1L;    
+
     private Tienda tienda;
     private Cliente cliente;
     private Transporte transporte;
@@ -15,8 +19,25 @@ public class Factura {
     private int id;
     private double total;
     private static int facturasCreadas;
+
     private static ArrayList<Factura> listaFacturas = new ArrayList<Factura>();
     private static HashMap<String, Moda> infoAtributos = new HashMap<String,Moda>();
+
+    static{
+
+        try{
+        listaFacturas = Deserializador.cargarFacturas();
+        System.out.println("Facturas cargadas");
+        }catch(Exception e){
+
+            e.printStackTrace();
+            System.out.println("HA OCURRIDO UN ERROR EN LA DESERIALIZACIÓN DE FACTURAS");
+
+        }
+
+    }
+
+    
 
     // Constructor
     public Factura(Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos, int fecha, String disclaimer) {

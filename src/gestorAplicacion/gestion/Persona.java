@@ -1,8 +1,9 @@
 package gestorAplicacion.gestion;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Persona implements Financiero {
+public abstract class Persona implements Financiero, Serializable {
 	/*-------------------Atributos-------------------------*/
 	
 	

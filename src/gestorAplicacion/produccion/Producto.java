@@ -1,7 +1,8 @@
 package gestorAplicacion.produccion;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Producto {
+public class Producto implements Serializable {
     
     //Atributos
     private String nombre;

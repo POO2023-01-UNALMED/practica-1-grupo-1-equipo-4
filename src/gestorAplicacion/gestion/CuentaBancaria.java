@@ -1,6 +1,8 @@
 package gestorAplicacion.gestion;
 
-public class CuentaBancaria {
+import java.io.Serializable;
+
+public class CuentaBancaria implements Serializable {
     
     private int numeroCuenta;
     private int saldo;

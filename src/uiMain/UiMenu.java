@@ -4,6 +4,10 @@ import gestorAplicacion.gestion.*;
 import gestorAplicacion.produccion.*;
 
 import java.util.Scanner;
+
+import baseDatos.Serializador;
+
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -125,26 +129,21 @@ public class UiMenu {
             tienda2.cantidadProductosVentas();
             tienda3.cantidadProductosVentas();
             //FACTURAS DE PRUEBA:
-            /*Factura factura = new Factura(tienda3, cliente3, transporteAbastecer, producto10, 1, "hola");
-            Factura factura1 = new Factura(tienda2, cliente3, transporteAbastecer, producto10, 2, "hola22");
-            Factura factura2= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 3, "hola33");
-            Factura factura3= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 3, "hola34");
-            Factura factura5= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 4, "hola3234235");
-            Factura factura6= new Factura(tienda2, cliente3, transporteAbastecer, producto10, 4, "hola3453453");
-            Factura factura7= new Factura(tienda2, cliente2, transporteAbastecer, producto10, 2, "hola33453");
-            Factura factura4= new Factura(tienda2, cliente2, transporteAbastecer, producto10, 4, "hola3534");
-            Factura factura8= new Factura(tienda2, cliente2, transporteAbastecer, producto10, 1, "hola33");
-            Factura factura9= new Factura(tienda1, cliente2, transporteAbastecer, producto10, 4, "hola33");
-            Factura factura10= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 5, "hola33");
-            Factura factura11= new Factura(tienda1, cliente3, transporteAbastecer, producto10, 6, "hola33");
-            Factura factura12= new Factura(tienda1, cliente1, transporteAbastecer, producto10, 6, "hola33");
-            Factura factura13= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 4, "hola33");
-            Factura factura14= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 2, "hola33");
-            Factura factura15= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 2, "hola33");
-            Factura factura16= new Factura(tienda2, cliente1, transporteAbastecer, producto10, 5, "hola33");*/
+
             
+
+           /*  Factura factura1 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 1, "hola");
+            Factura factura2 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola");
+            Factura factura3 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola");
+            Factura factura4 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 4, "hola");
+            Factura factura5 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola");
+            Factura factura6 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");
+            Factura factura7 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");*/
+     
 	}
 	public static void main(String[] args) {
+
+
         int opcion;
         
 		do{
@@ -177,9 +176,16 @@ public class UiMenu {
                     UiEstadisticas.estadistica();
                     break;
                 case 6:
+
+                    Serializador.guardar();
+
                     System.out.println("Gracias por visitarnos");
                     System.out.println("Vuelva pronto");
+
+
+
                     break;
+                    
                 default:
                     System.out.println("\nDigitó una opción incorrecta");
                     
