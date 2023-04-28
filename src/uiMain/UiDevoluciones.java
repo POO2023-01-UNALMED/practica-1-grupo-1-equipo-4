@@ -43,9 +43,34 @@ public class UiDevoluciones {
                     }
                     else if ((op >0) && (op <= Factura.getListaFacturas().size())){
 
-                        Factura factura = Factura.seleccionarFactura(op);
+                        Factura facturaSeleccionada = Factura.seleccionarFactura(op);
                         System.out.println("Seleccionó la factura con la opcion número: "+ op);
 
+                        while(condicion2){
+                            String producosDeFactura = Factura.mostrarProductosFacturas(facturaSeleccionada.getlistaProductos()); //se almacenan las facturas en un string
+                            System.out.println("\nPor favor seleccione el número que le corresponda\n"+
+                                                "a el producto para realizar la devolucion\n");
+                            System.out.println("0. Volver al menu principal");
+                            System.out.println(producosDeFactura); //se muestran los productos de la factura en pantalla
+    
+                            System.out.println("Digite su opcion: ");
+                            System.out.print("> ");
+                            int op2 = sc.nextInt(); // se pide la opcion al admin
+                            System.out.println("");
+
+                            Producto productoSeleccionado = facturaSeleccionada.seleccionarProcutoDevolver(op2); 
+    
+                            if (op2 == 0){
+                                eleccion = 0;
+                                condicion = false;
+                                break;
+                            }
+                            else if ((op2 >0) && (op2 <= facturaSeleccionada.getlistaProductos().size()) && (!productoSeleccionado.isDevuelto())){
+                                
+                                Boolean devolver = true;
+                                productoSeleccionado.setDevuelto(devolver); 
+                                System.out.println("Seleccionó la factura con la opcion número: "+ op2);
+    
                         //temporizador para que se vea mas real la eliminacion.
                         try {
                             Thread.sleep(500); // Espera 1 segundo
@@ -58,12 +83,12 @@ public class UiDevoluciones {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        double total = UiMenu.fabrica.descontarDineroCuentaAdmin(factura);
+                        double total = UiMenu.fabrica.descontarDineroCuentaAdmin(facturaSeleccionada);
             
-                        Cliente cliente = factura.getTienda().devolverProducto(factura);
+                        Cliente cliente = facturaSeleccionada.getTienda().devolverProducto(facturaSeleccionada, productoSeleccionado);
             
                         cliente.getCuentaBancaria().devolverDinero(total, cliente);
-                        cliente.getProductos().remove(factura.getProducto());
+                        cliente.getProductos().remove(productoSeleccionado);
                         System.out.println("¡¡ El producto ha sido devuelto exitosamente !!\n");
                         try {
                             Thread.sleep(750);
@@ -71,13 +96,22 @@ public class UiDevoluciones {
                             e.printStackTrace();
                         }
 
-                        eleccion = 2; //para que entre al ultimo caso
-                        break;
-                    }    
-                    else {
-                        System.out.println("La opcion que digitó es incorrecta");}
+                            eleccion = 2; //para que entre al ultimo caso
+                            break;
+
+                        }
+                        else {
+                                System.out.println("La opcion que digitó es incorrecta o el producto ya ha sido devuelto");}
+                                
+                            } 
+                            //break;
                     }
-                    break;
+                    else {
+                            System.out.println("La opcion que digitó es incorrecta");}
+                        
+                    }
+                    
+
 
                 case 2:
 

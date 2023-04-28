@@ -10,7 +10,6 @@ import gestorAplicacion.gestion.Moda;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 public class Tienda implements Financiero, Moda {
 
@@ -27,6 +26,7 @@ public class Tienda implements Financiero, Moda {
         put("construccion", (int) (Math.random() * (30 - 10 + 1) + 10));
     }};;
     private Map<String, Integer> productosPorCategoria;
+    private ArrayList<Producto> productosDevueltos = new ArrayList<Producto>();
 
     // Constructor
     public Tienda(String nombre, Vendedor vendedor, CuentaBancaria cuentaBancaria) {
@@ -41,6 +41,7 @@ public class Tienda implements Financiero, Moda {
     public Tienda() {
 
     }
+
 
     // Métodos
     public String mostrarProductos() {
@@ -88,7 +89,7 @@ public class Tienda implements Financiero, Moda {
         return cadena;
     } 
 
-    // mostrar el procto que va a ser enviado
+    // mostrar el producto que va a ser enviado
     public String cantidadProductosVentas() {
         listaCantidadProductos = new HashMap<Producto, Integer>();
         String cadena = "    ";
@@ -146,13 +147,12 @@ public class Tienda implements Financiero, Moda {
 
    // devuelve el producto en base a la factura que se le pase de la funcionalidad
     // devoluciones
-    /*public Cliente devolverProducto(Factura factura) {
-        Producto producto = factura.getProducto();
-        listaProductos.add(producto); // se duevuelve el producto
-        ArrayList<Factura> listaFacturas = Factura.getListaFacturas();
-        listaFacturas.remove(factura); // se elimina la factura de la lista
+    public Cliente devolverProducto(Factura factura, Producto producto) {
+
+        productosDevueltos.add(producto); // se duevuelve el producto
+
         return factura.getCliente();
-    }**/
+    }
 
     public void descargarProducto(Transporte transporte, int fecha) {
         while (transporte.getListaDeProductos().size() > 0) {
@@ -211,5 +211,13 @@ public class Tienda implements Financiero, Moda {
 
     public static int getNumTiendas() {
         return numTiendas;
+    }
+
+    public ArrayList<Producto> getProductosDevueltos() {
+        return productosDevueltos;
+    }
+
+    public void setProductosDevueltos(ArrayList<Producto> productosDevueltos) {
+        this.productosDevueltos = productosDevueltos;
     }
 }
