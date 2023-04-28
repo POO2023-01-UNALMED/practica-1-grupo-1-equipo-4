@@ -122,6 +122,16 @@ public class Tienda implements Financiero, Moda, Serializable {
         }
     }
 
+    /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Enviar Pedido
+     * 
+     * RECIBE: 
+     * DEVUELVE:
+     * 
+     * DESCRIPCIÓN:
+     */
+
+
     public Factura enviarPedido(ArrayList<Producto> listaProductosPedidos, Transporte transporte, Cliente cliente, int dia) {
         // Resto 1 unidad de las cantidades de los productos, pues se envio
         // ------listaCantidadProductos.put(producto,
