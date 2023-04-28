@@ -307,9 +307,13 @@ public static String mostrarFacturas(){
     }
     //se selecciona el producto con la op digitada en pantalla
     public Producto seleccionarProcutoDevolver(int opcion) {
-		
-        Producto productoSeleccionado = listaProductos.get(opcion-1);
-
+        Producto productoSeleccionado = null; 
+		if (opcion!=0){
+        productoSeleccionado = listaProductos.get(opcion-1);
+        }
+        else{ //esta condicion es solo para que no de error al seleccionar la op 0  del menu para devolverse.
+           productoSeleccionado = listaProductos.get(opcion+1);
+        }
 		return productoSeleccionado;
 	}
 

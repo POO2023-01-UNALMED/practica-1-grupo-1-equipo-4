@@ -132,13 +132,13 @@ public class UiMenu {
 
             
 
-           /*  Factura factura1 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 1, "hola");
+            Factura factura1 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 1, "hola");
             Factura factura2 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola");
             Factura factura3 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola");
             Factura factura4 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 4, "hola");
             Factura factura5 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola");
             Factura factura6 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");
-            Factura factura7 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");*/
+            Factura factura7 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");
      
 	}
 	public static void main(String[] args) {

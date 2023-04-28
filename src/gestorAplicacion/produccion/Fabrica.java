@@ -17,8 +17,7 @@ public class Fabrica implements Financiero, Serializable{
 
 
     // ------------- constructor -------------
-    public Fabrica(ArrayList<Producto> listaProductos,
-            ArrayList<Tienda> listaTienda,CuentaBancaria cuentaBancaria) {
+    public Fabrica(ArrayList<Producto> listaProductos, ArrayList<Tienda> listaTienda,CuentaBancaria cuentaBancaria) {
         this.listaProductos = listaProductos;
         this.listaTienda = listaTienda;
         this.cuentaBancaria = cuentaBancaria;

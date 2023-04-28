@@ -57,19 +57,32 @@ public class UiDevoluciones {
                             System.out.print("> ");
                             int op2 = sc.nextInt(); // se pide la opcion al admin
                             System.out.println("");
+                            
+                            //ciclo para saber si en la factura ya estan todos los prodcutos devueltos
+                            int contadorDevoluciones = 0;
+                            for(Producto producto : facturaSeleccionada.getlistaProductos()){
+                                if (producto.isDevuelto()){
+                                    contadorDevoluciones++;
+                                }
+                            }
+                            Producto productoSeleccionado = facturaSeleccionada.seleccionarProcutoDevolver(op2);
 
-                            Producto productoSeleccionado = facturaSeleccionada.seleccionarProcutoDevolver(op2); 
-    
                             if (op2 == 0){
                                 eleccion = 0;
                                 condicion = false;
+                                condicion2 = false;
                                 break;
                             }
+                            
+                            else if(contadorDevoluciones >= facturaSeleccionada.getlistaProductos().size()){
+                                System.out.println("En la factura que seleccionó ya se han devuelto todos los productos");
+                            }
+
                             else if ((op2 >0) && (op2 <= facturaSeleccionada.getlistaProductos().size()) && (!productoSeleccionado.isDevuelto())){
-                                
+                                 
                                 Boolean devolver = true;
                                 productoSeleccionado.setDevuelto(devolver); 
-                                System.out.println("Seleccionó la factura con la opcion número: "+ op2);
+                                System.out.println("Seleccionó el producto con la opcion número: "+ op2);
     
                         //temporizador para que se vea mas real la eliminacion.
                         try {
@@ -101,13 +114,15 @@ public class UiDevoluciones {
 
                         }
                         else {
-                                System.out.println("La opcion que digitó es incorrecta o el producto ya ha sido devuelto");}
+                                System.out.println("¡ATENCION! La opcion que digitó es incorrecta o el producto ya ha sido devuelto");}
                                 
                             } 
-                            //break;
+                            condicion = false;
+                            eleccion =0;
+                            break;
                     }
                     else {
-                            System.out.println("La opcion que digitó es incorrecta");}
+                            System.out.println("¡ATENCION! La opcion que digitó es incorrecta");}
                         
                     }
                     
@@ -132,7 +147,7 @@ public class UiDevoluciones {
                             break;
                         }
                         else{
-                            System.out.println(" La opcion que digitó es incorrecta ");
+                            System.out.println("¡ATENCION! La opcion que digitó es incorrecta ");
                         }
                     }
                     break;
