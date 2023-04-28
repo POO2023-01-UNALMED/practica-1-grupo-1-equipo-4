@@ -9,7 +9,7 @@ public class Factura {
     private Tienda tienda;
     private Cliente cliente;
     private Transporte transporte;
-    private ArrayList<Producto> listaProductos;
+    private ArrayList<Producto> listaProductos = new ArrayList<Producto>();
     private int fecha;
     private String disclaimer;
     private int id;
@@ -271,6 +271,32 @@ public static String mostrarFacturas(){
 
 		return facturaSeleccionada;
 	}
+
+    //muestra los productos que hay en la factura seleccionada
+    public static String mostrarProductosFacturas(ArrayList<Producto> productosFactura){
+        String textoSalida="";
+        int indice = 1;
+        //se recorre la lista para obtener cada nombre de las facturas disponibles:
+        for(Producto producto:productosFactura) {
+            if (producto.isDevuelto()){
+                textoSalida += indice+". Producto: "+producto.getNombre()+" (Devuelto)"+"\n"; //se almacenan todos lo ID's de las facturas en un string
+                indice++;
+            }
+            else {
+                textoSalida += indice+". Producto: "+producto.getNombre()+"\n"; //se almacenan todos lo ID's de las facturas en un string
+                indice++;                
+            }
+        }
+        return textoSalida;
+    }
+    //se selecciona el producto con la op digitada en pantalla
+    public Producto seleccionarProcutoDevolver(int opcion) {
+		
+        Producto productoSeleccionado = listaProductos.get(opcion-1);
+
+		return productoSeleccionado;
+	}
+
 
     public String toString(){
 
