@@ -45,6 +45,43 @@ public class UiDevoluciones {
 
                         Factura factura = Factura.seleccionarFactura(op);
                         System.out.println("Seleccionó la factura con la opcion número: "+ op);
+                        
+                        break;
+                    }
+                    else {
+                            System.out.println("La opcion que digitó es incorrecta");}
+                        
+                    }
+
+                    while(condicion2){
+                        String producosDeFactura = Factura.mostrarProductosFacturas(factura); //se almacenan las facturas en un string
+                        System.out.println("\nPor favor seleccione el número que le corresponda\n"+
+                                            "a el producto para realizar la devolucion\n");
+                        System.out.println("0. Volver al menu principal");
+                        System.out.println(producosDeFactura); //se muestran las facturas en pantalla
+
+                        System.out.println("Digite su opcion: ");
+                        System.out.print("> ");
+                        int op = sc.nextInt(); // se pide la opcion al admin
+                        System.out.println("");
+
+                        if (op == 0){
+                            eleccion = 0;
+                            condicion = false;
+                            break;
+                        }
+                        else if ((op >0) && (op <= Factura.getListaFacturas().size())){
+
+                            Factura factura = Factura.seleccionarFactura(op);
+                            System.out.println("Seleccionó la factura con la opcion número: "+ op);
+
+                            eleccion = 2;
+                            break;
+                        }
+                        else {
+                                System.out.println("La opcion que digitó es incorrecta");}
+                            
+                        }                
 
                         //temporizador para que se vea mas real la eliminacion.
                         try {
@@ -71,13 +108,9 @@ public class UiDevoluciones {
                             e.printStackTrace();
                         }
 
-                        eleccion = 2; //para que entre al ultimo caso
+                        eleccion = 3; //para que entre al ultimo caso
                         break;
-                    }    
-                    else {
-                        System.out.println("La opcion que digitó es incorrecta");}
-                    }
-                    break;
+
 
                 case 2:
 

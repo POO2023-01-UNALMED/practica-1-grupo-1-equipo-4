@@ -12,6 +12,7 @@ public class Producto {
     private double costoDeProduccion;
     private static int numProductos = 0;
     private static ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+    private boolean devuelto;
 
     //Constructor
 
@@ -24,6 +25,7 @@ public class Producto {
         this.costoDeProduccion = costoDeProduccion;
         numProductos++;
         listaProductos.add(this);
+        this.devuelto = false;
     }
    
     //Métodos
@@ -41,6 +43,14 @@ public class Producto {
     //Get and Set
     public String getNombre() {
         return this.nombre;
+    }
+
+    public boolean isDevuelto() {
+        return devuelto;
+    }
+
+    public void setDevuelto(boolean devuelto) {
+        this.devuelto = devuelto;
     }
 
     public void setNombre(String nombre) {

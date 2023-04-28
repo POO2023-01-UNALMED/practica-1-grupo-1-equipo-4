@@ -19,6 +19,7 @@ public class Tienda implements Financiero, Moda {
     private ArrayList<Producto> listaProductos;
     private Map<Producto, Integer> listaCantidadProductos;
     private static int numTiendas = 0;
+    private ArrayList<Producto> productosDevueltos = new ArrayList<Producto>();
 
     // Constructor
     public Tienda(String nombre, Vendedor vendedor, CuentaBancaria cuentaBancaria) {
@@ -32,6 +33,7 @@ public class Tienda implements Financiero, Moda {
     public Tienda() {
 
     }
+
 
     // Métodos
     public String mostrarProductos() {
@@ -63,7 +65,7 @@ public class Tienda implements Financiero, Moda {
         return cadena;
     }
 
-    // mostrar el procto que va a ser enviado
+    // mostrar el producto que va a ser enviado
     public String cantidadProductosVentas() {
         listaCantidadProductos = new HashMap<Producto, Integer>();
         String cadena = "    ";
@@ -179,5 +181,13 @@ public class Tienda implements Financiero, Moda {
 
     public static int getNumTiendas() {
         return numTiendas;
+    }
+
+    public ArrayList<Producto> getProductosDevueltos() {
+        return productosDevueltos;
+    }
+
+    public void setProductosDevueltos(ArrayList<Producto> productosDevueltos) {
+        this.productosDevueltos = productosDevueltos;
     }
 }
