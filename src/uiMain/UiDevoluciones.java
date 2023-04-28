@@ -108,7 +108,7 @@ public class UiDevoluciones {
                             }
                             System.out.println("... Realizando devolución ... Por favor espere ...");
                             try {
-                                Thread.sleep(1500); // Espera 1,5 segundos
+                                Thread.sleep(1000); // Espera 1,5 segundos
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
