@@ -74,7 +74,7 @@ public class Fabrica implements Financiero, Serializable{
 		int indice = 1;
 		//se recorre la lista para obtener cada nombre de las tiendas disponibles:
 		for(Producto producto:listaProductos) {
-			textoProducto += indice+". "+producto.getNombre()+"\n"; //se almacenan todos lo nombres de los productos en un string
+			textoProducto += indice+". "+producto.getNombre()+" - "+producto.getCategoria()+"\n"; //se almacenan todos lo nombres de los productos en un string
 			indice++;
 		}
 		return textoProducto;

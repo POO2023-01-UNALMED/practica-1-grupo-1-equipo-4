@@ -21,6 +21,12 @@ public class Tienda implements Financiero, Moda, Serializable {
     private ArrayList<Producto> listaProductos;
     private Map<Producto, Integer> listaCantidadProductos;
     private static int numTiendas = 0;
+    private Map<String, Integer> cantidadPorCategoria = new HashMap<String, Integer>() {{
+        put("aseo", (int) (Math.random() * (30 - 10 + 1) + 10));
+        put("consumible", (int) (Math.random() * (30 - 10 + 1) + 10));
+        put("construccion", (int) (Math.random() * (30 - 10 + 1) + 10));
+    }};;
+    private Map<String, Integer> productosPorCategoria;
     private ArrayList<Producto> productosDevueltos = new ArrayList<Producto>();
 
     // Constructor
@@ -29,6 +35,7 @@ public class Tienda implements Financiero, Moda, Serializable {
         this.vendedor = vendedor;
         this.cuentaBancaria = cuentaBancaria;
         this.listaCantidadProductos = new HashMap<Producto, Integer>();
+        productosPorCategoria = new HashMap<String, Integer>();
         numTiendas++;
     }
 
@@ -66,6 +73,22 @@ public class Tienda implements Financiero, Moda, Serializable {
 
         return cadena;
     }
+    /*Metodo para contar la capacidad de una tienda y contar el tipo de productos que tiene cada tienda */
+    public String productosPorCategoria(){
+        String cadena = "";
+        productosPorCategoria.put("aseo",0);
+        productosPorCategoria.put("consumible",0);
+        productosPorCategoria.put("construccion",0);
+        for(Producto producto:listaProductos){
+            if(productosPorCategoria.containsKey(producto.getCategoria())){
+                productosPorCategoria.put(producto.getCategoria(),productosPorCategoria.get(producto.getCategoria())+1);
+            }
+        }
+        cadena += "Aseo " + productosPorCategoria.get("aseo")+"/"+cantidadPorCategoria.get("aseo") +"  ";
+        cadena += "Consumible " + productosPorCategoria.get("consumible")+"/"+cantidadPorCategoria.get("consumible")+"  ";
+        cadena += "Construccion " + productosPorCategoria.get("construccion")+"/"+cantidadPorCategoria.get("construccion")+"  ";
+        return cadena;
+    } 
 
     // mostrar el producto que va a ser enviado
     public String cantidadProductosVentas() {
@@ -89,6 +112,7 @@ public class Tienda implements Financiero, Moda, Serializable {
 
         return cadena;
     }
+
 
     public void elegirTransporte(Producto producto) {
         for (int i = 0; i < TipoTransporte.values().length; i++) {
@@ -122,13 +146,12 @@ public class Tienda implements Financiero, Moda, Serializable {
         return factura;
     }
 
-    // devuelve el producto en base a la factura que se le pase de la funcionalidad
+   // devuelve el producto en base a la factura que se le pase de la funcionalidad
     // devoluciones
-    public Cliente devolverProducto(Factura factura) {
-        Producto producto = factura.getProducto();
-        listaProductos.add(producto); // se duevuelve el producto
-        ArrayList<Factura> listaFacturas = Factura.getListaFacturas();
-        listaFacturas.remove(factura); // se elimina la factura de la lista
+    public Cliente devolverProducto(Factura factura, Producto producto) {
+
+        productosDevueltos.add(producto); // se duevuelve el producto
+
         return factura.getCliente();
     }
 
@@ -171,6 +194,12 @@ public class Tienda implements Financiero, Moda, Serializable {
 
     public void setListaProductos(ArrayList<Producto> listaProductos) {
         this.listaProductos = listaProductos;
+    }
+    public Map<String, Integer> getProductosPorCategoria(){
+        return productosPorCategoria;
+    }
+    public Map<String, Integer> getCantidadPorCategoria(){
+        return cantidadPorCategoria;
     }
 
     public Map<Producto, Integer> getListaCantidadProductos() {

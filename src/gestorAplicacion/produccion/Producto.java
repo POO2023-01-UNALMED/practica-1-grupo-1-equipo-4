@@ -12,18 +12,22 @@ public class Producto implements Serializable {
     private double tamano;
     private double costoDeProduccion;
     private static int numProductos = 0;
+    private String categoria;
+
+
     private static ArrayList<Producto> listaProductos = new ArrayList<Producto>();
     private boolean devuelto;
 
     //Constructor
 
-    public Producto(String nombre, String descripcion, double valor, double peso, double tamano, double costoDeProduccion) {
+    public Producto(String nombre, String descripcion, double valor, double peso, double tamano, double costoDeProduccion, String categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.valor = valor;
         this.peso = peso;
         this.tamano = tamano;
         this.costoDeProduccion = costoDeProduccion;
+        this.categoria = categoria.toLowerCase();
         numProductos++;
         listaProductos.add(this);
         this.devuelto = false;
@@ -97,7 +101,12 @@ public class Producto implements Serializable {
     public void setCostoDeProduccion(Double costoDeProduccion) {
         this.costoDeProduccion = costoDeProduccion;
     }
-
+    public String getCategoria() {
+        return categoria;
+    }
+    public void setCategoria(String categoria) {
+        this.categoria=categoria;
+    }
     public static int getNumProductos(){
         return numProductos;
     }
