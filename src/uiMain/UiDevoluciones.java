@@ -67,26 +67,10 @@ public class UiDevoluciones {
                             }
                             else if ((op2 >0) && (op2 <= facturaSeleccionada.getlistaProductos().size()) && (!productoSeleccionado.isDevuelto())){
                                 
-                                Boolean devolver = false;
+                                Boolean devolver = true;
                                 productoSeleccionado.setDevuelto(devolver); 
                                 System.out.println("Seleccionó la factura con la opcion número: "+ op2);
     
-                                eleccion = 2;
-                                break;
-                            }
-                            else {
-                                    System.out.println("La opcion que digitó es incorrecta o el producto ya ha sido devuelto");}
-                                
-                            } 
-                        break;
-                    }
-                    else {
-                            System.out.println("La opcion que digitó es incorrecta");}
-                        
-                    }
-                    
-               
-
                         //temporizador para que se vea mas real la eliminacion.
                         try {
                             Thread.sleep(500); // Espera 1 segundo
@@ -99,12 +83,12 @@ public class UiDevoluciones {
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                        double total = UiMenu.fabrica.descontarDineroCuentaAdmin(factura);
+                        double total = UiMenu.fabrica.descontarDineroCuentaAdmin(facturaSeleccionada);
             
-                        Cliente cliente = factura.getTienda().devolverProducto(factura);
+                        Cliente cliente = facturaSeleccionada.getTienda().devolverProducto(facturaSeleccionada, productoSeleccionado);
             
                         cliente.getCuentaBancaria().devolverDinero(total, cliente);
-                        cliente.getProductos().remove(factura.getProducto());
+                        cliente.getProductos().remove(productoSeleccionado);
                         System.out.println("¡¡ El producto ha sido devuelto exitosamente !!\n");
                         try {
                             Thread.sleep(750);
@@ -112,8 +96,21 @@ public class UiDevoluciones {
                             e.printStackTrace();
                         }
 
-                        eleccion = 3; //para que entre al ultimo caso
-                        break;
+                            eleccion = 2; //para que entre al ultimo caso
+                            break;
+
+                        }
+                        else {
+                                System.out.println("La opcion que digitó es incorrecta o el producto ya ha sido devuelto");}
+                                
+                            } 
+                            //break;
+                    }
+                    else {
+                            System.out.println("La opcion que digitó es incorrecta");}
+                        
+                    }
+                    
 
 
                 case 2:
