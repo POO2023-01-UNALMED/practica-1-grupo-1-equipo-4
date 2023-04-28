@@ -170,9 +170,8 @@ public class UiEnviarPedido {
                     System.out.println("\nDigite el día del mes: ");
                     System.out.print("> ");
                     int dia = sc.nextInt();
-                    //System.out.println(clienteSeleccionado);
-
-                    System.out.println("\n************************************\n" + tiendaSeleccionada.enviarPedido(listaProductosPedidos,
+                   
+                    System.out.println("\n************************************\n"+ "Factura generada en la tienda " +tiendaSeleccionada.getNombre() + "\nA nombre del cliente: " + clienteSeleccionado.getNombre()+"\n" +tiendaSeleccionada.enviarPedido(listaProductosPedidos,
                             transporteSeleccionado, clienteSeleccionado, dia)+"\n************************************");
 
                     System.out.println("¿Desea hacer otro envio o volver al menu principal?\n");

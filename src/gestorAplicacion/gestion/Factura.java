@@ -68,14 +68,9 @@ public class Factura implements Serializable {
 
     private double calcularTarifaEnvio(){
 
-        double totalParcial = 0;
-        for(int i=0; i<listaProductos.size(); i++){
-            double precioProducto = listaProductos.get(i).getPeso() * listaProductos.get(i).getTamano();
-            totalParcial+=precioProducto;
-        }
         double precioEnvio = transporte.getTipo().precioEnvio;
 
-        return totalParcial+precioEnvio;
+        return precioEnvio;
     }
 
     public double calcularTotal(){
@@ -326,7 +321,7 @@ public static String mostrarFacturas(){
 
         String textoProductos = "";
         for(int i=0; i<listaProductos.size(); i++){
-            textoProductos += "Nombre: " + listaProductos.get(i).getNombre()+"\n"+ "Precio del producto: "+ listaProductos.get(i).getValor()+"\n";
+            textoProductos += "Nombre del producto: " + listaProductos.get(i).getNombre()+"\n"+ "Precio del producto: "+ listaProductos.get(i).getValor()+"\n";
         }
 
         return  textoProductos
