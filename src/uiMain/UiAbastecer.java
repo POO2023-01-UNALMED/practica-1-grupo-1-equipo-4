@@ -55,8 +55,9 @@ public class UiAbastecer {
                     }
                     break;
                 case 2:
-
                     System.out.println("\nAbastecer tiendas - Apartado de productos");
+                    System.out.print("\nLa capacidad de productos para esta tienda es la siguiente: \n");
+                    System.out.println(tiendaSeleccionada.productosPorCategoria());
                     System.out.println("\n0. Regresar al menu anterior");
                     System.out.println(UiMenu.fabrica.mostrarProductos());
                     System.out.print("Seleccione el producto que desea enviar: ");
@@ -64,6 +65,7 @@ public class UiAbastecer {
                     while (x != 0) {
                         escanerInt = escaner2.nextInt();
                         // Se establece el intervalo en el que estan los productos
+
                         if (escanerInt == 0) {
                             eleccion = 1;
                             break;
@@ -79,8 +81,20 @@ public class UiAbastecer {
                     break;
 
                 case 3:
-                    System.out.print("\nEscriba la cantidad de productos que desea abastecer: ");
-                    escanerInt = escaner2.nextInt();
+                    System.out.print("\nEscriba la cantidad de productos que desea abastecer: ");  
+                    int productoEnTiendaPorCategoria = tiendaSeleccionada.getProductosPorCategoria().get(productoSeleccionado.getCategoria());
+                    int productosMaximosEnTiendaPorCategoria = tiendaSeleccionada.getCantidadPorCategoria().get(productoSeleccionado.getCategoria());
+                    while(true){
+                        escanerInt = escaner2.nextInt();
+                        System.out.println(productoEnTiendaPorCategoria+" "+productosMaximosEnTiendaPorCategoria);
+                        if(escanerInt<=productosMaximosEnTiendaPorCategoria-productoEnTiendaPorCategoria){
+                            break;
+                        }else{
+                            System.out.print("Por favor seleccione una cantidad en el limite de la tienda: ");
+                        }
+                    }
+                    
+
                     listaDeProductos = UiMenu.fabrica.cantidadProductos(escanerInt, productoSeleccionado);
                     // Aqui lo que se hace es meter todo en el camion basicamente luego haremos una
                     // comprobacion de que si sea la tienda a la que se le esta enviando

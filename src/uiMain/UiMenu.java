@@ -18,16 +18,16 @@ public class UiMenu {
 
             ArrayList<Producto> catalogo = new ArrayList<Producto>();
             //Producto(String nombre, String descripcion, Double valor, Double peso, Double tamano, Double costoDeProduccion);
-            Producto producto1 = new Producto("Cemento Portland","Cemento de uso general en construcción", 100, 50, 24000,30);
-            Producto producto2 = new Producto("Grafeno","Material compuesto por átomos de carbono en una estructura de red hexagonal", 500000, 1, 100,1000);
-            Producto producto3 = new Producto("Ladrillo"," Bloque utilizado en paredes y estructuras", 1, 2.5, 10374,0.25);
-            Producto producto4 = new Producto("Bloque de Hormigón","Bloque sólido utilizado en paredes y estructuras", 100, 675, 200000,20);
-            Producto producto5 = new Producto("Hojas de Acero","acero enrejado utilizado en refuerzos estructurales", 75, 60, 10000,15);
-            Producto producto6 = new Producto("Adhesivo","Adhesivo multiusos", 20, 0.3, 20000,5);
-            Producto producto7 = new Producto("Calcita","Mineral de carbonato utilizado como componente en el concreto y la cal", 3090, 271, 20,10);
-            Producto producto8 = new Producto("Cuarzo","Mineral utilizado como componente en el concreto y la fabricación de vidrio", 30000, 265, 20,1000);
-            Producto producto9 = new Producto("Marmol","Roca metamórfica utilizada para la decoración y acabado de interiores", 20345, 3000000, 20,1000);
-            Producto producto10 = new Producto("Granito","Roca ígnea utilizada en encimeras, pisos y paredes", 10000, 27800, 20,750);
+            Producto producto1 = new Producto("Cemento Portland","Cemento de uso general en construcción", 100, 50, 24000,30,"construccion");
+            Producto producto2 = new Producto("Grafeno","Material compuesto por átomos de carbono en una estructura de red hexagonal", 500000, 1, 100,1000,"construccion");
+            Producto producto3 = new Producto("Ladrillo"," Bloque utilizado en paredes y estructuras", 1, 2.5, 10374,0.25,"construccion");
+            Producto producto4 = new Producto("Bloque de Hormigón","Bloque sólido utilizado en paredes y estructuras", 100, 675, 200000,20,"aseo");
+            Producto producto5 = new Producto("Hojas de Acero","acero enrejado utilizado en refuerzos estructurales", 75, 60, 10000,15,"construccion");
+            Producto producto6 = new Producto("Adhesivo","Adhesivo multiusos", 20, 0.3, 20000,5,"construccion");
+            Producto producto7 = new Producto("Calcita","Mineral de carbonato utilizado como componente en el concreto y la cal", 3090, 271, 20,10,"consumible");
+            Producto producto8 = new Producto("Cuarzo","Mineral utilizado como componente en el concreto y la fabricación de vidrio", 30000, 265, 20,1000,"construccion");
+            Producto producto9 = new Producto("Marmol","Roca metamórfica utilizada para la decoración y acabado de interiores", 20345, 3000000, 20,1000,"construccion");
+            Producto producto10 = new Producto("Granito","Roca ígnea utilizada en encimeras, pisos y paredes", 10000, 27800, 20,750,"construccion");
             //se agregan al catalogo
             catalogo.add(producto1);
             catalogo.add(producto2);
