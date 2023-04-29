@@ -3,9 +3,13 @@ package uiMain;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import gestorAplicacion.gestion.Conductor;
 import gestorAplicacion.gestion.CuentaBancaria;
 import gestorAplicacion.gestion.Factura;
+import gestorAplicacion.gestion.Meta;
+import gestorAplicacion.gestion.Operario;
 import gestorAplicacion.gestion.Persona;
+import gestorAplicacion.gestion.Vendedor;
 import gestorAplicacion.produccion.Fabrica;
 
 public class UiPagarTrabajadores {
@@ -41,15 +45,19 @@ public class UiPagarTrabajadores {
                     break;
                 }
 
+                ArrayList<Meta> listaMetas;
                 switch (opcion) {
                     case 1:
                         System.out.println("\nEsta es la lista de Operarios que han trabajado"); 
+                        listaMetas = Operario.getMetasOperario();
                         break;
                     case 2:
                         System.out.println("\nEsta es la lista de Conductores que han trabajado");
+                        listaMetas = Conductor.getMetasConductor();
                         break;
                     case 3:
                         System.out.println("\nEsta es la lista de Vendedores que han trabajado");
+                        listaMetas = Vendedor.getMetasVendedor();
                         break;
                 }
 
@@ -79,17 +87,49 @@ public class UiPagarTrabajadores {
                         
                         System.out.println("\nAl trabajor " + trabajadorEscogido.getNombre() + " se le pagará " + total + " por trabajar " + trabajadorEscogido.getTrabajo() + " veces");
                         
+                        
+                        System.out.println("\n¿Desea analizar y pagar al trabajador por sus metas cumplidas?\n1.Si\n2.No");
+                        
+                        boolean verificador4 = true;
+
+                        int valorPorMetas = 0;
+
+                        while(verificador4){
+                            System.out.println("\nDigite el número de la opción que desee");
+                            System.out.print("> ");
+                            int opcMeta = sc.nextInt();
+
+                            switch(opcMeta){
+                                case 1:
+                                verificador4 = false;
+                                break;
+                                case 2:
+                                System.out.println("El trabajador escogido tiene las siguientes metas");
+                                //Falta terminar aquí
+                                verificador4 = false;
+                                break;
+                                default:
+                                System.out.println("Opción incorrecta");
+                            }
+                        }
+
+                        //Método #3
+                        //Envia el dinero que calculamos antes a la cuenta del trabajador
+                        // y se lo resta a la cuenta de la fabrica
+                        trabajadorEscogido.recibirSueldo(total + valorPorMetas);
+                        
+                        System.out.println("\nEl pago fue realizado con éxito\n");
+                        System.out.println("**************************");
+                        System.out.println("Comprobante");
+                        System.out.println("Pago asociado a los envios realizados " + total);
+                        System.out.println("Pago asociado al cumpliento de metas " + valorPorMetas);
+                        System.out.println("Total = " + (total+valorPorMetas));
+                        System.out.println("**************************");
 
                         //Asignamos de nuevo 0 al trabajo, para que si se le paga de nuevo,
                         //no se le pague más de una vez por el mismo trabajo
                         trabajadorEscogido.setTrabajo(0);
 
-                        //Método #3
-                        //Envia el dinero que calculamos antes a la cuenta del trabajador
-                        // y se lo resta a la cuenta de la fabrica
-                        trabajadorEscogido.recibirSueldo(total);
-                        
-                        System.out.println("\nEl pago fue realizado con éxito");
                         verificador2 = false;
                         break;
                     }

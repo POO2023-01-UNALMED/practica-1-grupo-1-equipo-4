@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import gestorAplicacion.produccion.Fabrica;
 import gestorAplicacion.produccion.Transporte;
 public class Conductor extends Persona {
+
+	private static ArrayList<Meta> metasConductor = new ArrayList<Meta>();
 	private Transporte transporte;
 	private Fabrica fabrica;
 	private static ArrayList<Conductor> listaConductores = new ArrayList<Conductor>();
@@ -41,6 +43,13 @@ public class Conductor extends Persona {
 	public void setFabrica(Fabrica fabrica) {
 		this.fabrica = fabrica;
 	}
+	public static ArrayList<Meta> getMetasConductor(){
+		return metasConductor;
+	}
+	public static void setMetasConductor(ArrayList<Meta> metasConductor){
+		Conductor.metasConductor = metasConductor;
+	}
+
 	/*-------------------Metodos-------------------------*/
     @Override
 	public void recibirSueldo(int total) {

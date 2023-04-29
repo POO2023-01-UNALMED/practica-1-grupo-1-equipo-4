@@ -140,12 +140,18 @@ public class Tienda implements Financiero, Moda, Serializable {
             listaProductos.remove(listaProductosPedidos.get(i));
         }
         // Añado la suma de trabajo a los trabajadores
+
         // Al vendedor
-        this.getVendedor().setTrabajo(this.getVendedor().getTrabajo() + listaProductosPedidos.size());
+        this.getVendedor().setTrabajo(this.getVendedor().getTrabajo() + 1);
+        this.getVendedor().setProductosTrabajados(this.getVendedor().getProductosTrabajados()+listaProductosPedidos.size() );
+        
         // Al conductor
         transporte.getConductor().setTrabajo(transporte.getConductor().getTrabajo() + 1);
+        transporte.getConductor().setProductosTrabajados(transporte.getConductor().getProductosTrabajados() + listaProductosPedidos.size());
+
         // Al operario
         Fabrica.getOperario().setTrabajo(Fabrica.getOperario().getTrabajo() + 1);
+        Fabrica.getOperario().setProductosTrabajados(Fabrica.getOperario().getProductosTrabajados() + listaProductosPedidos.size());
 
         for(int i=0; i<listaProductosPedidos.size(); i++){
             cliente.getProductos().add(listaProductosPedidos.get(i));

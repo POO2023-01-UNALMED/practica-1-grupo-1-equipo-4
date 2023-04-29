@@ -13,6 +13,7 @@ public abstract class Persona implements Financiero, Serializable {
 	private CuentaBancaria cuentaBancaria;
 	private static final int salario=1000;
 	private int trabajo;
+	private int productosTrabajados;
 	private static int personasTotales;
 	private static  ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
 	
@@ -26,6 +27,7 @@ public abstract class Persona implements Financiero, Serializable {
 		this.cedula=cedula;
 		this.cuentaBancaria=cuentaBancaria;
 		this.trabajo = 0;
+		this.productosTrabajados = 0;
 		listaPersonas.add(this);
 		}
 	/*Constructor de la clase persona que no recibe ninguna parametros*/
@@ -70,6 +72,15 @@ public abstract class Persona implements Financiero, Serializable {
 	public void setTrabajo(int trabajo) {
 		this.trabajo = trabajo;
 	}
+
+	public int getProductosTrabajados(){
+		return productosTrabajados;
+	}
+
+	public void setProductosTrabajados(int productosTrabajados) {
+		this.productosTrabajados = productosTrabajados;
+	}
+
 	public static int getPersonasTotales() {
 		return personasTotales;
 	}
@@ -77,6 +88,8 @@ public abstract class Persona implements Financiero, Serializable {
 	public static ArrayList<Persona> getListaPersonas(){
 		return listaPersonas;
 	}
+
+
 	
 	/*------------------- Metodos -------------------------*/
 	
