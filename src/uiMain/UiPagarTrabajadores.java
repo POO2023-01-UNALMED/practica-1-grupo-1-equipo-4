@@ -43,23 +43,18 @@ public class UiPagarTrabajadores {
 
                 switch (opcion) {
                     case 1:
-                        System.out.println("\nEsta es la lista de Operarios que han trabajado\n"); 
+                        System.out.println("\nEsta es la lista de Operarios que han trabajado"); 
                         break;
                     case 2:
-                        System.out.println("\nEsta es la lista de Conductores que han trabajado\n");
+                        System.out.println("\nEsta es la lista de Conductores que han trabajado");
                         break;
                     case 3:
-                        System.out.println("\nEsta es la lista de Vendedores que han trabajado\n");
+                        System.out.println("\nEsta es la lista de Vendedores que han trabajado");
                         break;
                 }
 
                 //Imprime la lista que se devolvió anteriormente
-                int indice = 1;
-
-                for (Persona i: listaTrabajadores) {
-                    System.out.print("Trabajador "+indice + i.toString() + "\n"); //USO DE LIGADURA DINÁMICA
-                    indice++;               
-                }
+                System.out.println(Fabrica.mostrarPersonas(listaTrabajadores));
 
                 while(verificador2){
                     //Pide el # del trabajador

@@ -117,7 +117,9 @@ public class Fabrica implements Financiero, Serializable{
         }
         return listaAbastecer;
     }    
-    //
+    
+
+
     public static ArrayList<Persona> busquedaTrabajo(ArrayList<Factura> listaFacturas,int tipo){
         ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
         for (Factura factura: listaFacturas){
@@ -138,5 +140,17 @@ public class Fabrica implements Financiero, Serializable{
         }
         return listaPersonas;
         
+    }
+    //Uso de ligadura dinámica
+    public static String mostrarPersonas(ArrayList<Persona> listaTrabajadores){
+        String texto = "";
+        int indice = 1;
+
+        for (Persona i: listaTrabajadores) {
+            texto += "\n" + "Trabajador "+ indice + i.toString();
+            indice++;               
+        }
+
+        return texto;
     }
 }
