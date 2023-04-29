@@ -55,6 +55,7 @@ public class UiEnviarPedido {
                     if (numClienteSeleccionado > Cliente.getListaClientes().size()) {
                         System.out.println("Número de cliente inválido, por favor seleccione un cliente en la lista");
                         eleccion = 1;
+                        break;
                     } else {
                         clienteSeleccionado = Cliente.getListaClientes().get(numClienteSeleccionado - 1);
                         System.out.print("Has seleccionado al cliente #" + numClienteSeleccionado + "\nEl cliente es: "
