@@ -4,7 +4,6 @@ import gestorAplicacion.produccion.*;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-
 public class UiAbastecer {
     public static void abastecerTiendas() {
 
@@ -18,7 +17,7 @@ public class UiAbastecer {
         Boolean interruptor = true;
         Tienda tiendaSeleccionada = null;
         Producto productoSeleccionado = null;
-
+        Transporte transporteSeleccionado=null;
         ArrayList<Producto> listaDeProductos;
         while (interruptor) {
 
@@ -80,29 +79,69 @@ public class UiAbastecer {
                     }
                     break;
 
-                case 3:
-                    System.out.print("\nEscriba la cantidad de productos que desea abastecer: ");  
-                    int productoEnTiendaPorCategoria = tiendaSeleccionada.getProductosPorCategoria().get(productoSeleccionado.getCategoria());
-                    int productosMaximosEnTiendaPorCategoria = tiendaSeleccionada.getCantidadPorCategoria().get(productoSeleccionado.getCategoria());
-                    while(true){
+                case 3: // Cantidad de productos
+                    System.out.print("\nEscriba la cantidad de productos que desea abastecer: ");
+                    int productoEnTiendaPorCategoria = tiendaSeleccionada.getProductosPorCategoria()
+                            .get(productoSeleccionado.getCategoria());
+                    int productosMaximosEnTiendaPorCategoria = tiendaSeleccionada.getCantidadPorCategoria()
+                            .get(productoSeleccionado.getCategoria());
+                    while (true) {
                         escanerInt = escaner2.nextInt();
-                        System.out.println(productoEnTiendaPorCategoria+" "+productosMaximosEnTiendaPorCategoria);
-                        if(escanerInt<=productosMaximosEnTiendaPorCategoria-productoEnTiendaPorCategoria){
+                        if (escanerInt <= productosMaximosEnTiendaPorCategoria - productoEnTiendaPorCategoria) {
+                            eleccion = 4;
                             break;
-                        }else{
+                        } else {
                             System.out.print("Por favor seleccione una cantidad en el limite de la tienda: ");
                         }
                     }
-                    
+
+                case 4: // seleccionar tipo de transporte
+                    int PesoTotalProductos = escanerInt * ((int) Math.round(productoSeleccionado.getPeso()));
+                    System.out.println("\n\nSeleccione en que medio de transporte quiere enviar este producto");
+                    System.out.println(
+                            "\nAdvertencia: Los tipos de transporte han sido filtrados de manera que solo puede seleccionar los que puedan soportar el peso de su producto.");
+
+                    System.out.println("0. Regresar al menu principal");
+
+                    // TipoTransporte tipoTransportes;
+                    ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
+                    listaTransFiltrada = TipoTransporte.crearTipoTransporteSegunCarga(PesoTotalProductos);
+                    // System.out.println(UiMenu.tipoTransportes.mostrarTipoTransporteSegunCarga(productoSeleccionado));
+                    System.out.println(TipoTransporte.mostrarTipoTransporteSegunCarga(listaTransFiltrada));
+                    System.out.println("Seleccione el número del tipo de transporte: ");
+                    System.out.print("> ");
+                    int numTransporteSeleccionado = escaner2.nextInt();
+
+                    if (numTransporteSeleccionado == 0) {
+                        eleccion = 0;
+                        break;
+                    }
+
+                    if (numTransporteSeleccionado > listaTransFiltrada.size()) {
+                        System.out
+                                .println("Número de transporte inválido, por favor seleccione un producto en la lista");
+                        eleccion = 4;
+                        break;
+                    }
+
+                    else {
+                        transporteSeleccionado = TipoTransporte.seleccionarTransporte(listaTransFiltrada,
+                                numTransporteSeleccionado);
+                        System.out.print("Ha seleccionado el transporte #" + (numTransporteSeleccionado)
+                                + "\nLa tienda se abastecera por: " + transporteSeleccionado.getTipo().getNombre());
+                        eleccion = 5;
+                        break;
+                    }
+                case 5:
 
                     listaDeProductos = UiMenu.fabrica.cantidadProductos(escanerInt, productoSeleccionado);
                     // Aqui lo que se hace es meter todo en el camion basicamente luego haremos una
                     // comprobacion de que si sea la tienda a la que se le esta enviando
-                    UiMenu.transporteAbastecer.abastecerProducto(tiendaSeleccionada, listaDeProductos);
+                    transporteSeleccionado.abastecerProducto(tiendaSeleccionada, listaDeProductos);
                     // Se llega a la tienda y se sacan los productos del transporte pero primero se
                     // comprueba que el transporte si vaya hacia esa tienda
-                    if (UiMenu.transporteAbastecer.getTienda().equals(tiendaSeleccionada) == true) {
-                        tiendaSeleccionada.descargarProducto(UiMenu.transporteAbastecer, 0);
+                    if (transporteSeleccionado.getTienda().equals(tiendaSeleccionada) == true) {
+                        tiendaSeleccionada.descargarProducto(transporteSeleccionado, 0);
                         System.out
                                 .println("El producto fue enviado con exito ahora la tienda tienda tiene \nPRODUCTOS: "
                                         + tiendaSeleccionada.cantidadProductos());
