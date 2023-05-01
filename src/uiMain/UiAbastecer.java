@@ -87,13 +87,18 @@ public class UiAbastecer {
                             .get(productoSeleccionado.getCategoria());
                     while (true) {
                         escanerInt = escaner2.nextInt();
-                        if (escanerInt <= productosMaximosEnTiendaPorCategoria - productoEnTiendaPorCategoria) {
+                        if (escanerInt == 0){
+                            eleccion =1;
+                            break;
+                        }
+                        else if (escanerInt <= productosMaximosEnTiendaPorCategoria - productoEnTiendaPorCategoria) {
                             eleccion = 4;
                             break;
                         } else {
                             System.out.print("Por favor seleccione una cantidad en el limite de la tienda: ");
                         }
                     }
+                    break;
 
                 case 4: // seleccionar tipo de transporte
                     int PesoTotalProductos = escanerInt * ((int) Math.round(productoSeleccionado.getPeso()));
@@ -110,8 +115,8 @@ public class UiAbastecer {
                     System.out.println(TipoTransporte.mostrarTipoTransporteSegunCarga(listaTransFiltrada));
                     System.out.println("Seleccione el número del tipo de transporte: ");
                     System.out.print("> ");
+                    while(true){
                     int numTransporteSeleccionado = escaner2.nextInt();
-
                     if (numTransporteSeleccionado == 0) {
                         eleccion = 0;
                         break;
@@ -119,9 +124,7 @@ public class UiAbastecer {
 
                     if (numTransporteSeleccionado > listaTransFiltrada.size()) {
                         System.out
-                                .println("Número de transporte inválido, por favor seleccione un producto en la lista");
-                        eleccion = 4;
-                        break;
+                                .print("Número de transporte inválido, por favor seleccione un producto en la lista \n> ");
                     }
 
                     else {
@@ -131,7 +134,8 @@ public class UiAbastecer {
                                 + "\nLa tienda se abastecera por: " + transporteSeleccionado.getTipo().getNombre());
                         eleccion = 5;
                         break;
-                    }
+                    }}
+                    break;
                 case 5:
 
                     listaDeProductos = UiMenu.fabrica.cantidadProductos(escanerInt, productoSeleccionado);

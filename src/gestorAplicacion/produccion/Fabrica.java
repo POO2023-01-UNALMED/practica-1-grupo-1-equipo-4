@@ -69,7 +69,7 @@ public class Fabrica implements Financiero, Serializable{
     
     //muestra el catalogo en pantalla
     public String mostrarProductos(){
-		String textoProducto="\nPRODUCTO-PESO-PRECIO-CATEGORIA\n";
+		String textoProducto="\nINDICE-PRODUCTO-PESO-PRECIO-CATEGORIA\n";
 		int indice = 1;
 		//se recorre la lista para obtener cada nombre de las tiendas disponibles:
 		for(Producto producto:listaProductos) {
