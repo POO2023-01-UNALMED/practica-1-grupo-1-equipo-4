@@ -81,10 +81,8 @@ public class UiAbastecer {
 
                 case 3: // Cantidad de productos
                     System.out.print("\nEscriba la cantidad de productos que desea abastecer: ");
-                    int productoEnTiendaPorCategoria = tiendaSeleccionada.getProductosPorCategoria()
-                            .get(productoSeleccionado.getCategoria());
-                    int productosMaximosEnTiendaPorCategoria = tiendaSeleccionada.getCantidadPorCategoria()
-                            .get(productoSeleccionado.getCategoria());
+                    int productoEnTiendaPorCategoria = tiendaSeleccionada.getProductosPorCategoria().get(productoSeleccionado.getCategoria());
+                    int productosMaximosEnTiendaPorCategoria = tiendaSeleccionada.getCantidadPorCategoria().get(productoSeleccionado.getCategoria());
                     while (true) {
                         escanerInt = escaner2.nextInt();
                         if (escanerInt == 0){
@@ -95,7 +93,7 @@ public class UiAbastecer {
                             eleccion = 4;
                             break;
                         } else {
-                            System.out.print("Por favor seleccione una cantidad en el limite de la tienda: ");
+                            System.out.print("Por favor seleccione una cantidad en el limite de la tienda por categoria: ");
                         }
                     }
                     break;
@@ -145,9 +143,9 @@ public class UiAbastecer {
                     // Se llega a la tienda y se sacan los productos del transporte pero primero se
                     // comprueba que el transporte si vaya hacia esa tienda
                     if (transporteSeleccionado.getTienda().equals(tiendaSeleccionada) == true) {
-                        tiendaSeleccionada.descargarProducto(transporteSeleccionado, 0);
+                        tiendaSeleccionada.descargarProducto(transporteSeleccionado);
                         System.out
-                                .println("El producto fue enviado con exito ahora la tienda tienda tiene \nPRODUCTOS: "
+                                .println("\nEl producto fue enviado con exito ahora la tienda tiene \nPRODUCTOS: "
                                         + tiendaSeleccionada.cantidadProductos());
                     } else {
                         System.out.println("El envio no se pudo realizar a esa tienda");

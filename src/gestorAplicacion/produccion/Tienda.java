@@ -171,7 +171,7 @@ public class Tienda implements Financiero, Moda, Serializable {
         return factura.getCliente();
     }
 
-    public void descargarProducto(Transporte transporte, int fecha) {
+    public void descargarProducto(Transporte transporte) {
         while (transporte.getListaDeProductos().size() > 0) {
             listaProductos.add(transporte.getListaDeProductos().remove(0));
         }
