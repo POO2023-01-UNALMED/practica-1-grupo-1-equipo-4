@@ -25,7 +25,7 @@ public class Serializador {
    
             }catch(IOException e){
 
-                System.out.println("ERROR: HA OCURRIDO UN ERROR EN LA SALIDA");
+                System.out.println("ERROR: HA OCURRIDO UN ERROR EN LA SERIALIZACIÓN");
                 e.printStackTrace();
 
             }
@@ -41,6 +41,29 @@ public class Serializador {
 
         public static void guardarTiendas(){
 
+            serializar(Load.tiendas, "src\\baseDatos\\temp\\tiendas.txt");
+
+        }
+
+        public static void guardarFabrica(){
+
+            serializar(Load.fabrica, "src\\baseDatos\\temp\\fabrica.txt");
+        }
+
+        public static void guardarCatalogo(){
+            serializar(Load.catalogo, "src\\baseDatos\\temp\\catalogo.txt");
+        }
+
+        public static void guardarClientes(){
+            serializar(Load.clientes, "src\\baseDatos\\temp\\clientes.txt");
+        }
+
+        public static void guardarVendedores(){
+            serializar(Load.vendedores, "src\\baseDatos\\temp\\vendedores.txt");
+        }
+
+        public static void guardarConductor(){
+            serializar(Load.conductor, "src\\baseDatos\\temp\\conductor.txt");
         }
 
         public static void guardar(){
@@ -52,13 +75,9 @@ public class Serializador {
 
         public static void main(String args[]){
 
-            try{
-                System.out.println(Deserializador.cargarFacturas());
+            System.out.println(Load.catalogo);
 
-
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-        
         }
+
+       
 }
