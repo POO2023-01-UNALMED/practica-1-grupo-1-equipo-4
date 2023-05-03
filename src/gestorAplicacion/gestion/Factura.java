@@ -1,3 +1,20 @@
+/*
+ * Autores: Joan Sebastián Salazar Montoya, 
+ * 
+ * FUNCIONALIDAD DEL MÓDULO: La clase Factura representa una factura de una compra realizada en una tienda virtual.
+Contiene información sobre la tienda, el cliente, el transporte, la lista de productos, la fecha de compra y un disclaimer opcional.
+
+La clase ofrece métodos para calcular el total de la factura, obtener una lista de facturas entre dos fechas, obtener la fecha más reciente de todas las facturas,
+obtener la moda de un atributo en un rango de fechas y obtener las ganancias totales en un rango de fechas.
+
+También cuenta con métodos auxiliares para calcular la tarifa de envío y obtener una lista de fechas de todas las facturas.
+
+Además, la clase mantiene una lista estática de todas las facturas creadas y asigna un id único a cada factura.
+
+
+ */
+
+
 package gestorAplicacion.gestion;
 import java.io.Serializable;
 import java.util.*;
@@ -38,8 +55,12 @@ public class Factura implements Serializable {
     }
 
     
-
-    // Constructor
+/*Constructor de la clase Factura, el cual crea una nueva instancia de Factura con los parámetros ingresados y
+    realiza diferentes operaciones para inicializar los atributos y agregar la factura a la lista de facturas creadas.
+*
+* ENTRADA: Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos, int fecha, String disclaimer. Representan los diferentes atributos que conforman una factura.
+*/
+    
     public Factura(Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos, int fecha, String disclaimer) {
         this.tienda = tienda;
         this.cliente = cliente;
@@ -64,7 +85,11 @@ public class Factura implements Serializable {
     }
 
 
-
+/* Este método permite calcular la tarifa de envío de una factura a partir del tipo de transporte seleccionado.
+*
+* ENTRADA: No tiene parámetros de entrada.
+* SALIDA: Double que representa el precio de la tarifa de envío.
+*/
 
     private double calcularTarifaEnvio(){
 
@@ -73,6 +98,13 @@ public class Factura implements Serializable {
         return precioEnvio;
     }
 
+
+    
+/* Este método permite calcular el total de una factura sumando el precio de los productos y la tarifa de envío.
+*
+* ENTRADA: No tiene parámetros de entrada.
+* SALIDA: Double que representa el total de la factura.
+*/
     public double calcularTotal(){
 
         double totalParcial = 0;
@@ -83,6 +115,13 @@ public class Factura implements Serializable {
 
         return totalParcial + calcularTarifaEnvio();
     }
+
+
+    /* Permite obtener una lista de facturas entre dos fechas ingresadas por parámetro
+     * 
+     * ENTRADA: Dos enteros fecha1 y fecha2 que corresponden a la fecha de inicio y final (inclusivo) respectivamente
+     * SALIDA: ArrayList de objetos de clase Factura, con las facturas que tengan fecha entre fecha1 y fecha2
+     */
 
     public static ArrayList<Factura> getFacturasEntreFechas(int fecha1, int fecha2){
 
@@ -97,6 +136,11 @@ public class Factura implements Serializable {
             return facturasEntreFechas;
     }
 
+/* Permite obtener una lista de fechas únicas de las facturas existentes en la listaFacturas
+*
+* ENTRADA: ninguna
+* SALIDA: ArrayList de enteros, con todas las fechas de las facturas en listaFacturas
+*/
     public static ArrayList<Integer> getListaFechas(int fecha1, int fecha2){
 
         ArrayList<Integer> listaFechas = new ArrayList<Integer>();
@@ -110,6 +154,11 @@ public class Factura implements Serializable {
         return listaFechas;
 }
 
+    /* Este método permite obtener una lista de todas las fechas presentes en las facturas.
+*
+* ENTRADA: No tiene parámetros de entrada.
+* SALIDA: ArrayList de enteros que contiene todas las fechas presentes en las facturas.
+*/
     public static ArrayList<Integer> getListaFechas(){
 
         ArrayList<Integer> listaFechas = new ArrayList<Integer>();
@@ -121,6 +170,12 @@ public class Factura implements Serializable {
 
         return listaFechas;
     }
+
+    /* Permite obtener un HashMap que contiene las ganancias de cada fecha en el ArrayList ingresado por parámetro
+*
+* ENTRADA: ArrayList de enteros fechas, que corresponden a las fechas en las que se desean conocer las ganancias 
+* SALIDA: HashMap que asocia cada fecha con su ganancia correspondiente
+*/
 
     public static HashMap<Integer, Double> gananciasDiscretas(ArrayList<Integer> fechas){
 
@@ -152,21 +207,11 @@ public class Factura implements Serializable {
     }
 
 
-    public static HashMap<Integer, Double> gananciasDiscretas(int fecha1, int fecha2){
-
-        ArrayList<Integer> fechas = getListaFechas(fecha1, fecha2);
-
-        return gananciasDiscretas(fechas);
-
-    }
-
-public static double gananciasTotales(int fecha1, int fecha2){
-
-    HashMap<Integer, Double> dictGananciasDiscretas = gananciasDiscretas(fecha1, fecha2);
-
-    return gananciasTotales(dictGananciasDiscretas);
-
-}
+/* Este método permite obtener el total de las ganancias a partir de un diccionario que contiene las ganancias por fecha.
+*
+* ENTRADA: Diccionario que relaciona una fecha (entero) con una ganancia (doble).
+* SALIDA: Double que representa el total de las ganancias a partir del diccionario de ganancias discretas.
+*/
 
 public static double gananciasTotales(HashMap<Integer, Double> dictGananciasDiscretas){
 
@@ -186,11 +231,11 @@ public static double promedioPorDia(HashMap<Integer, Double> dictGananciasDiscre
 
 } 
 
-public static double promedioPorDia(int fecha1, int fecha2){
+/*public static double promedioPorDia(int fecha1, int fecha2){
 
     return promedioPorDia(gananciasDiscretas(fecha1, fecha2));
 
-}
+}*/
 
 public static HashMap<Integer, Double> aumentoPorcentual(HashMap<Integer, Double> dictGananciasDiscretas){
 
@@ -214,16 +259,19 @@ public static HashMap<Integer, Double> aumentoPorcentual(HashMap<Integer, Double
 
 }
 
-public static HashMap<Integer, Double> aumentoPorcentual(int fecha1, int fecha2){
+/*public static HashMap<Integer, Double> aumentoPorcentual(int fecha1, int fecha2){
 
     HashMap<Integer, Double> dictGananciasDiscretas = gananciasDiscretas(fecha1, fecha2);
 
     return aumentoPorcentual(dictGananciasDiscretas);
 
-}
+}*/
 
-//Brujería que encontré en StackOverflow para sacar el elemento más común de un ArrayList
-
+/* Este método permite obtener el elemento más común dentro de una lista de elementos genéricos. El elemento más común es aquel que aparece con mayor frecuencia en la lista. Si hay varios elementos que cumplen con esa condición, el método devuelve el primero que se encuentra al recorrer la lista.
+*
+* ENTRADA: Lista de elementos genéricos (List<T>)
+* SALIDA: Elemento más común en la lista
+*/
 public static <T> T masComun(List<T> list) {
     Map<T, Integer> map = new HashMap<>();
 
@@ -242,6 +290,12 @@ public static <T> T masComun(List<T> list) {
     return max.getKey();
 }
 
+/* Este método permite obtener la moda de un atributo específico de las facturas entre dos fechas dadas.
+*
+* ENTRADA: Dos enteros fecha1 y fecha2 que corresponden a la fecha de inicio y final (inclusivo) respectivamente. Un string atributo que representa el atributo del cual se quiere obtener la moda.
+* SALIDA: Objeto Moda que representa el valor más común del atributo entre las facturas del período.
+*/
+
 public static Moda moda(int fecha1, int fecha2, String atributo){
 
     ArrayList<Factura> facturas = Factura.getFacturasEntreFechas(fecha1, fecha2);
@@ -256,12 +310,24 @@ public static Moda moda(int fecha1, int fecha2, String atributo){
     return Factura.masComun(objetos);
 }
 
+
+/* Este método permite obtener la fecha más grande de una lista de fechas.
+*
+* ENTRADA: No tiene parámetros de entrada.
+* SALIDA: Entero que representa la fecha más grande de la lista de fechas.
+*/
 public static int getFechaMax(){
 
     return Collections.max(getListaFechas());
 
 }
 
+
+/* Este método permite obtener la fecha menor de una lista de fechas.
+*
+* ENTRADA: No tiene parámetros de entrada.
+* SALIDA: Entero que representa la fecha menor de la lista de fechas.
+*/
 public static int getFechaMin(){
 
     return Collections.min(getListaFechas());
@@ -335,7 +401,12 @@ public static String mostrarFacturas(){
 
     }
 
-    // Getters
+    
+
+/*
+ * Los siguientes son los Getters y Setters de los atributos de la clase
+ */
+
     public Tienda getTienda() {
         return tienda;
     }
