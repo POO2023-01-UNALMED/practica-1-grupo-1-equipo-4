@@ -3,46 +3,48 @@ package gestorAplicacion.gestion;
 public class Meta {
 
     private String nivelDeDificultad;
-    private int indice;
-    private double dineroEsperado;
+    private double indice;
     private double pago;
+    private boolean estado;
 
 
     //Constructor
 
-    public Meta(String nivelDeDificultad, int indice, double dineroEsperado, double pago) {
+    public Meta(String nivelDeDificultad, double indice, double pago) {
         this.nivelDeDificultad = nivelDeDificultad;
         this.indice = indice;
-        this.dineroEsperado = dineroEsperado;
         this.pago = pago;
+        this.estado = false;
     }
     
     //Métodos
-    public String cumpleMeta(int indiceTrabajado,double dineroGenerado ){
-        String texto = "";
-        if (indiceTrabajado >= indice && dineroGenerado >= dineroEsperado){
-            texto = "La meta ha sido cumplida exitosamente\n"; 
-        }else if(indiceTrabajado >= indice || dineroGenerado >= dineroEsperado){
-            texto = "Solo se cumple un item de la meta\n";
+    public boolean cumpleMeta(double indiceTrabajado,double dineroGenerado ){
+        if (indiceTrabajado >= indice){
+            return true;
         }else{
-            texto = "No se cumple ningún aspecto de la meta\n";
+            return false;
         }
-        double porcentajeindice = (indiceTrabajado*100)/indice;
-        double procentajeDinero = (dineroGenerado*100)/dineroEsperado;
-        texto += "Porcentaje de productos requeridos" + porcentajeindice + "\nPorcentaje de dinero requerido" + procentajeDinero;
-        return texto;
+    }
 
+    public String porcentajesCumplidos(double indiceTrabajado,double dineroGenerado){
+        double porcentajeindice = (indiceTrabajado*100)/indice;
+        String texto = "Porcentaje de la meta cumplido: " + porcentajeindice + "%";
+        if(porcentajeindice < 100){
+            texto += "\nPorcentaje faltante: " + (100-porcentajeindice) + "%";
+            texto += "\nCantidad faltante del indice indicado: " + (indice-indiceTrabajado); 
+        }
+        return texto;
     }
 
     @Override
     public String toString() {
-        return "\nNivel de dificultad: "          + nivelDeDificultad + "\n"
-        +      "Productos requeridos: "           + indice      + "\n"
-        +      "Dinero esperado: "                + dineroEsperado    + "\n"
-		+ 	   "Bonificación por cumplimiento: "  + pago               + "\n";
+        return "Nivel de dificultad: "            + nivelDeDificultad + "\n"
+        +      "indice requerido: "               + indice            + "\n"
+		+ 	   "Bonificación por cumplimiento: "  + pago              + "\n";
     }
 
     //Gets and sets
+
     public String getNivelDeDificultad() {
         return this.nivelDeDificultad;
     }
@@ -51,20 +53,12 @@ public class Meta {
         this.nivelDeDificultad = nivelDeDificultad;
     }
 
-    public int getIndice() {
+    public double getIndice() {
         return this.indice;
     }
 
-    public void setIndice(int indice) {
+    public void setIndice(double indice) {
         this.indice = indice;
-    }
-
-    public double getDineroEsperado() {
-        return this.dineroEsperado;
-    }
-
-    public void setDineroEsperado(double dineroEsperado) {
-        this.dineroEsperado = dineroEsperado;
     }
 
     public double getPago() {
@@ -74,4 +68,13 @@ public class Meta {
     public void setPago(double pago) {
         this.pago = pago;
     }
+
+    public boolean getEstado() {
+        return this.estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
 }
