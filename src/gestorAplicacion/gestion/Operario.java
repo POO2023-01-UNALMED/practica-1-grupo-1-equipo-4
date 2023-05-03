@@ -1,10 +1,12 @@
 package gestorAplicacion.gestion;
+import java.util.ArrayList;
+
 import gestorAplicacion.produccion.Fabrica;
 public class Operario extends Persona {
 	
 	/*-------------------Atributos-------------------------*/
 	
-	
+	private static ArrayList<Meta> metasOperario = new ArrayList<Meta>();
 	private Fabrica fabrica;
 	
 	
@@ -30,6 +32,12 @@ public class Operario extends Persona {
 	}
 	public void setFabrica(Fabrica fabrica) {
 		this.fabrica = fabrica;
+	}
+	public static ArrayList<Meta> getMetasOperario(){
+		return metasOperario;
+	}
+	public static void setMetasOperario(ArrayList<Meta> metasOperario){
+		Operario.metasOperario = metasOperario;
 	}
 	
 	/*-------------------Metodos-------------------------*/

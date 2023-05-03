@@ -26,6 +26,7 @@ public class Deserializador {
     }
 
     public static ArrayList<Factura> cargarFacturas() throws IOException, ClassNotFoundException{
+        @SuppressWarnings("unchecked") /*Jaider: Lo puse porque me tiraba que esta operacion no era segura cuando intentaba hacer un .jar*/
 
         ArrayList<Factura> facturas = (ArrayList<Factura>) deserializar("src\\baseDatos\\temp\\facturas.txt");
 

@@ -68,14 +68,9 @@ public class Factura implements Serializable {
 
     private double calcularTarifaEnvio(){
 
-        double totalParcial = 0;
-        for(int i=0; i<listaProductos.size(); i++){
-            double precioProducto = listaProductos.get(i).getPeso() * listaProductos.get(i).getTamano();
-            totalParcial+=precioProducto;
-        }
         double precioEnvio = transporte.getTipo().precioEnvio;
 
-        return totalParcial+precioEnvio;
+        return precioEnvio;
     }
 
     public double calcularTotal(){
@@ -312,9 +307,13 @@ public static String mostrarFacturas(){
     }
     //se selecciona el producto con la op digitada en pantalla
     public Producto seleccionarProcutoDevolver(int opcion) {
-		
-        Producto productoSeleccionado = listaProductos.get(opcion-1);
-
+        Producto productoSeleccionado = null; 
+		if ((0< opcion)&& (opcion<=listaProductos.size())){
+        productoSeleccionado = listaProductos.get(opcion-1);
+        }
+        else{ //esta condicion es solo para que no de error al seleccionar la op 0  del menu para devolverse.
+           productoSeleccionado = listaProductos.get(1);
+        }
 		return productoSeleccionado;
 	}
 
@@ -326,7 +325,7 @@ public static String mostrarFacturas(){
 
         String textoProductos = "";
         for(int i=0; i<listaProductos.size(); i++){
-            textoProductos += "Nombre: " + listaProductos.get(i).getNombre()+"\n"+ "Precio del producto: "+ listaProductos.get(i).getValor()+"\n";
+            textoProductos += "Nombre del producto: " + listaProductos.get(i).getNombre()+"\n"+ "Precio del producto: "+ listaProductos.get(i).getValor()+"\n";
         }
 
         return  textoProductos

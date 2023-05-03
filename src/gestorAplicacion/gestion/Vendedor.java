@@ -1,9 +1,11 @@
 package gestorAplicacion.gestion;
+import java.util.ArrayList;
+
 import gestorAplicacion.produccion.Tienda;
 public class Vendedor extends Persona {
 	/*-------------------Atributos-------------------------*/
 	
-	
+	private static ArrayList<Meta> metasVendedor = new ArrayList<Meta>();
 	private Tienda tienda;
 	
 	/*-------------------Constructores-------------------------*/
@@ -29,6 +31,12 @@ public class Vendedor extends Persona {
 	}
 	public void setTienda(Tienda tienda) {
 		this.tienda = tienda;
+	}
+	public static ArrayList<Meta> getMetasVendedor(){
+		return metasVendedor;
+	}
+	public static void setMetasVendedor(ArrayList<Meta> metasVendedor){
+		Vendedor.metasVendedor = metasVendedor;
 	}
 	
 	

@@ -17,8 +17,7 @@ public class Fabrica implements Financiero, Serializable{
 
 
     // ------------- constructor -------------
-    public Fabrica(ArrayList<Producto> listaProductos,
-            ArrayList<Tienda> listaTienda,CuentaBancaria cuentaBancaria) {
+    public Fabrica(ArrayList<Producto> listaProductos, ArrayList<Tienda> listaTienda,CuentaBancaria cuentaBancaria) {
         this.listaProductos = listaProductos;
         this.listaTienda = listaTienda;
         this.cuentaBancaria = cuentaBancaria;
@@ -70,11 +69,11 @@ public class Fabrica implements Financiero, Serializable{
     
     //muestra el catalogo en pantalla
     public String mostrarProductos(){
-		String textoProducto="";
+		String textoProducto="\nINDICE-PRODUCTO-PESO-PRECIO-CATEGORIA\n";
 		int indice = 1;
 		//se recorre la lista para obtener cada nombre de las tiendas disponibles:
 		for(Producto producto:listaProductos) {
-			textoProducto += indice+". "+producto.getNombre()+" - "+producto.getCategoria()+"\n"; //se almacenan todos lo nombres de los productos en un string
+			textoProducto += indice+". "+producto.getNombre()+" - "+producto.getPeso()+" - "+producto.getCostoDeProduccion()+" - "+producto.getCategoria()+"\n"; //se almacenan todos lo nombres de los productos en un string
 			indice++;
 		}
 		return textoProducto;
@@ -118,7 +117,9 @@ public class Fabrica implements Financiero, Serializable{
         }
         return listaAbastecer;
     }    
-    //
+    
+
+
     public static ArrayList<Persona> busquedaTrabajo(ArrayList<Factura> listaFacturas,int tipo){
         ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
         for (Factura factura: listaFacturas){
@@ -139,5 +140,17 @@ public class Fabrica implements Financiero, Serializable{
         }
         return listaPersonas;
         
+    }
+    //Uso de ligadura dinámica
+    public static String mostrarPersonas(ArrayList<Persona> listaTrabajadores){
+        String texto = "";
+        int indice = 1;
+
+        for (Persona i: listaTrabajadores) {
+            texto += "\n" + "Trabajador "+ indice + i.toString();
+            indice++;               
+        }
+
+        return texto;
     }
 }
