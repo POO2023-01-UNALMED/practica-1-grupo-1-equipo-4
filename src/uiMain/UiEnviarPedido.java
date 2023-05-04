@@ -123,8 +123,9 @@ public class UiEnviarPedido {
                             productoSeleccionado = tiendaSeleccionada.getListaProductos().get(numProductoSeleccionado - 1);
                             System.out.print("Ha seleccionado el producto #" + numProductoSeleccionado);
                             listaProductosPedidos.add(productoSeleccionado);
+                            tiendaSeleccionada.venderProducto(productoSeleccionado);
                             PesoTotalProductos += productoSeleccionado.getPeso();
-                            System.out.println(PesoTotalProductos);
+                            //System.out.println(PesoTotalProductos);
                             eleccion = 4;
                         }
 
@@ -135,7 +136,8 @@ public class UiEnviarPedido {
                 case 4: // seleccionar tipo de transporte
                     System.out.println("\n\nSeleccione en que medio de transporte quiere enviar este producto");
                     System.out.println(
-                            "\nAdvertencia: Los tipos de transporte han sido filtrados de manera que solo puede seleccionar los que puedan soportar el peso de su producto.");
+                            "\nAdvertencia: Los tipos de transporte han sido filtrados de manera que solo puede seleccionar los que puedan soportar el peso de su producto."
+                            + "Su pedido pesa" + PesoTotalProductos);
 
                     
                     System.out.println("0. Regresar al menu principal");
