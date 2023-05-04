@@ -3,6 +3,9 @@ package uiMain;
 import gestorAplicacion.gestion.*;
 import gestorAplicacion.produccion.*;
 import java.util.Scanner;
+
+import baseDatos.Load;
+
 import java.lang.Thread;
 
 public class UiDevoluciones {
@@ -112,7 +115,7 @@ public class UiDevoluciones {
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            double total = UiMenu.fabrica.descontarDineroCuentaAdmin(facturaSeleccionada);
+                            double total = Load.fabrica.descontarDineroCuentaAdmin(facturaSeleccionada);
 
                             Cliente cliente = facturaSeleccionada.getTienda()
                                     .devolverProducto(facturaSeleccionada, productoSeleccionado);

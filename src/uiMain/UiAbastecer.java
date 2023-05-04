@@ -2,6 +2,9 @@ package uiMain;
 
 import gestorAplicacion.produccion.*;
 import java.util.Scanner;
+
+import baseDatos.Load;
+
 import java.util.ArrayList;
 
 public class UiAbastecer {
@@ -31,7 +34,7 @@ public class UiAbastecer {
                     System.out.println("\n");
                     System.out.println("Abastecer tiendas - Apartado de tiendas");
                     System.out.println("\n0. Volver al menu anterior\n");
-                    System.out.print(UiMenu.fabrica.mostrarTiendas());
+                    System.out.print(Load.fabrica.mostrarTiendas());
                     // Seleccionar tienda
                     System.out.print("Seleccione la tienda a la que desea enviar: ");
                     // Entero seleccionado
@@ -43,8 +46,8 @@ public class UiAbastecer {
                             break;
                         }
 
-                        if (x > 0 && x <= UiMenu.fabrica.getListaTienda().size()) {
-                            tiendaSeleccionada = UiMenu.fabrica.getListaTienda().get(x - 1);
+                        if (x > 0 && x <=Load.fabrica.getListaTienda().size()) {
+                            tiendaSeleccionada =Load.fabrica.getListaTienda().get(x - 1);
                             eleccion = 2;
                             break;
                         } else if (x != 0) {
@@ -58,7 +61,7 @@ public class UiAbastecer {
                     System.out.print("\nLa capacidad de productos para esta tienda es la siguiente: \n");
                     System.out.println(tiendaSeleccionada.productosPorCategoria());
                     System.out.println("\n0. Regresar al menu anterior");
-                    System.out.println(UiMenu.fabrica.mostrarProductos());
+                    System.out.println(Load.fabrica.mostrarProductos());
                     System.out.print("Seleccione el producto que desea enviar: ");
 
                     while (x != 0) {
@@ -69,8 +72,8 @@ public class UiAbastecer {
                             eleccion = 1;
                             break;
                         }
-                        if (escanerInt > 0 && escanerInt <= UiMenu.fabrica.getListaProductos().size()) {
-                            productoSeleccionado = UiMenu.fabrica.getListaProductos().get(escanerInt - 1);
+                        if (escanerInt > 0 && escanerInt <=Load.fabrica.getListaProductos().size()) {
+                            productoSeleccionado =Load.fabrica.getListaProductos().get(escanerInt - 1);
                             eleccion = 3;
                             break;
                         } else {
@@ -109,7 +112,7 @@ public class UiAbastecer {
                     // TipoTransporte tipoTransportes;
                     ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
                     listaTransFiltrada = TipoTransporte.crearTipoTransporteSegunCarga(PesoTotalProductos);
-                    // System.out.println(UiMenu.tipoTransportes.mostrarTipoTransporteSegunCarga(productoSeleccionado));
+                    // System.out.printlnLoad.tipoTransportes.mostrarTipoTransporteSegunCarga(productoSeleccionado));
                     System.out.println(TipoTransporte.mostrarTipoTransporteSegunCarga(listaTransFiltrada));
                     System.out.println("Seleccione el número del tipo de transporte: ");
                     System.out.print("> ");
@@ -136,7 +139,7 @@ public class UiAbastecer {
                     break;
                 case 5:
 
-                    listaDeProductos = UiMenu.fabrica.cantidadProductos(escanerInt, productoSeleccionado);
+                    listaDeProductos =Load.fabrica.cantidadProductos(escanerInt, productoSeleccionado);
                     // Aqui lo que se hace es meter todo en el camion basicamente luego haremos una
                     // comprobacion de que si sea la tienda a la que se le esta enviando
                     transporteSeleccionado.abastecerProducto(tiendaSeleccionada, listaDeProductos);
