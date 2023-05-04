@@ -144,7 +144,7 @@ public class UiPagarTrabajadores {
                                         int opcMetaEscogida = sc.nextInt();
                                         if (indicesMetasMostradas.contains(opcMetaEscogida)){
                                             System.out.println("Esta opción ya fue mostrada");
-                                        }else if(listaMetas.get(opcMetaEscogida - 1).getEstado()==true){
+                                        }else if(trabajadorEscogido.getVerificadorMetasCumplidas().get(opcMetaEscogida - 1)==true){
                                             System.out.println("La meta que seleccionó ya fue cumplida y se le ha pagado al trabajador su bonificación");
                                         }else{
                                             indicesMetasMostradas.add(opcMetaEscogida);
@@ -160,7 +160,7 @@ public class UiPagarTrabajadores {
                                                     System.out.println("\nLa meta ha sido cumplida exitósamente");
                                                     System.out.println("Sumaremos al pago la bonificación por esta meta");
                                                     valorPorMetas += metaEscogida.getPago();
-                                                    metaEscogida.setEstado(true);
+                                                    trabajadorEscogido.getVerificadorMetasCumplidas().set(opcMetaEscogida - 1,true);                                                    
                                                 } else{
                                                     System.out.println("\nLa meta aún no ha sido cumplida");
                                                 }

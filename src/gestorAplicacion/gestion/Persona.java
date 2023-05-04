@@ -14,6 +14,7 @@ public abstract class Persona implements Financiero, Serializable {
 	private static final int salario=1000;
 	private int trabajo;
 	private double indiceMeta;
+	private ArrayList<Boolean> verificadorMetasCumplidas = new ArrayList<Boolean>();
 	private static int personasTotales;
 	private static  ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
 	
@@ -28,7 +29,11 @@ public abstract class Persona implements Financiero, Serializable {
 		this.cuentaBancaria=cuentaBancaria;
 		this.trabajo = 0;
 		this.indiceMeta = 0;
+		this.verificadorMetasCumplidas.add(false);
+		this.verificadorMetasCumplidas.add(false);
 		listaPersonas.add(this);
+		
+
 		}
 	/*Constructor de la clase persona que no recibe ninguna parametros*/
 	public Persona() {}
@@ -79,6 +84,14 @@ public abstract class Persona implements Financiero, Serializable {
 
 	public void setIndiceMeta(double indiceMeta) {
 		this.indiceMeta = indiceMeta;
+	}
+
+	public ArrayList<Boolean> getVerificadorMetasCumplidas() {
+		return verificadorMetasCumplidas;
+	}
+	
+	public void setVerificadorMetasCumplidas(ArrayList<Boolean> verificadorMetasCumplidas) {
+		this.verificadorMetasCumplidas = verificadorMetasCumplidas;
 	}
 
 	public static int getPersonasTotales() {

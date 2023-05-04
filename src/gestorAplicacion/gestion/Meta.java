@@ -5,7 +5,6 @@ public class Meta {
     private String nivelDeDificultad;
     private double indice;
     private double pago;
-    private boolean estado;
 
 
     //Constructor
@@ -14,7 +13,7 @@ public class Meta {
         this.nivelDeDificultad = nivelDeDificultad;
         this.indice = indice;
         this.pago = pago;
-        this.estado = false;
+
     }
     
     //Métodos
@@ -69,12 +68,5 @@ public class Meta {
         this.pago = pago;
     }
 
-    public boolean getEstado() {
-        return this.estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
     
 }
