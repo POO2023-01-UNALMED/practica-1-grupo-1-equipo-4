@@ -6,6 +6,7 @@ import java.util.Scanner;
 import gestorAplicacion.gestion.Conductor;
 import gestorAplicacion.gestion.CuentaBancaria;
 import gestorAplicacion.gestion.Factura;
+import gestorAplicacion.gestion.Meta;
 import gestorAplicacion.gestion.Operario;
 import gestorAplicacion.gestion.Persona;
 import gestorAplicacion.gestion.Vendedor;
@@ -23,6 +24,7 @@ public class UiPagarTrabajadores {
         while (verificador1) {
             int opcSalida;
             boolean verificador2 = true;
+            boolean verificador3 = true;
 
             int opcion = new Menu("\n¿A qué tipo de trabajador desea pagarle?",
                     new String[] { "Operarios", "Conductores",
@@ -34,7 +36,7 @@ public class UiPagarTrabajadores {
                 break;
             }
 
-            boolean verificador3 = true;
+            
             while (verificador3) {
                 // Método #1 Verifica los trabajadores del tipo que seleccionó
                 // que salen en las facturas que han sido creadas
@@ -93,9 +95,12 @@ public class UiPagarTrabajadores {
 
                         int valorPorMetas = 0;
 
+                        ArrayList<Integer> indicesMetasMostradas = new ArrayList<Integer>();
+
                         while (verificador4) {
                             System.out.println("\nDigite el número de la opción que desee");
                             System.out.print("> ");
+
                             int opcMeta = sc.nextInt();
 
                             switch (opcMeta) {
@@ -103,24 +108,86 @@ public class UiPagarTrabajadores {
                                     verificador4 = false;
                                     break;
                                 case 1:
-                                    System.out.println("El trabajador escogido tiene las siguientes metas\n");
-                                    switch (opcion) {
-                                        case 1:
-                                            for (int i = 0; i <Operario.getMetasOperario().size();i++){
-                                                System.out.println(Operario.getMetasOperario().get(i));
-                                            }
-                                            break;
-                                        case 2:
-                                            for (int i = 0; i <Conductor.getMetasConductor().size();i++){
-                                                System.out.println(Conductor.getMetasConductor().get(i));
-                                            }
-                                            break;
-                                        case 3:
-                                            for (int i = 0; i <Vendedor.getMetasVendedor().size();i++){
-                                                System.out.println(Vendedor.getMetasVendedor().get(i));
-                                            }
-                                            break;
+
+                                    System.out.println("\nEl trabajador escogido tiene las siguientes metas\n");
+                                    
+
+                                    ArrayList<Meta> listaMetas;
+                                    String textoIndice;
+                                    double indice = trabajadorEscogido.getIndiceMeta();
+                                    double dinero = 0;
+
+                                    if (opcion==1){
+                                        listaMetas = Operario.getMetasOperario();
+                                        textoIndice = "Indice: número de productos abastecidos\n";
+                                    }else if(opcion==2){
+                                        listaMetas = Conductor.getMetasConductor();
+                                        textoIndice = "Indice: peso de productos transportados\n";
+                                    }else{
+                                        listaMetas = Vendedor.getMetasVendedor();
+                                        textoIndice = "Indice: número de productos vendidos\n";
                                     }
+
+                                    System.out.println(textoIndice);
+                                    for (int i = 0; i <listaMetas.size();i++){
+                                        System.out.println("Meta " + (i+1));
+                                        System.out.println(listaMetas.get(i));
+                                    }
+
+
+                                    boolean verificador5 = true;                        
+
+                                    while (verificador5) {
+                                        
+                                        System.out.println("\nSeleccione una de las metas");
+                                        System.out.print("> ");
+                                        int opcMetaEscogida = sc.nextInt();
+                                        if (indicesMetasMostradas.contains(opcMetaEscogida)){
+                                            System.out.println("Esta opción ya fue mostrada");
+                                        }else if(trabajadorEscogido.getVerificadorMetasCumplidas().get(opcMetaEscogida - 1)==true){
+                                            System.out.println("La meta que seleccionó ya fue cumplida y se le ha pagado al trabajador su bonificación");
+                                        }else{
+                                            indicesMetasMostradas.add(opcMetaEscogida);
+                                            if (opcMetaEscogida <= 0 || opcMetaEscogida > listaMetas.size()) {
+                                                System.out.println("Opción de meta incorrecta");
+                                            }else{
+
+                                                Meta metaEscogida = listaMetas.get(opcMetaEscogida - 1);
+                                                boolean verificadorMeta = metaEscogida.cumpleMeta(indice, dinero);
+                                                String estadisticasMeta = metaEscogida.porcentajesCumplidos(indice, dinero);
+                                
+                                                if (verificadorMeta){
+                                                    System.out.println("\nLa meta ha sido cumplida exitósamente");
+                                                    System.out.println("Sumaremos al pago la bonificación por esta meta");
+                                                    valorPorMetas += metaEscogida.getPago();
+                                                    trabajadorEscogido.getVerificadorMetasCumplidas().set(opcMetaEscogida - 1,true);                                                    
+                                                } else{
+                                                    System.out.println("\nLa meta aún no ha sido cumplida");
+                                                }
+                                                System.out.println(estadisticasMeta);
+
+                                                
+                                            }
+
+                                        }
+
+                                        boolean verificador6 = true;
+
+                                        while (verificador6) {
+                                            System.out.println("\n¿Qué desea hacer?\n 1.Revisar otra meta\n 2.Proceder con el pago");
+                                            System.out.print("> ");
+                                            int opcContinuar = sc.nextInt();
+                                            if(opcContinuar==1){    
+                                                break;  
+                                            }else if(opcContinuar==2){
+                                                verificador5 = false;
+                                                break;
+                                            }else{
+                                                System.out.println("Digitó una opción incorrecta");
+                                            }
+                                        } 
+                                          
+                                    } 
 
                                     verificador4 = false;
                                     break;

@@ -93,16 +93,16 @@ public class UiMenu {
             vendedor3.setTienda(tienda3);
 
             //Metas
-            Meta metaVendedores1 = new Meta("Fácil",10,40000,10000);
-            Meta metaVendedores2 = new Meta("Dificil",10,40000,10000);
+            Meta metaVendedores1 = new Meta("Fácil",3,10000);
+            Meta metaVendedores2 = new Meta("Dificil",10,10000);
             Vendedor.getMetasVendedor().add(metaVendedores1);
             Vendedor.getMetasVendedor().add(metaVendedores2);
-            Meta metaConductores1 = new Meta("Fácil",10,40000,10000);
-            Meta metaConductores2 = new Meta("Dificil",10,40000,10000);
+            Meta metaConductores1 = new Meta("Fácil",10,10000);
+            Meta metaConductores2 = new Meta("Dificil",10,10000);
             Conductor.getMetasConductor().add(metaConductores1);
             Conductor.getMetasConductor().add(metaConductores2);
-            Meta metaOperarios1 = new Meta("Fácil",10,40000,10000);
-            Meta metaOperarios2 = new Meta("Dificil",10,40000,10000);
+            Meta metaOperarios1 = new Meta("Fácil",10,10000);
+            Meta metaOperarios2 = new Meta("Dificil",10,10000);
             Operario.getMetasOperario().add(metaOperarios1);
             Operario.getMetasOperario().add(metaOperarios2);
 
