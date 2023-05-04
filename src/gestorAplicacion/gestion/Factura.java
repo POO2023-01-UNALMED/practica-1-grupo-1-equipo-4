@@ -40,7 +40,7 @@ public class Factura implements Serializable {
     private static ArrayList<Factura> listaFacturas = new ArrayList<Factura>();
     private static HashMap<String, Moda> infoAtributos = new HashMap<String,Moda>();
 
-    static{
+  /*   static{
 
         try{
         listaFacturas = Deserializador.cargarFacturas();
@@ -52,7 +52,7 @@ public class Factura implements Serializable {
 
         }
 
-    }
+    }*/
 
     
 /*Constructor de la clase Factura, el cual crea una nueva instancia de Factura con los parámetros ingresados y
