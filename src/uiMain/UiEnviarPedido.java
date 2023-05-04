@@ -41,7 +41,7 @@ public class UiEnviarPedido {
                     break;
                 case 1:
                     // LO QUE se ve en pantalla
-                    // System.out.println("Enviar pedido al cliente");aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                    // System.out.println("Enviar pedido al cliente")
                     System.out.println("\n0. Volver al menu anterior");
                     // Seleccionar cliente
                     System.out.print("\nSeleccione el cliente al que desea enviar: \n");

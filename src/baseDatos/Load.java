@@ -135,11 +135,11 @@ public class Load {
              // Crear objetos de Cliente
              ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
              CuentaBancaria cuenta1 = new CuentaBancaria(11111, 5000000);
-             Cliente cliente1 =       new Cliente("Juan Pérez", "Calle 123", cuenta1);
+             Cliente cliente1 = new Cliente("Juan Pérez", "Calle 123", cuenta1);
              CuentaBancaria cuenta2 = new CuentaBancaria(22222, 200);
-             Cliente cliente2 =       new Cliente("María García", "Avenida 456", cuenta2);
+             Cliente cliente2 = new Cliente("María García", "Avenida 456", cuenta2);
              CuentaBancaria cuenta3 = new CuentaBancaria(33333,20000);
-             Cliente cliente3 =       new Cliente("Pedro Gómez", "Carrera 789", cuenta3);
+             Cliente cliente3 = new Cliente("Pedro Gómez", "Carrera 789", cuenta3);
  
              // Agregar los objetos de Cliente a la lista de clientes
              listaClientes.add(cliente1);
@@ -162,6 +162,8 @@ public class Load {
           //    Factura factura6 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");
           //    Factura factura7 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");
       } 
-    
+    public static void a(){
+
+    }
       
 	}
