@@ -154,6 +154,8 @@ public class Factura implements Serializable {
         return listaFechas;
 }
 
+
+
     /* Este método permite obtener una lista de todas las fechas presentes en las facturas.
 *
 * ENTRADA: No tiene parámetros de entrada.
@@ -171,11 +173,41 @@ public class Factura implements Serializable {
         return listaFechas;
     }
 
+
     /* Permite obtener un HashMap que contiene las ganancias de cada fecha en el ArrayList ingresado por parámetro
+
 *
-* ENTRADA: ArrayList de enteros fechas, que corresponden a las fechas en las que se desean conocer las ganancias 
+* ENTRADA: Dos enteros que especifican el rango de fechas para las cuales se quieren conocer las ganancias
 * SALIDA: HashMap que asocia cada fecha con su ganancia correspondiente
 */
+
+public static HashMap<Integer, Double> gananciasDiscretas(int fecha1, int fecha2){
+
+    ArrayList<Integer> fechas = getListaFechas(fecha1, fecha2);
+
+    ArrayList<Factura> facturas = getFacturasEntreFechas(fecha1, fecha2); 
+
+    HashMap<Integer, Double> dictGananciasDiscretas = new HashMap<Integer, Double>();
+
+    for(int fecha: fechas)
+        dictGananciasDiscretas.put(fecha, 0.0);
+
+    for(int fecha: dictGananciasDiscretas.keySet()){
+
+        for(Factura factura: facturas){
+
+            if(factura.fecha == fecha){
+
+                double valorAnterior = dictGananciasDiscretas.get(fecha);
+
+                dictGananciasDiscretas.put(fecha, valorAnterior + factura.getTotal());
+            }
+        }
+    } 
+
+    return dictGananciasDiscretas;
+}
+
 
     public static HashMap<Integer, Double> gananciasDiscretas(ArrayList<Integer> fechas){
 
@@ -230,12 +262,6 @@ public static double promedioPorDia(HashMap<Integer, Double> dictGananciasDiscre
     return gananciasTotales(dictGananciasDiscretas) / dictGananciasDiscretas.size();
 
 } 
-
-/*public static double promedioPorDia(int fecha1, int fecha2){
-
-    return promedioPorDia(gananciasDiscretas(fecha1, fecha2));
-
-}*/
 
 public static HashMap<Integer, Double> aumentoPorcentual(HashMap<Integer, Double> dictGananciasDiscretas){
 
