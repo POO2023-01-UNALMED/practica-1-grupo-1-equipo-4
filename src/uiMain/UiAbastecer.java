@@ -92,6 +92,7 @@ public class UiAbastecer {
                             eleccion =1;
                             break;
                         }
+                        //Se hace con el fin de evitar que intente mandar mas productos de los que soporta la tienda por la respectiva categoria
                         else if (escanerInt <= productosMaximosEnTiendaPorCategoria - productoEnTiendaPorCategoria) {
                             eleccion = 4;
                             break;

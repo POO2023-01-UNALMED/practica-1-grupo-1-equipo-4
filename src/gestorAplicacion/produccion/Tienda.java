@@ -53,7 +53,17 @@ public class Tienda implements Financiero, Moda, Serializable {
         return str;
     }
 
-    // mostrar productos abastecer :)))
+    /*
+    Este método permite visualizar los productos que tiene una tienda y la cantidad que hay por cada uno.
+
+    ENTRADA:
+
+    No recibe ningun argumento
+
+    SALIDA:
+
+    Devuelve un String con los productos de la tienda y su cantidad.
+    */
     public String cantidadProductos() {
         listaCantidadProductos = new HashMap<Producto, Integer>();
         String cadena = "    ";
@@ -73,7 +83,18 @@ public class Tienda implements Financiero, Moda, Serializable {
 
         return cadena;
     }
-    /*Metodo para contar la capacidad de una tienda y contar el tipo de productos que tiene cada tienda */
+    /*
+    Este método permite visualizar la cantidad de productos por categoria que tiene una tienda y ademas tambien la cantidad maxima que puede 
+    tener por categoria esa tienda
+
+    ENTRADA:
+
+    No recibe ningun argumento
+
+    SALIDA:
+
+    Devuelve un String con cantidades que tiene y su maximo con el formato categoria cantidad/maximo
+    */
     public String productosPorCategoria(){
         String cadena = "";
         productosPorCategoria.put("aseo",0);
@@ -201,7 +222,17 @@ public class Tienda implements Financiero, Moda, Serializable {
 
         return factura.getCliente();
     }
+    /*
+    Este método cambia los poductos del transporte a la tienda.
 
+    ENTRADA:
+
+    transporte: Transporte que lleva los productos.
+
+    SALIDA:
+
+    Ninguna.
+    */
     public void descargarProducto(Transporte transporte) {
         while (transporte.getListaDeProductos().size() > 0) {
             listaProductos.add(transporte.getListaDeProductos().remove(0));

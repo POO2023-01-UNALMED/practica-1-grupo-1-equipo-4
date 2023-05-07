@@ -115,15 +115,22 @@ public class Transporte implements Moda, Serializable{
     
 
     // -------------- Metodos ------------------
-    public int abastecerProducto(Tienda tienda, ArrayList<Producto> listaDeProductos){
+    /*
+    Este método carga los productos en el transporte y asigna a la tienda a la que va a mandar los productos
+
+    ENTRADA:
+
+    tienda: Objeto tienda a la cual van a llegar los productos.
+
+    listaDeProductos: La lista de productos que se van a enviar.
+
+    SALIDA:
+
+    Ninguna.
+    */
+    public void abastecerProducto(Tienda tienda, ArrayList<Producto> listaDeProductos){
         this.setTienda(tienda);
         this.setListaDeProductos(listaDeProductos);
-        int gastos = 0;
-        for(Producto producto:listaDeProductos){
-            gastos+=producto.getCostoDeProduccion();
-        }
-        gastos += tipo.getPrecioEnvio();
-        return gastos;
     }
 
 
