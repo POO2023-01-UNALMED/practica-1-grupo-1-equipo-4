@@ -34,7 +34,7 @@ public class Serializador {
 
         public static void guardarFacturas(){
 
-            serializar(Factura.getListaFacturas(),
+            serializar(Load.facturas,
              "src\\baseDatos\\temp\\facturas.txt");
 
             }
@@ -58,13 +58,13 @@ public class Serializador {
             serializar(Load.clientes, "src\\baseDatos\\temp\\clientes.txt");
         }
 
-        // public static void guardarVendedores(){
-        //     serializar(Load.vendedores, "src\\baseDatos\\temp\\vendedores.txt");
-        // }
+         public static void guardarVendedores(){
+            serializar(Load.vendedores, "src\\baseDatos\\temp\\vendedores.txt");
+         }
 
-        // public static void guardarConductor(){
-        //     serializar(Load.conductor, "src\\baseDatos\\temp\\conductor.txt");
-        // }
+         public static void guardarTransporte(){
+             serializar(Load.transporteAbastecer, "src\\baseDatos\\temp\\transporte.txt");
+         }
 
         public static void guardar(){
 

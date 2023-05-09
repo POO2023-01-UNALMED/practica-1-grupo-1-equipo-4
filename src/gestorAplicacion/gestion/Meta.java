@@ -1,6 +1,8 @@
 package gestorAplicacion.gestion;
 
-public class Meta {
+import java.io.Serializable;
+
+public class Meta implements Serializable{
 
     private String nivelDeDificultad;
     private double indice;

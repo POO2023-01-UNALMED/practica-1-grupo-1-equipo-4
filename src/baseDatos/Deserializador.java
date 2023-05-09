@@ -68,11 +68,11 @@ public class Deserializador {
         return tiendas;
     }
 
-    public static Conductor cargarConductor() throws IOException, ClassNotFoundException{
+    public static Transporte cargarTransporte() throws IOException, ClassNotFoundException{
 
-        Conductor conductor = (Conductor) deserializar("src\\baseDatos\\temp\\tiendas.txt");
+        Transporte transporte = (Transporte) deserializar("src\\baseDatos\\temp\\transporte.txt");
 
-        return conductor;
+        return transporte;
     }
 
 

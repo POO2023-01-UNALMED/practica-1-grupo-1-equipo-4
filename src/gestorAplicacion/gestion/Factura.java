@@ -20,7 +20,7 @@ import java.io.Serializable;
 import java.util.*;
 import java.util.Map.Entry;
 
-import baseDatos.Deserializador;
+import baseDatos.*;
 import gestorAplicacion.produccion.*;
 
 public class Factura implements Serializable {
@@ -40,19 +40,11 @@ public class Factura implements Serializable {
     private static ArrayList<Factura> listaFacturas = new ArrayList<Factura>();
     private static HashMap<String, Moda> infoAtributos = new HashMap<String,Moda>();
 
-  /*   static{
+     static{
 
-        try{
-        listaFacturas = Deserializador.cargarFacturas();
-        System.out.println("Facturas cargadas");
-        }catch(Exception e){
+       listaFacturas = Load.facturas;
 
-            e.printStackTrace();
-            System.out.println("HA OCURRIDO UN ERROR EN LA DESERIALIZACIÓN DE FACTURAS");
-
-        }
-
-    }*/
+    }
 
     
 /*Constructor de la clase Factura, el cual crea una nueva instancia de Factura con los parámetros ingresados y
@@ -98,8 +90,6 @@ public class Factura implements Serializable {
         return precioEnvio;
     }
 
-
-    
 /* Este método permite calcular el total de una factura sumando el precio de los productos y la tarifa de envío.
 *
 * ENTRADA: No tiene parámetros de entrada.

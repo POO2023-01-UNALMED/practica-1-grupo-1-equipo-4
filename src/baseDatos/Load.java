@@ -17,10 +17,14 @@ public class Load {
      public static ArrayList<Producto> catalogo = new ArrayList<Producto>();
      public static ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
      public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
+     public static ArrayList<Vendedor> vendedores = new ArrayList<Vendedor>();
+     public static ArrayList<Factura> facturas = new ArrayList<Factura>();
+
      static Scanner sc = new Scanner(System.in);
      public static Fabrica fabrica;
      public static Transporte transporteAbastecer;
-      static{
+
+      public static void cargarPorDefecto(){
            //NOTA: Toca arreglar los constructores y unas cosas pa ver donde va a ir eso
  
  
@@ -155,7 +159,6 @@ public class Load {
              conductor.setTransporte(transporteAbastecer);
              
              // Crear objetos de Cliente
-             ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
              CuentaBancaria cuenta1 = new CuentaBancaria(11111, 5000000);
              Cliente cliente1 = new Cliente("Juan Pérez", "Calle 123", cuenta1);
              CuentaBancaria cuenta2 = new CuentaBancaria(22222, 200);
@@ -164,9 +167,13 @@ public class Load {
              Cliente cliente3 = new Cliente("Pedro Gómez", "Carrera 789", cuenta3);
  
              // Agregar los objetos de Cliente a la lista de clientes
-             listaClientes.add(cliente1);
-             listaClientes.add(cliente2);
-             listaClientes.add(cliente3);
+             clientes.add(cliente1);
+             clientes.add(cliente2);
+             clientes.add(cliente3);
+
+             vendedores.add(vendedor1);
+             vendedores.add(vendedor2);
+             vendedores.add(vendedor3);
  
              //inicializar el map de los productos
              tienda1.cantidadProductosVentas();
@@ -176,16 +183,51 @@ public class Load {
  
              
  
-          //    Factura factura1 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 1, "hola");
-          //    Factura factura2 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola");
-          //    Factura factura3 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola");
-          //    Factura factura4 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 4, "hola");
-          //    Factura factura5 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola");
-          //    Factura factura6 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");
-          //    Factura factura7 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");
+         Factura factura1 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 1, "hola");
+         Factura factura2 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola");
+         Factura factura3 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola");
+         Factura factura4 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 4, "hola");
+         Factura factura5 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola");
+         Factura factura6 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");
+         Factura factura7 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");
       } 
-    public static void a(){
 
+
+
+    public static void guardar(){
+
+      Serializador.guardarTiendas();
+      Serializador.guardarCatalogo();
+      Serializador.guardarFabrica();
+      Serializador.guardarFacturas();
+      Serializador.guardarTransporte();
+      Serializador.guardarVendedores();
+      Serializador.guardarClientes();
+    }
+
+    public static void cargar(){
+
+      try{
+
+        Deserializador.cargarTiendas();
+        Deserializador.cargarCatalogo();
+        Deserializador.cargarFabrica();
+        Deserializador.cargarClientes();
+        Deserializador.cargarTransporte();
+        Deserializador.cargarVendedores();
+        Deserializador.cargarFacturas();
+
+      }catch(Exception e){
+        System.out.println("Ha ocurrido un error en la deserialización");
+      }
+    }
+
+    public static void main(String[] args){
+
+      cargarPorDefecto();
+      guardar();
+
+       
     }
       
 	}
