@@ -28,17 +28,29 @@ public class Load {
  
              ArrayList<Producto> catalogo = new ArrayList<Producto>();
              //Producto(String nombre, String descripcion, Double valor, Double peso, Double tamano, Double costoDeProduccion);
-             Producto producto1 = new Producto("LimpiaMax","Cemento de uso general en construcción", 100, 50, 24000,30,"aseo");
-             Producto producto2 = new Producto("Sandwich de pollo","Material compuesto por átomos de carbono en una estructura de red hexagonal", 500000, 0.7, 100,1000,"consumible");
+             Producto producto1 = new Producto("LimpiaMax","Limpiador multiusos", 100, 50, 24000,30,"aseo");
+             Producto producto2 = new Producto("Sandwich de pollo","Sandwich de pollo", 5, 0.7, 100,1000,"consumible");
              Producto producto3 = new Producto("Ladrillo"," Bloque utilizado en paredes y estructuras", 1, 2.5, 10374,0.25,"construccion");
-             Producto producto4 = new Producto("Lavadora","Bloque sólido utilizado en paredes y estructuras", 100, 675, 200000,20,"aseo");
-             Producto producto5 = new Producto("Hojas de Te","acero enrejado utilizado en refuerzos estructurales", 75, 60, 10000,15,"consumible");
+             Producto producto4 = new Producto("Lavadora","Máquina para lavar ropa", 100, 675, 200000,20,"aseo");
+             Producto producto5 = new Producto("Hojas de Te","hojas de té verde", 75, 60, 10000,15,"consumible");
              Producto producto6 = new Producto("Adhesivo","Adhesivo multiusos", 20, 0.3, 20000,5,"construccion");
-             Producto producto7 = new Producto("Jabon","Mineral de carbonato utilizado como componente en el concreto y la cal", 3090, 271, 20,10,"aseo");
-             Producto producto8 = new Producto("Carne de res","Mineral utilizado como componente en el concreto y la fabricación de vidrio", 30000, 265, 20,1000,"consumible");
+             Producto producto7 = new Producto("Jabon","Producto de limpieza", 3090, 271, 20,10,"aseo");
+             Producto producto8 = new Producto("Carne de res","Carne de res de vacas del llano", 30000, 265, 20,1000,"consumible");
              Producto producto9 = new Producto("Marmol","Roca metamórfica utilizada para la decoración y acabado de interiores", 20345, 3000000, 20,1000,"construccion");
              Producto producto10 = new Producto("Granito","Roca ígnea utilizada en encimeras, pisos y paredes", 10000, 27800, 20,750,"construccion");
-             Producto producto11 = new Producto("Jamon","Roca ígnea utilizada en encimeras, pisos y paredes", 10000, 27800, 20,750,"consumible");
+             Producto producto11 = new Producto("Jamon","Jamón de cerdo", 3, 27800, 20,750,"consumible");
+             Producto producto12 = new Producto("Carne de cerdo","Cerdo de criadero", 10, 27800, 20,750,"consumible");
+             Producto producto13 = new Producto("Papel higiénico", "Rollos de papel suave y absorbente", 8, 1, 5000, 2, "aseo");
+             Producto producto14 = new Producto("Pintura blanca", "Pintura acrílica de color blanco", 50, 1.5, 10000, 30, "construccion");
+             Producto producto15 = new Producto("Detergente", "Detergente líquido para lavadora", 150, 1.2, 500, 20, "aseo");
+             Producto producto16 = new Producto("Cemento", "Material utilizado para la construcción", 200, 40, 8000, 10, "construccion");
+             Producto producto17 = new Producto("Cepillo de dientes", "Cepillo de cerdas suaves para la higiene bucal", 25, 0.1, 100, 5, "aseo");
+             Producto producto18 = new Producto("Bolsas de basura", "Bolsas resistentes para desechar la basura", 15, 0.5, 200, 3, "aseo");
+             Producto producto19 = new Producto("Lámpara LED", "Bombilla LED de bajo consumo energético", 80, 0.2, 500, 50, "construccion");
+             Producto producto20 = new Producto("Jabón líquido", "Jabón líquido para manos", 30, 0.5, 1000, 8, "aseo");
+
+
+            
              //se agregan al catalogo
              catalogo.add(producto1);
              catalogo.add(producto2);
@@ -51,6 +63,15 @@ public class Load {
              catalogo.add(producto9);
              catalogo.add(producto10);
              catalogo.add(producto11);
+             catalogo.add(producto12);
+             catalogo.add(producto13);
+             catalogo.add(producto14);
+             catalogo.add(producto15);
+             catalogo.add(producto16);
+             catalogo.add(producto17);
+             catalogo.add(producto18);
+             catalogo.add(producto19);
+             catalogo.add(producto20);
          
              //Cuenta de la empresa:
              CuentaBancaria cuentaEmpresa = new CuentaBancaria(9999999, 1000000000);
@@ -100,6 +121,7 @@ public class Load {
              vendedor2.setTienda(tienda2);
              vendedor3.setTienda(tienda3);
  
+             
              //Metas
              Meta metaVendedores1 = new Meta("Fácil",3,10000);
              Meta metaVendedores2 = new Meta("Dificil",10,10000);
