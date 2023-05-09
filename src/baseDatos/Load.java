@@ -222,8 +222,10 @@ public class Load {
        facturas =  Deserializador.cargarFacturas();
 
        Factura.setListaFacturas(facturas);
+       Cliente.setListaClientes(clientes);
+       Producto.setListaProductos(catalogo);
 
-
+       
 
       }catch(Exception e){
         System.out.println("Ha ocurrido un error en la deserialización");

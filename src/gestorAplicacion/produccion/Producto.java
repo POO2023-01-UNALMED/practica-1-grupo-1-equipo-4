@@ -111,6 +111,10 @@ public class Producto implements Serializable {
         return numProductos;
     }
 
+    public static void setListaProductos(ArrayList<Producto>  productos){
+        listaProductos = productos;
+    }
+
     public static ArrayList<Producto> getListaProductos(){
         return listaProductos;
     }
