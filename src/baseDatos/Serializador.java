@@ -66,12 +66,9 @@ public class Serializador {
              serializar(Load.transporteAbastecer, "src\\baseDatos\\temp\\transporte.txt");
          }
 
-        public static void guardar(){
-
-            guardarFacturas();
-            guardarTiendas();
-
-        }
+         public static void guardarConductor(){
+            serializar(Load.conductor, "src\\baseDatos\\temp\\conductor.txt");
+         }
 
         public static void main(String args[]){
 

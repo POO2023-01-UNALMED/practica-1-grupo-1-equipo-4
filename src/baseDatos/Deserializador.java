@@ -75,6 +75,14 @@ public class Deserializador {
         return transporte;
     }
 
+    public static Conductor cargaConductor() throws IOException, ClassNotFoundException{
+
+        Conductor conductor = (Conductor) deserializar("src\\baseDatos\\temp\\conductor.txt");
+
+        return conductor;
+
+    }
+
 
 
 

@@ -159,7 +159,7 @@ public class UiMenu {
 	// }
 	public static void main(String[] args) {
 
-        Load.cargar();
+        Load.cargarPorDefecto();
 
         int opcion;
         
@@ -194,7 +194,7 @@ public class UiMenu {
                     break;
                 case 6:
 
-                    Serializador.guardar();
+                    Load.guardar();
 
                     System.out.println("Gracias por visitarnos");
                     System.out.println("Vuelva pronto");

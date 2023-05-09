@@ -22,6 +22,8 @@ public class Load {
      public static ArrayList<Factura> facturas = new ArrayList<Factura>();
 
      static Scanner sc = new Scanner(System.in);
+
+     public static Conductor conductor;
      public static Fabrica fabrica;
      public static Transporte transporteAbastecer;
 
@@ -150,7 +152,7 @@ public class Load {
              //operario3.setFabrica(fabrica);
  
              //conductores
-             Conductor conductor = new Conductor("joseito", 17, 12345, cuentaVendedor3,null);
+             conductor = new Conductor("joseito", 17, 12345, cuentaVendedor3,null);
              conductor.setFabrica(fabrica);
              //Conductor conductor1 = new Conductor("felipe", 17, 12345, cuentaVendedor2,null);
              //Conductor conductor2 = new Conductor("Alejandro", 17, 12345, cuentaVendedor2,null);
@@ -207,6 +209,7 @@ public class Load {
       Serializador.guardarTransporte();
       Serializador.guardarVendedores();
       Serializador.guardarClientes();
+      Serializador.guardarConductor();
     }
 
     public static void cargar(){
@@ -220,12 +223,18 @@ public class Load {
        transporteAbastecer = Deserializador.cargarTransporte();
        vendedores =  Deserializador.cargarVendedores();
        facturas =  Deserializador.cargarFacturas();
+       conductor = Deserializador.cargaConductor();
+
+
 
        Factura.setListaFacturas(facturas);
        Cliente.setListaClientes(clientes);
        Producto.setListaProductos(catalogo);
+       Conductor.getListaConductores().add( conductor);
 
-       
+       System.out.println(fabrica);
+
+
 
       }catch(Exception e){
         System.out.println("Ha ocurrido un error en la deserialización");
@@ -237,8 +246,9 @@ public class Load {
 
     public static void main(String[] args){
 
-      cargarPorDefecto();
-      guardar();
+    Load.cargar();
+
+    System.out.println(fabrica);
 
    
 	}
