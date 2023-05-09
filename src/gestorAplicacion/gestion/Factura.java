@@ -40,7 +40,7 @@ public class Factura implements Serializable {
     private static ArrayList<Factura> listaFacturas = new ArrayList<Factura>();
     private static HashMap<String, Moda> infoAtributos = new HashMap<String,Moda>();
 
-     static{
+      static{
 
        listaFacturas = Load.facturas;
 
@@ -503,5 +503,7 @@ public static String mostrarFacturas(){
         this.total = total;
     }
 
-  
+    public static void setListaFacturas(ArrayList<Factura> facturas){
+       listaFacturas = facturas;
+    }  
 }

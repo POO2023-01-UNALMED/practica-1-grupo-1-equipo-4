@@ -1,5 +1,6 @@
 package baseDatos;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -179,18 +180,21 @@ public class Load {
              tienda1.cantidadProductosVentas();
              tienda2.cantidadProductosVentas();
              tienda3.cantidadProductosVentas();
+
+
              //FACTURAS DE PRUEBA:
- 
-             
- 
-         Factura factura1 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 1, "hola");
-         Factura factura2 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola");
-         Factura factura3 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola");
-         Factura factura4 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 4, "hola");
-         Factura factura5 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola");
-         Factura factura6 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");
-         Factura factura7 = new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola");
-      } 
+         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 1, "hola"));
+         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola"));
+         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola"));
+         facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 4, "hola"));
+         facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola"));
+         facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola"));
+         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola"));
+
+        }
+      
+
+    
 
 
 
@@ -209,17 +213,24 @@ public class Load {
 
       try{
 
-        Deserializador.cargarTiendas();
-        Deserializador.cargarCatalogo();
-        Deserializador.cargarFabrica();
-        Deserializador.cargarClientes();
-        Deserializador.cargarTransporte();
-        Deserializador.cargarVendedores();
-        Deserializador.cargarFacturas();
+       tiendas =  Deserializador.cargarTiendas();
+       catalogo = Deserializador.cargarCatalogo();
+       fabrica = Deserializador.cargarFabrica();
+       clientes = Deserializador.cargarClientes();
+       transporteAbastecer = Deserializador.cargarTransporte();
+       vendedores =  Deserializador.cargarVendedores();
+       facturas =  Deserializador.cargarFacturas();
+
+       Factura.setListaFacturas(facturas);
+
+
 
       }catch(Exception e){
         System.out.println("Ha ocurrido un error en la deserialización");
       }
+
+ 
+
     }
 
     public static void main(String[] args){
@@ -227,7 +238,7 @@ public class Load {
       cargarPorDefecto();
       guardar();
 
-       
-    }
-      
+   
 	}
+
+}
