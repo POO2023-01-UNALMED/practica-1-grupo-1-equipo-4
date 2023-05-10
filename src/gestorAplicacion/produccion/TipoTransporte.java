@@ -79,6 +79,7 @@ public enum TipoTransporte {
         int max = Conductor.getListaConductores().size()-1; // valor máximo
 
         Random random = new Random();
+        System.out.println(max);
         int randomNumber = random.nextInt(max - min + 1) + min; //se genera un nuero aleatorio
 
         Conductor conductor = Conductor.getListaConductores().get(randomNumber);

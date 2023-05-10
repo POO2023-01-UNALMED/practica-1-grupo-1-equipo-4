@@ -68,16 +68,15 @@ public class Fabrica implements Financiero, Serializable{
     // -------------- Metodos ------------------
     
     /*
-    Este método permite visualizar los productos disponibles que tiene una fabrica.
-
-    ENTRADA:
-
-    No recibe ningun argumento
-
-    SALIDA:
-
-    Devuelve un String con los productos que tiene la fabrica para abastecer.
-    */
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer
+     * 
+     * RECIBE:
+     * No recibe ningun argumento 
+     * DEVUELVE:
+     * Devuelve un String con los productos que tiene la fabrica para abastecer.
+     * DESCRIPCIÓN:
+     * Este método permite visualizar los productos disponibles que tiene una fabrica.
+     */
     public String mostrarProductos(){
 		String textoProducto="\nINDICE-PRODUCTO-PESO-PRECIO-CATEGORIA\n";
 		int indice = 1;
@@ -88,18 +87,18 @@ public class Fabrica implements Financiero, Serializable{
 		}
 		return textoProducto;
 	}
-    
     /*
-    Este método permite visualizar las tiendas que pertenecen a la fabrica y los productos que tiene dentro.
-
-    ENTRADA:
-
-    No recibe ningun argumento
-
-    SALIDA:
-
-    Devuelve un String con las tiendas y los productos que tiene con su respectiva cantidad.
-    */
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer
+     * 
+     * RECIBE: 
+     * No recibe ningun argumento
+     * 
+     * DEVUELVE:
+     * Devuelve un String con las tiendas y los productos que tiene con su respectiva cantidad
+     * 
+     * DESCRIPCIÓN:
+     * Este método permite visualizar las tiendas que pertenecen a la fabrica y los productos que tiene dentro.
+     */
 	public String mostrarTiendas() {
 		String textoTiendas="";
 		int indice = 1;
@@ -127,20 +126,19 @@ public class Fabrica implements Financiero, Serializable{
         cuentaAdmin.descontarFondos(total); //nota no se si genere un problea que el atributo saldo de cuenta es un entero y se le resta un double
         return total;
     }
-
     /*
-    Genera una lista de n cantidad de un mismo producto
-
-    ENTRADA:
-
-    cantidad: La cantidad n de productos que se va a generar.
-
-    producto: El producto que se va a generar.
-
-    SALIDA:
-
-    Devuelve una lista con los productos.
-    */
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer
+     * 
+     * RECIBE: 
+     * cantidad: La cantidad n de productos que se va a generar.
+     * producto: El producto que se va a generar.
+     * 
+     * DEVUELVE:
+     * Devuelve una lista con los productos.
+     * 
+     * DESCRIPCIÓN:
+     * Genera una lista de n cantidad de un mismo producto
+     */
     public ArrayList<Producto> cantidadProductos(int cantidad, Producto producto){
         ArrayList<Producto> listaAbastecer = new ArrayList<>();
         for(int i=0;i<cantidad;i++){

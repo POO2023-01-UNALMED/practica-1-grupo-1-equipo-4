@@ -116,18 +116,19 @@ public class Transporte implements Moda, Serializable{
 
     // -------------- Metodos ------------------
     /*
-    Este método carga los productos en el transporte y asigna a la tienda a la que va a mandar los productos
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer
+     * 
+     * RECIBE: 
+     * tienda: Objeto tienda a la cual van a llegar los productos.
+     * listaDeProductos: La lista de productos que se van a enviar.
+     * 
+     * DEVUELVE:
+     * Nada.
+     * 
+     * DESCRIPCIÓN:
+     * Este método carga los productos en el transporte y asigna a la tienda a la que va a mandar los productos
+     */
 
-    ENTRADA:
-
-    tienda: Objeto tienda a la cual van a llegar los productos.
-
-    listaDeProductos: La lista de productos que se van a enviar.
-
-    SALIDA:
-
-    Ninguna.
-    */
     public void abastecerProducto(Tienda tienda, ArrayList<Producto> listaDeProductos){
         this.setTienda(tienda);
         this.setListaDeProductos(listaDeProductos);
