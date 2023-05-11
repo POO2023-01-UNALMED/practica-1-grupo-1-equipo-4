@@ -148,7 +148,19 @@ public class Fabrica implements Financiero, Serializable{
     }    
     
 
-
+    /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Pago a trabajadores
+     * 
+     * RECIBE: Lista de facturas de los envios que se han realizado (ArrayList con 
+     * objetos de tipo Factura) y un número que se asocia al tipo de trabajador
+     * al que se le desea pagar (entero)
+     * DEVUELVE: Lista de trabajadores que han trabajado y no se les ha pagado por dicho
+     * trabajo (ArrayList con objetos de tipo Persona)
+     * 
+     * DESCRIPCIÓN: verifica en las facturas cúales son los trabajadores que han realizado
+     * envios, además se verifica si su trabajo es mayor a 0, pues se le pudo haber pagado
+     * anteriormente
+     */
     public static ArrayList<Persona> busquedaTrabajo(ArrayList<Factura> listaFacturas,int tipo){
         ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
         for (Factura factura: listaFacturas){
@@ -170,13 +182,24 @@ public class Fabrica implements Financiero, Serializable{
         return listaPersonas;
         
     }
-    //Uso de ligadura dinámica
+
+
+    /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Pago a trabajadores
+     * 
+     * RECIBE: Lista de trabajadores que han trabajado y no se les ha pagado por dicho
+     * trabajo (ArrayList con objetos de tipo Persona). 
+     * DEVUELVE: texto conformado por las descripciones de cada trabajador de la lista,
+     * la cual depende del tipo de trabajador que se escogio a pagar (String).
+     * 
+     * DESCRIPCIÓN: recorre la lista de trabajadores y los añade a un String.
+     */
     public static String mostrarPersonas(ArrayList<Persona> listaTrabajadores){
         String texto = "";
         int indice = 1;
 
         for (Persona i: listaTrabajadores) {
-            texto += "\n" + "Trabajador "+ indice + i.toString();
+            texto += "\n" + "Trabajador "+ indice + i.toString();  //Uso de ligadura dinámica
             indice++;               
         }
 

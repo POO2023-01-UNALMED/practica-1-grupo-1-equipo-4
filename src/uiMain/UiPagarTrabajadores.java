@@ -115,7 +115,7 @@ public class UiPagarTrabajadores {
                                     ArrayList<Meta> listaMetas;
                                     String textoIndice;
                                     double indice = trabajadorEscogido.getIndiceMeta();
-                                    double dinero = 0;
+            
 
                                     if (opcion==1){
                                         listaMetas = Operario.getMetasOperario();
@@ -153,8 +153,8 @@ public class UiPagarTrabajadores {
                                             }else{
 
                                                 Meta metaEscogida = listaMetas.get(opcMetaEscogida - 1);
-                                                boolean verificadorMeta = metaEscogida.cumpleMeta(indice, dinero);
-                                                String estadisticasMeta = metaEscogida.porcentajesCumplidos(indice, dinero);
+                                                boolean verificadorMeta = metaEscogida.cumpleMeta(indice);
+                                                String estadisticasMeta = metaEscogida.porcentajesCumplidos(indice);
                                 
                                                 if (verificadorMeta){
                                                     System.out.println("\nLa meta ha sido cumplida exitósamente");

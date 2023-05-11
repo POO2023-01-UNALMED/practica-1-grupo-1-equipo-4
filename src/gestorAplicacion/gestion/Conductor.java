@@ -57,8 +57,6 @@ public class Conductor extends Persona {
 		super.getCuentaBancaria().anadirFondos(total);
 	}
 
-
-	//Falta terminar
 	@Override
 	public String toString() {
 		return "\nNombre: "            + getNombre()               + "\n"

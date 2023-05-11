@@ -47,7 +47,6 @@ public class Operario extends Persona {
 		this.getCuentaBancaria().anadirFondos(total);
 	}
 
-	//Falta terminar
 	@Override
 	public String toString() {
 		return "\nNombre: "            + getNombre()            + "\n"

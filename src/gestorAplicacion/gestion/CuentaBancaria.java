@@ -63,7 +63,9 @@ SALIDA: ninguna (void).
         cuenta.anadirFondos(total);
     }
 
-    /*
+
+    //Hace parte de pago a trabajadores
+    /* 
 * Permite calcular el pago total de una persona según su salario base y su cantidad de trabajos realizados.
 *
 * ENTRADA: Objeto de la clase Persona.

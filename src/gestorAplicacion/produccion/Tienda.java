@@ -45,6 +45,16 @@ public class Tienda implements Financiero, Moda, Serializable {
 
 
     // Métodos
+
+    /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Enviar Pedido
+     * 
+     * RECIBE: No recibe argumentos
+     * DEVUELVE: String con los productos disponibles de la tienda
+     * 
+     * DESCRIPCIÓN: recorre la lista de productos disponibles de la tienda para
+     * ser enviados y los añade a un String 
+     */
     public String mostrarProductos() {
         String str = "";
         for (int i = 0; i < listaProductos.size(); i++) {
@@ -52,6 +62,7 @@ public class Tienda implements Financiero, Moda, Serializable {
         }
         return str;
     }
+
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer
      * 
@@ -85,6 +96,8 @@ public class Tienda implements Financiero, Moda, Serializable {
 
         return cadena;
     }
+
+
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer
      * 
@@ -114,6 +127,7 @@ public class Tienda implements Financiero, Moda, Serializable {
         return cadena;
     } 
 
+
     // mostrar el producto que va a ser enviado
     public String cantidadProductosVentas() {
         listaCantidadProductos = new HashMap<Producto, Integer>();
@@ -136,6 +150,7 @@ public class Tienda implements Financiero, Moda, Serializable {
 
         return cadena;
     }
+
 
     //venderProducto sirve para actualizar 
     // la cantidad de un productos en la
@@ -167,6 +182,7 @@ public class Tienda implements Financiero, Moda, Serializable {
     }
 
 
+    //Verificar si este método si se usa
     public void elegirTransporte(Producto producto) {
         for (int i = 0; i < TipoTransporte.values().length; i++) {
             if (TipoTransporte.values()[i].getCapacidadMax() <= producto.getPeso()) {
@@ -175,16 +191,22 @@ public class Tienda implements Financiero, Moda, Serializable {
         }
     }
 
+
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Enviar Pedido
      * 
-     * RECIBE: 
-     * DEVUELVE:
+     * RECIBE: lista de productos que se pidieron (ArrayList con objetos de tipo
+     * Producto), el transporte que se eligio (objeto tipo transporte),
+     * el cliente al que se le enviará el pedido (objeto tipo Cliente) y el dia 
+     * del mes del envio (entero).
+     * DEVUELVE: la factura correspondiente al envio realizado (objeto tipo Factura).
      * 
-     * DESCRIPCIÓN:
+     * DESCRIPCIÓN: elimina las cantidades de productos pedidos de las listas
+     * de la tienda, suma el respectivo trabajo a las personas involucradas (vendedor,
+     * operario y conductor), añade los productos pedidos a la lista del cliente y 
+     * genera la factura asociada al envío.
      */
-
-
+    
     public Factura enviarPedido(ArrayList<Producto> listaProductosPedidos, Transporte transporte, Cliente cliente, int dia) {
         // Resto 1 unidad de las cantidades de los productos, pues se envio
         // ------listaCantidadProductos.put(producto,
@@ -212,7 +234,7 @@ public class Tienda implements Financiero, Moda, Serializable {
             cliente.getProductos().add(listaProductosPedidos.get(i));
         }
 
-
+        //Creo la factura
         Factura factura = new Factura(this, cliente, transporte, listaProductosPedidos, dia, "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.");
         return factura;
     }
@@ -225,6 +247,8 @@ public class Tienda implements Financiero, Moda, Serializable {
 
         return factura.getCliente();
     }
+
+
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer
      * 
