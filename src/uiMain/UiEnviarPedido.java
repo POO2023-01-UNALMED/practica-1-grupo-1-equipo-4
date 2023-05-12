@@ -29,7 +29,7 @@ public class UiEnviarPedido {
         TipoTransporte tipoTransportes = null;
         int PesoTotalProductos = 0;
 
-        ArrayList<Producto> listaProductosPedidos = new ArrayList<Producto>();
+         ArrayList<Producto> listaProductosPedidos = new ArrayList<Producto>();
         //ArrayList<Producto> listaProductosPedidos = new;
         
         while (interruptor) {

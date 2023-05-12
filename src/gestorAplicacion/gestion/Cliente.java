@@ -74,7 +74,22 @@ public class Cliente implements Moda, Serializable{
 	
 
 
-
+/*
+	Método: mostrarClientes
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Enviar Pedido
+     * 
+     * RECIBE: Vacío 
+     * DEVUELVE: String, una lista de 
+     * 
+     * DESCRIPCIÓN:
+	 * Crea una variable de tipo String llamada "cadena" y la inicializa como una cadena vacía.
+	Crea un entero llamado "index" y lo inicializa en 1.
+	Recorre la lista de clientes ("listaClientes") utilizando un for
+	En cada iteración del bucle, pone el índice seguido de un punto y un espacio, y luego el objeto "cliente" convertido a String, con la cadena "cadena". 
+	El método "toString" se utiliza para obtener una representación en forma de cadena del objeto.
+	Incrementa el valor de "index" en 1 en cada iteración.
+	Al finalizar, devuelve la cadena "cadena" que contiene la representación en forma de cadena de todos los clientes, numerados consecutivamente.
+     */
 	public static String mostrarClientes() {
 		String cadena="";
 		int index = 1;
