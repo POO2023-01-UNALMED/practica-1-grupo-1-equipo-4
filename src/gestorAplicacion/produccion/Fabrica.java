@@ -119,11 +119,20 @@ public class Fabrica implements Financiero, Serializable{
 		return tiendaSeleccionada;
 	}
 
-    //quita el dinero de la cuenta de la fabrica/admin
+    /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
+     * 
+     * RECIBE: objeto de la clase Factura llamado factura 
+     * DEVUELVE: un double llamado total, que es el monto total de la factura
+     * 
+     * DESCRIPCIÓN: obtiene el valor total de la factura, 
+     * realiza el descuento de ese monto en la cuenta bancaria del administrador 
+     * y retorna el valor total de la factura.
+     */
     public double descontarDineroCuentaAdmin(Factura factura){
         double total = factura.getTotal();
         CuentaBancaria cuentaAdmin = getCuentaBancaria();
-        cuentaAdmin.descontarFondos(total); //nota no se si genere un problea que el atributo saldo de cuenta es un entero y se le resta un double
+        cuentaAdmin.descontarFondos(total); 
         return total;
     }
     /*

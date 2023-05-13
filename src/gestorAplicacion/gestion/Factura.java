@@ -352,17 +352,39 @@ public static int getFechaMin(){
 
 
 //------muestra las faturas que hay en pantalla ------
+/*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
+     * 
+     * RECIBE: Vacío, no tiene parámetro para recibir
+     * DEVUELVE: String llamada "textoFactura "
+     * 
+     * DESCRIPCIÓN:
+     * Recorre la lista de facturas de la clase Factura y 
+     * genera un texto que muestra un índice, ID y nombre del 
+     * cliente de cada factura en un formato específico
+     */
 public static String mostrarFacturas(){
     String textoFactura="";
     int indice = 1;
-    //se recorre la lista para obtener cada nombre de las facturas disponibles:
     for(Factura factura:listaFacturas) {
         textoFactura += indice+". ID: "+factura.getId()+" Cliente: "+factura.getCliente().getNombre()+"\n"; //se almacenan todos lo ID's de las facturas en un string
         indice++;
     }
     return textoFactura;
 }
-    // se selecciona la factura en base a la opcion digitada por pantalla
+    /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
+     * 
+     * RECIBE: int opcion, entra por consola en la funcionalidad
+     * DEVUELVE: Objeto de la clase Factura llamado facturaSeleccionada, es el que 
+     * elige el usuario
+     * 
+     * DESCRIPCIÓN: Se obtiene la factura seleccionada de la lista de facturas listaFacturas 
+     * utilizando el método get() y pasando el valor de opcion-1.
+     *  (Se resta 1 a opcion porque los índices de la lista comienzan desde 0.)
+        Se le asigna el nombre facturaSeleccionada.
+        Se devuelve facturaSeleccionada.
+     */
     public static Factura seleccionarFactura(int opcion) {
 		
         Factura facturaSeleccionada = listaFacturas.get(opcion-1);
@@ -387,7 +409,18 @@ public static String mostrarFacturas(){
         }
         return textoSalida;
     }
-    //se selecciona el producto con la op digitada en pantalla
+    /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
+     * 
+     * RECIBE: un entero llamado opcion, es el índice seleccionado por el usuario para elegir un producto a devolver.
+     * DEVUELVE: objeto de tipo Producto, que es el producto seleccionado por el usuario para devolver.
+     * 
+     * DESCRIPCIÓN: verifica si la opción es válida, selecciona el producto correspondiente a esa opción de la lista de productos
+     * (con opcion-1 dado a los índices de las listas)
+     * devuelve el objeto como resultado. 
+     * En caso de que la opción sea 0, en la funcionalidad se devuelve del menú, 
+     * en este método se elige un producto predeterminado para que el método no tenga errores.
+     */
     public Producto seleccionarProcutoDevolver(int opcion) {
         Producto productoSeleccionado = null; 
 		if ((0< opcion)&& (opcion<=listaProductos.size())){

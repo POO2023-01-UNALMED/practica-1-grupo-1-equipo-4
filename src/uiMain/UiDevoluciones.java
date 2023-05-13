@@ -63,7 +63,7 @@ public class UiDevoluciones {
 
                 case 2:
                     while (condicion2) {
-                    // se almacenan os productos de la factura seleccionada en un string
+                    // se almacenan los productos de la factura seleccionada en un string
                         String producosDeFactura = Factura.mostrarProductosFacturas(facturaSeleccionada.getlistaProductos()); 
 
                         System.out.println("\nPor favor seleccione el número que le corresponda\n" +

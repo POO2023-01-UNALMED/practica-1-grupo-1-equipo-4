@@ -34,10 +34,8 @@ Ninguna.
 /*
 Este método permite descontar una cantidad específica de fondos de la cuenta bancaria.
 
-ENTRADA:
-
-fondos: un double que indica la cantidad de fondos a descontar.
-SALIDA: 
+ENTRADA: un double que indica la cantidad de fondos a descontar.
+SALIDA: resta el double al total de la cuenta bancaria
 */
 
     public void descontarFondos(double fondos){
