@@ -11,7 +11,7 @@ public abstract class Persona implements Financiero, Serializable {
 	private int edad;
 	private int cedula;
 	private CuentaBancaria cuentaBancaria;
-	private static final int salario=1000;
+	private static final int SALARIO=1000;
 	private int trabajo;
 	private double indiceMeta;
 	private ArrayList<Boolean> verificadorMetasCumplidas = new ArrayList<Boolean>();
@@ -66,7 +66,7 @@ public abstract class Persona implements Financiero, Serializable {
 	public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
 		this.cuentaBancaria = cuentaBancaria;}
 	public static int getSalario() {
-		return salario;
+		return SALARIO;
 	}
 	//public void setSalario(int salario) {
 	//	this.salario = salario;
