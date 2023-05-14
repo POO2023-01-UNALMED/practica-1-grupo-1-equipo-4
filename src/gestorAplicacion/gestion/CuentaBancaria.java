@@ -44,18 +44,15 @@ SALIDA: resta el double al total de la cuenta bancaria
 
 
 
-/*
-
-Este método actualiza la cuenta bancaria de un cliente, añadiendo los fondos correspondientes al total de la factura devuelta.
-
-ENTRADAS:
-
-total: un valor double que representa el monto total de la factura devuelta.
-cliente: un objeto de la clase Cliente que contiene la información de la cuenta bancaria a actualizar.
-SALIDA: ninguna (void).
-
-*/
-    
+    /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
+     * 
+     * RECIBE: un objeto de tipo Cliente y un double total.
+     * DEVUELVE: nada, este metodo no retorna cosas solo realiza operaciones.
+     * 
+     * DESCRIPCIÓN: lo que hace es regresar el dinero a la cuenta del cliente
+     * por la devolucion del producto comprado.
+     */
     public void devolverDinero(double total, Cliente cliente){
         CuentaBancaria cuenta = cliente.getCuentaBancaria();
         cuenta.anadirFondos(total);

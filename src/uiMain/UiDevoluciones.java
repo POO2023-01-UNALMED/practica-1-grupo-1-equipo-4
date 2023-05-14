@@ -77,6 +77,8 @@ public class UiDevoluciones {
                         System.out.println("");
 
                         // ciclo para saber si en la factura ya estan todos los prodcutos devueltos
+                        //en caso de que ya todos esten devuelto sale un aviso en pantalla que lo indica
+                        //y pide al Administrador ingresar el valor que corresponda a otra factura
                         int contadorDevoluciones = 0;
                         for (Producto producto : facturaSeleccionada.getlistaProductos()) {
                             if (producto.isDevuelto()) {
@@ -105,23 +107,23 @@ public class UiDevoluciones {
 
                             // temporizador para que se vea mas real la eliminacion.
                             try {
-                                Thread.sleep(500); // Espera 1 segundo
+                                Thread.sleep(500); // Espera medio segundo
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
                             System.out.println("... Realizando devolución ... Por favor espere ...");
                             try {
-                                Thread.sleep(1000); // Espera 1,5 segundos
+                                Thread.sleep(1000); // Espera 1 segundo
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }
-                            double total = Load.fabrica.descontarDineroCuentaAdmin(facturaSeleccionada);
+                            double total = Load.fabrica.descontarDineroCuentaAdmin(productoSeleccionado);
 
                             Cliente cliente = facturaSeleccionada.getTienda()
                                     .devolverProducto(facturaSeleccionada, productoSeleccionado);
 
                             cliente.getCuentaBancaria().devolverDinero(total, cliente);
-                            cliente.getProductos().remove(productoSeleccionado);
+                            cliente.getProductos().remove(productoSeleccionado); //se elimina el producto que compró el cliente
                             System.out.println("¡¡ El producto ha sido devuelto exitosamente !!\n");
                             try {
                                 Thread.sleep(750);

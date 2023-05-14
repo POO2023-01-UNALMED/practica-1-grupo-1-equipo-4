@@ -356,11 +356,11 @@ public static int getFechaMin(){
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
      * 
      * RECIBE: Vacío, no tiene parámetro para recibir
-     * DEVUELVE: String llamada "textoFactura "
+     * DEVUELVE: String llamado "textoFactura "
      * 
      * DESCRIPCIÓN:
      * Recorre la lista de facturas de la clase Factura y 
-     * genera un texto que muestra un índice, ID y nombre del 
+     * va generando un texto que muestra un índice, ID y nombre del 
      * cliente de cada factura en un formato específico
      */
 public static String mostrarFacturas(){
@@ -375,7 +375,7 @@ public static String mostrarFacturas(){
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
      * 
-     * RECIBE: int opcion, entra por consola en la funcionalidad
+     * RECIBE: int opcion (entero), entra por consola en la funcionalidad
      * DEVUELVE: Objeto de la clase Factura llamado facturaSeleccionada, es el que 
      * elige el usuario
      * 
@@ -391,8 +391,18 @@ public static String mostrarFacturas(){
 
 		return facturaSeleccionada;
 	}
-
-    //muestra los productos que hay en la factura seleccionada
+    //---muestra los productos que hay en la factura seleccionada---
+        /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
+     * 
+     * RECIBE: Un Array de objetos de tipo Producos.
+     * DEVUELVE: Una cadena de texto que son los prductos que contiene la factura
+     * que se ha elegido por pantalla
+     * DESCRIPCIÓN: se recorren los objetos de la lista Productos y se va almacenando
+     * el nombre con un indice y en caso de que ya se haya devuelto se le agg
+     * justo al lado (devuelto) para hacer saber que no se puede devolver el mismo producto
+     * mas de 1 vez
+     */
     public static String mostrarProductosFacturas(ArrayList<Producto> productosFactura){
         String textoSalida="";
         int indice = 1;
@@ -419,7 +429,9 @@ public static String mostrarFacturas(){
      * (con opcion-1 dado a los índices de las listas)
      * devuelve el objeto como resultado. 
      * En caso de que la opción sea 0, en la funcionalidad se devuelve del menú, 
-     * en este método se elige un producto predeterminado para que el método no tenga errores.
+     * en este método se elige un producto predeterminado para que devuelva algo
+     * ya que en el siguiente paso se hace la comprobacion de si ese objeto está en
+     * la lista o no, esto con el fin de que el programa no tenga un error.
      */
     public Producto seleccionarProcutoDevolver(int opcion) {
         Producto productoSeleccionado = null; 

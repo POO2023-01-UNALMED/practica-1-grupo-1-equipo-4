@@ -239,8 +239,16 @@ public class Tienda implements Financiero, Moda, Serializable {
         return factura;
     }
 
-   // devuelve el producto en base a la factura que se le pase de la funcionalidad
-    // devoluciones
+    /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
+     * 
+     * RECIBE: objeto de tipo Factura y uno de tipo Producto.
+     * DEVUELVE: un objeto de tipo CLiente.
+     * 
+     * DESCRIPCIÓN: devuelve el producto seleccionado 
+     * a una lista de la tienda donde se almacenan las devoluciones
+     * y por ultimo retorna el cliente al que se le hizo la devolución.
+     */
     public Cliente devolverProducto(Factura factura, Producto producto) {
 
         productosDevueltos.add(producto); // se duevuelve el producto
