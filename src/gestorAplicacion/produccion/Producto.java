@@ -22,7 +22,7 @@ public class Producto implements Serializable {
 
     //Constructor
 
-    public Producto(String nombre, String descripcion, double valor, double peso, double tamano, double costoDeProduccion, String categoria) {
+    public Producto(String nombre, String descripcion, double valor, double peso,double tamano, double costoDeProduccion, String categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.valor = valor;
@@ -33,6 +33,10 @@ public class Producto implements Serializable {
         numProductos++;
         listaProductos.add(this);
         this.devuelto = false;
+    }
+
+    public Producto(String nombre, double valor, double peso, double tamano, String categoria){
+        this(nombre, "Sin descripción", valor, peso, tamano, 10.0, categoria);
     }
    
     //Métodos

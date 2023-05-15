@@ -53,7 +53,8 @@ public class Factura implements Serializable {
 * ENTRADA: Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos, int fecha, String disclaimer. Representan los diferentes atributos que conforman una factura.
 */
     
-    public Factura(Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos, int fecha, String disclaimer) {
+    public Factura(Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos,
+                     int fecha, String disclaimer) {
         this.tienda = tienda;
         this.cliente = cliente;
         this.transporte = transporte;
@@ -72,7 +73,8 @@ public class Factura implements Serializable {
         this.id = ++facturasCreadas;
     }
 
-    public Factura(Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos, int fecha) {
+    public Factura(Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos,
+                     int fecha) {
         this(tienda, cliente, transporte, listaProductos, fecha, "SIN DISCLAIMER");
     }
 
