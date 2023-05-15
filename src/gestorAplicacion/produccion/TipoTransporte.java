@@ -51,6 +51,27 @@ public enum TipoTransporte {
         Nombre = nombre;
     }
 
+        /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO:  EnviarPedido
+     * 
+     * RECIBE: 
+     * parámetro de tipo int llamado "PesoTotalProductos" 
+     * es una suma del peso de los productos seleccionadoss, 
+     * con este int nos aseguramos de que el transporte tenga
+     *  la capacidad de carga para llevar todos los productos
+     * 
+     * DEVUELVE:
+     * ArrayList de objetos TipoTransporte, del que el usuario elige un 
+     * tipo para que le transporte su pedido 
+     * 
+     * DESCRIPCIÓN:
+     * se crea un ArrayList llamado "listaTransFiltrada" para almacenar los tipos de transporte que
+     * tienen una capacidad máxima mayor o igual al peso total de los productos. 
+     * Se itera a través de los valores del enum TipoTransporte y 
+     * se verifica si la capacidad máxima de cada tipo de transporte es suficiente para el peso total. Si es así, 
+     * se agrega a la lista filtrada. Se retorna la lista filtrada.
+     */
+
     public static ArrayList<TipoTransporte> crearTipoTransporteSegunCarga(int PesoTotalProductos){
 		ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
 		for(TipoTransporte tipoTransportes : TipoTransporte.values()) {
@@ -60,7 +81,21 @@ public enum TipoTransporte {
 	}
     return listaTransFiltrada;
 }
-    
+            /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO:  EnviarPedido
+     * 
+     * RECIBE: 
+     * parámetro de tipo ArrayList<TipoTransporte> llamado "ListaFiltrada"
+     * 
+     * DEVUELVE:
+     * String cadena de texto que representa los tipos de transporte filtrados.
+     * 
+     * DESCRIPCIÓN:
+     * Se inicializa una cadena vacía llamada "textoTransFiltrado" y un índice. 
+     * Se itera a través de los elementos de la lista filtrada y se añade el índice, 
+     * el nombre de cada tipo de transporte y un salto de línea en la cadena de texto.
+     *  Finalmente, se retorna la cadena de texto resultante.
+     */
 
     public static String mostrarTipoTransporteSegunCarga(ArrayList<TipoTransporte> ListaFiltrada){
 		String textoTransFiltrado="";

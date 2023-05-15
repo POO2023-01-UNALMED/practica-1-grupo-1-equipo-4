@@ -170,41 +170,50 @@ public class Tienda implements  Moda, Serializable {
 
 
         /*
-     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer, EnviarPedido
-     * 
-     * RECIBE: 
-     * No recibe ningun argumento
-     * 
-     * DEVUELVE:
-     * Devuelve un String con las tiendas y los productos que tiene con su respectiva cantidad
-     * 
-     * DESCRIPCIÓN:
-     * Este método permite visualizar las tiendas que pertenecen a la fabrica y los productos que tiene dentro.
-     */
+         * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer, EnviarPedido
+         * 
+         * RECIBE:
+         * No recibe ningun argumento
+         * 
+         * DEVUELVE:
+         * Devuelve un String con las tiendas y los productos que tiene con su
+         * respectiva cantidad
+         * 
+         * DESCRIPCIÓN:
+         * sirve para actualizar
+         * la cantidad de un productos en la lista de productos y en el HashMap
+         * listaCantidadProductos.
+         * muestra en tiempo real que el producto ha
+         * *sido seleccionado y no está disponible para otros
+         * como en EnviarPedido se llama cada vez que se selecciona un producto, en
+         * consola va bajando el número
+         * de productos disponibles cada vez que selecciones uno.
+         * 
+         * Primero comprueba si el producto está en la lista de productos
+         * listaProductos usando el método contains.
+         * Si el producto no está en la lista, no hace nada.
+         * Si el producto está en la lista de productos,
+         * lo elimina de la lista utilizando remove.
+         * Luego, comprueba si la cantidad de producto en el HashMap
+         * listaCantidadProductos es mayor que 1.
+         * Si la cantidad de producto en el HashMap listaCantidadProductos es igual a
+         * Si cumple, reduce la cantidad en 1
+         * 1,
+         * elimina el producto del HashMap porque ya no quedan más unidades
+         * disponibles.
+         * 
+         * 
+         */
 
-    //venderProducto sirve para actualizar 
-    // la cantidad de un productos en la
-    //  lista de productos y en el HashMap listaCantidadProductos.
-
-    // //como en EnviarPedido se llama cada vez que se selecciona un producto
-    // deja al usuario ver en tiempo real que su producto ha 
-    // sido seleccionado y no está disponible para otros 
-    // clientes
     public void venderProducto(Producto producto) {
-        // Primero comprueba si el producto está en la lista de productos
-        //  listaProductos usando el método contains. 
-        //  Si el producto no está en la lista, no hace nada.
+
         if (listaProductos.contains(producto)) {
-            // Si el producto está en la lista de productos, 
-            // lo elimina de la lista utilizando remove.
+        
             listaProductos.remove(producto);
-            // Luego, comprueba si la cantidad de producto en el HashMap listaCantidadProductos es mayor que 1. 
-            // Si cumple, reduce la cantidad en 1 
+
             if (listaCantidadProductos.get(producto) > 1) {
                 listaCantidadProductos.put(producto, listaCantidadProductos.get(producto) - 1);
                 
-            // Si la cantidad de producto en el HashMap listaCantidadProductos es igual a 1,
-            //     elimina el producto del HashMap porque ya no quedan más unidades disponibles.
             } else {
                 listaCantidadProductos.remove(producto);
             }
