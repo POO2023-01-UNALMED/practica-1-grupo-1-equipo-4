@@ -108,6 +108,22 @@ public enum TipoTransporte {
         return  textoTransFiltrado;
 }
 
+        /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO:  EnviarPedido
+     * 
+     * RECIBE: 
+     * No recibe ningun argumento
+     * 
+     * DEVUELVE:
+     * Devuelve un String con las tiendas y los productos que tiene con su respectiva cantidad
+     * 
+     * DESCRIPCIÓN:
+     * Este método permite visualizar las tiendas que pertenecen a la fabrica y los productos que tiene dentro.
+     */
+
+
+
+
     public static Transporte seleccionarTransporte(ArrayList<TipoTransporte> ListaFiltrada,int opcion){
         
         int min = 0; // valor mínimo
