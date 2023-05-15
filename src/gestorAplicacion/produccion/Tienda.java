@@ -129,7 +129,23 @@ public class Tienda implements  Moda, Serializable {
     } 
 
 
-    // mostrar el producto que va a ser enviado
+        /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: EnviarPedido
+     * 
+     * RECIBE: 
+     * No recibe ningun argumento
+     * 
+     * DEVUELVE:
+     * String cadena de texto que contiene la cantidad de productos en una lista de ventas.
+     * 
+     * DESCRIPCIÓN:
+     * Dentro del método, se crea un diccionario (HashMap) llamado "listaCantidadProductos" 
+     * para almacenar la cantidad de cada producto. Luego, se recorre una lista de productos 
+     * y se actualiza el diccionario con el conteo de cada producto. Al final,
+     * se genera una cadena que muestra el índice, el nombre del producto y su cantidad, y se retorna dicha cadena.
+     * Esta cadena se vé en consola y es con la que el 
+     * usuario elige su producto. 
+     */
     public String cantidadProductosVentas() {
         listaCantidadProductos = new HashMap<Producto, Integer>();
         String cadena = "    ";
@@ -152,6 +168,19 @@ public class Tienda implements  Moda, Serializable {
         return cadena;
     }
 
+
+        /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer, EnviarPedido
+     * 
+     * RECIBE: 
+     * No recibe ningun argumento
+     * 
+     * DEVUELVE:
+     * Devuelve un String con las tiendas y los productos que tiene con su respectiva cantidad
+     * 
+     * DESCRIPCIÓN:
+     * Este método permite visualizar las tiendas que pertenecen a la fabrica y los productos que tiene dentro.
+     */
 
     //venderProducto sirve para actualizar 
     // la cantidad de un productos en la

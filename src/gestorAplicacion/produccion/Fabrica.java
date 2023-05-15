@@ -89,7 +89,7 @@ public class Fabrica implements Serializable{
 		return textoProducto;
 	}
     /*
-     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer, EnviarPedido
      * 
      * RECIBE: 
      * No recibe ningun argumento
