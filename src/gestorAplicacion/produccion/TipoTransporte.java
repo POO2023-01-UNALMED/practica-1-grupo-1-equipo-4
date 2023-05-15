@@ -39,6 +39,10 @@ public enum TipoTransporte {
         return Nombre;
     }
 
+    public void setPrecioEnvio(double precioEnvio) {
+        this.precioEnvio = precioEnvio;
+    }
+
     public double precioEnvio; //dado en pesos
     public double capacidadMax; //dado en kilogramos
     public String Nombre;
@@ -108,20 +112,30 @@ public enum TipoTransporte {
         return  textoTransFiltrado;
 }
 
+
+
         /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO:  EnviarPedido
      * 
+     * 
      * RECIBE: 
-     * No recibe ningun argumento
+     * recibe dos parámetros, 
+     * primero un ArrayList de objetos TipoTransporte llamado "ListaFiltrada" 
+     * segundo un entero llamado "opcion". 
+     * 
      * 
      * DEVUELVE:
-     * Devuelve un String con las tiendas y los productos que tiene con su respectiva cantidad
+     * un objeto de la clase Transporte. 
+     * 
      * 
      * DESCRIPCIÓN:
-     * Este método permite visualizar las tiendas que pertenecen a la fabrica y los productos que tiene dentro.
+     * Se establecen los valores mínimo y máximo para generar un número aleatorio. 
+     * Luego, se genera un número aleatorio dentro de ese rango. 
+     * Se obtiene un conductor aleatorio de la lista de conductores 
+     * y se obtienen los detalles del tipo de transporte seleccionado según la opción. 
+     * A partir de estos valores, se crea un objeto Transporte. 
+     * Se establece el transporte al conductor y se retorna el objeto Transporte creado.
      */
-
-
 
 
     public static Transporte seleccionarTransporte(ArrayList<TipoTransporte> ListaFiltrada,int opcion){
