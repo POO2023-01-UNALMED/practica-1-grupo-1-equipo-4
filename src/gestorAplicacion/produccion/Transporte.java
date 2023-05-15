@@ -7,10 +7,8 @@ import gestorAplicacion.gestion.Moda;
 
 import gestorAplicacion.gestion.Conductor;
 
-public class Transporte implements Moda, Serializable{
-    //Atributos
-
-    private static final long serialVersionUID = 12387137L;    
+public class Transporte implements Moda{
+    //Atributos   
 
     private TipoTransporte tipo; 
     private Double capacidad; 
@@ -18,6 +16,7 @@ public class Transporte implements Moda, Serializable{
     private Conductor conductor;
     private ArrayList<TipoTransporte> listaTransportes;
     
+    private static final long serialVersionUID = 12387137L; 
      
     //Atributos creados por Jaider
     private Tienda tienda;
@@ -47,11 +46,13 @@ public class Transporte implements Moda, Serializable{
         }
 
     }
-    //metodo para imprimir nombre, precio y capacidad de algún tipo de transporte
-    public void imprimirTipoTransporte(TipoTransporte tipoTransporte) {
-        System.out.println("Tipo de transporte: " + tipoTransporte.name());
-        System.out.println("Precio: " + tipoTransporte.getPrecioEnvio());
-        System.out.println("Capacidad máxima: " + tipoTransporte.getCapacidadMax());
+    //metodo para nombre, precio y capacidad de algún tipo de transporte
+    public String TipoTransporte(TipoTransporte tipoTransporte) {
+        String TextoTipoTransporte = ("Tipo de transporte: " + tipoTransporte.name() + 
+        "Precio: " + tipoTransporte.getPrecioEnvio() + 
+        "Capacidad máxima: " + tipoTransporte.getCapacidadMax());
+
+        return TextoTipoTransporte;
     }
 
      //Getters y setters 
