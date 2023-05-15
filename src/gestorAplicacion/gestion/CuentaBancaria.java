@@ -3,6 +3,8 @@ package gestorAplicacion.gestion;
 import java.io.Serializable;
 
 public class CuentaBancaria implements Serializable {
+
+    private static final long serialVersionUID = 125316253L;    
     
     private int numeroCuenta;
     private int saldo;

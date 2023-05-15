@@ -3,10 +3,13 @@ package gestorAplicacion.gestion;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import baseDatos.Load;
 import gestorAplicacion.produccion.Producto; 
 
 
 public class Cliente implements Moda, Serializable{
+
+	private static final long serialVersionUID = 123812L;    
 
 	/*-------------------Atributos-------------------------*/
 	
@@ -16,6 +19,10 @@ public class Cliente implements Moda, Serializable{
 	private CuentaBancaria cuentaBancaria;
 	private ArrayList<Producto> productos = new ArrayList<Producto>();
 	static private ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
+
+	static{
+		listaClientes = Load.clientes;
+	}
 	
 	
 	/*-------------------Constructores-------------------------*/

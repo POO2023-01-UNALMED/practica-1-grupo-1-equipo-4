@@ -3,6 +3,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Producto implements Serializable {
+
+    private static final long serialVersionUID = 9808901L;    
     
     //Atributos
     private String nombre;

@@ -10,6 +10,8 @@ import gestorAplicacion.gestion.Conductor;
 public class Transporte implements Moda, Serializable{
     //Atributos
 
+    private static final long serialVersionUID = 12387137L;    
+
     private TipoTransporte tipo; 
     private Double capacidad; 
     private double costo;

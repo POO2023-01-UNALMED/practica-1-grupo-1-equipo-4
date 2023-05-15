@@ -229,6 +229,9 @@ public class Load {
 
        Factura.setListaFacturas(facturas);
        Cliente.setListaClientes(clientes);
+
+       
+
        Producto.setListaProductos(catalogo);
        Conductor.getListaConductores().add( conductor);
 
@@ -238,6 +241,7 @@ public class Load {
 
       }catch(Exception e){
         System.out.println("Ha ocurrido un error en la deserialización");
+        e.printStackTrace();
       }
 
  
@@ -248,9 +252,8 @@ public class Load {
 
     Load.cargar();
 
-    System.out.println(fabrica);
+    System.out.println(Cliente.getListaClientes());
 
-   
 	}
 
 }

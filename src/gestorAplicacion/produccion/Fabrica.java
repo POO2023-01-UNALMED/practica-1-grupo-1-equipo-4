@@ -1,6 +1,5 @@
 package gestorAplicacion.produccion;
 import gestorAplicacion.gestion.CuentaBancaria;
-import gestorAplicacion.gestion.Financiero;
 import gestorAplicacion.gestion.Operario;
 import gestorAplicacion.gestion.Persona;
 import gestorAplicacion.gestion.Factura;
@@ -8,7 +7,9 @@ import gestorAplicacion.gestion.Factura;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Fabrica implements Financiero, Serializable{
+public class Fabrica implements Serializable{
+
+    private static final long serialVersionUID = 123123L;    
 
     private static Operario operario;
     private ArrayList<Producto> listaProductos;

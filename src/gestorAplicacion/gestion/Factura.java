@@ -113,7 +113,7 @@ public class Factura implements Serializable {
      * SALIDA: ArrayList de objetos de clase Factura, con las facturas que tengan fecha entre fecha1 y fecha2
      */
 
-    public static ArrayList<Factura> getFacturasEntreFechas(int fecha1, int fecha2){
+    private static ArrayList<Factura> getFacturasEntreFechas(int fecha1, int fecha2){
 
             ArrayList<Factura> facturasEntreFechas= new ArrayList<Factura>();
             
@@ -288,7 +288,7 @@ public static HashMap<Integer, Double> aumentoPorcentual(HashMap<Integer, Double
 * ENTRADA: Lista de elementos genéricos (List<T>)
 * SALIDA: Elemento más común en la lista
 */
-public static <T> T masComun(List<T> list) {
+private static <T> T masComun(List<T> list) {
     Map<T, Integer> map = new HashMap<>();
 
     for (T t : list) {

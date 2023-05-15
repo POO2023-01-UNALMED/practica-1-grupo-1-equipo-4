@@ -2,7 +2,6 @@ package gestorAplicacion.produccion;
 
 import gestorAplicacion.gestion.Cliente;
 import gestorAplicacion.gestion.CuentaBancaria;
-import gestorAplicacion.gestion.Financiero;
 import gestorAplicacion.gestion.Vendedor;
 import gestorAplicacion.gestion.Factura;
 import gestorAplicacion.gestion.Moda;
@@ -12,7 +11,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Tienda implements Financiero, Moda, Serializable {
+public class Tienda implements  Moda, Serializable {
+
+    private static final long serialVersionUID = 3809459L;    
 
     // Atributos
     private String nombre;

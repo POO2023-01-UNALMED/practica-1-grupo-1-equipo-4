@@ -3,8 +3,10 @@ package gestorAplicacion.gestion;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public abstract class Persona implements Financiero, Serializable {
+public abstract class Persona implements Serializable {
 	/*-------------------Atributos-------------------------*/
+
+	private static final long serialVersionUID = 12736217L;    
 	
 	
 	private String nombre;
