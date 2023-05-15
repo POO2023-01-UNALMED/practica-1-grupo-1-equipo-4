@@ -241,7 +241,7 @@ public class Load {
 
       }catch(Exception e){
         System.out.println("Ha ocurrido un error en la deserialización");
-        e.printStackTrace();
+       // e.printStackTrace();
       }
 
  
