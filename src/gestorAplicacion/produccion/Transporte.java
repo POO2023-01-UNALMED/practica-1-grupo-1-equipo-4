@@ -7,7 +7,7 @@ import gestorAplicacion.gestion.Moda;
 
 import gestorAplicacion.gestion.Conductor;
 
-public class Transporte implements Moda{
+public class Transporte implements Moda, Serializable{
     //Atributos   
 
     private TipoTransporte tipo; 
@@ -57,6 +57,8 @@ public class Transporte implements Moda{
 
      //Getters y setters 
 
+
+     //de la interfaz Moda
      public String getNombre(){
         return tipo.getNombre();
      }
