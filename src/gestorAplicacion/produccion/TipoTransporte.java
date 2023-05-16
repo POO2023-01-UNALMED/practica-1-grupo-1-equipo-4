@@ -105,7 +105,7 @@ public enum TipoTransporte {
 		String textoTransFiltrado="";
         int indice = 1;
 		for(TipoTransporte tipoTransportes : ListaFiltrada) {
-			textoTransFiltrado += indice+". "+ tipoTransportes.getNombre()+"\n"; //se almacenan todos lo nombres de las tiendas en un string
+			textoTransFiltrado += indice+". "+ tipoTransportes.getNombre()+ " " +tipoTransportes.getPrecioEnvio() +"\n"; //se almacenan todos lo nombres de las tiendas en un string
 			indice++;
         
 		}
