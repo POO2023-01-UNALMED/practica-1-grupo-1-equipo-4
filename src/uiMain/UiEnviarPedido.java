@@ -6,6 +6,8 @@ import baseDatos.Load;
 
 import java.util.Scanner;
 
+//import javax.xml.crypto.dsig.spec.TransformParameterSpec;
+
 import baseDatos.Load;
 
 import java.util.ArrayList;
@@ -169,6 +171,14 @@ public class UiEnviarPedido {
                                 numTransporteSeleccionado);
                         System.out.print("Ha seleccionado el transporte #" + (numTransporteSeleccionado)
                                 + "\nEl pedido se enviará por " + transporteSeleccionado.getTipo().getNombre());
+
+                        System.out.println("\nDesea aplicar envío gratis?\n 1. Si   2. No");
+                        System.out.print("> ");
+                        int numEnvioGratis = sc.nextInt();
+                        if (numEnvioGratis == 1){
+                            Transporte.enviarGratis(transporteSeleccionado);
+                        }
+
                         eleccion = 5;
                         break;
                     }

@@ -35,6 +35,25 @@ public class Transporte implements Moda, Serializable{
       
 }
         //Métodos 
+    /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer
+     * 
+     * RECIBE: 
+     * tienda: Objeto tienda a la cual van a llegar los productos.
+     * listaDeProductos: La lista de productos que se van a enviar.
+     * 
+     * DEVUELVE:
+     * Nada.
+     * 
+     * DESCRIPCIÓN:
+     * Este método carga los productos en el transporte y asigna a la tienda a la que va a mandar los productos
+     */
+
+    public void abastecerProducto(Tienda tienda, ArrayList<Producto> listaDeProductos){
+        this.setTienda(tienda);
+        this.setListaDeProductos(listaDeProductos);
+    }
+
 
         //MetodoMostrarTipoTransporte
         //muestra todos los tipos de transporte, su precio y su capacidadMax
@@ -53,6 +72,26 @@ public class Transporte implements Moda, Serializable{
         "Capacidad máxima: " + tipoTransporte.getCapacidadMax());
 
         return TextoTipoTransporte;
+    }
+
+
+      /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: EnviarPedido
+     * 
+     * RECIBE: 
+     * objeto de transporte
+     * 
+     * DEVUELVE:
+     * objeto de transporte
+     * 
+     * DESCRIPCIÓN:
+     * Le cambia al objeto de transporte el precio de envío a 0
+     * Con esto se da envío gratis
+     */
+
+    public static Transporte enviarGratis(Transporte transporteSeleccionado){
+        transporteSeleccionado.getTipo().setPrecioEnvio(0);
+        return transporteSeleccionado;
     }
 
      //Getters y setters 
@@ -118,26 +157,6 @@ public class Transporte implements Moda, Serializable{
         this.listaTransportes = listaTransportes;
     }
     
-
-    // -------------- Metodos ------------------
-    /*
-     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer
-     * 
-     * RECIBE: 
-     * tienda: Objeto tienda a la cual van a llegar los productos.
-     * listaDeProductos: La lista de productos que se van a enviar.
-     * 
-     * DEVUELVE:
-     * Nada.
-     * 
-     * DESCRIPCIÓN:
-     * Este método carga los productos en el transporte y asigna a la tienda a la que va a mandar los productos
-     */
-
-    public void abastecerProducto(Tienda tienda, ArrayList<Producto> listaDeProductos){
-        this.setTienda(tienda);
-        this.setListaDeProductos(listaDeProductos);
-    }
 
 
 }

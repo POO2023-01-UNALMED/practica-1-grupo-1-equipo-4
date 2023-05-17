@@ -46,7 +46,7 @@ public enum TipoTransporte {
     public double precioEnvio; //dado en pesos
     public double capacidadMax; //dado en kilogramos
     public String Nombre;
-    
+
     
 
     private TipoTransporte(int precioEnvio, double capacidadMax, String nombre) {
