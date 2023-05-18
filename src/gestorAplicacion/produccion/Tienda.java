@@ -160,11 +160,10 @@ public class Tienda implements  Moda, Serializable {
             }
         }
         /* Bucle for each para generar la cadena con la cantidad de cada producto */
-        for (Map.Entry<Producto, Integer> entrada : listaCantidadProductos.entrySet()) {
-            cadena += "\n" + indice + ". " + entrada.getKey().getNombre() + ": " + entrada.getValue() + " ";
+        for(Producto producto:listaProductos){
+            cadena+="\n" + indice + ". " + producto.getNombre() + ": " + listaCantidadProductos.get(producto) + " ";
             indice++;
         }
-
         return cadena;
     }
 
