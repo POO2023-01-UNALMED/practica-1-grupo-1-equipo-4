@@ -102,6 +102,12 @@ public class UiEnviarPedido {
                         eleccion = 3;
                         break;
                     }
+                    if (cuantos > tiendaSeleccionada.getListaProductos().size()){
+                        System.out.println("***La tienda de la que quieres comprar solo tiene " + tiendaSeleccionada.getListaProductos().size() +
+                        ". Entonces te dejaremos comprar " + tiendaSeleccionada.getListaProductos().size() + "productos.");
+                        cuantos = tiendaSeleccionada.getListaProductos().size();
+
+                    }
                     else if (cuantos <= 5 && cuantos > 0){
                     for (int i = 0; i < cuantos; i++){
                         
