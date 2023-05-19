@@ -117,7 +117,7 @@ public class Load {
              //agregar productos a tiendas
              tienda1.setListaProductos(new ArrayList<>(Arrays.asList(producto1,producto2,producto3)));
              tienda2.setListaProductos(new ArrayList<>(Arrays.asList(producto4,producto5,producto6)));
-             tienda3.setListaProductos(new ArrayList<>(Arrays.asList(producto7,producto8,producto9)));
+             tienda3.setListaProductos(new ArrayList<>(Arrays.asList(producto7,producto8,producto9,producto10, producto11)));
              
              tiendas.add(tienda1);
              tiendas.add(tienda2);
