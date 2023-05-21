@@ -1,3 +1,12 @@
+/* AUTORES:
+ * Monica Sofia Restrepo León
+ * Jaider Castañeda Villa
+ * 
+ * FUNCIONALIDAD DEL MÓDULO: En esta clase se desarrolla la lógica principal de la
+ * funcionalidad Enviar Pedido
+ * 
+ */
+
 package uiMain;
 
 import gestorAplicacion.gestion.*;

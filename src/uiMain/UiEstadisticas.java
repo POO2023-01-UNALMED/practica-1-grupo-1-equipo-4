@@ -1,3 +1,11 @@
+/* AUTORES:
+ * Joan Sebastian Salazar Montoya
+ * 
+ * FUNCIONALIDAD DEL MÓDULO: En esta clase se desarrolla la lógica principal de la
+ * funcionalidad Mostrar estadísticas
+ * 
+ */
+
 package uiMain;
 
 
