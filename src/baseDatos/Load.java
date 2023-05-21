@@ -145,8 +145,7 @@ public class Load {
  
              
              //cuenta bancaria para la fabrica: // **la cuenta de la fabrica y de las tiendas deben ser las mismas **
-             fabrica = new Fabrica(catalogo, tiendas, cuentaEmpresa);
-             Fabrica.setOperario(operario1);
+             fabrica = new Fabrica(catalogo, tiendas, cuentaEmpresa,operario1);
              operario1.setFabrica(fabrica);
              //operario2.setFabrica(fabrica);
              //operario3.setFabrica(fabrica);
@@ -185,13 +184,13 @@ public class Load {
 
 
              //FACTURAS DE PRUEBA:
-         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 1, "hola"));
-         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola"));
-         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola"));
-         facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 4, "hola"));
-         facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola"));
-         facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola"));
-         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola"));
+         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 1, "hola",operario1));
+         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola",operario1));
+         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola",operario1));
+         facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 4, "hola",operario1));
+         facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola",operario1));
+         facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola",operario1));
+         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola",operario1));
 
         }
       

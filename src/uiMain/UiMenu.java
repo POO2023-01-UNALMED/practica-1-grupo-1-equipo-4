@@ -17,7 +17,7 @@ public class UiMenu {
     
 	public static void main(String[] args) {
 
-        Load.cargarPorDefecto();
+        Load.cargar();
 
         int opcion;
         

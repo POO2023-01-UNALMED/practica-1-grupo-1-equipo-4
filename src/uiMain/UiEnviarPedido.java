@@ -197,7 +197,7 @@ public class UiEnviarPedido {
                     System.out.println("\n************************************\n"+ "Factura generada en la tienda " 
                     +tiendaSeleccionada.getNombre() + "\nA nombre del cliente: " + clienteSeleccionado.getNombre()+"\n" 
                     +tiendaSeleccionada.enviarPedido(listaProductosPedidos,
-                            transporteSeleccionado, clienteSeleccionado, dia)+"\n************************************");
+                            transporteSeleccionado, clienteSeleccionado, dia, Load.fabrica.getOperario())+"\n************************************");
 
 
                     listaProductosPedidos.clear();

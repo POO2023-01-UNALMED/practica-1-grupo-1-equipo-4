@@ -49,8 +49,11 @@ SALIDA: resta el double al total de la cuenta bancaria
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
      * 
-     * RECIBE: un objeto de tipo Cliente y un double total.
-     * DEVUELVE: nada, este metodo no retorna cosas solo realiza operaciones.
+     * RECIBE: 
+     * un objeto de tipo Cliente y un double total.
+     * 
+     * DEVUELVE: 
+     * nada, este metodo no retorna cosas solo realiza operaciones.
      * 
      * DESCRIPCIÓN: lo que hace es regresar el dinero a la cuenta del cliente
      * por la devolucion del producto comprado.
@@ -65,8 +68,10 @@ SALIDA: resta el double al total de la cuenta bancaria
     /* 
 * Permite calcular el pago total de una persona según su salario base y su cantidad de trabajos realizados.
 *
-* ENTRADA: Objeto de la clase Persona.
-* SALIDA: Un entero que representa el pago total de la persona.
+* ENTRADA: 
+* Objeto de la clase Persona.
+* SALIDA: 
+* Un entero que representa el pago total de la persona.
 */
 
     public static int calcularPago(Persona persona){

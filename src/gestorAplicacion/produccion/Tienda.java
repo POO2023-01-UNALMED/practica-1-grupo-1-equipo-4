@@ -5,6 +5,7 @@ import gestorAplicacion.gestion.CuentaBancaria;
 import gestorAplicacion.gestion.Vendedor;
 import gestorAplicacion.gestion.Factura;
 import gestorAplicacion.gestion.Moda;
+import gestorAplicacion.gestion.Operario;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -233,19 +234,23 @@ public class Tienda implements  Moda, Serializable {
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Enviar Pedido
      * 
-     * RECIBE: lista de productos que se pidieron (ArrayList con objetos de tipo
+     * RECIBE: 
+     * lista de productos que se pidieron (ArrayList con objetos de tipo
      * Producto), el transporte que se eligio (objeto tipo transporte),
      * el cliente al que se le enviará el pedido (objeto tipo Cliente) y el dia 
      * del mes del envio (entero).
-     * DEVUELVE: la factura correspondiente al envio realizado (objeto tipo Factura).
      * 
-     * DESCRIPCIÓN: elimina las cantidades de productos pedidos de las listas
+     * DEVUELVE: 
+     * la factura correspondiente al envio realizado (objeto tipo Factura).
+     * 
+     * DESCRIPCIÓN: 
+     * elimina las cantidades de productos pedidos de las listas
      * de la tienda, suma el respectivo trabajo a las personas involucradas (vendedor,
      * operario y conductor), añade los productos pedidos a la lista del cliente y 
      * genera la factura asociada al envío.
      */
     
-    public Factura enviarPedido(ArrayList<Producto> listaProductosPedidos, Transporte transporte, Cliente cliente, int dia) {
+    public Factura enviarPedido(ArrayList<Producto> listaProductosPedidos, Transporte transporte, Cliente cliente, int dia, Operario operario) {
         // Resto 1 unidad de las cantidades de los productos, pues se envio
         // ------listaCantidadProductos.put(producto,
         // listaCantidadProductos.get(producto)-1);
@@ -265,25 +270,30 @@ public class Tienda implements  Moda, Serializable {
         }
 
         // Al operario
-        Fabrica.getOperario().setTrabajo(Fabrica.getOperario().getTrabajo() + 1);
-        Fabrica.getOperario().setIndiceMeta(Fabrica.getOperario().getIndiceMeta() + listaProductosPedidos.size());
+        operario.setTrabajo(operario.getTrabajo() + 1);
+        operario.setIndiceMeta(operario.getIndiceMeta() + listaProductosPedidos.size());
 
         for(int i=0; i<listaProductosPedidos.size(); i++){
             cliente.getProductos().add(listaProductosPedidos.get(i));
         }
 
         //Creo la factura
-        Factura factura = new Factura(this, cliente, transporte, listaProductosPedidos, dia, "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.");
+        Factura factura = new Factura(this, cliente, transporte, listaProductosPedidos,
+         dia, "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.", operario);
         return factura;
     }
 
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
      * 
-     * RECIBE: objeto de tipo Factura y uno de tipo Producto.
-     * DEVUELVE: un objeto de tipo CLiente.
+     * RECIBE: 
+     * objeto de tipo Factura y uno de tipo Producto.
      * 
-     * DESCRIPCIÓN: devuelve el producto seleccionado 
+     * DEVUELVE: 
+     * un objeto de tipo CLiente.
+     * 
+     * DESCRIPCIÓN: 
+     * devuelve el producto seleccionado 
      * a una lista de la tienda donde se almacenan las devoluciones
      * y por ultimo retorna el cliente al que se le hizo la devolución.
      */
@@ -301,7 +311,7 @@ public class Tienda implements  Moda, Serializable {
      * RECIBE: 
      * transporte: Transporte que lleva los productos.
      * 
-     * DEVUELVE:
+     * DEVUELVE: 
      * 
      * DESCRIPCIÓN:
      * Este método envia los poductos del transporte a la tienda.

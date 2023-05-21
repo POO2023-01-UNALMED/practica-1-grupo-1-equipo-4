@@ -36,6 +36,7 @@ public class Factura implements Serializable {
     private int id;
     private double total;
     private static int facturasCreadas;
+    private Operario operario;
 
     private static ArrayList<Factura> listaFacturas = new ArrayList<Factura>();
     private static HashMap<String, Moda> infoAtributos = new HashMap<String,Moda>();
@@ -54,13 +55,14 @@ public class Factura implements Serializable {
 */
     
     public Factura(Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos,
-                     int fecha, String disclaimer) {
+                     int fecha, String disclaimer, Operario operario) {
         this.tienda = tienda;
         this.cliente = cliente;
         this.transporte = transporte;
         this.listaProductos = listaProductos;
         this.fecha = fecha;
         this.disclaimer = disclaimer;
+        this.operario = operario;
 
         infoAtributos.put("tienda", tienda);
         infoAtributos.put("transporte", transporte);
@@ -74,8 +76,8 @@ public class Factura implements Serializable {
     }
 
     public Factura(Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos,
-                     int fecha) {
-        this(tienda, cliente, transporte, listaProductos, fecha, "SIN DISCLAIMER");
+                     int fecha, Operario operario) {
+        this(tienda, cliente, transporte, listaProductos, fecha, "SIN DISCLAIMER",operario);
     }
 
 
@@ -515,6 +517,10 @@ public static String mostrarFacturas(){
     public static ArrayList<Factura> getListaFacturas() {
         return listaFacturas;
     }
+
+    public Operario getOperario() {
+        return operario;
+    }
     
 
     // Setters
@@ -548,6 +554,10 @@ public static String mostrarFacturas(){
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public void setOperario(Operario operario) {
+        this.operario = operario;
     }
 
     public static void setListaFacturas(ArrayList<Factura> facturas){
