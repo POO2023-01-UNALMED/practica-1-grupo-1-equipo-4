@@ -20,6 +20,7 @@ public class Load {
      public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
      public static ArrayList<Vendedor> vendedores = new ArrayList<Vendedor>();
      public static ArrayList<Factura> facturas = new ArrayList<Factura>();
+     //public static ArrayList<Meta> metas = new ArrayList<Meta>();
 
      static Scanner sc = new Scanner(System.in);
 
@@ -130,21 +131,28 @@ public class Load {
              vendedor2.setTienda(tienda2);
              vendedor3.setTienda(tienda3);
  
-             
-             //Metas
-             Meta metaVendedores1 = new Meta("Fácil",3,10000);
-             Meta metaVendedores2 = new Meta("Dificil",10,50000);
-             Vendedor.getMetasVendedor().add(metaVendedores1);
-             Vendedor.getMetasVendedor().add(metaVendedores2);
-             Meta metaConductores1 = new Meta("Fácil",10,10000);
-             Meta metaConductores2 = new Meta("Dificil",10,10000);
-             Conductor.getMetasConductor().add(metaConductores1);
-             Conductor.getMetasConductor().add(metaConductores2);
-             Meta metaOperarios1 = new Meta("Fácil",10,10000);
-             Meta metaOperarios2 = new Meta("Dificil",10,10000);
-             Operario.getMetasOperario().add(metaOperarios1);
-             Operario.getMetasOperario().add(metaOperarios2);
+             //-----------BORRAAAAAAAAAAAAARR
+            //  //Metas
+            //  Meta metaVendedores1 = new Meta("Fácil",3,10000);
+            //  Meta metaVendedores2 = new Meta("Dificil",10,50000);
+            //  Vendedor.getMetasVendedor().add(metaVendedores1);
+            //  Vendedor.getMetasVendedor().add(metaVendedores2);
+            //  Meta metaConductores1 = new Meta("Fácil",10,10000);
+            //  Meta metaConductores2 = new Meta("Dificil",10,10000);
+            //  Conductor.getMetasConductor().add(metaConductores1);
+            //  Conductor.getMetasConductor().add(metaConductores2);
+            //  Meta metaOperarios1 = new Meta("Fácil",10,10000);
+            //  Meta metaOperarios2 = new Meta("Dificil",10,10000);
+            //  Operario.getMetasOperario().add(metaOperarios1);
+            //  Operario.getMetasOperario().add(metaOperarios2);
  
+            //  //Guardar metas
+            // metas.add(metaConductores1);
+            // metas.add(metaConductores2);
+            // metas.add(metaVendedores1);
+            // metas.add(metaVendedores2);
+            // metas.add(metaOperarios1);
+            // metas.add(metaOperarios2);
              
              //cuenta bancaria para la fabrica: // **la cuenta de la fabrica y de las tiendas deben ser las mismas **
              fabrica = new Fabrica(catalogo, tiendas, cuentaEmpresa,operario1);
@@ -211,6 +219,7 @@ public class Load {
       Serializador.guardarVendedores();
       Serializador.guardarClientes();
       Serializador.guardarConductor();
+      //Serializador.guardarMetas();
     }
 
     public static void cargar(){
@@ -225,6 +234,7 @@ public class Load {
        vendedores =  Deserializador.cargarVendedores();
        facturas =  Deserializador.cargarFacturas();
        conductor = Deserializador.cargaConductor();
+       //metas = Deserializador.cargarMeta();
 
 
 

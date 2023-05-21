@@ -69,6 +69,13 @@ public class Serializador {
          public static void guardarConductor(){
             serializar(Load.conductor, "src/baseDatos/temp/conductor.txt");
          }
+         //por si acaso NO BORRAR O explota el programa
+        //  public static void guardarMetas(){
+
+        //     serializar(Load.metas,
+        //      "src/baseDatos/temp/meta.txt");
+
+        //     }
 
         public static void main(String args[]){
 

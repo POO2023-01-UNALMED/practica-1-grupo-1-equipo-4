@@ -1,5 +1,6 @@
 package gestorAplicacion.gestion;
 import java.util.ArrayList;
+import java.util.List;
 
 import gestorAplicacion.produccion.Fabrica;
 import gestorAplicacion.produccion.Transporte;
@@ -7,7 +8,8 @@ public class Conductor extends Persona {
 
 	private Transporte transporte;
 	private Fabrica fabrica;
-	private static ArrayList<Meta> metasConductor = new ArrayList<Meta>();
+	private static ArrayList<Meta> metasConductor = new ArrayList<Meta>(List.of(new Meta("Fácil",10,10000),
+																				new Meta("Dificil",10,10000)));
 	private static ArrayList<Conductor> listaConductores = new ArrayList<Conductor>();
 	/*-------------------Constructores-------------------------*/
 	
