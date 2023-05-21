@@ -129,7 +129,7 @@ public class UiEnviarPedido {
                             cuantos++;
                         } else {
                             productoSeleccionado = tiendaSeleccionada.getListaProductos().get(numProductoSeleccionado - 1);
-                            System.out.print("Ha seleccionado el producto #" + numProductoSeleccionado);
+                            System.out.print("Ha seleccionado el producto # " + numProductoSeleccionado + " Nombre del producto: " + productoSeleccionado.getNombre());
                             listaProductosPedidos.add(productoSeleccionado);
                             tiendaSeleccionada.venderProducto(productoSeleccionado);
                             PesoTotalProductos += productoSeleccionado.getPeso();
