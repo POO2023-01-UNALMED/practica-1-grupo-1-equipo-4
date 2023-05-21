@@ -5,9 +5,9 @@ import gestorAplicacion.produccion.Fabrica;
 import gestorAplicacion.produccion.Transporte;
 public class Conductor extends Persona {
 
-	private static ArrayList<Meta> metasConductor = new ArrayList<Meta>();
 	private Transporte transporte;
 	private Fabrica fabrica;
+	private static ArrayList<Meta> metasConductor = new ArrayList<Meta>();
 	private static ArrayList<Conductor> listaConductores = new ArrayList<Conductor>();
 	/*-------------------Constructores-------------------------*/
 	

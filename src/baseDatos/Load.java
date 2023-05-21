@@ -131,7 +131,7 @@ public class Load {
              
              //Metas
              Meta metaVendedores1 = new Meta("Fácil",3,10000);
-             Meta metaVendedores2 = new Meta("Dificil",10,10000);
+             Meta metaVendedores2 = new Meta("Dificil",10,50000);
              Vendedor.getMetasVendedor().add(metaVendedores1);
              Vendedor.getMetasVendedor().add(metaVendedores2);
              Meta metaConductores1 = new Meta("Fácil",10,10000);

@@ -119,7 +119,7 @@ public class UiPagarTrabajadores {
 
                                     if (opcion==1){
                                         listaMetas = Operario.getMetasOperario();
-                                        textoIndice = "Indice: número de productos abastecidos\n";
+                                        textoIndice = "Indice: número de productos vendidos\n";
                                     }else if(opcion==2){
                                         listaMetas = Conductor.getMetasConductor();
                                         textoIndice = "Indice: peso de productos transportados\n";
