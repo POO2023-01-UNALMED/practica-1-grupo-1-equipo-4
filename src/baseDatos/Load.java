@@ -38,27 +38,32 @@ public class Load {
  
              ArrayList<Producto> catalogo = new ArrayList<Producto>();
              ArrayList<Producto> catalogo2 = new ArrayList<Producto>();
+      
              //Producto(String nombre, String descripcion, Double valor, Double peso, Double tamano, Double costoDeProduccion);
-             Producto producto1 = new Producto("LimpiaMax","Limpiador multiusos", 100, 50, 24000,30,"aseo");
-             Producto producto2 = new Producto("Sandwich de pollo","Sandwich de pollo", 5, 0.7, 100,1000,"consumible");
-             Producto producto3 = new Producto("Ladrillo"," Bloque utilizado en paredes y estructuras", 1, 2.5, 10374,0.25,"construccion");
-             Producto producto4 = new Producto("Lavadora","Máquina para lavar ropa", 100, 675, 200000,20,"aseo");
-             Producto producto5 = new Producto("Hojas de Te","hojas de té verde", 75, 60, 10000,15,"consumible");
-             Producto producto6 = new Producto("Adhesivo","Adhesivo multiusos", 20, 0.3, 20000,5,"construccion");
-             Producto producto7 = new Producto("Jabon","Producto de limpieza", 3090, 271, 20,10,"aseo");
-             Producto producto8 = new Producto("Carne de res","Carne de res de vacas del llano", 30000, 265, 20,1000,"consumible");
-             Producto producto9 = new Producto("Marmol","Roca metamórfica utilizada para la decoración y acabado de interiores", 20345, 3000000, 20,1000,"construccion");
-             Producto producto10 = new Producto("Granito","Roca ígnea utilizada en encimeras, pisos y paredes", 10000, 27800, 20,750,"construccion");
-             Producto producto11 = new Producto("Jamon","Jamón de cerdo", 3, 27800, 20,750,"consumible");
-             Producto producto12 = new Producto("Carne de cerdo","Cerdo de criadero", 10, 27800, 20,750,"consumible");
-             Producto producto13 = new Producto("Papel higiénico", "Rollos de papel suave y absorbente", 8, 1, 5000, 2, "aseo");
-             Producto producto14 = new Producto("Pintura blanca", "Pintura acrílica de color blanco", 50, 1.5, 10000, 30, "construccion");
-             Producto producto15 = new Producto("Detergente", "Detergente líquido para lavadora", 150, 1.2, 500, 20, "aseo");
-             Producto producto16 = new Producto("Cemento", "Material utilizado para la construcción", 200, 40, 8000, 10, "construccion");
-             Producto producto17 = new Producto("Cepillo de dientes", "Cepillo de cerdas suaves para la higiene bucal", 25, 0.1, 100, 5, "aseo");
-             Producto producto18 = new Producto("Bolsas de basura", "Bolsas resistentes para desechar la basura", 15, 0.5, 200, 3, "aseo");
-             Producto producto19 = new Producto("Lámpara LED", "Bombilla LED de bajo consumo energético", 80, 0.2, 500, 50, "construccion");
-             Producto producto20 = new Producto("Jabón líquido", "Jabón líquido para manos", 30, 0.5, 1000, 8, "aseo");
+             Producto producto1 = new Producto("Ladrillo"," Bloque utilizado en paredes y estructuras", 1, 2.5, 10374,0.25,"construccion");
+             Producto producto2 = new Producto("Lámpara LED", "Bombilla LED de bajo consumo energético", 80, 0.2, 500, 50, "construccion");
+             Producto producto3 = new Producto("Adhesivo","Adhesivo multiusos", 20, 0.3, 20000,5,"construccion");
+             Producto producto4 = new Producto("Cemento", "Material utilizado para la construcción", 200, 40, 8000, 10, "construccion");
+             Producto producto5 = new Producto("Marmol","Roca metamórfica utilizada para la decoración y acabado de interiores", 20345, 3000000, 20,1000,"construccion");
+             Producto producto6 = new Producto("Pintura blanca", "Pintura acrílica de color blanco", 50, 1.5, 10000, 30, "construccion");
+             Producto producto7 = new Producto("Granito","Roca ígnea utilizada en encimeras, pisos y paredes", 10000, 27800, 20,750,"construccion");
+             
+             Producto producto8 = new Producto("Sandwich de pollo","Sandwich de pollo", 8, 0.2, 1,3,"consumible");
+             Producto producto9 = new Producto("Hojas de Te","hojas de té verde", 6, 0.02, 1,15,"consumible");
+             Producto producto10 = new Producto("Carne de res","Carne de res de vacas del llano", 15, 1, 1,7,"consumible");
+             Producto producto11 = new Producto("Jamon","Jamón de cerdo", 9, 0.03, 1,4,"consumible");
+             Producto producto12 = new Producto("Carne de cerdo","Cerdo de criadero", 12, 1, 1,3,"consumible");
+             Producto producto13 = new Producto("Galletitas","Galletitas hechas con amor", 5, 0.006, 1,2,"consumible");
+             Producto producto14 = new Producto("Pastel de cumpleaños","Pastel de cumpleaños de vainilla", 20, 2, 2,7,"consumible");
+             
+             Producto producto15 = new Producto("LimpiaMax","Limpiador multiusos", 8, 1, 1,2,"aseo");
+             Producto producto16 = new Producto("Lavadora","Máquina para lavar ropa", 800, 70, 1,200,"aseo");
+             Producto producto17 = new Producto("Jabon","Producto de limpieza", 5, 1, 1,1,"aseo");
+             Producto producto18 = new Producto("Papel higiénico", "Rollos de papel suave y absorbente", 8, 1, 1, 2, "aseo");
+             Producto producto19 = new Producto("Detergente", "Detergente líquido para lavadora", 15, 1.2, 1, 2, "aseo");
+             Producto producto20 = new Producto("Cepillo de dientes", "Cepillo de cerdas suaves para la higiene bucal", 4, 1, 1, 1, "aseo");
+             Producto producto21 = new Producto("Bolsas de basura", "Bolsas resistentes para desechar la basura", 3, 0.5, 1, 1, "aseo");
+             Producto producto22 = new Producto("Jabón líquido", "Jabón líquido para manos", 5, 3, 1, 1, "aseo");
 
              catalogo2.add(producto1);
              catalogo2.add(producto2);
@@ -84,6 +89,8 @@ public class Load {
              catalogo.add(producto18);
              catalogo.add(producto19);
              catalogo.add(producto20);
+             catalogo.add(producto21);
+             catalogo.add(producto22);
          
 
              //Cuenta de la empresa:
@@ -118,19 +125,19 @@ public class Load {
              //vendedores
 
              Vendedor vendedor1 = new Vendedor("Maria Beatriz",20,57793,cuentaVendedor1,null);
-             Vendedor vendedor2 = new Vendedor("Adriana",21,89235,cuentaVendedor2,null);
-             Vendedor vendedor3 = new Vendedor("Lionel Andres",22,14720,cuentaVendedor3,null);
+             Vendedor vendedor2 = new Vendedor("Adriana Alexia Putellas",21,89235,cuentaVendedor2,null);
+             Vendedor vendedor3 = new Vendedor("Lionel Andres Messi",22,14720,cuentaVendedor3,null);
              
              //tiendas
 
              ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
              Tienda tienda1 = new Tienda("Hefesto Construcciones",vendedor1,cuentaEmpresa); //eso atributo de la cuenta del vendedor hay que cambiarlo ya que 
-             Tienda tienda2 = new Tienda("Vitruvio Edificios",vendedor2,cuentaEmpresa); //cambiamos de opinion y ahora sera una solo cuenta para todas las tiendas.
-             Tienda tienda3 = new Tienda("Zaha Hadid Arquitectura ",vendedor3,cuentaEmpresa);
+             Tienda tienda2 = new Tienda("Consumibles de la Abuela Tata",vendedor2,cuentaEmpresa); //cambiamos de opinion y ahora sera una solo cuenta para todas las tiendas.
+             Tienda tienda3 = new Tienda("Miss Músculo Aseo",vendedor3,cuentaEmpresa);
              //agregar productos a tiendas
-             tienda1.setListaProductos(new ArrayList<>(Arrays.asList(producto1,producto2,producto3)));
-             tienda2.setListaProductos(new ArrayList<>(Arrays.asList(producto4,producto5,producto6)));
-             tienda3.setListaProductos(new ArrayList<>(Arrays.asList(producto7,producto8,producto9,producto10, producto11)));
+             tienda1.setListaProductos(new ArrayList<>(Arrays.asList(producto1,producto2,producto3,producto4,producto5,producto6,producto7)));
+             tienda2.setListaProductos(new ArrayList<>(Arrays.asList(producto8,producto9,producto10,producto11,producto12,producto13,producto14)));
+             tienda3.setListaProductos(new ArrayList<>(Arrays.asList(producto15,producto16,producto17,producto18,producto19,producto20,producto21,producto22)));
              
 
              tiendas.add(tienda1);
