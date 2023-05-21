@@ -113,11 +113,10 @@ public class UiEnviarPedido {
                     }
                     if (cuantos > tiendaSeleccionada.getListaProductos().size()){
                         System.out.println("***La tienda de la que quieres comprar solo tiene " + tiendaSeleccionada.getListaProductos().size() +
-                        ". Entonces te dejaremos comprar " + tiendaSeleccionada.getListaProductos().size() + "productos.");
+                        ". Entonces te dejaremos comprar " + tiendaSeleccionada.getListaProductos().size() + " productos.");
                         cuantos = tiendaSeleccionada.getListaProductos().size();
-
                     }
-                    else if (cuantos <= 5 && cuantos > 0){
+                    if (cuantos <= 5 && cuantos > 0){
                     for (int i = 0; i < cuantos; i++){
                         
                         System.out.println("\nSeleccione el producto que desea enviarle al cliente");
@@ -189,20 +188,37 @@ public class UiEnviarPedido {
 
                         System.out.println("\nDesea aplicar envío gratis?\n 1. Si   2. No");
                         System.out.print("> ");
-                        int numEnvioGratis = sc.nextInt();
-                        if (numEnvioGratis == 1){
-                            Transporte.enviarGratis(transporteSeleccionado);
+                        while(true){
+                            int numEnvioGratis = sc.nextInt();
+                            if (numEnvioGratis == 1){
+                                Transporte.enviarGratis(transporteSeleccionado);
+                                break;
+                            }else if(numEnvioGratis != 2){
+                                System.out.println("Seleccione un numero dentro del rango");
+                                System.out.print("> ");
+                            }else{
+                                break;
+                            }
                         }
+                        
 
                         eleccion = 5;
                         break;
                     }
 
                 case 5: // retorna factura
-                    System.out.println("\nDigite el día del mes: ");
+                    System.out.println("\nDigite el día del mes entre 1 y 30: ");
                     System.out.print("> ");
-                    int dia = sc.nextInt();
-                   
+                    int dia=1;
+                    while(true){
+                        dia = sc.nextInt();
+                        if (dia >= 1 && dia <=30){
+                            break;
+                        }else{
+                            System.out.println("Seleccione un numero dentro del rango");
+                            System.out.print("> ");
+                        }
+                    }
                     System.out.println("\n************************************\n"+ "Factura generada en la tienda " 
                     +tiendaSeleccionada.getNombre() + "\nA nombre del cliente: " + clienteSeleccionado.getNombre()+"\n" 
                     +tiendaSeleccionada.enviarPedido(listaProductosPedidos,
