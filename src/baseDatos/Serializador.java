@@ -5,6 +5,7 @@ import java.io.Serializable;
 
 import gestorAplicacion.gestion.Factura;
 
+
 public class Serializador {
    
         public static void serializar(Serializable objeto, String strArchivo){
@@ -30,6 +31,7 @@ public class Serializador {
 
             }
         }
+
 
 
         public static void guardarFacturas(){
@@ -76,6 +78,7 @@ public class Serializador {
         //      "src/baseDatos/temp/meta.txt");
 
         //     }
+        
 
         public static void main(String args[]){
 

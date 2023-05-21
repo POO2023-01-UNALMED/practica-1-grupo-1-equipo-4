@@ -1,5 +1,5 @@
 /*
- * Autores: Joan Sebastián Salazar Montoya, 
+
  * 
  * FUNCIONALIDAD DEL MÓDULO: La clase Factura representa una factura de una compra realizada en una tienda virtual.
 Contiene información sobre la tienda, el cliente, el transporte, la lista de productos, la fecha de compra y un disclaimer opcional.
@@ -22,6 +22,7 @@ import java.util.Map.Entry;
 
 import baseDatos.*;
 import gestorAplicacion.produccion.*;
+
 
 public class Factura implements Serializable {
    
@@ -47,6 +48,7 @@ public class Factura implements Serializable {
 
     }
 
+
     
 /*Constructor de la clase Factura, el cual crea una nueva instancia de Factura con los parámetros ingresados y
     realiza diferentes operaciones para inicializar los atributos y agregar la factura a la lista de facturas creadas.
@@ -54,6 +56,7 @@ public class Factura implements Serializable {
 * ENTRADA: Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos, int fecha, String disclaimer. Representan los diferentes atributos que conforman una factura.
 */
     
+
     public Factura(Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos,
                      int fecha, String disclaimer, Operario operario) {
         this.tienda = tienda;
@@ -75,10 +78,12 @@ public class Factura implements Serializable {
         this.id = ++facturasCreadas;
     }
 
+
     public Factura(Tienda tienda, Cliente cliente, Transporte transporte, ArrayList<Producto> listaProductos,
                      int fecha, Operario operario) {
         this(tienda, cliente, transporte, listaProductos, fecha, "SIN DISCLAIMER",operario);
     }
+
 
 
 /* Este método permite calcular la tarifa de envío de una factura a partir del tipo de transporte seleccionado.
@@ -93,6 +98,8 @@ public class Factura implements Serializable {
 
         return precioEnvio;
     }
+
+
 
 /* Este método permite calcular el total de una factura sumando el precio de los productos y la tarifa de envío.
 *
@@ -109,6 +116,7 @@ public class Factura implements Serializable {
 
         return totalParcial + calcularTarifaEnvio();
     }
+
 
 
     /* Permite obtener una lista de facturas entre dos fechas ingresadas por parámetro
@@ -130,6 +138,7 @@ public class Factura implements Serializable {
             return facturasEntreFechas;
     }
 
+
 /* Permite obtener una lista de fechas únicas de las facturas existentes en la listaFacturas
 *
 * ENTRADA: ninguna
@@ -150,6 +159,7 @@ public class Factura implements Serializable {
 
 
 
+
     /* Este método permite obtener una lista de todas las fechas presentes en las facturas.
 *
 * ENTRADA: No tiene parámetros de entrada.
@@ -166,6 +176,7 @@ public class Factura implements Serializable {
 
         return listaFechas;
     }
+
 
 
     /* Permite obtener un HashMap que contiene las ganancias de cada fecha en el ArrayList ingresado por parámetro
@@ -203,6 +214,7 @@ public static HashMap<Integer, Double> gananciasDiscretas(int fecha1, int fecha2
 }
 
 
+
     public static HashMap<Integer, Double> gananciasDiscretas(ArrayList<Integer> fechas){
 
         int fecha1 = fechas.get(0);
@@ -233,6 +245,7 @@ public static HashMap<Integer, Double> gananciasDiscretas(int fecha1, int fecha2
     }
 
 
+
 /* Este método permite obtener el total de las ganancias a partir de un diccionario que contiene las ganancias por fecha.
 *
 * ENTRADA: Diccionario que relaciona una fecha (entero) con una ganancia (doble).
@@ -251,11 +264,13 @@ public static double gananciasTotales(HashMap<Integer, Double> dictGananciasDisc
 
 }
 
+
 public static double promedioPorDia(HashMap<Integer, Double> dictGananciasDiscretas){
 
     return gananciasTotales(dictGananciasDiscretas) / dictGananciasDiscretas.size();
 
 } 
+
 
 public static HashMap<Integer, Double> aumentoPorcentual(HashMap<Integer, Double> dictGananciasDiscretas){
 
@@ -279,6 +294,7 @@ public static HashMap<Integer, Double> aumentoPorcentual(HashMap<Integer, Double
 
 }
 
+
 /*public static HashMap<Integer, Double> aumentoPorcentual(int fecha1, int fecha2){
 
     HashMap<Integer, Double> dictGananciasDiscretas = gananciasDiscretas(fecha1, fecha2);
@@ -292,6 +308,8 @@ public static HashMap<Integer, Double> aumentoPorcentual(HashMap<Integer, Double
 * ENTRADA: Lista de elementos genéricos (List<T>)
 * SALIDA: Elemento más común en la lista
 */
+
+
 private static <T> T masComun(List<T> list) {
     Map<T, Integer> map = new HashMap<>();
 
@@ -309,6 +327,7 @@ private static <T> T masComun(List<T> list) {
 
     return max.getKey();
 }
+
 
 /* Este método permite obtener la moda de un atributo específico de las facturas entre dos fechas dadas.
 *
@@ -331,6 +350,7 @@ public static Moda moda(int fecha1, int fecha2, String atributo){
 }
 
 
+
 /* Este método permite obtener la fecha más grande de una lista de fechas.
 *
 * ENTRADA: No tiene parámetros de entrada.
@@ -343,6 +363,7 @@ public static int getFechaMax(){
 }
 
 
+
 /* Este método permite obtener la fecha menor de una lista de fechas.
 *
 * ENTRADA: No tiene parámetros de entrada.
@@ -353,6 +374,7 @@ public static int getFechaMin(){
     return Collections.min(getListaFechas());
 
 }
+
 
 
 //------muestra las faturas que hay en pantalla ------
@@ -423,6 +445,9 @@ public static String mostrarFacturas(){
         }
         return textoSalida;
     }
+
+
+
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
      * 
@@ -449,6 +474,7 @@ public static String mostrarFacturas(){
 	}
 
 
+
     public String toString(){
 
         double tarifaEnvio = calcularTarifaEnvio();
@@ -465,6 +491,7 @@ public static String mostrarFacturas(){
         +      "Total a pagar: "            + total;  
 
     }
+
 
     
 
@@ -522,6 +549,7 @@ public static String mostrarFacturas(){
         return operario;
     }
     
+
 
     // Setters
     public void setTienda(Tienda tienda) {

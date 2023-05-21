@@ -2,6 +2,7 @@ package gestorAplicacion.gestion;
 
 import java.io.Serializable;
 
+
 public class Meta implements Serializable{
 
     private String nivelDeDificultad;
@@ -9,7 +10,9 @@ public class Meta implements Serializable{
     private double pago;
 
 
+
     //Constructor
+
 
     public Meta(String nivelDeDificultad, double indice, double pago) {
         this.nivelDeDificultad = nivelDeDificultad;
@@ -17,6 +20,7 @@ public class Meta implements Serializable{
         this.pago = pago;
 
     }
+
     
     //Métodos
 
@@ -36,6 +40,7 @@ public class Meta implements Serializable{
         }
     }
 
+
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Pago a trabajadores
      * 
@@ -45,6 +50,7 @@ public class Meta implements Serializable{
      * DESCRIPCIÓN:Este método permite obtener el porcentaje cumplido de meta, además del
      * porcentaje faltante y cuando falta para que se cumpla la meta.
      */
+
     public String porcentajesCumplidos(double indiceTrabajado){
         double porcentajeindice = (indiceTrabajado*100)/indice;
         String texto = "Porcentaje de la meta cumplido: " + porcentajeindice + "%";
@@ -55,6 +61,7 @@ public class Meta implements Serializable{
         return texto;
     }
 
+
     @Override
     public String toString() {
         return "Nivel de dificultad: "            + nivelDeDificultad + "\n"
@@ -62,6 +69,7 @@ public class Meta implements Serializable{
 		+ 	   "Bonificación por cumplimiento: "  + pago              + "\n";
     }
 
+    
     //Gets and sets
 
     public String getNivelDeDificultad() {

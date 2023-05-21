@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class Tienda implements  Moda, Serializable {
 
     private static final long serialVersionUID = 3809459L;    
@@ -28,8 +29,10 @@ public class Tienda implements  Moda, Serializable {
         put("consumible", (int) (Math.random() * (30 - 10 + 1) + 10));
         put("construccion", (int) (Math.random() * (30 - 10 + 1) + 10));
     }};;
+
     private Map<String, Integer> productosPorCategoria;
     private ArrayList<Producto> productosDevueltos = new ArrayList<Producto>();
+
 
     // Constructor
     public Tienda(String nombre, Vendedor vendedor, CuentaBancaria cuentaBancaria) {
@@ -46,6 +49,7 @@ public class Tienda implements  Moda, Serializable {
     }
 
 
+
     // Métodos
 
     /*
@@ -57,6 +61,7 @@ public class Tienda implements  Moda, Serializable {
      * DESCRIPCIÓN: recorre la lista de productos disponibles de la tienda para
      * ser enviados y los añade a un String 
      */
+
     public String mostrarProductos() {
         String str = "";
         for (int i = 0; i < listaProductos.size(); i++) {
@@ -110,9 +115,11 @@ public class Tienda implements  Moda, Serializable {
      * Devuelve un String con cantidades que tiene y su maximo con el formato categoria cantidad/maximo
      * 
      * DESCRIPCIÓN:
-     * Este método permite visualizar la cantidad de productos por categoria que tiene una tienda y ademas tambien la cantidad maxima que puede 
+     * Este método permite visualizar la cantidad de productos por categoria
+     *  que tiene una tienda y ademas tambien la cantidad maxima que puede 
        tener por categoria esa tienda
      */
+
     public String productosPorCategoria(){
         String cadena = "";
         productosPorCategoria.put("aseo",0);
@@ -147,6 +154,7 @@ public class Tienda implements  Moda, Serializable {
      * Esta cadena se vé en consola y es con la que el 
      * usuario elige su producto. 
      */
+
     public String cantidadProductosVentas() {
         listaCantidadProductos = new HashMap<Producto, Integer>();
         String cadena = "    ";
@@ -282,6 +290,7 @@ public class Tienda implements  Moda, Serializable {
         return factura;
     }
 
+
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
      * 
@@ -296,6 +305,7 @@ public class Tienda implements  Moda, Serializable {
      * a una lista de la tienda donde se almacenan las devoluciones
      * y por ultimo retorna el cliente al que se le hizo la devolución.
      */
+
     public Cliente devolverProducto(Factura factura, Producto producto) {
 
         productosDevueltos.add(producto); // se duevuelve el producto

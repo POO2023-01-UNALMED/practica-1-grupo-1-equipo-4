@@ -2,7 +2,10 @@ package gestorAplicacion.gestion;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import gestorAplicacion.produccion.Tienda;
+
+
 public class Vendedor extends Persona {
 	/*-------------------Atributos-------------------------*/
 	
@@ -13,17 +16,21 @@ public class Vendedor extends Persona {
 	/*-------------------Constructores-------------------------*/
 	
 	
+	
 	/*Constructor de la clase conductor que recibe todos los parametros*/
 
 	public Vendedor(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,Tienda tienda) {
 		super(nombre, edad, cedula, cuentaBancaria);
 		this.tienda=tienda;
 	}
+	
+	
 	/*Constructor de la clase vendedor que no recibe parametros*/
 	public Vendedor() {
 
 	}
 	
+
 	
 	/*-------------------Getter y setter-------------------------*/
 	

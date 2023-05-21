@@ -2,6 +2,7 @@ package gestorAplicacion.gestion;
 
 import java.io.Serializable;
 
+
 public class CuentaBancaria implements Serializable {
 
     private static final long serialVersionUID = 125316253L;    
@@ -17,12 +18,13 @@ public class CuentaBancaria implements Serializable {
 
 
 
+
 /*
 Este método permite agregar fondos a la cuenta bancaria del cliente.
 
 ENTRADA:
 
-fondos: cantidad de dinero a agregar a la cuenta.
+double fondos: cantidad de dinero a agregar a la cuenta.
 SALIDA:
 
 Ninguna.
@@ -33,6 +35,7 @@ Ninguna.
     }
 
 
+
 /*
 Este método permite descontar una cantidad específica de fondos de la cuenta bancaria.
 
@@ -40,9 +43,11 @@ ENTRADA: un double que indica la cantidad de fondos a descontar.
 SALIDA: resta el double al total de la cuenta bancaria
 */
 
+
     public void descontarFondos(double fondos){
         saldo -= fondos;
     }
+
 
 
 
@@ -64,6 +69,7 @@ SALIDA: resta el double al total de la cuenta bancaria
     }
 
 
+
     //Hace parte de pago a trabajadores
     /* 
 * Permite calcular el pago total de una persona según su salario base y su cantidad de trabajos realizados.
@@ -73,6 +79,7 @@ SALIDA: resta el double al total de la cuenta bancaria
 * SALIDA: 
 * Un entero que representa el pago total de la persona.
 */
+
 
     public static int calcularPago(Persona persona){
         int trabajo = persona.getTrabajo();
@@ -91,6 +98,7 @@ SALIDA: resta el double al total de la cuenta bancaria
         //retornamos el total
         return total;
     }
+
   
     // Getters
     public int getNumeroCuenta() {
@@ -100,6 +108,7 @@ SALIDA: resta el double al total de la cuenta bancaria
     public int getSaldo() {
         return saldo;
     }
+
 
     // Setters
     public void setNumeroCuenta(int numeroCuenta) {

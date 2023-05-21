@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
+
 public class Load {
      public static ArrayList<Producto> catalogo = new ArrayList<Producto>();
      public static ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
@@ -27,6 +28,7 @@ public class Load {
      public static Conductor conductor;
      public static Fabrica fabrica;
      public static Transporte transporteAbastecer;
+
 
       public static void cargarPorDefecto(){
            //NOTA: Toca arreglar los constructores y unas cosas pa ver donde va a ir eso
@@ -83,6 +85,7 @@ public class Load {
              catalogo.add(producto19);
              catalogo.add(producto20);
          
+
              //Cuenta de la empresa:
              CuentaBancaria cuentaEmpresa = new CuentaBancaria(9999999, 1000000000);
              //cuentas para los empleados:
@@ -90,6 +93,7 @@ public class Load {
              //CuentaBancaria cuentaOperario2 = new CuentaBancaria(66666, 100000);
              //CuentaBancaria cuentaOperario3 = new CuentaBancaria(77777, 100000);
  
+
              //Operarios
              //ArrayList<Operario> listaOperarios = new ArrayList<Operario>();
              Operario operario1 = new Operario("Jaime",20,97890,cuentaOperario1,null);//cada oeprador tiene cien mil *hay que sacar cuentas*
@@ -100,19 +104,25 @@ public class Load {
              //listaOperarios.add(operario2);
              //listaOperarios.add(operario3);
  
+
              //tiendas disponibles
  
              //se crean los empleados para las tiendas: (uno para cada una)
              //cuentas para los empleados de la tienda:
+
              CuentaBancaria cuentaVendedor1 = new CuentaBancaria(56932, 100); //cada vendedor tiene cien mil *hay que sacar cuentas*
              CuentaBancaria cuentaVendedor2 = new CuentaBancaria(45728, 200);
              CuentaBancaria cuentaVendedor3 = new CuentaBancaria(95687, 200);
+
+
              //vendedores
+
              Vendedor vendedor1 = new Vendedor("Maria Beatriz",20,57793,cuentaVendedor1,null);
              Vendedor vendedor2 = new Vendedor("Adriana",21,89235,cuentaVendedor2,null);
              Vendedor vendedor3 = new Vendedor("Lionel Andres",22,14720,cuentaVendedor3,null);
              
              //tiendas
+
              ArrayList<Tienda> tiendas = new ArrayList<Tienda>();
              Tienda tienda1 = new Tienda("Hefesto Construcciones",vendedor1,cuentaEmpresa); //eso atributo de la cuenta del vendedor hay que cambiarlo ya que 
              Tienda tienda2 = new Tienda("Vitruvio Edificios",vendedor2,cuentaEmpresa); //cambiamos de opinion y ahora sera una solo cuenta para todas las tiendas.
@@ -122,15 +132,18 @@ public class Load {
              tienda2.setListaProductos(new ArrayList<>(Arrays.asList(producto4,producto5,producto6)));
              tienda3.setListaProductos(new ArrayList<>(Arrays.asList(producto7,producto8,producto9,producto10, producto11)));
              
+
              tiendas.add(tienda1);
              tiendas.add(tienda2);
              tiendas.add(tienda3);
  
+
              //se le asigna la tienda a cada vendedor:
              vendedor1.setTienda(tienda1);
              vendedor2.setTienda(tienda2);
              vendedor3.setTienda(tienda3);
  
+
              //-----------BORRAAAAAAAAAAAAARR
             //  //Metas
             //  Meta metaVendedores1 = new Meta("Fácil",3,10000);
@@ -160,6 +173,7 @@ public class Load {
              //operario2.setFabrica(fabrica);
              //operario3.setFabrica(fabrica);
  
+             
              //conductores
              conductor = new Conductor("joseito", 17, 12345, cuentaVendedor3,null);
              conductor.setFabrica(fabrica);
@@ -178,6 +192,7 @@ public class Load {
              CuentaBancaria cuenta3 = new CuentaBancaria(33333,20000);
              Cliente cliente3 = new Cliente("Pedro Gómez", "Carrera 789", cuenta3);
  
+             
              // Agregar los objetos de Cliente a la lista de clientes
              clientes.add(cliente1);
              clientes.add(cliente2);
