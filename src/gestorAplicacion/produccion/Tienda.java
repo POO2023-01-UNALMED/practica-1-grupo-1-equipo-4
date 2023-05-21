@@ -1,5 +1,11 @@
-package gestorAplicacion.produccion;
+/*
+ * FUNCIONALIDAD DEL MÓDULO: La clase Tienda desempeña un papel fundamental como intermediaria en el proceso de venta de productos. 
+ * Es el punto central desde donde se envían los productos a los clientes, lo que la convierte en un elemento crucial para el funcionamiento 
+ * de todas las operaciones. Como tal, la Tienda está estrechamente vinculada con todas las funcionalidades relacionadas, ya que actúa como 
+ * el vínculo entre el cliente y la empresa.
+ */
 
+package gestorAplicacion.produccion;
 import gestorAplicacion.gestion.Cliente;
 import gestorAplicacion.gestion.CuentaBancaria;
 import gestorAplicacion.gestion.Vendedor;
@@ -180,41 +186,41 @@ public class Tienda implements  Moda, Serializable {
     }
 
 
-        /*
-         * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer, EnviarPedido
-         * 
-         * RECIBE:
-         * No recibe ningun argumento
-         * 
-         * DEVUELVE:
-         * Devuelve un String con las tiendas y los productos que tiene con su
-         * respectiva cantidad
-         * 
-         * DESCRIPCIÓN:
-         * sirve para actualizar
-         * la cantidad de un productos en la lista de productos y en el HashMap
-         * listaCantidadProductos.
-         * muestra en tiempo real que el producto ha
-         * *sido seleccionado y no está disponible para otros
-         * como en EnviarPedido se llama cada vez que se selecciona un producto, en
-         * consola va bajando el número
-         * de productos disponibles cada vez que selecciones uno.
-         * 
-         * Primero comprueba si el producto está en la lista de productos
-         * listaProductos usando el método contains.
-         * Si el producto no está en la lista, no hace nada.
-         * Si el producto está en la lista de productos,
-         * lo elimina de la lista utilizando remove.
-         * Luego, comprueba si la cantidad de producto en el HashMap
-         * listaCantidadProductos es mayor que 1.
-         * Si la cantidad de producto en el HashMap listaCantidadProductos es igual a
-         * Si cumple, reduce la cantidad en 1
-         * 1,
-         * elimina el producto del HashMap porque ya no quedan más unidades
-         * disponibles.
-         * 
-         * 
-         */
+    /*
+    * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer, EnviarPedido
+    * 
+    * RECIBE:
+    * No recibe ningun argumento
+    * 
+    * DEVUELVE:
+    * Devuelve un String con las tiendas y los productos que tiene con su
+    * respectiva cantidad
+    * 
+    * DESCRIPCIÓN:
+    * sirve para actualizar
+    * la cantidad de un productos en la lista de productos y en el HashMap
+    * listaCantidadProductos.
+    * muestra en tiempo real que el producto ha
+    * *sido seleccionado y no está disponible para otros
+    * como en EnviarPedido se llama cada vez que se selecciona un producto, en
+    * consola va bajando el número
+    * de productos disponibles cada vez que selecciones uno.
+    * 
+    * Primero comprueba si el producto está en la lista de productos
+    * listaProductos usando el método contains.
+    * Si el producto no está en la lista, no hace nada.
+    * Si el producto está en la lista de productos,
+    * lo elimina de la lista utilizando remove.
+    * Luego, comprueba si la cantidad de producto en el HashMap
+    * listaCantidadProductos es mayor que 1.
+    * Si la cantidad de producto en el HashMap listaCantidadProductos es igual a
+    * Si cumple, reduce la cantidad en 1
+    * 1,
+    * elimina el producto del HashMap porque ya no quedan más unidades
+    * disponibles.
+    * 
+    * 
+    */
 
     public void venderProducto(Producto producto) {
 
