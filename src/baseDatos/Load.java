@@ -34,6 +34,7 @@ public class Load {
              //productos disponibles en la fabrica:
  
              ArrayList<Producto> catalogo = new ArrayList<Producto>();
+             ArrayList<Producto> catalogo2 = new ArrayList<Producto>();
              //Producto(String nombre, String descripcion, Double valor, Double peso, Double tamano, Double costoDeProduccion);
              Producto producto1 = new Producto("LimpiaMax","Limpiador multiusos", 100, 50, 24000,30,"aseo");
              Producto producto2 = new Producto("Sandwich de pollo","Sandwich de pollo", 5, 0.7, 100,1000,"consumible");
@@ -56,7 +57,8 @@ public class Load {
              Producto producto19 = new Producto("Lámpara LED", "Bombilla LED de bajo consumo energético", 80, 0.2, 500, 50, "construccion");
              Producto producto20 = new Producto("Jabón líquido", "Jabón líquido para manos", 30, 0.5, 1000, 8, "aseo");
 
-
+             catalogo2.add(producto1);
+             catalogo2.add(producto2);
             
              //se agregan al catalogo
              catalogo.add(producto1);
@@ -184,8 +186,8 @@ public class Load {
 
 
              //FACTURAS DE PRUEBA:
-         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 1, "hola",operario1));
-         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola",operario1));
+         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo2, 1, "hola",operario1));
+         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo2, 2, "hola",operario1));
          facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola",operario1));
          facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 4, "hola",operario1));
          facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola",operario1));

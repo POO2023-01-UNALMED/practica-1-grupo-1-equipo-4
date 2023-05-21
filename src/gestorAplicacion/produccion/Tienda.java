@@ -162,8 +162,11 @@ public class Tienda implements  Moda, Serializable {
         }
         /* Bucle for each para generar la cadena con la cantidad de cada producto */
         for(Producto producto:listaProductos){
-            cadena+="\n" + indice + ". " + producto.getNombre() + ": " + listaCantidadProductos.get(producto) + " ";
-            indice++;
+
+            if (!cadena.contains(producto.getNombre())){              
+                cadena+="\n" + indice + ". " + producto.getNombre() + ": " + listaCantidadProductos.get(producto) + " ";
+                indice++;
+            }
         }
         return cadena;
     }
@@ -252,11 +255,7 @@ public class Tienda implements  Moda, Serializable {
     
     public Factura enviarPedido(ArrayList<Producto> listaProductosPedidos, Transporte transporte, Cliente cliente, int dia, Operario operario) {
         // Resto 1 unidad de las cantidades de los productos, pues se envio
-        // ------listaCantidadProductos.put(producto,
-        // listaCantidadProductos.get(producto)-1);
-        for(int i=0; i<listaProductosPedidos.size(); i++){
-            listaProductos.remove(listaProductosPedidos.get(i));
-        }
+
         // Añado la suma de trabajo a los trabajadores
 
         // Al vendedor
