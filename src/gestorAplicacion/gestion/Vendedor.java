@@ -1,3 +1,4 @@
+/*Hereda de Persona, hay uno por tienda y sus desempseño está directamente ligada a esa tienda  */
 package gestorAplicacion.gestion;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ public class Vendedor extends Persona {
 	
 	/*-------------------Constructores-------------------------*/
 	
-	
+
 	
 	/*Constructor de la clase conductor que recibe todos los parametros*/
 

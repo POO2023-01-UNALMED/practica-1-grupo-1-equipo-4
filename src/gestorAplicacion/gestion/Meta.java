@@ -1,3 +1,6 @@
+/*Clase que tienen los trabajadores para pagos, 
+ * si cumplen las metas se les dará un bono en la funcionalidad PagarTrabajadores
+ */
 package gestorAplicacion.gestion;
 
 import java.io.Serializable;
@@ -69,7 +72,7 @@ public class Meta implements Serializable{
 		+ 	   "Bonificación por cumplimiento: "  + pago              + "\n";
     }
 
-    
+
     //Gets and sets
 
     public String getNivelDeDificultad() {

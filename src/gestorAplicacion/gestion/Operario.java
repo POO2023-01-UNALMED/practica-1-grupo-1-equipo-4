@@ -1,3 +1,4 @@
+/*El operario es el que trabaja en la fábrica */
 package gestorAplicacion.gestion;
 import java.util.ArrayList;
 import java.util.List;
@@ -53,7 +54,7 @@ public class Operario extends Persona {
 		fabrica.getCuentaBancaria().descontarFondos(total);
 		this.getCuentaBancaria().anadirFondos(total);
 	}
-	
+
 
 	@Override
 	public String toString() {

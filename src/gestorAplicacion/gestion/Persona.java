@@ -1,3 +1,5 @@
+/*Clase Padre de Operario, trabajador y conductor.
+*/
 package gestorAplicacion.gestion;
 
 import java.io.Serializable;
@@ -112,7 +114,7 @@ public abstract class Persona implements Serializable {
 		return listaPersonas;
 	}
 
-	
+
 
 	
 	/*------------------- Metodos -------------------------*/

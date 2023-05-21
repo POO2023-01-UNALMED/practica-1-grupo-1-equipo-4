@@ -1,3 +1,4 @@
+/*Clase con más movilidad, están en listas de las tiendas */
 package gestorAplicacion.produccion;
 import java.io.Serializable;
 import java.util.ArrayList;

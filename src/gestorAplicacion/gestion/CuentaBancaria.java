@@ -1,3 +1,4 @@
+/*Clase que tienen todos los objetos de personas y sus herederos, para contabilidad y economía */
 package gestorAplicacion.gestion;
 
 import java.io.Serializable;

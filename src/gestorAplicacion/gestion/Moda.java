@@ -1,3 +1,4 @@
+/*Interfaz */
 package gestorAplicacion.gestion;
 
 
