@@ -25,7 +25,7 @@ public class Load {
 
      static Scanner sc = new Scanner(System.in);
 
-     public static Conductor conductor;
+     public static Conductor conductor1;
      public static Fabrica fabrica;
      public static Transporte transporteAbastecer;
 
@@ -181,20 +181,20 @@ public class Load {
              //operario3.setFabrica(fabrica);
  
              //Cuentas Conductores
-             CuentaBancaria cuentaConductor = new CuentaBancaria(646541231, 100); //cada vendedor tiene cien mil *hay que sacar cuentas*
-             CuentaBancaria cuentaConductor1 = new CuentaBancaria(13213544, 100); //cada vendedor tiene cien mil *hay que sacar cuentas*
-             CuentaBancaria cuentaConductor2 = new CuentaBancaria(1321354, 100); //cada vendedor tiene cien mil *hay que sacar cuentas*
+             CuentaBancaria cuentaConductor1 = new CuentaBancaria(646541231, 100); //cada vendedor tiene cien mil *hay que sacar cuentas*
+             CuentaBancaria cuentaConductor2 = new CuentaBancaria(13213544, 100); //cada vendedor tiene cien mil *hay que sacar cuentas*
+             CuentaBancaria cuentaConductor3 = new CuentaBancaria(1321354, 100); //cada vendedor tiene cien mil *hay que sacar cuentas*
              //conductores
-             conductor = new Conductor("Pablo Ramirez", 45, 544764513, cuentaConductor,null);
-             Conductor conductor1 = new Conductor("Hernando Cruz", 50, 645541321, cuentaConductor1,null);
-             Conductor conductor2 = new Conductor("Mario Casas", 25, 13216531, cuentaConductor2,null);
-             conductor.setFabrica(fabrica);
+             conductor1 = new Conductor("Pablo Ramirez", 45, 544764513, cuentaConductor1,null);
+             Conductor conductor2 = new Conductor("Hernando Cruz", 50, 645541321, cuentaConductor2,null);
+             Conductor conductor3 = new Conductor("Mario Casas", 25, 13216531, cuentaConductor3,null);
              conductor1.setFabrica(fabrica);
              conductor2.setFabrica(fabrica);
+             conductor3.setFabrica(fabrica);
  
              //Transporte para abastecer
-             transporteAbastecer = new Transporte(TipoTransporte.CAMION, TipoTransporte.CAMION.getCapacidadMax(),TipoTransporte.CAMION.getCapacidadMax(),conductor);
-             conductor.setTransporte(transporteAbastecer);
+             transporteAbastecer = new Transporte(TipoTransporte.CAMION, TipoTransporte.CAMION.getCapacidadMax(),TipoTransporte.CAMION.getCapacidadMax(),conductor1);
+             conductor1.setTransporte(transporteAbastecer);
              
              // Crear objetos de Cliente
              CuentaBancaria cuentaCliente1 = new CuentaBancaria(11111, 5000000);
@@ -260,7 +260,7 @@ public class Load {
        transporteAbastecer = Deserializador.cargarTransporte();
        vendedores =  Deserializador.cargarVendedores();
        facturas =  Deserializador.cargarFacturas();
-       conductor = Deserializador.cargaConductor();
+       conductor1 = Deserializador.cargaConductor();
        //metas = Deserializador.cargarMeta();
 
 
@@ -271,7 +271,7 @@ public class Load {
        
 
        Producto.setListaProductos(catalogo);
-       Conductor.getListaConductores().add( conductor);
+       Conductor.getListaConductores().add( conductor1);
 
        System.out.println(fabrica);
 
