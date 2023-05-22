@@ -186,12 +186,12 @@ public class UiEnviarPedido {
                         System.out.print("Ha seleccionado el transporte #" + (numTransporteSeleccionado)
                                 + "\nEl pedido se enviará por " + transporteSeleccionado.getTipo().getNombre());
 
-                        System.out.println("\nDesea aplicar envío gratis para este transporte?\n 1. Si   2. No");
+                        System.out.println("\nDesea aplicar envío gratis?\n 1. Si   2. No");
                         System.out.print("> ");
                         while(true){
                             int numEnvioGratis = sc.nextInt();
                             if (numEnvioGratis == 1){
-                                Transporte.enviarGratis(transporteSeleccionado,0);
+                                Transporte.enviarGratis(transporteSeleccionado);
                                 break;
                             }else if(numEnvioGratis != 2){
                                 System.out.println("Seleccione un numero dentro del rango");
@@ -223,6 +223,7 @@ public class UiEnviarPedido {
                     +tiendaSeleccionada.getNombre() + "\nA nombre del cliente: " + clienteSeleccionado.getNombre()+"\n" 
                     +tiendaSeleccionada.enviarPedido(listaProductosPedidos,
                             transporteSeleccionado, clienteSeleccionado, dia, Load.fabrica.getOperario())+"\n************************************");
+
 
                     listaProductosPedidos.clear();
                     System.out.println("¿Desea hacer otro envio o volver al menu principal?\n");

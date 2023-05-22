@@ -18,8 +18,6 @@ public class Transporte implements Moda, Serializable{
     
     private static final long serialVersionUID = 12387137L; 
      
-
-    double precioOriginalTransporte;
     //Atributos creados por Jaider
     private Tienda tienda;
     private ArrayList<Producto> listaDeProductos;
@@ -91,13 +89,10 @@ public class Transporte implements Moda, Serializable{
      * Con esto se da envío gratis
      */
 
-
-    public static Transporte enviarGratis(Transporte transporteSeleccionado, double precioTrans){
-        transporteSeleccionado.getTipo().setPrecioEnvio(precioTrans);
+    public static Transporte enviarGratis(Transporte transporteSeleccionado){
+        transporteSeleccionado.getTipo().setPrecioEnvio(0);
         return transporteSeleccionado;
-
     }
-
 
      //Getters y setters 
 
