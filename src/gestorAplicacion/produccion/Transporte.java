@@ -1,3 +1,9 @@
+/* 
+ * FUNCIONALIDAD DEL ENUMERADO: clase que representa un medio de transporte que se puede 
+ * utilizar para mover productos entre una fábrica y una tienda o una tienda y el cliente.  
+ * 
+ */
+
 package gestorAplicacion.produccion;
 
 import java.io.Serializable;

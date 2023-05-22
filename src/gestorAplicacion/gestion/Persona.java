@@ -1,5 +1,8 @@
-/*Clase Padre de Operario, trabajador y conductor.
-*/
+/* 
+ * FUNCIONALIDAD DE LA CLASE: clase abstracta que proporciona atributos y métodos 
+ * comunes para la creación de los distintos tipos de trabajadores de la empresa.
+ */
+
 package gestorAplicacion.gestion;
 
 import java.io.Serializable;
@@ -14,16 +17,16 @@ public abstract class Persona implements Serializable {
 	private static final long serialVersionUID = 12736217L;    
 	
 	
-	private String nombre;
-	private int edad;
-	private int cedula;
-	private CuentaBancaria cuentaBancaria;
-	private static final int SALARIO=1000;
-	private int trabajo;
-	private double indiceMeta;
-	private ArrayList<Boolean> verificadorMetasCumplidas = new ArrayList<Boolean>();
-	private static int personasTotales;
-	private static  ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
+	protected String nombre;
+	protected int edad;
+	protected int cedula;
+	protected CuentaBancaria cuentaBancaria;
+	protected static final int SALARIO=1000;
+	protected int trabajo;
+	protected double indiceMeta;
+	protected ArrayList<Boolean> verificadorMetasCumplidas = new ArrayList<Boolean>();
+	protected static int personasTotales;
+	protected static  ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
 
 
 	

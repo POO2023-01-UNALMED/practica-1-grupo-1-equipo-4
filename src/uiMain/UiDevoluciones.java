@@ -155,7 +155,9 @@ public class UiDevoluciones {
                                 System.out.println(
                                         "¡ATENCION! La opcion que digitó es incorrecta o el producto ya ha sido devuelto");
                             }
+                           
                         }
+                        break;
 
                 case 3:
 

@@ -150,29 +150,6 @@ public class Load {
              vendedor2.setTienda(tienda2);
              vendedor3.setTienda(tienda3);
  
-
-             //-----------BORRAAAAAAAAAAAAARR
-            //  //Metas
-            //  Meta metaVendedores1 = new Meta("Fácil",3,10000);
-            //  Meta metaVendedores2 = new Meta("Dificil",10,50000);
-            //  Vendedor.getMetasVendedor().add(metaVendedores1);
-            //  Vendedor.getMetasVendedor().add(metaVendedores2);
-            //  Meta metaConductores1 = new Meta("Fácil",10,10000);
-            //  Meta metaConductores2 = new Meta("Dificil",10,10000);
-            //  Conductor.getMetasConductor().add(metaConductores1);
-            //  Conductor.getMetasConductor().add(metaConductores2);
-            //  Meta metaOperarios1 = new Meta("Fácil",10,10000);
-            //  Meta metaOperarios2 = new Meta("Dificil",10,10000);
-            //  Operario.getMetasOperario().add(metaOperarios1);
-            //  Operario.getMetasOperario().add(metaOperarios2);
- 
-            //  //Guardar metas
-            // metas.add(metaConductores1);
-            // metas.add(metaConductores2);
-            // metas.add(metaVendedores1);
-            // metas.add(metaVendedores2);
-            // metas.add(metaOperarios1);
-            // metas.add(metaOperarios2);
              
              //cuenta bancaria para la fabrica: // **la cuenta de la fabrica y de las tiendas deben ser las mismas **
              fabrica = new Fabrica(catalogo, tiendas, cuentaEmpresa,operario1);
@@ -203,12 +180,17 @@ public class Load {
              Cliente cliente2 = new Cliente("María García", "Avenida 456", cuentaCliente2);
              CuentaBancaria cuentaCliente3 = new CuentaBancaria(33333,20000);
              Cliente cliente3 = new Cliente("Pedro Gómez", "Carrera 789", cuentaCliente3);
- 
+             CuentaBancaria cuentaCliente4 = new CuentaBancaria(33333,20000);
+             Cliente cliente4 = new Cliente("LUIS Gómez", "Carrera 789", cuentaCliente4);
+             CuentaBancaria cuentaCliente5 = new CuentaBancaria(33333,20000);
+             Cliente cliente5 = new Cliente("JOSEITO Gómez", "Carrera 789", cuentaCliente5);
              
              // Agregar los objetos de Cliente a la lista de clientes
              clientes.add(cliente1);
              clientes.add(cliente2);
              clientes.add(cliente3);
+             clientes.add(cliente4);
+             clientes.add(cliente5);
 
              vendedores.add(vendedor1);
              vendedores.add(vendedor2);
@@ -221,12 +203,12 @@ public class Load {
 
 
              //FACTURAS DE PRUEBA:
-            facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo2, 1, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente4, transporteAbastecer, catalogo2, 1, "hola",operario1));
             facturas.add(new Factura(tienda3, cliente2, transporteAbastecer, catalogo2, 2, "hola",operario1));
             facturas.add(new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 2, "hola",operario1));
-            facturas.add( new Factura(tienda3, cliente2, transporteAbastecer, catalogo, 4, "hola",operario1));
+            facturas.add( new Factura(tienda3, cliente4, transporteAbastecer, catalogo, 4, "hola",operario1));
             facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola",operario1));
-            facturas.add( new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 6, "hola",operario1));
+            facturas.add( new Factura(tienda3, cliente5, transporteAbastecer, catalogo, 6, "hola",operario1));
             facturas.add(new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 6, "hola",operario1));
 
         }
@@ -246,7 +228,7 @@ public class Load {
       Serializador.guardarVendedores();
       Serializador.guardarClientes();
       Serializador.guardarConductor();
-      //Serializador.guardarMetas();
+
     }
 
     public static void cargar(){
@@ -257,20 +239,10 @@ public class Load {
        catalogo = Deserializador.cargarCatalogo();
        fabrica = Deserializador.cargarFabrica();
        clientes = Deserializador.cargarClientes();
-       for (Cliente cli: clientes){
-        System.out.println(cli.getNombre());
-      }
        transporteAbastecer = Deserializador.cargarTransporte();
        vendedores =  Deserializador.cargarVendedores();
-       for (Vendedor ven: vendedores){
-          System.out.println(ven.getNombre());
-        }
        facturas =  Deserializador.cargarFacturas();
-       for (Factura fac: facturas){
-          System.out.println(fac.getId());
-       }
        conductor1 = Deserializador.cargaConductor();
-       //metas = Deserializador.cargarMeta();
 
 
 
@@ -297,9 +269,7 @@ public class Load {
 
     public static void main(String[] args){
 
-    Load.cargar();
-
-    System.out.println(Cliente.getListaClientes());
+    Load.cargarPorDefecto();
 
 	}
 

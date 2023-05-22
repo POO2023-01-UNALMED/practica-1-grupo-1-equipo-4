@@ -1,6 +1,6 @@
 /*
  * 
- * FUNCIONALIDAD DEL MÓDULO: La clase Factura representa una factura de una compra realizada en una tienda virtual.
+ * FUNCIONALIDAD DE LA CLASE: La clase Factura representa una factura de una compra realizada en una tienda virtual.
 Contiene información sobre la tienda, el cliente, el transporte, la lista de productos, la fecha de compra y un disclaimer opcional.
 
 La clase ofrece métodos para calcular el total de la factura, obtener una lista de facturas entre dos fechas, obtener la fecha más reciente de todas las facturas,
@@ -398,7 +398,6 @@ public static String mostrarFacturas(){
     String textoFactura="";
     int indice = 1;
     for(Factura factura:listaFacturas) {
-        System.out.println(factura.getId()+" ### "+factura.total + "---------- pruebas");
             textoFactura += indice+". ID: "+factura.getId()+" Cliente: "+factura.getCliente().getNombre()+"\n"; //se almacenan todos lo ID's de las facturas en un string
             indice++;
   
