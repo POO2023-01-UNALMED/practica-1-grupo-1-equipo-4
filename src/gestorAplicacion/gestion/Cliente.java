@@ -112,10 +112,13 @@ public class Cliente implements Moda, Serializable{
 		int index = 1;
 		/*Se recorre la lista y se retornan todos los elementos pero solo como String*/
 		for(Cliente cliente:listaClientes) {
-			cadena +=index+". "+cliente+"\n"; /*Se hace uso del metodo toString asi devolvemos el objeto como tal*/
+			if (!cadena.contains(cliente.getNombre())){
+			cadena +=index+". "+ cliente +"\n"; /*Se hace uso del metodo toString asi devolvemos el objeto como tal*/
 			index++;
+			}
 		}
 		return cadena;
+		
 	}
 	
 
