@@ -1,3 +1,6 @@
+/* 
+ * FUNCIONALIDAD DE LA CLASE: clase que representa al comprador de productos de la empresa.
+ */
 package gestorAplicacion.gestion;
 
 import java.io.Serializable;

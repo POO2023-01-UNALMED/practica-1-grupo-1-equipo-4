@@ -1,5 +1,5 @@
-/*
- * FUNCIONALIDAD DEL MÓDULO: La clase Tienda desempeña un papel fundamental como intermediaria en el proceso de venta de productos. 
+/* 
+ * FUNCIONALIDAD DE LA CLASE: La clase Tienda desempeña un papel fundamental como intermediaria en el proceso de venta de productos. 
  * Es el punto central desde donde se envían los productos a los clientes, lo que la convierte en un elemento crucial para el funcionamiento 
  * de todas las operaciones. Como tal, la Tienda está estrechamente vinculada con todas las funcionalidades relacionadas, ya que actúa como 
  * el vínculo entre el cliente y la empresa.

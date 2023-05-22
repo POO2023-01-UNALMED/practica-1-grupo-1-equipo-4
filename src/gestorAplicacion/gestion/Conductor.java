@@ -1,7 +1,12 @@
+/* 
+ * FUNCIONALIDAD DE LA CLASE: clase que hereda de Persona, que representa al trabajador que transporta los envíos en determinado 
+ * transporte desde la tienda hasta los clientes o desde la fábrica hasta la tienda en el momento de abastecer.
+ *Cada uno está asociado a un transporte.
+ */
+
 package gestorAplicacion.gestion;
 import java.util.ArrayList;
 import java.util.List;
-
 
 import gestorAplicacion.produccion.Fabrica;
 import gestorAplicacion.produccion.Transporte;
