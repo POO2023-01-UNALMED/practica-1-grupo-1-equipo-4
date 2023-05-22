@@ -180,12 +180,17 @@ public class Load {
              Cliente cliente2 = new Cliente("María García", "Avenida 456", cuentaCliente2);
              CuentaBancaria cuentaCliente3 = new CuentaBancaria(33333,20000);
              Cliente cliente3 = new Cliente("Pedro Gómez", "Carrera 789", cuentaCliente3);
- 
+             CuentaBancaria cuentaCliente4 = new CuentaBancaria(33333,20000);
+             Cliente cliente4 = new Cliente("LUIS Gómez", "Carrera 789", cuentaCliente3);
+             CuentaBancaria cuentaCliente5 = new CuentaBancaria(33333,20000);
+             Cliente cliente5 = new Cliente("JOSEITO Gómez", "Carrera 789", cuentaCliente3);
              
              // Agregar los objetos de Cliente a la lista de clientes
              clientes.add(cliente1);
              clientes.add(cliente2);
              clientes.add(cliente3);
+             clientes.add(cliente4);
+             clientes.add(cliente5);
 
              vendedores.add(vendedor1);
              vendedores.add(vendedor2);
@@ -198,12 +203,12 @@ public class Load {
 
 
              //FACTURAS DE PRUEBA:
-            facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo2, 1, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente4, transporteAbastecer, catalogo2, 1, "hola",operario1));
             facturas.add(new Factura(tienda3, cliente2, transporteAbastecer, catalogo2, 2, "hola",operario1));
             facturas.add(new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 2, "hola",operario1));
-            facturas.add( new Factura(tienda3, cliente2, transporteAbastecer, catalogo, 4, "hola",operario1));
+            facturas.add( new Factura(tienda3, cliente4, transporteAbastecer, catalogo, 4, "hola",operario1));
             facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola",operario1));
-            facturas.add( new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 6, "hola",operario1));
+            facturas.add( new Factura(tienda3, cliente5, transporteAbastecer, catalogo, 6, "hola",operario1));
             facturas.add(new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 6, "hola",operario1));
 
         }
