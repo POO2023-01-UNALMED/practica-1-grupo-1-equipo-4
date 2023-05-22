@@ -29,24 +29,6 @@ public class Operario extends Persona {
 	public Operario() {
 	}
 	
-	
-
-	/*-------------------Getter y setter-------------------------*/
-	
-	
-	public Fabrica getFabrica() {
-		return fabrica;
-	}
-	public void setFabrica(Fabrica fabrica) {
-		this.fabrica = fabrica;
-	}
-	public static ArrayList<Meta> getMetasOperario(){
-		return metasOperario;
-	}
-	public static void setMetasOperario(ArrayList<Meta> metasOperario){
-		Operario.metasOperario = metasOperario;
-	}
-	
 
 	/*-------------------Metodos-------------------------*/
     @Override
@@ -63,4 +45,22 @@ public class Operario extends Persona {
         +      "Cedula: "              + getCedula()            + "\n"
 		+ 	   "Fabrica: "			   + getFabrica()           + "\n";
 	}
+
+	
+	/*-------------------Getter y setter-------------------------*/
+	
+	
+	public Fabrica getFabrica() {
+		return fabrica;
+	}
+	public void setFabrica(Fabrica fabrica) {
+		this.fabrica = fabrica;
+	}
+	public static ArrayList<Meta> getMetasOperario(){
+		return metasOperario;
+	}
+	public static void setMetasOperario(ArrayList<Meta> metasOperario){
+		Operario.metasOperario = metasOperario;
+	}
+	
 }

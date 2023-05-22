@@ -45,49 +45,6 @@ public class Cliente implements Moda, Serializable{
 	public Cliente() {}
 
 	
-	
-	/*-------------------Getters y setters-------------------------*/
-	
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	
-	
-
-	public String getDireccion() {
-		return direccion;
-	}
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
-	
-
-	
-	public CuentaBancaria getCuentaBancaria() {
-		return cuentaBancaria;
-	}
-	public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
-		this.cuentaBancaria = cuentaBancaria;
-	}
-		
-	public ArrayList<Producto> getProductos() {
-		return productos;
-	}
-	public void setProductos(ArrayList<Producto> productos) {
-		this.productos = productos;
-	}
-    
-	
-
-	public static ArrayList<Cliente> getListaClientes() {
-		return listaClientes;
-	}
-	public static void setListaClientes(ArrayList<Cliente> listaClientes) {
-		Cliente.listaClientes = listaClientes;
-	}
 	/*------------------- Metodos -------------------------*/
 	
 
@@ -140,6 +97,48 @@ public class Cliente implements Moda, Serializable{
 	
 	public String toString() {
 		return this.getNombre()+" Dir. "+this.getDireccion();
+	}
+	/*-------------------Getters y setters-------------------------*/
+	
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	
+
+	public String getDireccion() {
+		return direccion;
+	}
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+	
+
+	
+	public CuentaBancaria getCuentaBancaria() {
+		return cuentaBancaria;
+	}
+	public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
+		this.cuentaBancaria = cuentaBancaria;
+	}
+		
+
+	public ArrayList<Producto> getProductos() {
+		return productos;
+	}
+	public void setProductos(ArrayList<Producto> productos) {
+		this.productos = productos;
+	}
+
+	
+	public static ArrayList<Cliente> getListaClientes() {
+		return listaClientes;
+	}
+	public static void setListaClientes(ArrayList<Cliente> listaClientes) {
+		Cliente.listaClientes = listaClientes;
 	}
 
 }

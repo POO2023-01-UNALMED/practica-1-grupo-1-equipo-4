@@ -37,6 +37,23 @@ public class Conductor extends Persona {
 	}
 	
 	
+	/*-------------------Metodos-------------------------*/
+
+    @Override
+	public void recibirSueldo(int total) {
+		fabrica.getCuentaBancaria().descontarFondos(total);
+		super.getCuentaBancaria().anadirFondos(total);
+	}
+	
+
+	@Override
+	public String toString() {
+		return "\nNombre: "            + getNombre()               + "\n"
+        +      "Edad: "                + getEdad()                 + "\n"
+        +      "Cedula: "              + getCedula()               + "\n"
+		+      "Transporte: "          + getTransporte().getTipo() + "\n";
+		
+	}
 	/*-------------------Getter y setter-------------------------*/
 
 	public Transporte getTransporte() {
@@ -69,24 +86,5 @@ public class Conductor extends Persona {
 
 	public static void setMetasConductor(ArrayList<Meta> metasConductor){
 		Conductor.metasConductor = metasConductor;
-	}
-
-
-	/*-------------------Metodos-------------------------*/
-
-    @Override
-	public void recibirSueldo(int total) {
-		fabrica.getCuentaBancaria().descontarFondos(total);
-		super.getCuentaBancaria().anadirFondos(total);
-	}
-	
-
-	@Override
-	public String toString() {
-		return "\nNombre: "            + getNombre()               + "\n"
-        +      "Edad: "                + getEdad()                 + "\n"
-        +      "Cedula: "              + getCedula()               + "\n"
-		+      "Transporte: "          + getTransporte().getTipo() + "\n";
-		
 	}
 }
