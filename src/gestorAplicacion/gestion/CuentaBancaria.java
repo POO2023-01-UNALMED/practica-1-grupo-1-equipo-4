@@ -1,4 +1,9 @@
-/*Clase que tienen todos los objetos de personas y sus herederos, para contabilidad y economía */
+/*
+ * FUNCIONALIDAD DE LA CLASE:clase que representa una cuenta bancaria la que se utiliza para 
+ * realizar los respectivos pagos y descuentos tanto a los trabajadores y clientes, 
+ * como a las cuentas de la fábrica y las tiendas.
+ */
+
 package gestorAplicacion.gestion;
 
 import java.io.Serializable;

@@ -1,5 +1,5 @@
 /*
- * FUNCIONALIDAD DEL MÓDULO: La clase Fábrica cumple un doble rol fundamental en el sistema. 
+ * FUNCIONALIDAD DE LA CLASE: La clase Fábrica cumple un doble rol fundamental en el sistema. 
  * Por un lado, actúa como una distribuidora hacia las tiendas, suministrando los productos necesarios para su venta. 
  * Por otro lado, funciona como un almacén centralizado que almacena tanto las tiendas como los productos que pueden ser abastecidos a las tiendas, 
  * lo que permite una gestión más sencilla y eficiente del programa en su conjunto. 

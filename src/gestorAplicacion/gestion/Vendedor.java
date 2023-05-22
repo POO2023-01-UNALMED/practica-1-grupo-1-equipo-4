@@ -1,4 +1,8 @@
-/*Hereda de Persona, hay uno por tienda y sus desempseño está directamente ligada a esa tienda  */
+/* 
+ * FUNCIONALIDAD DE LA CLASE: clase que hereda de Persona, que representa al trabajador 
+ * que realiza la venta en su respectiva tienda.
+ */
+
 package gestorAplicacion.gestion;
 import java.util.ArrayList;
 import java.util.List;

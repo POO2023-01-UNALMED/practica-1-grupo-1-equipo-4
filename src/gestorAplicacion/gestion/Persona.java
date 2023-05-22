@@ -1,5 +1,8 @@
-/*Clase Padre de Operario, trabajador y conductor.
-*/
+/* 
+ * FUNCIONALIDAD DE LA CLASE: clase abstracta que proporciona atributos y métodos 
+ * comunes para la creación de los distintos tipos de trabajadores de la empresa.
+ */
+
 package gestorAplicacion.gestion;
 
 import java.io.Serializable;
