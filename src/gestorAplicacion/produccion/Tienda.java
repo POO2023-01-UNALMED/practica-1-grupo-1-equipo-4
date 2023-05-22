@@ -337,7 +337,6 @@ public class Tienda implements  Moda, Serializable {
             listaProductos.add(transporte.getListaDeProductos().remove(0));
         }
         transporte.getConductor().setTrabajo(transporte.getConductor().getTrabajo() + 1);
-        vendedor.setTrabajo(vendedor.getTrabajo() + 1);
     }
 
     // Get and Set

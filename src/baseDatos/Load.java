@@ -180,12 +180,17 @@ public class Load {
              //operario2.setFabrica(fabrica);
              //operario3.setFabrica(fabrica);
  
-             
+             //Cuentas Conductores
+             CuentaBancaria cuentaConductor = new CuentaBancaria(646541231, 100); //cada vendedor tiene cien mil *hay que sacar cuentas*
+             CuentaBancaria cuentaConductor1 = new CuentaBancaria(13213544, 100); //cada vendedor tiene cien mil *hay que sacar cuentas*
+             CuentaBancaria cuentaConductor2 = new CuentaBancaria(1321354, 100); //cada vendedor tiene cien mil *hay que sacar cuentas*
              //conductores
-             conductor = new Conductor("joseito", 17, 12345, cuentaVendedor3,null);
+             conductor = new Conductor("Pablo Ramirez", 45, 544764513, cuentaConductor,null);
+             Conductor conductor1 = new Conductor("Hernando Cruz", 50, 645541321, cuentaConductor1,null);
+             Conductor conductor2 = new Conductor("Mario Casas", 25, 13216531, cuentaConductor2,null);
              conductor.setFabrica(fabrica);
-             //Conductor conductor1 = new Conductor("felipe", 17, 12345, cuentaVendedor2,null);
-             //Conductor conductor2 = new Conductor("Alejandro", 17, 12345, cuentaVendedor2,null);
+             conductor1.setFabrica(fabrica);
+             conductor2.setFabrica(fabrica);
  
              //Transporte para abastecer
              transporteAbastecer = new Transporte(TipoTransporte.CAMION, TipoTransporte.CAMION.getCapacidadMax(),TipoTransporte.CAMION.getCapacidadMax(),conductor);
@@ -216,13 +221,13 @@ public class Load {
 
 
              //FACTURAS DE PRUEBA:
-         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo2, 1, "hola",operario1));
-         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo2, 2, "hola",operario1));
-         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola",operario1));
-         facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 4, "hola",operario1));
-         facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola",operario1));
-         facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola",operario1));
-         facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo2, 1, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo2, 2, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola",operario1));
+            facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 4, "hola",operario1));
+            facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola",operario1));
+            facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola",operario1));
 
         }
       
