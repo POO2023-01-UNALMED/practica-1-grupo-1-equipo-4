@@ -41,14 +41,7 @@ public class Factura implements Serializable {
     private static ArrayList<Factura> listaFacturas = new ArrayList<Factura>();
     private static HashMap<String, Moda> infoAtributos = new HashMap<String,Moda>();
 
-      static{
-
-       listaFacturas = Load.facturas;
-
-    }
-
-
-    
+        
 /*Constructor de la clase Factura, el cual crea una nueva instancia de Factura con los parámetros ingresados y
     realiza diferentes operaciones para inicializar los atributos y agregar la factura a la lista de facturas creadas.
 *

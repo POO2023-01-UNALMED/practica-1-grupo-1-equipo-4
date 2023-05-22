@@ -25,11 +25,6 @@ public class Cliente implements Moda, Serializable{
 	private ArrayList<Producto> productos = new ArrayList<Producto>();
 	static private ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 
-
-	static{
-		listaClientes = Load.clientes;
-	}
-	
 	
 	/*-------------------Constructores-------------------------*/
 
