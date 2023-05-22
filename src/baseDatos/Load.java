@@ -30,7 +30,7 @@ public class Load {
      public static Transporte transporteAbastecer;
 
 
-      public static void cargarPorDefecto(){
+    public static void cargarPorDefecto(){
            //NOTA: Toca arreglar los constructores y unas cosas pa ver donde va a ir eso
  
  
@@ -257,9 +257,18 @@ public class Load {
        catalogo = Deserializador.cargarCatalogo();
        fabrica = Deserializador.cargarFabrica();
        clientes = Deserializador.cargarClientes();
+       for (Cliente cli: clientes){
+        System.out.println(cli.getNombre());
+      }
        transporteAbastecer = Deserializador.cargarTransporte();
        vendedores =  Deserializador.cargarVendedores();
+       for (Vendedor ven: vendedores){
+          System.out.println(ven.getNombre());
+        }
        facturas =  Deserializador.cargarFacturas();
+       for (Factura fac: facturas){
+          System.out.println(fac.getId());
+       }
        conductor1 = Deserializador.cargaConductor();
        //metas = Deserializador.cargarMeta();
 
