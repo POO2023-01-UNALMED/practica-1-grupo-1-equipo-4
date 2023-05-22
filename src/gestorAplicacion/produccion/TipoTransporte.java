@@ -1,3 +1,8 @@
+/* 
+ * FUNCIONALIDAD DEL ENUMERADO: enumerado que establece el conjunto de valores constantes 
+ * disponibles para los tipos de transportes en los que se pueden transportar los productos.
+ */
+
 package gestorAplicacion.produccion;
 
 import java.util.ArrayList;
