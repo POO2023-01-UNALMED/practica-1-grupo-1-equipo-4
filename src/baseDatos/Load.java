@@ -150,29 +150,6 @@ public class Load {
              vendedor2.setTienda(tienda2);
              vendedor3.setTienda(tienda3);
  
-
-             //-----------BORRAAAAAAAAAAAAARR
-            //  //Metas
-            //  Meta metaVendedores1 = new Meta("Fácil",3,10000);
-            //  Meta metaVendedores2 = new Meta("Dificil",10,50000);
-            //  Vendedor.getMetasVendedor().add(metaVendedores1);
-            //  Vendedor.getMetasVendedor().add(metaVendedores2);
-            //  Meta metaConductores1 = new Meta("Fácil",10,10000);
-            //  Meta metaConductores2 = new Meta("Dificil",10,10000);
-            //  Conductor.getMetasConductor().add(metaConductores1);
-            //  Conductor.getMetasConductor().add(metaConductores2);
-            //  Meta metaOperarios1 = new Meta("Fácil",10,10000);
-            //  Meta metaOperarios2 = new Meta("Dificil",10,10000);
-            //  Operario.getMetasOperario().add(metaOperarios1);
-            //  Operario.getMetasOperario().add(metaOperarios2);
- 
-            //  //Guardar metas
-            // metas.add(metaConductores1);
-            // metas.add(metaConductores2);
-            // metas.add(metaVendedores1);
-            // metas.add(metaVendedores2);
-            // metas.add(metaOperarios1);
-            // metas.add(metaOperarios2);
              
              //cuenta bancaria para la fabrica: // **la cuenta de la fabrica y de las tiendas deben ser las mismas **
              fabrica = new Fabrica(catalogo, tiendas, cuentaEmpresa,operario1);
@@ -229,6 +206,16 @@ public class Load {
             facturas.add( new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 6, "hola",operario1));
             facturas.add(new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 6, "hola",operario1));
 
+            for (Cliente cli: clientes){
+              System.out.println(cli.getNombre());
+            }
+
+            for (Vendedor ven: vendedores){
+              System.out.println(ven.getNombre());
+            }
+            for (Factura fac: facturas){
+              System.out.println(fac.getId());
+           }
         }
       
 
@@ -270,7 +257,6 @@ public class Load {
           System.out.println(fac.getId());
        }
        conductor1 = Deserializador.cargaConductor();
-       //metas = Deserializador.cargarMeta();
 
 
 
@@ -297,7 +283,7 @@ public class Load {
 
     public static void main(String[] args){
 
-    Load.cargar();
+    Load.cargarPorDefecto();
 
     System.out.println(Cliente.getListaClientes());
 
