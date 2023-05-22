@@ -132,6 +132,8 @@ public class Factura implements Serializable {
             return facturasEntreFechas;
     }
 
+    
+
 
 /* FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estadísticas
 *
@@ -211,6 +213,25 @@ public static HashMap<Integer, Double> gananciasDiscretas(int fecha1, int fecha2
 
     return dictGananciasDiscretas;
 }
+
+   /*FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estadística  
+*
+* ENTRADA: Lista con las fechas entre las cuales se quiere obtener las ganancias discretas
+* SALIDA: HashMap que asocia cada fecha con su ganancia correspondiente
+
+    DESCRIPCIÓN: Permite obtener un HashMap que contiene las ganancias de cada fecha en el ArrayList ingresado por parámetro
+*/
+
+public static HashMap<Integer, Double> gananciasDiscretas(ArrayList<Integer> fechas){
+
+    
+    int fecha1 = Collections.min(fechas);
+    int fecha2 = Collections.max(fechas);
+
+
+    return gananciasDiscretas(fecha1, fecha2);
+}
+
 
 
 
