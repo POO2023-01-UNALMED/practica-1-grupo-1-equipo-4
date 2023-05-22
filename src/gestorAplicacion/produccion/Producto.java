@@ -1,4 +1,7 @@
-/*Clase con más movilidad, están en listas de las tiendas */
+/* 
+ * FUNCIONALIDAD DE LA CLASE: clase que representa el producto que se genera en la 
+ * fábrica y se vende en las tiendas.
+ */
 package gestorAplicacion.produccion;
 import java.io.Serializable;
 import java.util.ArrayList;

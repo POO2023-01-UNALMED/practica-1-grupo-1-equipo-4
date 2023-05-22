@@ -1,6 +1,8 @@
-/*Clase que tienen los trabajadores para pagos, 
- * si cumplen las metas se les dará un bono en la funcionalidad PagarTrabajadores
+/* 
+ * FUNCIONALIDAD DE LA CLASE: clase que representa las metas que se le pueden dar a los trabajadores 
+ * para recibir incentivos monetarios por el cumplimiento de ciertos objetivos. 
  */
+
 package gestorAplicacion.gestion;
 
 import java.io.Serializable;
