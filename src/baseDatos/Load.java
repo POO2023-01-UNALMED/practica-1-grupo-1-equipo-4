@@ -181,9 +181,9 @@ public class Load {
              CuentaBancaria cuentaCliente3 = new CuentaBancaria(33333,20000);
              Cliente cliente3 = new Cliente("Pedro Gómez", "Carrera 789", cuentaCliente3);
              CuentaBancaria cuentaCliente4 = new CuentaBancaria(33333,20000);
-             Cliente cliente4 = new Cliente("LUIS Gómez", "Carrera 789", cuentaCliente3);
+             Cliente cliente4 = new Cliente("LUIS Gómez", "Carrera 789", cuentaCliente4);
              CuentaBancaria cuentaCliente5 = new CuentaBancaria(33333,20000);
-             Cliente cliente5 = new Cliente("JOSEITO Gómez", "Carrera 789", cuentaCliente3);
+             Cliente cliente5 = new Cliente("JOSEITO Gómez", "Carrera 789", cuentaCliente5);
              
              // Agregar los objetos de Cliente a la lista de clientes
              clientes.add(cliente1);
