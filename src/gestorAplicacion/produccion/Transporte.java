@@ -20,15 +20,11 @@ public class Transporte implements Moda, Serializable{
     
     private static final long serialVersionUID = 12387137L; 
      
-    //Atributos creados por Jaider
     private Tienda tienda;
     private ArrayList<Producto> listaDeProductos;
 
 
-        //Constructor que recibe todos los parametros 
-
-
-
+    //Constructor que recibe todos los parametros 
     public Transporte(TipoTransporte tipo, Double capacidad, double costo, Conductor conductor) {
         this.conductor = conductor;
         this.tipo = tipo;
@@ -36,7 +32,7 @@ public class Transporte implements Moda, Serializable{
         this.costo = costo;
       
 }
-        //Métodos 
+    //Métodos 
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer
      * 

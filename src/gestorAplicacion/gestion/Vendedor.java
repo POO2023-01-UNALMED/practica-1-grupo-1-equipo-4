@@ -32,7 +32,24 @@ public class Vendedor extends Persona {
 	}
 	
 
+	/*-------------------Metodos-------------------------*/
+	@Override
+	public void recibirSueldo(int total) {
+		tienda.getCuentaBancaria().descontarFondos(total);
+		super.getCuentaBancaria().anadirFondos(total);
+	}
+
+	//Falta terminar
+	@Override
+	public String toString() {
+		return "\nNombre: "            + getNombre()              + "\n"
+		+      "Edad: "                + getEdad()                + "\n"
+		+      "Cedula: "              + getCedula()              + "\n"
+		+      "Tienda: "              + getTienda().getNombre()  + "\n";
+		
+	}
 	
+
 	/*-------------------Getter y setter-------------------------*/
 	
 	
@@ -49,22 +66,5 @@ public class Vendedor extends Persona {
 		Vendedor.metasVendedor = metasVendedor;
 	}
 	
-	
-	/*-------------------Metodos-------------------------*/
-    @Override
-	public void recibirSueldo(int total) {
-		tienda.getCuentaBancaria().descontarFondos(total);
-		super.getCuentaBancaria().anadirFondos(total);
-	}
-
-	//Falta terminar
-	@Override
-	public String toString() {
-		return "\nNombre: "            + getNombre()              + "\n"
-        +      "Edad: "                + getEdad()                + "\n"
-        +      "Cedula: "              + getCedula()              + "\n"
-		+      "Tienda: "              + getTienda().getNombre()  + "\n";
-		
-	}
 
 }

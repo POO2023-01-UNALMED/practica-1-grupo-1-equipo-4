@@ -48,6 +48,10 @@ public abstract class Persona implements Serializable {
 
 	/*Constructor de la clase persona que no recibe ninguna parametros*/
 	public Persona() {}
+
+	/*------------------- Metodos -------------------------*/
+	
+		public abstract void recibirSueldo(int total);
 	
 	
 	/*-------------------Getters y setters-------------------------*/
@@ -117,8 +121,6 @@ public abstract class Persona implements Serializable {
 
 
 	
-	/*------------------- Metodos -------------------------*/
-	
-	public abstract void recibirSueldo(int total);
+
 	
 }

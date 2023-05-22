@@ -21,34 +21,13 @@ public enum TipoTransporte {
     CAMINANDO(1, 15,"Caminando"); 
 
 
-
-    @Override
-    public String toString() {
-        return this.getNombre();
-    }
- 
-    public double getPrecioEnvio() {
-        return precioEnvio;
-    }
-
-    public double getCapacidadMax() {
-        return capacidadMax;
-    }
-
-    public String getNombre() {
-        return Nombre;
-    }
-
-    public void setPrecioEnvio(double precioEnvio) {
-        this.precioEnvio = precioEnvio;
-    }
-
+    //Atributos
     public double precioEnvio; //dado en pesos
     public double capacidadMax; //dado en kilogramos
     public String Nombre;
 
-    
 
+    //Metodos
     private TipoTransporte(int precioEnvio, double capacidadMax, String nombre) {
         this.precioEnvio = precioEnvio;
         this.capacidadMax = capacidadMax;
@@ -155,5 +134,28 @@ public enum TipoTransporte {
         conductor.setTransporte(transporte);
 
         return transporte;
+    }
+
+
+    //Getter y setter
+    @Override
+    public String toString() {
+        return this.getNombre();
+    }
+ 
+    public double getPrecioEnvio() {
+        return precioEnvio;
+    }
+
+    public double getCapacidadMax() {
+        return capacidadMax;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setPrecioEnvio(double precioEnvio) {
+        this.precioEnvio = precioEnvio;
     }
 }
