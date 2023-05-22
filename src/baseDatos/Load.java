@@ -197,12 +197,12 @@ public class Load {
              conductor.setTransporte(transporteAbastecer);
              
              // Crear objetos de Cliente
-             CuentaBancaria cuenta1 = new CuentaBancaria(11111, 5000000);
-             Cliente cliente1 = new Cliente("Juan Pérez", "Calle 123", cuenta1);
-             CuentaBancaria cuenta2 = new CuentaBancaria(22222, 200);
-             Cliente cliente2 = new Cliente("María García", "Avenida 456", cuenta2);
-             CuentaBancaria cuenta3 = new CuentaBancaria(33333,20000);
-             Cliente cliente3 = new Cliente("Pedro Gómez", "Carrera 789", cuenta3);
+             CuentaBancaria cuentaCliente1 = new CuentaBancaria(11111, 5000000);
+             Cliente cliente1 = new Cliente("Juan Pérez", "Calle 123", cuentaCliente1);
+             CuentaBancaria cuentaCliente2 = new CuentaBancaria(22222, 200);
+             Cliente cliente2 = new Cliente("María García", "Avenida 456", cuentaCliente2);
+             CuentaBancaria cuentaCliente3 = new CuentaBancaria(33333,20000);
+             Cliente cliente3 = new Cliente("Pedro Gómez", "Carrera 789", cuentaCliente3);
  
              
              // Agregar los objetos de Cliente a la lista de clientes
