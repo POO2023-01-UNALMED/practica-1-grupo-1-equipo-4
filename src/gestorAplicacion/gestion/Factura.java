@@ -1,5 +1,5 @@
 /*
- * Autores: Joan Sebastián Salazar Montoya, 
+ * 
  * 
  * FUNCIONALIDAD DEL MÓDULO: La clase Factura representa una factura de una compra realizada en una tienda virtual.
 Contiene información sobre la tienda, el cliente, el transporte, la lista de productos, la fecha de compra y un disclaimer opcional.
