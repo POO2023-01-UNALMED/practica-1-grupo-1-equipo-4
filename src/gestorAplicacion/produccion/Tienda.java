@@ -31,9 +31,9 @@ public class Tienda implements  Moda, Serializable {
     private Map<Producto, Integer> listaCantidadProductos;
     private static int numTiendas = 0;
     private Map<String, Integer> cantidadPorCategoria = new HashMap<String, Integer>() {{
-        put("aseo", (int) (Math.random() * (30 - 10 + 1) + 10));
-        put("consumible", (int) (Math.random() * (30 - 10 + 1) + 10));
-        put("construccion", (int) (Math.random() * (30 - 10 + 1) + 10));
+        put("aseo", (int) (Math.random() * (100 - 30 + 1) + 30));
+        put("consumible", (int) (Math.random() * (100 - 30 + 1) + 30));
+        put("construccion", (int) (Math.random() * (100 - 30 + 1) + 30));
     }};;
 
     private Map<String, Integer> productosPorCategoria;

@@ -15,6 +15,8 @@ public class Transporte implements Moda, Serializable{
     private double costo;
     private Conductor conductor;
     private ArrayList<TipoTransporte> listaTransportes;
+    private double precioOriginalTransporte;
+
     
     private static final long serialVersionUID = 12387137L; 
      
@@ -94,8 +96,47 @@ public class Transporte implements Moda, Serializable{
         return transporteSeleccionado;
     }
 
-     //Getters y setters 
+    /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: EnviarPedido
+     * 
+     * RECIBE: 
+     * objeto de transporte
+     * 
+     * DEVUELVE:
+     * double llamado PrecioOriginalTransporte
+     * 
+     * DESCRIPCIÓN:
+        guarda el valor actual del precio de envío en la variable precioOriginalTransporte. 
+     */
 
+    public void recordarPrecioTransporte(){
+        precioOriginalTransporte = this.getTipo().getPrecioEnvio();
+    }
+
+       /*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: EnviarPedido
+     * 
+     * RECIBE: 
+     * objeto de transporte
+     * 
+     * DEVUELVE:
+     * objeto de la clase transporte
+     * 
+     * DESCRIPCIÓN:
+         recibe un objeto Transporte y utiliza el valor almacenado en 
+         precioOriginalTransporte para restablecer 
+         el precio de envío a su valor original. 
+         Luego, devuelve el objeto Transporte modificado.
+     */
+
+    public void reestablecerPrecioTrans(){
+        this.getTipo().setPrecioEnvio(precioOriginalTransporte);
+    }
+    
+     //Getters y setters 
+    public double getPrecioOriginalTransporte() {
+        return precioOriginalTransporte;
+    }
 
      //de la interfaz Moda
      public String getNombre(){

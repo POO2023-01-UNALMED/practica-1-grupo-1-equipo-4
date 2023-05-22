@@ -179,19 +179,20 @@ public class UiEnviarPedido {
                         eleccion = 4;
                         break;
                     }
-
+                
                     else {
                         transporteSeleccionado = TipoTransporte.seleccionarTransporte(listaTransFiltrada,
                                 numTransporteSeleccionado);
                         System.out.print("Ha seleccionado el transporte #" + (numTransporteSeleccionado)
                                 + "\nEl pedido se enviará por " + transporteSeleccionado.getTipo().getNombre());
-
                         System.out.println("\nDesea aplicar envío gratis?\n 1. Si   2. No");
                         System.out.print("> ");
                         while(true){
                             int numEnvioGratis = sc.nextInt();
                             if (numEnvioGratis == 1){
+                                transporteSeleccionado.recordarPrecioTransporte();
                                 Transporte.enviarGratis(transporteSeleccionado);
+                                System.out.println("Su tarifa de envío ha bajado de: $" + transporteSeleccionado.getPrecioOriginalTransporte()+ " a $0");
                                 break;
                             }else if(numEnvioGratis != 2){
                                 System.out.println("Seleccione un numero dentro del rango");
@@ -223,8 +224,7 @@ public class UiEnviarPedido {
                     +tiendaSeleccionada.getNombre() + "\nA nombre del cliente: " + clienteSeleccionado.getNombre()+"\n" 
                     +tiendaSeleccionada.enviarPedido(listaProductosPedidos,
                             transporteSeleccionado, clienteSeleccionado, dia, Load.fabrica.getOperario())+"\n************************************");
-
-
+                    transporteSeleccionado.reestablecerPrecioTrans();
                     listaProductosPedidos.clear();
                     System.out.println("¿Desea hacer otro envio o volver al menu principal?\n");
                     System.out.println("0. Volver al menu principal");
