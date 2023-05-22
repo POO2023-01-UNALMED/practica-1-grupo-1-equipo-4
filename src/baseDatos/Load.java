@@ -222,12 +222,12 @@ public class Load {
 
              //FACTURAS DE PRUEBA:
             facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo2, 1, "hola",operario1));
-            facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo2, 2, "hola",operario1));
-            facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 2, "hola",operario1));
-            facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 4, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente2, transporteAbastecer, catalogo2, 2, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 2, "hola",operario1));
+            facturas.add( new Factura(tienda3, cliente2, transporteAbastecer, catalogo, 4, "hola",operario1));
             facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola",operario1));
-            facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola",operario1));
-            facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 6, "hola",operario1));
+            facturas.add( new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 6, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 6, "hola",operario1));
 
         }
       
