@@ -21,14 +21,14 @@ public class CuentaBancaria implements Serializable {
 
 
 /*
+
+
+ENTRADA: Doble que representa la cantidad de dinero a agregar a la cuenta.
+SALIDA: Ninguna
+
 Este método permite agregar fondos a la cuenta bancaria del cliente.
 
-ENTRADA:
 
-double fondos: cantidad de dinero a agregar a la cuenta.
-SALIDA:
-
-Ninguna.
 */
 
     public void anadirFondos(double fondos){
@@ -38,10 +38,9 @@ Ninguna.
 
 
 /*
-Este método permite descontar una cantidad específica de fondos de la cuenta bancaria.
-
 ENTRADA: un double que indica la cantidad de fondos a descontar.
-SALIDA: resta el double al total de la cuenta bancaria
+SALIDA: Ninguna
+DESCRIPCIÓN: Este método permite descontar una cantidad específica de fondos de la cuenta bancaria.
 */
 
 
@@ -71,14 +70,13 @@ SALIDA: resta el double al total de la cuenta bancaria
 
 
 
-    //Hace parte de pago a trabajadores
     /* 
-* Permite calcular el pago total de una persona según su salario base y su cantidad de trabajos realizados.
+* FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Pago a trabajadores
 *
 * ENTRADA: 
 * Objeto de la clase Persona.
 * SALIDA: 
-* Un entero que representa el pago total de la persona.
+* DESCRIPCIÓN: Un entero que representa el pago total de la persona.
 */
 
 
