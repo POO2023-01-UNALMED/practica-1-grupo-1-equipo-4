@@ -1,3 +1,10 @@
+/* AUTORES:
+ * Maria Fernanda Calle Agudelo
+ * 
+ * FUNCIONALIDAD DEL MÓDULO: En esta clase contiene el main del proyecto,
+ * despliega el menú y según lo elegido se muestran cada una de las funcionalidades.
+ * 
+ */
 package uiMain;
 
 import gestorAplicacion.gestion.*;
@@ -12,12 +19,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
+
 public class UiMenu {
     static Scanner sc = new Scanner(System.in);
     
 	public static void main(String[] args) {
 
-        Load.cargarPorDefecto();
+        Load.cargar();
 
         int opcion;
         

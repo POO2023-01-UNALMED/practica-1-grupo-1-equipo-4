@@ -1,9 +1,14 @@
+/*Clase Padre de Operario, trabajador y conductor.
+*/
 package gestorAplicacion.gestion;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
 public abstract class Persona implements Serializable {
+
+
 	/*-------------------Atributos-------------------------*/
 
 	private static final long serialVersionUID = 12736217L;    
@@ -19,6 +24,8 @@ public abstract class Persona implements Serializable {
 	private ArrayList<Boolean> verificadorMetasCumplidas = new ArrayList<Boolean>();
 	private static int personasTotales;
 	private static  ArrayList<Persona> listaPersonas = new ArrayList<Persona>();
+
+
 	
 	/*-------------------Constructores-------------------------*/
 	
@@ -37,11 +44,14 @@ public abstract class Persona implements Serializable {
 		
 
 		}
+
+
 	/*Constructor de la clase persona que no recibe ninguna parametros*/
 	public Persona() {}
 	
 	
 	/*-------------------Getters y setters-------------------------*/
+
 	
 	
 	public String getNombre() {
@@ -103,6 +113,7 @@ public abstract class Persona implements Serializable {
 	public static ArrayList<Persona> getListaPersonas(){
 		return listaPersonas;
 	}
+
 
 
 	

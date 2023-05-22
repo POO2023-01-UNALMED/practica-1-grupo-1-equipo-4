@@ -1,12 +1,18 @@
+/*El operario es el que trabaja en la fábrica */
 package gestorAplicacion.gestion;
 import java.util.ArrayList;
+import java.util.List;
+
 
 import gestorAplicacion.produccion.Fabrica;
+
+
 public class Operario extends Persona {
 	
 	/*-------------------Atributos-------------------------*/
 	
-	private static ArrayList<Meta> metasOperario = new ArrayList<Meta>();
+	private static ArrayList<Meta> metasOperario = new ArrayList<Meta>(List.of(new Meta("Fácil",10,10000),
+																				new Meta("Dificil",10,10000)));
 	private Fabrica fabrica;
 	
 	
@@ -24,6 +30,7 @@ public class Operario extends Persona {
 	}
 	
 	
+
 	/*-------------------Getter y setter-------------------------*/
 	
 	
@@ -40,12 +47,14 @@ public class Operario extends Persona {
 		Operario.metasOperario = metasOperario;
 	}
 	
+
 	/*-------------------Metodos-------------------------*/
     @Override
 	public void recibirSueldo(int total) {
 		fabrica.getCuentaBancaria().descontarFondos(total);
 		this.getCuentaBancaria().anadirFondos(total);
 	}
+
 
 	@Override
 	public String toString() {

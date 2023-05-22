@@ -1,6 +1,8 @@
+/*Clase con más movilidad, están en listas de las tiendas */
 package gestorAplicacion.produccion;
 import java.io.Serializable;
 import java.util.ArrayList;
+
 
 public class Producto implements Serializable {
 
@@ -34,6 +36,7 @@ public class Producto implements Serializable {
         listaProductos.add(this);
         this.devuelto = false;
     }
+    /*Constructor  */
 
     public Producto(String nombre, double valor, double peso, double tamano, String categoria){
         this(nombre, "Sin descripción", valor, peso, tamano, 10.0, categoria);
@@ -51,7 +54,7 @@ public class Producto implements Serializable {
     }
 
 
-    //Get and Set
+    //Getters and Setters
     public String getNombre() {
         return this.nombre;
     }

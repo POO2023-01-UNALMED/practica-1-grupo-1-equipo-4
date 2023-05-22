@@ -1,4 +1,13 @@
+/* AUTORES:
+ * Maria Fernanda Calle Agudelo
+ * 
+ * FUNCIONALIDAD DEL MÓDULO: En esta clase se desarrolla la lógica principal de la
+ * funcionalidad Pago a trabajadores
+ * 
+ */
+
 package uiMain;
+
 
 import java.util.ArrayList;
 import java.util.Scanner;

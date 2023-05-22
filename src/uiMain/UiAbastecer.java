@@ -1,3 +1,11 @@
+/* AUTORES:
+ * Jaider Castañeda Villa
+ * 
+ * FUNCIONALIDAD DEL MÓDULO: En esta clase se desarrolla la lógica principal de la
+ * funcionalidad Abastecer tiendas
+ * 
+ */
+
 package uiMain;
 
 import gestorAplicacion.produccion.*;
@@ -5,7 +13,9 @@ import java.util.Scanner;
 
 import baseDatos.Load;
 
+
 import java.util.ArrayList;
+
 
 public class UiAbastecer {
     public static void abastecerTiendas() {

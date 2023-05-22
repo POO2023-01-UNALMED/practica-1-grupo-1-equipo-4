@@ -1,15 +1,23 @@
-package gestorAplicacion.produccion;
+/*
+ * FUNCIONALIDAD DEL MÓDULO: La clase Tienda desempeña un papel fundamental como intermediaria en el proceso de venta de productos. 
+ * Es el punto central desde donde se envían los productos a los clientes, lo que la convierte en un elemento crucial para el funcionamiento 
+ * de todas las operaciones. Como tal, la Tienda está estrechamente vinculada con todas las funcionalidades relacionadas, ya que actúa como 
+ * el vínculo entre el cliente y la empresa.
+ */
 
+package gestorAplicacion.produccion;
 import gestorAplicacion.gestion.Cliente;
 import gestorAplicacion.gestion.CuentaBancaria;
 import gestorAplicacion.gestion.Vendedor;
 import gestorAplicacion.gestion.Factura;
 import gestorAplicacion.gestion.Moda;
+import gestorAplicacion.gestion.Operario;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class Tienda implements  Moda, Serializable {
 
@@ -27,8 +35,10 @@ public class Tienda implements  Moda, Serializable {
         put("consumible", (int) (Math.random() * (30 - 10 + 1) + 10));
         put("construccion", (int) (Math.random() * (30 - 10 + 1) + 10));
     }};;
+
     private Map<String, Integer> productosPorCategoria;
     private ArrayList<Producto> productosDevueltos = new ArrayList<Producto>();
+
 
     // Constructor
     public Tienda(String nombre, Vendedor vendedor, CuentaBancaria cuentaBancaria) {
@@ -45,6 +55,7 @@ public class Tienda implements  Moda, Serializable {
     }
 
 
+
     // Métodos
 
     /*
@@ -56,6 +67,7 @@ public class Tienda implements  Moda, Serializable {
      * DESCRIPCIÓN: recorre la lista de productos disponibles de la tienda para
      * ser enviados y los añade a un String 
      */
+
     public String mostrarProductos() {
         String str = "";
         for (int i = 0; i < listaProductos.size(); i++) {
@@ -109,9 +121,11 @@ public class Tienda implements  Moda, Serializable {
      * Devuelve un String con cantidades que tiene y su maximo con el formato categoria cantidad/maximo
      * 
      * DESCRIPCIÓN:
-     * Este método permite visualizar la cantidad de productos por categoria que tiene una tienda y ademas tambien la cantidad maxima que puede 
+     * Este método permite visualizar la cantidad de productos por categoria
+     *  que tiene una tienda y ademas tambien la cantidad maxima que puede 
        tener por categoria esa tienda
      */
+
     public String productosPorCategoria(){
         String cadena = "";
         productosPorCategoria.put("aseo",0);
@@ -146,6 +160,7 @@ public class Tienda implements  Moda, Serializable {
      * Esta cadena se vé en consola y es con la que el 
      * usuario elige su producto. 
      */
+
     public String cantidadProductosVentas() {
         listaCantidadProductos = new HashMap<Producto, Integer>();
         String cadena = "    ";
@@ -161,48 +176,51 @@ public class Tienda implements  Moda, Serializable {
         }
         /* Bucle for each para generar la cadena con la cantidad de cada producto */
         for(Producto producto:listaProductos){
-            cadena+="\n" + indice + ". " + producto.getNombre() + ": " + listaCantidadProductos.get(producto) + " ";
-            indice++;
+
+            if (!cadena.contains(producto.getNombre())){              
+                cadena+="\n" + indice + ". " + producto.getNombre() + ": " + listaCantidadProductos.get(producto) + " ";
+                indice++;
+            }
         }
         return cadena;
     }
 
 
-        /*
-         * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer, EnviarPedido
-         * 
-         * RECIBE:
-         * No recibe ningun argumento
-         * 
-         * DEVUELVE:
-         * Devuelve un String con las tiendas y los productos que tiene con su
-         * respectiva cantidad
-         * 
-         * DESCRIPCIÓN:
-         * sirve para actualizar
-         * la cantidad de un productos en la lista de productos y en el HashMap
-         * listaCantidadProductos.
-         * muestra en tiempo real que el producto ha
-         * *sido seleccionado y no está disponible para otros
-         * como en EnviarPedido se llama cada vez que se selecciona un producto, en
-         * consola va bajando el número
-         * de productos disponibles cada vez que selecciones uno.
-         * 
-         * Primero comprueba si el producto está en la lista de productos
-         * listaProductos usando el método contains.
-         * Si el producto no está en la lista, no hace nada.
-         * Si el producto está en la lista de productos,
-         * lo elimina de la lista utilizando remove.
-         * Luego, comprueba si la cantidad de producto en el HashMap
-         * listaCantidadProductos es mayor que 1.
-         * Si la cantidad de producto en el HashMap listaCantidadProductos es igual a
-         * Si cumple, reduce la cantidad en 1
-         * 1,
-         * elimina el producto del HashMap porque ya no quedan más unidades
-         * disponibles.
-         * 
-         * 
-         */
+    /*
+    * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer, EnviarPedido
+    * 
+    * RECIBE:
+    * No recibe ningun argumento
+    * 
+    * DEVUELVE:
+    * Devuelve un String con las tiendas y los productos que tiene con su
+    * respectiva cantidad
+    * 
+    * DESCRIPCIÓN:
+    * sirve para actualizar
+    * la cantidad de un productos en la lista de productos y en el HashMap
+    * listaCantidadProductos.
+    * muestra en tiempo real que el producto ha
+    * *sido seleccionado y no está disponible para otros
+    * como en EnviarPedido se llama cada vez que se selecciona un producto, en
+    * consola va bajando el número
+    * de productos disponibles cada vez que selecciones uno.
+    * 
+    * Primero comprueba si el producto está en la lista de productos
+    * listaProductos usando el método contains.
+    * Si el producto no está en la lista, no hace nada.
+    * Si el producto está en la lista de productos,
+    * lo elimina de la lista utilizando remove.
+    * Luego, comprueba si la cantidad de producto en el HashMap
+    * listaCantidadProductos es mayor que 1.
+    * Si la cantidad de producto en el HashMap listaCantidadProductos es igual a
+    * Si cumple, reduce la cantidad en 1
+    * 1,
+    * elimina el producto del HashMap porque ya no quedan más unidades
+    * disponibles.
+    * 
+    * 
+    */
 
     public void venderProducto(Producto producto) {
 
@@ -233,25 +251,25 @@ public class Tienda implements  Moda, Serializable {
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Enviar Pedido
      * 
-     * RECIBE: lista de productos que se pidieron (ArrayList con objetos de tipo
+     * RECIBE: 
+     * lista de productos que se pidieron (ArrayList con objetos de tipo
      * Producto), el transporte que se eligio (objeto tipo transporte),
      * el cliente al que se le enviará el pedido (objeto tipo Cliente) y el dia 
      * del mes del envio (entero).
-     * DEVUELVE: la factura correspondiente al envio realizado (objeto tipo Factura).
      * 
-     * DESCRIPCIÓN: elimina las cantidades de productos pedidos de las listas
+     * DEVUELVE: 
+     * la factura correspondiente al envio realizado (objeto tipo Factura).
+     * 
+     * DESCRIPCIÓN: 
+     * elimina las cantidades de productos pedidos de las listas
      * de la tienda, suma el respectivo trabajo a las personas involucradas (vendedor,
      * operario y conductor), añade los productos pedidos a la lista del cliente y 
      * genera la factura asociada al envío.
      */
     
-    public Factura enviarPedido(ArrayList<Producto> listaProductosPedidos, Transporte transporte, Cliente cliente, int dia) {
+    public Factura enviarPedido(ArrayList<Producto> listaProductosPedidos, Transporte transporte, Cliente cliente, int dia, Operario operario) {
         // Resto 1 unidad de las cantidades de los productos, pues se envio
-        // ------listaCantidadProductos.put(producto,
-        // listaCantidadProductos.get(producto)-1);
-        for(int i=0; i<listaProductosPedidos.size(); i++){
-            listaProductos.remove(listaProductosPedidos.get(i));
-        }
+
         // Añado la suma de trabajo a los trabajadores
 
         // Al vendedor
@@ -265,28 +283,35 @@ public class Tienda implements  Moda, Serializable {
         }
 
         // Al operario
-        Fabrica.getOperario().setTrabajo(Fabrica.getOperario().getTrabajo() + 1);
-        Fabrica.getOperario().setIndiceMeta(Fabrica.getOperario().getIndiceMeta() + listaProductosPedidos.size());
+        operario.setTrabajo(operario.getTrabajo() + 1);
+        operario.setIndiceMeta(operario.getIndiceMeta() + listaProductosPedidos.size());
 
         for(int i=0; i<listaProductosPedidos.size(); i++){
             cliente.getProductos().add(listaProductosPedidos.get(i));
         }
 
         //Creo la factura
-        Factura factura = new Factura(this, cliente, transporte, listaProductosPedidos, dia, "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.");
+        Factura factura = new Factura(this, cliente, transporte, listaProductosPedidos,
+         dia, "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.", operario);
         return factura;
     }
+
 
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
      * 
-     * RECIBE: objeto de tipo Factura y uno de tipo Producto.
-     * DEVUELVE: un objeto de tipo CLiente.
+     * RECIBE: 
+     * objeto de tipo Factura y uno de tipo Producto.
      * 
-     * DESCRIPCIÓN: devuelve el producto seleccionado 
+     * DEVUELVE: 
+     * un objeto de tipo CLiente.
+     * 
+     * DESCRIPCIÓN: 
+     * devuelve el producto seleccionado 
      * a una lista de la tienda donde se almacenan las devoluciones
      * y por ultimo retorna el cliente al que se le hizo la devolución.
      */
+
     public Cliente devolverProducto(Factura factura, Producto producto) {
 
         productosDevueltos.add(producto); // se duevuelve el producto
@@ -301,7 +326,7 @@ public class Tienda implements  Moda, Serializable {
      * RECIBE: 
      * transporte: Transporte que lleva los productos.
      * 
-     * DEVUELVE:
+     * DEVUELVE: 
      * 
      * DESCRIPCIÓN:
      * Este método envia los poductos del transporte a la tienda.
@@ -312,7 +337,6 @@ public class Tienda implements  Moda, Serializable {
             listaProductos.add(transporte.getListaDeProductos().remove(0));
         }
         transporte.getConductor().setTrabajo(transporte.getConductor().getTrabajo() + 1);
-        vendedor.setTrabajo(vendedor.getTrabajo() + 1);
     }
 
     // Get and Set

@@ -1,6 +1,8 @@
+/*Clase que tienen todos los objetos de personas y sus herederos, para contabilidad y economía */
 package gestorAplicacion.gestion;
 
 import java.io.Serializable;
+
 
 public class CuentaBancaria implements Serializable {
 
@@ -17,12 +19,13 @@ public class CuentaBancaria implements Serializable {
 
 
 
+
 /*
 Este método permite agregar fondos a la cuenta bancaria del cliente.
 
 ENTRADA:
 
-fondos: cantidad de dinero a agregar a la cuenta.
+double fondos: cantidad de dinero a agregar a la cuenta.
 SALIDA:
 
 Ninguna.
@@ -33,6 +36,7 @@ Ninguna.
     }
 
 
+
 /*
 Este método permite descontar una cantidad específica de fondos de la cuenta bancaria.
 
@@ -40,17 +44,22 @@ ENTRADA: un double que indica la cantidad de fondos a descontar.
 SALIDA: resta el double al total de la cuenta bancaria
 */
 
+
     public void descontarFondos(double fondos){
         saldo -= fondos;
     }
 
 
 
+
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
      * 
-     * RECIBE: un objeto de tipo Cliente y un double total.
-     * DEVUELVE: nada, este metodo no retorna cosas solo realiza operaciones.
+     * RECIBE: 
+     * un objeto de tipo Cliente y un double total.
+     * 
+     * DEVUELVE: 
+     * nada, este metodo no retorna cosas solo realiza operaciones.
      * 
      * DESCRIPCIÓN: lo que hace es regresar el dinero a la cuenta del cliente
      * por la devolucion del producto comprado.
@@ -61,13 +70,17 @@ SALIDA: resta el double al total de la cuenta bancaria
     }
 
 
+
     //Hace parte de pago a trabajadores
     /* 
 * Permite calcular el pago total de una persona según su salario base y su cantidad de trabajos realizados.
 *
-* ENTRADA: Objeto de la clase Persona.
-* SALIDA: Un entero que representa el pago total de la persona.
+* ENTRADA: 
+* Objeto de la clase Persona.
+* SALIDA: 
+* Un entero que representa el pago total de la persona.
 */
+
 
     public static int calcularPago(Persona persona){
         int trabajo = persona.getTrabajo();
@@ -86,6 +99,7 @@ SALIDA: resta el double al total de la cuenta bancaria
         //retornamos el total
         return total;
     }
+
   
     // Getters
     public int getNumeroCuenta() {
@@ -95,6 +109,7 @@ SALIDA: resta el double al total de la cuenta bancaria
     public int getSaldo() {
         return saldo;
     }
+
 
     // Setters
     public void setNumeroCuenta(int numeroCuenta) {

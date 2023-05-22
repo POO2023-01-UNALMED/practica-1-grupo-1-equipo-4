@@ -3,6 +3,7 @@ package gestorAplicacion.gestion;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
 import baseDatos.Load;
 import gestorAplicacion.produccion.Producto; 
 
@@ -10,6 +11,7 @@ import gestorAplicacion.produccion.Producto;
 public class Cliente implements Moda, Serializable{
 
 	private static final long serialVersionUID = 123812L;    
+
 
 	/*-------------------Atributos-------------------------*/
 	
@@ -20,12 +22,14 @@ public class Cliente implements Moda, Serializable{
 	private ArrayList<Producto> productos = new ArrayList<Producto>();
 	static private ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
 
+
 	static{
 		listaClientes = Load.clientes;
 	}
 	
 	
 	/*-------------------Constructores-------------------------*/
+
 
 	public Cliente(String nombre, String direccion,CuentaBancaria cuentaBancaria) {
         this.nombre = nombre;
@@ -36,6 +40,7 @@ public class Cliente implements Moda, Serializable{
         
     }
 	public Cliente() {}
+
 	
 	
 	/*-------------------Getters y setters-------------------------*/
@@ -48,6 +53,7 @@ public class Cliente implements Moda, Serializable{
 	}
 	
 	
+
 	public String getDireccion() {
 		return direccion;
 	}
@@ -55,6 +61,7 @@ public class Cliente implements Moda, Serializable{
 		this.direccion = direccion;
 	}
 	
+
 	
 	public CuentaBancaria getCuentaBancaria() {
 		return cuentaBancaria;
@@ -71,6 +78,7 @@ public class Cliente implements Moda, Serializable{
 	}
     
 	
+
 	public static ArrayList<Cliente> getListaClientes() {
 		return listaClientes;
 	}
@@ -79,6 +87,7 @@ public class Cliente implements Moda, Serializable{
 	}
 	/*------------------- Metodos -------------------------*/
 	
+
 
 
 /*
@@ -97,6 +106,7 @@ public class Cliente implements Moda, Serializable{
 	Incrementa el valor de "index" en 1 en cada iteración.
 	Al finalizar, devuelve la cadena "cadena" que contiene la representación en forma de cadena de todos los clientes, numerados consecutivamente.
      */
+
 	public static String mostrarClientes() {
 		String cadena="";
 		int index = 1;
@@ -108,6 +118,7 @@ public class Cliente implements Moda, Serializable{
 		return cadena;
 	}
 	
+
 	public static Cliente seleccionarCliente(int index) {
 		Cliente clienteSeleccionado = null;
 		/*El ciclo while en caso de que retorne null debe estar en el main*/
@@ -119,6 +130,7 @@ public class Cliente implements Moda, Serializable{
 		}
 		return clienteSeleccionado;
 	}
+	
 	
 	public String toString() {
 		return this.getNombre()+" Dir. "+this.getDireccion();

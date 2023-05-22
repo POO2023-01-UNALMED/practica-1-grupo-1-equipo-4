@@ -6,7 +6,9 @@ import gestorAplicacion.gestion.*;
 import gestorAplicacion.produccion.*;
 import java.io.*;
 
+
 public class Deserializador {
+
 
 
     public static Serializable deserializar(String strArchivo) throws IOException, ClassNotFoundException{
@@ -25,6 +27,7 @@ public class Deserializador {
         return s;
     }
 
+
     public static ArrayList<Factura> cargarFacturas() throws IOException, ClassNotFoundException{
         @SuppressWarnings("unchecked") /*Jaider: Lo puse porque me tiraba que esta operacion no era segura cuando intentaba hacer un .jar*/
 
@@ -33,12 +36,14 @@ public class Deserializador {
         return facturas;
     }
 
+
     public static Fabrica cargarFabrica() throws IOException, ClassNotFoundException{
 
         Fabrica fabrica = (Fabrica) deserializar("src/baseDatos/temp/fabrica.txt");
 
         return fabrica;
     }
+
 
     public static ArrayList<Producto> cargarCatalogo() throws IOException, ClassNotFoundException{
 
@@ -47,12 +52,14 @@ public class Deserializador {
         return catalogo;
     }
 
+
     public static ArrayList<Cliente> cargarClientes() throws IOException, ClassNotFoundException{
 
         ArrayList<Cliente> clientes= (ArrayList<Cliente>) deserializar("src/baseDatos/temp/clientes.txt");
 
         return clientes;
     }
+
 
     public static ArrayList<Vendedor> cargarVendedores() throws IOException, ClassNotFoundException{
 
@@ -61,6 +68,7 @@ public class Deserializador {
         return vendedores;
     }
 
+
     public static ArrayList<Tienda> cargarTiendas() throws IOException, ClassNotFoundException{
 
         ArrayList<Tienda> tiendas = (ArrayList<Tienda>) deserializar("src/baseDatos/temp/tiendas.txt");
@@ -68,12 +76,14 @@ public class Deserializador {
         return tiendas;
     }
 
+
     public static Transporte cargarTransporte() throws IOException, ClassNotFoundException{
 
         Transporte transporte = (Transporte) deserializar("src/baseDatos/temp/transporte.txt");
 
         return transporte;
     }
+
 
     public static Conductor cargaConductor() throws IOException, ClassNotFoundException{
 
@@ -85,7 +95,17 @@ public class Deserializador {
 
 
 
+    public static ArrayList<Meta> cargarMeta() throws IOException, ClassNotFoundException{
 
+        ArrayList<Meta> meta = (ArrayList<Meta>) deserializar("src/baseDatos/temp/meta.txt");
+
+        return meta;
+
+    }
+
+
+
+    
 
     
 }

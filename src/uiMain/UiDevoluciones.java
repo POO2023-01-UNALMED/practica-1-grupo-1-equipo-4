@@ -1,8 +1,17 @@
+/* AUTORES:
+ * Luis Alejandro Varela Ojeda
+ * 
+ * FUNCIONALIDAD DEL MÓDULO: En esta clase se desarrolla la lógica principal de la
+ * funcionalidad Devoluciones
+ * 
+ */
+
 package uiMain;
 
 import gestorAplicacion.gestion.*;
 import gestorAplicacion.produccion.*;
 import java.util.Scanner;
+
 
 import baseDatos.Load;
 
