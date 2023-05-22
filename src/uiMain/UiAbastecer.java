@@ -118,7 +118,7 @@ public class UiAbastecer {
                     System.out.println(
                             "\nAdvertencia: Los tipos de transporte han sido filtrados de manera que solo puede seleccionar los que puedan soportar el peso de su producto.");
 
-                    System.out.println("0. Regresar al menu principal");
+                    System.out.println("0. Regresar al menu anterior");
 
                     // TipoTransporte tipoTransportes;
                     ArrayList<TipoTransporte> listaTransFiltrada = new ArrayList<TipoTransporte>();
@@ -130,7 +130,7 @@ public class UiAbastecer {
                     while(true){
                     int numTransporteSeleccionado = escaner2.nextInt();
                     if (numTransporteSeleccionado == 0) {
-                        eleccion = 0;
+                        eleccion = 2;
                         break;
                     }
 

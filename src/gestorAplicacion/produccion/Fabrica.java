@@ -37,48 +37,7 @@ public class Fabrica implements Serializable{
 
 
     public Fabrica(){}
-    //----------- Getters and Setters ----------------
-
-    public Operario getOperario() {
-        return operario;
-    }
-
-    public void setOperario(Operario operario) {
-        this.operario = operario;
-    }
-
-    public ArrayList<Producto> getListaProductos() {
-        return listaProductos;
-    }
-
-    public void setListaProductos(ArrayList<Producto> listaProductos) {
-        this.listaProductos = listaProductos;
-    }
-
-    public ArrayList<Tienda> getListaTienda() {
-        return listaTienda;
-    }
-
-    public void setListaTienda(ArrayList<Tienda> listaTienda) {
-        this.listaTienda = listaTienda;
-    }
-
-    public CuentaBancaria getCuentaBancaria() {
-        return cuentaBancaria;
-    }
-
-    public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
-        this.cuentaBancaria = cuentaBancaria;
-    }
-
-
-    //toString para saber que imprimir cuando se llame al objeto Fabrica     
-    @Override   
-    public String toString() {
-        return "La mejor fabrica del mundo";
-    }
     
-
     // -------------- Metodos ------------------
     
 
@@ -270,4 +229,46 @@ public class Fabrica implements Serializable{
 
         return texto;
     }
+    //----------- Getters and Setters ----------------
+
+    public Operario getOperario() {
+        return operario;
+    }
+
+    public void setOperario(Operario operario) {
+        this.operario = operario;
+    }
+
+    public ArrayList<Producto> getListaProductos() {
+        return listaProductos;
+    }
+
+    public void setListaProductos(ArrayList<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
+    }
+
+    public ArrayList<Tienda> getListaTienda() {
+        return listaTienda;
+    }
+
+    public void setListaTienda(ArrayList<Tienda> listaTienda) {
+        this.listaTienda = listaTienda;
+    }
+
+    public CuentaBancaria getCuentaBancaria() {
+        return cuentaBancaria;
+    }
+
+    public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
+        this.cuentaBancaria = cuentaBancaria;
+    }
+
+
+    //toString para saber que imprimir cuando se llame al objeto Fabrica     
+    @Override   
+    public String toString() {
+        return "La mejor fabrica del mundo";
+    }
+    
+
 }
