@@ -1,5 +1,4 @@
 /*
-
  * 
  * FUNCIONALIDAD DEL MÓDULO: La clase Factura representa una factura de una compra realizada en una tienda virtual.
 Contiene información sobre la tienda, el cliente, el transporte, la lista de productos, la fecha de compra y un disclaimer opcional.
@@ -119,10 +118,12 @@ public class Factura implements Serializable {
 
 
 
-    /* Permite obtener una lista de facturas entre dos fechas ingresadas por parámetro
+    /* FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estádisticas
      * 
      * ENTRADA: Dos enteros fecha1 y fecha2 que corresponden a la fecha de inicio y final (inclusivo) respectivamente
      * SALIDA: ArrayList de objetos de clase Factura, con las facturas que tengan fecha entre fecha1 y fecha2
+     * 
+     * DESCRIPCIÓN: Permite obtener una lista de facturas entre dos fechas ingresadas por parámetro
      */
 
     private static ArrayList<Factura> getFacturasEntreFechas(int fecha1, int fecha2){
@@ -139,10 +140,12 @@ public class Factura implements Serializable {
     }
 
 
-/* Permite obtener una lista de fechas únicas de las facturas existentes en la listaFacturas
+/* FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estadísticas
 *
 * ENTRADA: ninguna
 * SALIDA: ArrayList de enteros, con todas las fechas de las facturas en listaFacturas
+
+DESCRIPCIÓN: Permite obtener una lista de fechas únicas de las facturas existentes en la listaFacturas
 */
     public static ArrayList<Integer> getListaFechas(int fecha1, int fecha2){
 
@@ -160,10 +163,12 @@ public class Factura implements Serializable {
 
 
 
-    /* Este método permite obtener una lista de todas las fechas presentes en las facturas.
+/* FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estadística 
 *
 * ENTRADA: No tiene parámetros de entrada.
 * SALIDA: ArrayList de enteros que contiene todas las fechas presentes en las facturas.
+
+  DESCRIPCIÓN: Este método permite obtener una lista de todas las fechas presentes en las facturas.
 */
     public static ArrayList<Integer> getListaFechas(){
 
@@ -179,11 +184,12 @@ public class Factura implements Serializable {
 
 
 
-    /* Permite obtener un HashMap que contiene las ganancias de cada fecha en el ArrayList ingresado por parámetro
-
+    /*FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estadística  
 *
 * ENTRADA: Dos enteros que especifican el rango de fechas para las cuales se quieren conocer las ganancias
 * SALIDA: HashMap que asocia cada fecha con su ganancia correspondiente
+
+    DESCRIPCIÓN: Permite obtener un HashMap que contiene las ganancias de cada fecha en el ArrayList ingresado por parámetro
 */
 
 public static HashMap<Integer, Double> gananciasDiscretas(int fecha1, int fecha2){
@@ -215,41 +221,12 @@ public static HashMap<Integer, Double> gananciasDiscretas(int fecha1, int fecha2
 
 
 
-    public static HashMap<Integer, Double> gananciasDiscretas(ArrayList<Integer> fechas){
-
-        int fecha1 = fechas.get(0);
-        int fecha2 = fechas.get(fechas.size() - 1);
-
-        ArrayList<Factura> facturas = getFacturasEntreFechas(fecha1, fecha2); 
-
-        HashMap<Integer, Double> dictGananciasDiscretas = new HashMap<Integer, Double>();
-
-        for(int fecha: fechas)
-            dictGananciasDiscretas.put(fecha, 0.0);
-
-        for(int fecha: dictGananciasDiscretas.keySet()){
-
-            for(Factura factura: facturas){
-
-                if(factura.fecha == fecha){
-
-                    double valorAnterior = dictGananciasDiscretas.get(fecha);
-
-                    dictGananciasDiscretas.put(fecha, valorAnterior + factura.getTotal());
-                }
-            }
-        } 
-
-        return dictGananciasDiscretas;
-
-    }
-
-
-
-/* Este método permite obtener el total de las ganancias a partir de un diccionario que contiene las ganancias por fecha.
+/* FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estadística  
 *
 * ENTRADA: Diccionario que relaciona una fecha (entero) con una ganancia (doble).
 * SALIDA: Double que representa el total de las ganancias a partir del diccionario de ganancias discretas.
+
+  DESCRIPCIÓN: Este método permite obtener el total de las ganancias a partir de un diccionario que contiene las ganancias por fecha.
 */
 
 public static double gananciasTotales(HashMap<Integer, Double> dictGananciasDiscretas){
@@ -264,6 +241,14 @@ public static double gananciasTotales(HashMap<Integer, Double> dictGananciasDisc
 
 }
 
+/* FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estadística  
+*
+* ENTRADA: Diccionario de ganancias discretas.
+* SALIDA: Double que representa el promedio de las ganancias por día a partir del diccionario de ganancias discretas.
+
+  DESCRIPCIÓN: Este método permite obtener el promedio de las ganancias por día a partir de un diccionario que contiene las ganancias por fecha.
+*/
+
 
 public static double promedioPorDia(HashMap<Integer, Double> dictGananciasDiscretas){
 
@@ -271,6 +256,12 @@ public static double promedioPorDia(HashMap<Integer, Double> dictGananciasDiscre
 
 } 
 
+/* FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estadística  
+*
+* ENTRADA: Diccionario de ganancias discretas.
+* SALIDA: Diccionario con aumentos porcentuales respecto al día anterior
+
+  DESCRIPCIÓN: Este método permite obtener el aumento relativo, en porcentaje, de cada fecha con respecto a la fecha anterior*/
 
 public static HashMap<Integer, Double> aumentoPorcentual(HashMap<Integer, Double> dictGananciasDiscretas){
 
@@ -295,18 +286,12 @@ public static HashMap<Integer, Double> aumentoPorcentual(HashMap<Integer, Double
 }
 
 
-/*public static HashMap<Integer, Double> aumentoPorcentual(int fecha1, int fecha2){
-
-    HashMap<Integer, Double> dictGananciasDiscretas = gananciasDiscretas(fecha1, fecha2);
-
-    return aumentoPorcentual(dictGananciasDiscretas);
-
-}*/
-
-/* Este método permite obtener el elemento más común dentro de una lista de elementos genéricos. El elemento más común es aquel que aparece con mayor frecuencia en la lista. Si hay varios elementos que cumplen con esa condición, el método devuelve el primero que se encuentra al recorrer la lista.
+/* FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estadística  
 *
 * ENTRADA: Lista de elementos genéricos (List<T>)
 * SALIDA: Elemento más común en la lista
+
+  DESCRIPCIÓN:Este método permite obtener el elemento más común dentro de una lista de elementos genéricos. El elemento más común es aquel que aparece con mayor frecuencia en la lista. Si hay varios elementos que cumplen con esa condición, el método devuelve el primero que se encuentra al recorrer la lista.
 */
 
 
@@ -329,10 +314,12 @@ private static <T> T masComun(List<T> list) {
 }
 
 
-/* Este método permite obtener la moda de un atributo específico de las facturas entre dos fechas dadas.
+/* FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estadística   
 *
 * ENTRADA: Dos enteros fecha1 y fecha2 que corresponden a la fecha de inicio y final (inclusivo) respectivamente. Un string atributo que representa el atributo del cual se quiere obtener la moda.
 * SALIDA: Objeto Moda que representa el valor más común del atributo entre las facturas del período.
+
+  DESCRIPCIÓN: Este método permite obtener la moda de un atributo específico de las facturas entre dos fechas dadas.
 */
 
 public static Moda moda(int fecha1, int fecha2, String atributo){
@@ -351,10 +338,12 @@ public static Moda moda(int fecha1, int fecha2, String atributo){
 
 
 
-/* Este método permite obtener la fecha más grande de una lista de fechas.
+/* FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estadística   
 *
 * ENTRADA: No tiene parámetros de entrada.
 * SALIDA: Entero que representa la fecha más grande de la lista de fechas.
+
+DESCRIPCIÓN: Este método permite obtener la fecha más grande de una lista de fechas.
 */
 public static int getFechaMax(){
 
@@ -364,10 +353,12 @@ public static int getFechaMax(){
 
 
 
-/* Este método permite obtener la fecha menor de una lista de fechas.
+/* FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Estadística   
 *
 * ENTRADA: No tiene parámetros de entrada.
 * SALIDA: Entero que representa la fecha menor de la lista de fechas.
+
+  DESCRIPCIÓN: Este método permite obtener la fecha menor de una lista de fechas.
 */
 public static int getFechaMin(){
 
