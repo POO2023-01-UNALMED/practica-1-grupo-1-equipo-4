@@ -85,11 +85,11 @@ public class Deserializador {
     }
 
 
-    public static Conductor cargaConductor() throws IOException, ClassNotFoundException{
+    public static ArrayList<Conductor> cargaConductores() throws IOException, ClassNotFoundException{
 
-        Conductor conductor = (Conductor) deserializar("src/baseDatos/temp/conductor.txt");
+        ArrayList<Conductor> conductores = (ArrayList<Conductor>) deserializar("src/baseDatos/temp/conductores.txt");
 
-        return conductor;
+        return conductores;
 
     }
 

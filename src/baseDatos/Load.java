@@ -21,11 +21,11 @@ public class Load {
      public static ArrayList<Cliente> clientes = new ArrayList<Cliente>();
      public static ArrayList<Vendedor> vendedores = new ArrayList<Vendedor>();
      public static ArrayList<Factura> facturas = new ArrayList<Factura>();
+    public static ArrayList<Conductor> conductores = new ArrayList<Conductor>();
      //public static ArrayList<Meta> metas = new ArrayList<Meta>();
 
      static Scanner sc = new Scanner(System.in);
 
-     public static Conductor conductor1;
      public static Fabrica fabrica;
      public static Transporte transporteAbastecer;
 
@@ -162,7 +162,7 @@ public class Load {
              CuentaBancaria cuentaConductor2 = new CuentaBancaria(13213544, 100); //cada vendedor tiene cien mil *hay que sacar cuentas*
              CuentaBancaria cuentaConductor3 = new CuentaBancaria(1321354, 100); //cada vendedor tiene cien mil *hay que sacar cuentas*
              //conductores
-             conductor1 = new Conductor("Pablo Ramirez", 45, 544764513, cuentaConductor1,null);
+             Conductor conductor1 = new Conductor("Pablo Ramirez", 45, 544764513, cuentaConductor1,null);
              Conductor conductor2 = new Conductor("Hernando Cruz", 50, 645541321, cuentaConductor2,null);
              Conductor conductor3 = new Conductor("Mario Casas", 25, 13216531, cuentaConductor3,null);
              conductor1.setFabrica(fabrica);
@@ -195,6 +195,10 @@ public class Load {
              vendedores.add(vendedor1);
              vendedores.add(vendedor2);
              vendedores.add(vendedor3);
+
+             conductores.add(conductor1);
+             conductores.add(conductor2);
+             conductores.add(conductor3);
  
              //inicializar el map de los productos
              tienda1.cantidadProductosVentas();
@@ -227,7 +231,7 @@ public class Load {
       Serializador.guardarTransporte();
       Serializador.guardarVendedores();
       Serializador.guardarClientes();
-      Serializador.guardarConductor();
+      Serializador.guardarConductores();
 
     }
 
@@ -242,21 +246,13 @@ public class Load {
        transporteAbastecer = Deserializador.cargarTransporte();
        vendedores =  Deserializador.cargarVendedores();
        facturas =  Deserializador.cargarFacturas();
-       conductor1 = Deserializador.cargaConductor();
-
+       conductores = Deserializador.cargaConductores();
 
 
        Factura.setListaFacturas(facturas);
        Cliente.setListaClientes(clientes);
-
-       
-
        Producto.setListaProductos(catalogo);
-       Conductor.getListaConductores().add( conductor1);
-
-       System.out.println(fabrica);
-
-
+       Conductor.setListaConductores(conductores);
 
       }catch(Exception e){
         System.out.println("Ha ocurrido un error en la deserialización");

@@ -68,8 +68,8 @@ public class Serializador {
              serializar(Load.transporteAbastecer, "src/baseDatos/temp/transporte.txt");
          }
 
-         public static void guardarConductor(){
-            serializar(Load.conductor1, "src/baseDatos/temp/conductor.txt");
+         public static void guardarConductores(){
+            serializar(Load.conductores, "src/baseDatos/temp/conductores.txt");
          }
          //por si acaso NO BORRAR O explota el programa
         //  public static void guardarMetas(){
