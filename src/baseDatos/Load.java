@@ -206,16 +206,6 @@ public class Load {
             facturas.add( new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 6, "hola",operario1));
             facturas.add(new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 6, "hola",operario1));
 
-            for (Cliente cli: clientes){
-              System.out.println(cli.getNombre());
-            }
-
-            for (Vendedor ven: vendedores){
-              System.out.println(ven.getNombre());
-            }
-            for (Factura fac: facturas){
-              System.out.println(fac.getId());
-           }
         }
       
 
@@ -233,7 +223,7 @@ public class Load {
       Serializador.guardarVendedores();
       Serializador.guardarClientes();
       Serializador.guardarConductor();
-      //Serializador.guardarMetas();
+
     }
 
     public static void cargar(){
@@ -244,18 +234,9 @@ public class Load {
        catalogo = Deserializador.cargarCatalogo();
        fabrica = Deserializador.cargarFabrica();
        clientes = Deserializador.cargarClientes();
-       for (Cliente cli: clientes){
-        System.out.println(cli.getNombre());
-      }
        transporteAbastecer = Deserializador.cargarTransporte();
        vendedores =  Deserializador.cargarVendedores();
-       for (Vendedor ven: vendedores){
-          System.out.println(ven.getNombre());
-        }
        facturas =  Deserializador.cargarFacturas();
-       for (Factura fac: facturas){
-          System.out.println(fac.getId());
-       }
        conductor1 = Deserializador.cargaConductor();
 
 
@@ -284,8 +265,6 @@ public class Load {
     public static void main(String[] args){
 
     Load.cargarPorDefecto();
-
-    System.out.println(Cliente.getListaClientes());
 
 	}
 
