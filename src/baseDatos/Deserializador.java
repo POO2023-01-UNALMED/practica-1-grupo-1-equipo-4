@@ -93,19 +93,5 @@ public class Deserializador {
 
     }
 
-
-
-    public static ArrayList<Meta> cargarMeta() throws IOException, ClassNotFoundException{
-
-        ArrayList<Meta> meta = (ArrayList<Meta>) deserializar("src/baseDatos/temp/meta.txt");
-
-        return meta;
-
-    }
-
-
-
-    
-
     
 }
