@@ -14,8 +14,8 @@ import gestorAplicacion.produccion.Tienda;
 public class Vendedor extends Persona {
 	/*-------------------Atributos-------------------------*/
 	
-	private static ArrayList<Meta> metasVendedor = new ArrayList<Meta>(List.of(new Meta("Fácil",3,10000),
-																			   new Meta("Dificil",10,50000)));
+	private static ArrayList<Meta> metasVendedor = new ArrayList<Meta>(List.of(new Meta("Fácil",2,1000),
+																			   new Meta("Dificil",5,5000)));
 	private Tienda tienda;
 	
 	/*-------------------Constructores-------------------------*/
@@ -37,6 +37,19 @@ public class Vendedor extends Persona {
 	
 
 	/*-------------------Metodos-------------------------*/
+
+
+	/*
+     * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Pago a trabajadores
+     * 
+     * RECIBE: 
+	 * Entero que hace referencia al pago que se va a realizar
+	 * 
+     * DEVUELVE: 
+	 * Nada (vacío)
+     * 
+     * DESCRIPCIÓN:método sobrescrito de la clase Persona
+     */
 	@Override
 	public void recibirSueldo(int total) {
 		tienda.getCuentaBancaria().descontarFondos(total);

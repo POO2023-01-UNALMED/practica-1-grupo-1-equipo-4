@@ -32,10 +32,14 @@ public class Meta implements Serializable{
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Pago a trabajadores
      * 
-     * RECIBE: El respectivo indice (double) trabajado hasta el momento.
-     * DEVUELVE: Boolean que representa si la meta fue cumplida o no.
+     * RECIBE: 
+     * El respectivo indice (double) trabajado hasta el momento.
      * 
-     * DESCRIPCIÓN: Este método permite saber si la meta fue o no cumplida.
+     * DEVUELVE: 
+     * Boolean que representa si la meta fue cumplida o no.
+     * 
+     * DESCRIPCIÓN: 
+     * Este método permite saber si la meta fue o no cumplida.
      */
     public boolean cumpleMeta(double indiceTrabajado){
         if (indiceTrabajado >= indice){
@@ -49,10 +53,14 @@ public class Meta implements Serializable{
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Pago a trabajadores
      * 
-     * RECIBE: El respectivo indice trabajado hasta el momento.
-     * DEVUELVE: String con las estadisticas de la meta.
+     * RECIBE: 
+     * El respectivo indice trabajado hasta el momento.
      * 
-     * DESCRIPCIÓN:Este método permite obtener el porcentaje cumplido de meta, además del
+     * DEVUELVE: 
+     * String con las estadisticas de la meta.
+     * 
+     * DESCRIPCIÓN:
+     * Este método permite obtener el porcentaje cumplido de meta, además del
      * porcentaje faltante y cuando falta para que se cumpla la meta.
      */
 

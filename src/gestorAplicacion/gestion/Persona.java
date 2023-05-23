@@ -54,7 +54,7 @@ public abstract class Persona implements Serializable {
 
 	/*------------------- Metodos -------------------------*/
 	
-		public abstract void recibirSueldo(int total);
+	public abstract void recibirSueldo(int total);
 	
 	
 	/*-------------------Getters y setters-------------------------*/
@@ -64,35 +64,43 @@ public abstract class Persona implements Serializable {
 	public String getNombre() {
 		return nombre;
 	}
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 	public int getEdad() {
 		return edad;
 	}
+	
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
+	
 	public int getCedula() {
 		return cedula;
 	}
+	
 	public void setCedula(int cedula) {
 		this.cedula = cedula;
 	}
+	
 	public CuentaBancaria getCuentaBancaria() {
 		return cuentaBancaria;
 	}
+	
 	public void setCuentaBancaria(CuentaBancaria cuentaBancaria) {
 		this.cuentaBancaria = cuentaBancaria;}
-	public static int getSalario() {
+	
+		public static int getSalario() {
 		return SALARIO;
 	}
-	//public void setSalario(int salario) {
-	//	this.salario = salario;
-	//}
+	
+
 	public int getTrabajo() {
 		return trabajo;
 	}
+	
 	public void setTrabajo(int trabajo) {
 		this.trabajo = trabajo;
 	}

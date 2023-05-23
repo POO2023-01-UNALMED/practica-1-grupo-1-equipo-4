@@ -98,7 +98,7 @@ public class UiPagarTrabajadores {
                                 + " por trabajar " + trabajadorEscogido.getTrabajo() + " veces");
 
                         System.out.println(
-                                "\n¿Desea analizar y pagar al trabajador por sus metas cumplidas?\n1.Si\n2.No");
+                                "\n¿Desea analizar y bonificar al trabajador por sus metas cumplidas?\n1.Si\n2.No");
 
                         boolean verificador4 = true;
 
@@ -226,12 +226,12 @@ public class UiPagarTrabajadores {
 
 
                         System.out.println("\nEl pago fue realizado con éxito\n");
-                        System.out.println("**************************");
-                        System.out.println("Comprobante");
+                        System.out.println("********************************");
+                        System.out.println("Comprobante de pago");
                         System.out.println("Pago asociado a los envios realizados " + total);
                         System.out.println("Pago asociado al cumpliento de metas " + valorPorMetas);
                         System.out.println("Total = " + (total + valorPorMetas));
-                        System.out.println("**************************");
+                        System.out.println("********************************");
 
                         // Asignamos de nuevo 0 al trabajo, para que si se le paga de nuevo,
                         // no se le pague más de una vez por el mismo trabajo
@@ -246,7 +246,7 @@ public class UiPagarTrabajadores {
             }
 
             // Ciclo final para ver si sale o se reinicia la funcionalidad
-            System.out.println("\n¿Qué desea hacer?\n1. Pagar a otro trabajador\n0.Volver al menu principal");
+            System.out.println("\n¿Qué desea hacer?\n1.Pagar a otro trabajador\n0.Volver al menu principal");
             while (true) {
                 System.out.print("> ");
                 opcSalida = sc.nextInt();
