@@ -1,5 +1,4 @@
 /*
- * 
  * FUNCIONALIDAD DE LA CLASE: La clase Factura representa una factura de una compra realizada en una tienda virtual.
 Contiene información sobre la tienda, el cliente, el transporte, la lista de productos, la fecha de compra y un disclaimer opcional.
 
@@ -9,8 +8,6 @@ obtener la moda de un atributo en un rango de fechas y obtener las ganancias tot
 También cuenta con métodos auxiliares para calcular la tarifa de envío y obtener una lista de fechas de todas las facturas.
 
 Además, la clase mantiene una lista estática de todas las facturas creadas y asigna un id único a cada factura.
-
-
  */
 
 

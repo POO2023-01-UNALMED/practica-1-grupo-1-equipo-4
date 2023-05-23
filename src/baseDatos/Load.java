@@ -216,12 +216,7 @@ public class Load {
             facturas.add(new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 6, "hola",operario1));
 
         }
-      
-
     
-
-
-
     public static void guardar(){
 
       Serializador.guardarTiendas();
@@ -256,11 +251,8 @@ public class Load {
 
       }catch(Exception e){
         System.out.println("Ha ocurrido un error en la deserialización");
-       // e.printStackTrace();
+        //e.printStackTrace();
       }
-
- 
-
     }
 
     public static void main(String[] args){
