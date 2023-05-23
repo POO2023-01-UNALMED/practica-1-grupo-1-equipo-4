@@ -224,8 +224,10 @@ public class UiEnviarPedido {
                     +tiendaSeleccionada.getNombre() + "\nA nombre del cliente: " + clienteSeleccionado.getNombre()+"\n" 
                     +tiendaSeleccionada.enviarPedido(listaProductosPedidos,
                             transporteSeleccionado, clienteSeleccionado, dia, Load.fabrica.getOperario())+"\n************************************");
+                    
                     transporteSeleccionado.reestablecerPrecioTrans();
                     listaProductosPedidos.clear();
+
                     System.out.println("¿Desea hacer otro envio o volver al menu principal?\n");
                     System.out.println("0. Volver al menu principal");
                     System.out.println("1. Realizar otro  envio");
