@@ -154,7 +154,7 @@ public class UiEnviarPedido {
                     System.out.println("Junto a cada tipo de transporte se encuentra su precio.");
                     System.out.println(
                             "\nAdvertencia: Los tipos de transporte han sido filtrados de manera que solo puede seleccionar los que puedan soportar el peso de su producto."
-                            + "Su pedido pesa " + PesoTotalProductos + " kilogramos");
+                            + "\nSu pedido pesa " + PesoTotalProductos + " kilogramos");
 
                     
                     System.out.println("0. Regresar al menu principal");

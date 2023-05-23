@@ -203,6 +203,9 @@ public class Load {
              clientes.add(cliente3);
              clientes.add(cliente4);
              clientes.add(cliente5);
+             clientes.add(cliente6);
+             clientes.add(cliente7);
+             clientes.add(cliente8);
 
              vendedores.add(vendedor1);
              vendedores.add(vendedor2);
