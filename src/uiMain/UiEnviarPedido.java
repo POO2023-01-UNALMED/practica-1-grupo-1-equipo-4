@@ -85,7 +85,7 @@ public class UiEnviarPedido {
                     System.out.print(Load.fabrica.mostrarTiendas());
 
                     // Seleccionar tienda
-                    System.out.println("Seleccione la tienda a la que desea enviar: ");
+                    System.out.println("Seleccione la tienda desde la que desea enviar: ");
 
                     // Entero seleccionado
                     System.out.print("> ");
@@ -223,12 +223,12 @@ public class UiEnviarPedido {
                     System.out.println("\n************************************\n"+ "Factura generada en la tienda " 
                     +tiendaSeleccionada.getNombre() + "\nA nombre del cliente: " + clienteSeleccionado.getNombre()+"\n" 
                     +tiendaSeleccionada.enviarPedido(listaProductosPedidos,
-                            transporteSeleccionado, clienteSeleccionado, dia, Load.fabrica.getOperario())+"\n************************************");
+                            transporteSeleccionado, clienteSeleccionado, dia, Load.fabrica.getOperario())+"\n************************************\n\n\n");
                     
                     transporteSeleccionado.reestablecerPrecioTrans();
                     listaProductosPedidos.clear();
 
-                    System.out.println("¿Desea hacer otro envio o volver al menu principal?\n");
+                    System.out.println("¿Desea hacer otro envio o volver al menu principal? ");
                     System.out.println("0. Volver al menu principal");
                     System.out.println("1. Realizar otro  envio");
                     System.out.print("> ");
