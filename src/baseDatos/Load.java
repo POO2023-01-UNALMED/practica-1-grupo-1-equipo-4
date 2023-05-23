@@ -67,6 +67,10 @@ public class Load {
 
              catalogo2.add(producto1);
              catalogo2.add(producto2);
+             catalogo2.add(producto3);
+             catalogo2.add(producto4);
+             catalogo2.add(producto5);
+
             
              //se agregan al catalogo
              catalogo.add(producto1);
@@ -174,6 +178,7 @@ public class Load {
              conductor1.setTransporte(transporteAbastecer);
              
              // Crear objetos de Cliente
+             
              CuentaBancaria cuentaCliente1 = new CuentaBancaria(11111, 5000000);
              Cliente cliente1 = new Cliente("Juan Pérez", "Calle 123", cuentaCliente1);
              CuentaBancaria cuentaCliente2 = new CuentaBancaria(22222, 200);
@@ -214,16 +219,17 @@ public class Load {
 
 
              //FACTURAS DE PRUEBA:
+
             facturas.add(new Factura(tienda3, cliente4, transporteAbastecer, catalogo2, 1, "hola",operario1));
             facturas.add(new Factura(tienda3, cliente2, transporteAbastecer, catalogo2, 2, "hola",operario1));
             facturas.add(new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 2, "hola",operario1));
-            facturas.add( new Factura(tienda3, cliente4, transporteAbastecer, catalogo, 4, "hola",operario1));
-            facturas.add( new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola",operario1));
-            facturas.add( new Factura(tienda3, cliente5, transporteAbastecer, catalogo, 6, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente4, transporteAbastecer, catalogo, 4, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente3, transporteAbastecer, catalogo, 5, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente5, transporteAbastecer, catalogo, 6, "hola",operario1));
             facturas.add(new Factura(tienda3, cliente1, transporteAbastecer, catalogo, 6, "hola",operario1));
-            facturas.add(new Factura(tienda3, cliente6, transporteAbastecer, catalogo, 6, "hola",operario1));
-            facturas.add(new Factura(tienda3, cliente7, transporteAbastecer, catalogo, 6, "hola",operario1));
-            facturas.add(new Factura(tienda3, cliente8, transporteAbastecer, catalogo, 6, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente6, transporteAbastecer, catalogo2, 6, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente7, transporteAbastecer, catalogo2, 6, "hola",operario1));
+            facturas.add(new Factura(tienda3, cliente8, transporteAbastecer, catalogo2, 6, "hola",operario1));
         }
     
     public static void guardar(){
