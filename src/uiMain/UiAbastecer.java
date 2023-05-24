@@ -1,5 +1,5 @@
-/* AUTORES:
- * Jaider Castañeda Villa
+/*Autores: Joan Sebastian Salazar Montoya, Monica Sofia Restrepo León, 
+ *   Luis Alejandro Varela Ojeda, Maria Fernanda Calle Agudelo, Jaider Castañeda Villa
  * 
  * FUNCIONALIDAD DEL MÓDULO: En esta clase se desarrolla la lógica principal de la
  * funcionalidad Abastecer tiendas
