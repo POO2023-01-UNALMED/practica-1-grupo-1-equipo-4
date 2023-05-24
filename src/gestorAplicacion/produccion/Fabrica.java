@@ -267,7 +267,7 @@ public class Fabrica implements Serializable{
     //toString para saber que imprimir cuando se llame al objeto Fabrica     
     @Override   
     public String toString() {
-        return "La mejor fabrica del mundo";
+        return "Distribuidora JMLMJ SAS";
     }
     
 
