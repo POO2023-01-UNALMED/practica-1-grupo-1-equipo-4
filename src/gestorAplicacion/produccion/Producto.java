@@ -1,11 +1,11 @@
-/* 
+/* Autores: Joan Sebastian Salazar Montoya, Monica Sofia Restrepo León, 
+Luis Alejandro Varela Ojeda, Maria Fernanda Calle Agudelo, Jaider Castañeda Villa
  * FUNCIONALIDAD DE LA CLASE: clase que representa el producto que se genera en la 
  * fábrica y se vende en las tiendas.
  */
 package gestorAplicacion.produccion;
 import java.io.Serializable;
 import java.util.ArrayList;
-
 
 public class Producto implements Serializable {
 

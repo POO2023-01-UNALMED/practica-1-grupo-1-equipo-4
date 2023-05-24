@@ -1,9 +1,9 @@
-/*
+/*Autores: Joan Sebastian Salazar Montoya, Monica Sofia Restrepo León, 
+Luis Alejandro Varela Ojeda, Maria Fernanda Calle Agudelo, Jaider Castañeda Villa
  * FUNCIONALIDAD DE LA CLASE:clase que representa una cuenta bancaria la que se utiliza para 
  * realizar los respectivos pagos y descuentos tanto a los trabajadores y clientes, 
  * como a las cuentas de la fábrica y las tiendas.
  */
-
 package gestorAplicacion.gestion;
 
 import java.io.Serializable;

@@ -1,8 +1,8 @@
-/* 
- * FUNCIONALIDAD DE LA CLASE: clase que hereda de Persona, que representa al trabajador 
- * que realiza la venta en su respectiva tienda.
+/* Autores: Joan Sebastian Salazar Montoya, Monica Sofia Restrepo León, 
+Luis Alejandro Varela Ojeda, Maria Fernanda Calle Agudelo, Jaider Castañeda Villa
+ * FUNCIONALIDAD DE LA CLASE: clase que hereda de Persona, representa al trabajador 
+ * que realiza la venta en su respectiva tienda. 
  */
-
 package gestorAplicacion.gestion;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,8 @@
-/* 
+/*  Autores: Joan Sebastian Salazar Montoya, Monica Sofia Restrepo León, 
+Luis Alejandro Varela Ojeda, Maria Fernanda Calle Agudelo, Jaider Castañeda Villa
  * FUNCIONALIDAD DE LA CLASE: clase abstracta que proporciona atributos y métodos 
  * comunes para la creación de los distintos tipos de trabajadores de la empresa.
  */
-
 package gestorAplicacion.gestion;
 
 import java.io.Serializable;

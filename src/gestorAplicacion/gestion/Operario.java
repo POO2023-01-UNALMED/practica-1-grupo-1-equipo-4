@@ -1,8 +1,8 @@
-/* 
+/* Autores: Joan Sebastian Salazar Montoya, Monica Sofia Restrepo León, 
+Luis Alejandro Varela Ojeda, Maria Fernanda Calle Agudelo, Jaider Castañeda Villa
  * FUNCIONALIDAD DE LA CLASE: clase que hereda de Persona, que representa al trabajador 
  * que controla la producción de los productos en las fábricas.
  */
-
 package gestorAplicacion.gestion;
 import java.util.ArrayList;
 import java.util.List;

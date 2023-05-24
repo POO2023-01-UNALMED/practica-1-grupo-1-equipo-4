@@ -1,9 +1,9 @@
-/* 
- * FUNCIONALIDAD DE LA CLASE: clase que representa al comprador de productos de la empresa.
+/* Autores: Joan Sebastian Salazar Montoya, Monica Sofia Restrepo León, 
+Luis Alejandro Varela Ojeda, Maria Fernanda Calle Agudelo, Jaider Castañeda Villa
+ * FUNCIONALIDAD DE LA CLASE: Clase que representa al comprador de productos de la empresa y su motor económico . Se utiliza en todas las funcionalidades 
+ * excepto PagarTrabajadores. 
  */
-
 package gestorAplicacion.gestion;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 

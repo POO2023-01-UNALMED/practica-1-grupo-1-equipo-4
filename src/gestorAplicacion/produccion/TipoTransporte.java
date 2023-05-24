@@ -1,8 +1,8 @@
-/* 
+/* Autores: Joan Sebastian Salazar Montoya, Monica Sofia Restrepo León, 
+Luis Alejandro Varela Ojeda, Maria Fernanda Calle Agudelo, Jaider Castañeda Villa
  * FUNCIONALIDAD DEL ENUMERADO: enumerado que establece el conjunto de valores constantes 
  * disponibles para los tipos de transportes en los que se pueden transportar los productos.
  */
-
 package gestorAplicacion.produccion;
 
 import java.util.ArrayList;

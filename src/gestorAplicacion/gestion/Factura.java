@@ -1,4 +1,5 @@
-/*
+/*Autores: Joan Sebastian Salazar Montoya, Monica Sofia Restrepo León, 
+Luis Alejandro Varela Ojeda, Maria Fernanda Calle Agudelo, Jaider Castañeda Villa
  * FUNCIONALIDAD DE LA CLASE: La clase Factura representa una factura de una compra realizada en una tienda virtual.
 Contiene información sobre la tienda, el cliente, el transporte, la lista de productos, la fecha de compra y un disclaimer opcional.
 
@@ -9,7 +10,6 @@ También cuenta con métodos auxiliares para calcular la tarifa de envío y obte
 
 Además, la clase mantiene una lista estática de todas las facturas creadas y asigna un id único a cada factura.
  */
-
 
 package gestorAplicacion.gestion;
 import java.io.Serializable;
