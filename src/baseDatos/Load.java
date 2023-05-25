@@ -23,7 +23,7 @@ public class Load {
      public static Transporte transporteAbastecer;
 
 
-     public static void cargarPorDefecto(){
+   /*   public static void cargarPorDefecto(){
            //NOTA: Toca arreglar los constructores y unas cosas pa ver donde va a ir eso
  
  
@@ -216,7 +216,7 @@ public class Load {
              tienda1.cantidadProductosVentas();
              tienda2.cantidadProductosVentas();
              tienda3.cantidadProductosVentas();
-        }
+        }*/
     
     public static void guardar(){
 
