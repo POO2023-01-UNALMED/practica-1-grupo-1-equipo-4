@@ -19,7 +19,7 @@ Las clases al interior de este paquete se deben organizar en mínimo 2 paquetes 
 
 ### Empresa distribuidora SAS
 
-La aplicación está dirigida a los administradores de la empresa.
+La aplicación está dirigida a los administradores de la empresa y esta compuesta por las siguientes clases e interfaces.
 
 Paquete: `produccion`
 - Fábrica 
@@ -28,6 +28,7 @@ Paquete: `produccion`
 - TipoTransporte (enumerados)
 - Producto
 
+
 Paquete: `gestion` 
 - Persona 
   - Hijo: Conductor 
@@ -35,6 +36,10 @@ Paquete: `gestion`
   - Hijo: Vendedor 
 - Factura 
 - CuentaBancaria
+- Meta (Interfaz)
+- Moda (Interfaz)
+- Cliente
+- Persona
 
 ## Funcionalidades
 
