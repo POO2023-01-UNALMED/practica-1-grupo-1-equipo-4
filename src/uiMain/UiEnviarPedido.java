@@ -39,7 +39,7 @@ public class UiEnviarPedido {
         Transporte transporteSeleccionado = null;
         TipoTransporte tipoTransportes = null;
         int PesoTotalProductos = 0;
-
+        int numEnvioGratis=0;
          ArrayList<Producto> listaProductosPedidos = new ArrayList<Producto>();
         //ArrayList<Producto> listaProductosPedidos = new;
         
@@ -167,7 +167,7 @@ public class UiEnviarPedido {
                     System.out.println("Seleccione el número del tipo de transporte: ");
                     System.out.print("> ");
                     int numTransporteSeleccionado = sc.nextInt();
-
+                    
                     if (numTransporteSeleccionado == 0) {
                         eleccion = 0;
                         break;
@@ -179,7 +179,6 @@ public class UiEnviarPedido {
                         eleccion = 4;
                         break;
                     }
-                
                     else {
                         transporteSeleccionado = TipoTransporte.seleccionarTransporte(listaTransFiltrada,
                                 numTransporteSeleccionado);
@@ -187,10 +186,11 @@ public class UiEnviarPedido {
                                 + "\nEl pedido se enviará por " + transporteSeleccionado.getTipo().getNombre());
                         System.out.println("\nDesea aplicar envío gratis?\n 1. Si   2. No");
                         System.out.print("> ");
+                        transporteSeleccionado.recordarPrecioTransporte();
                         while(true){
-                            int numEnvioGratis = sc.nextInt();
+                            numEnvioGratis = sc.nextInt();
                             if (numEnvioGratis == 1){
-                                transporteSeleccionado.recordarPrecioTransporte();
+                                
                                 Transporte.enviarGratis(transporteSeleccionado);
                                 System.out.println("Su tarifa de envío ha bajado de: $" + transporteSeleccionado.getPrecioOriginalTransporte()+ " a $0");
                                 break;
@@ -224,11 +224,13 @@ public class UiEnviarPedido {
                     +tiendaSeleccionada.getNombre() + "\nA nombre del cliente: " + clienteSeleccionado.getNombre()+"\n" 
                     +tiendaSeleccionada.enviarPedido(new ArrayList<>(listaProductosPedidos),
                             transporteSeleccionado, clienteSeleccionado, dia, Load.fabrica.getOperario())+"\n************************************\n\n\n");
-                    transporteSeleccionado.reestablecerPrecioTrans();
+                    
+                    if(numEnvioGratis==1){
+                        transporteSeleccionado.reestablecerPrecioTrans();}
                     listaProductosPedidos.clear();
 
                     // Realiza una copia de la listaProductosPedidos
-
+                    PesoTotalProductos = 0;
                     System.out.println("¿Desea hacer otro envio o volver al menu principal? ");
                     System.out.println("0. Volver al menu principal");
                     System.out.println("1. Realizar otro  envio");
