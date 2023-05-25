@@ -395,7 +395,7 @@ public static String mostrarFacturas(){
     String textoFactura="";
     int indice = 1;
     for(Factura factura:listaFacturas) {
-            textoFactura += indice+". ID: "+factura.getId()+" Cliente: "+factura.getCliente().getNombre()+"\n"; //se almacenan todos lo ID's de las facturas en un string
+            textoFactura += indice+". "+" Cliente: "+factura.getCliente().getNombre()+"\n"; //se almacenan todos lo ID's de las facturas en un string
             indice++;
   
     }

@@ -222,11 +222,12 @@ public class UiEnviarPedido {
                     }
                     System.out.println("\n************************************\n"+ "Factura generada en la tienda " 
                     +tiendaSeleccionada.getNombre() + "\nA nombre del cliente: " + clienteSeleccionado.getNombre()+"\n" 
-                    +tiendaSeleccionada.enviarPedido(listaProductosPedidos,
+                    +tiendaSeleccionada.enviarPedido(new ArrayList<>(listaProductosPedidos),
                             transporteSeleccionado, clienteSeleccionado, dia, Load.fabrica.getOperario())+"\n************************************\n\n\n");
-                    
                     transporteSeleccionado.reestablecerPrecioTrans();
                     listaProductosPedidos.clear();
+
+                    // Realiza una copia de la listaProductosPedidos
 
                     System.out.println("¿Desea hacer otro envio o volver al menu principal? ");
                     System.out.println("0. Volver al menu principal");
