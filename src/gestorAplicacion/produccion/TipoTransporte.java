@@ -96,8 +96,6 @@ public enum TipoTransporte {
         return  textoTransFiltrado;
 }
 
-
-
         /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO:  EnviarPedido
      * 

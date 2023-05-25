@@ -103,7 +103,7 @@ public class UiAbastecer {
                             break;
                         }
                         //Se hace con el fin de evitar que intente mandar mas productos de los que soporta la tienda por la respectiva categoria
-                        else if (escanerInt <= productosMaximosEnTiendaPorCategoria - productoEnTiendaPorCategoria) {
+                        else if (escanerInt < 0 || escanerInt <= productosMaximosEnTiendaPorCategoria - productoEnTiendaPorCategoria) {
                             eleccion = 4;
                             break;
                         } else {
@@ -134,7 +134,7 @@ public class UiAbastecer {
                         break;
                     }
 
-                    if (numTransporteSeleccionado > listaTransFiltrada.size()) {
+                    if (numTransporteSeleccionado > listaTransFiltrada.size() || numTransporteSeleccionado < 0) {
                         System.out
                                 .print("Número de transporte inválido, por favor seleccione un producto en la lista \n> ");
                     }

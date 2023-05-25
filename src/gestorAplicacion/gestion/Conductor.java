@@ -22,8 +22,6 @@ public class Conductor extends Persona {
 	private static ArrayList<Conductor> listaConductores = new ArrayList<Conductor>();
 	/*-------------------Constructores-------------------------*/
 	
-	
-
 	/*Constructor de la clase conductor que recibe todos los parametros*/
 
 	public Conductor(String nombre, int edad, int cedula, CuentaBancaria cuentaBancaria,Transporte transporte) {

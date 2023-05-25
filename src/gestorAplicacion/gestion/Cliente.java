@@ -43,9 +43,6 @@ public class Cliente implements Moda, Serializable{
 	
 	/*------------------- Metodos -------------------------*/
 	
-
-
-
 /*
 	Método: mostrarClientes
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Enviar Pedido
@@ -113,7 +110,7 @@ public class Cliente implements Moda, Serializable{
 	}
 	
 
-	
+
 	public CuentaBancaria getCuentaBancaria() {
 		return cuentaBancaria;
 	}

@@ -3,9 +3,6 @@ package baseDatos;
 import java.io.*;
 import java.io.Serializable;
 
-import gestorAplicacion.gestion.Factura;
-
-
 public class Serializador {
    
         public static void serializar(Serializable objeto, String strArchivo){
@@ -31,8 +28,6 @@ public class Serializador {
 
             }
         }
-
-
 
         public static void guardarFacturas(){
 

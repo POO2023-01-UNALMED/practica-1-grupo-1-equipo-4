@@ -6,44 +6,6 @@ import java.util.Scanner;
 
 public class Menu {
 
-    /*
-     * 
-     *  INSTRUCCIONES:
-     * 
-     *  Digamos que queremos ejecutar el siguiente menu, el cual valide correctamente que se ingrese la opción correcta:
-     * 
-     *  Ingrese información a obtener
-     * 
-     *  1. Ganancias discretas
-     *  2. Ganancias totales
-     *  3. Promedio por día
-     *  4. Aumento porcentual
-     *  0. Retroceder
-     * 
-     *  > ... [input del usuario]
-     * 
-     *  Entonces hacemos lo siguiente:
-     * 
-     *  int opcion = new Menu("Ingrese información a obtener", new String[]{"Ganancias Discretas", "Ganancias Totales", 
-                "Promedio por día", "Aumento porcentual", "Cambiar fechas"}, "Retroceder")
-
-        El primer atributo es el enunciado, el segundo son las opciones, y el tercero es el enunciado de la opción 0. La línea de código anterior lo que hace es 
-        efectivamente empezar el proceso del menu. La opción
-        seleccionada (de 0 a n) es la opción escogida por el usuario.
-
-        Hay un constructor que solo recibe enunciado y opciones, y por default pone la opción 0 como "Cancelar"
-        
-        Si quieren puedo hacer para que no necesariamente haya opción 0.
-
-        El ejemplo anterior está en el método estadística de la clase UiEstadística por si lo quieren checar más a detalle. 
-
-
-        El método mostrarReturnString() hace lo mismo, pero en lugar de devolver el número, de la opción, devuelve el
-        string del enunciado en mayúsculas.
-     * 
-     * 
-     * 
-     */
 
     private String[] opciones;
    // private Mostrable[] opcionesMostrables;

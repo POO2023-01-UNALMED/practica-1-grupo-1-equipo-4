@@ -94,7 +94,7 @@ public class UiEnviarPedido {
                         eleccion = 0;
                         break;
                     }
-                    else if (numTiendaSeleccionada > Load.fabrica.getListaTienda().size()) {
+                    else if (numTiendaSeleccionada > Load.fabrica.getListaTienda().size() || numTiendaSeleccionada < 0) {
                         System.out.println("Número de tienda inválido, por favor seleccione una tienda en la lista");
                         eleccion = 2;
                         break;
@@ -106,7 +106,7 @@ public class UiEnviarPedido {
                 case 3: // seleccionar el producto
                     System.out.println("¿Cuantos productos deseas comprar de esta tienda? \n Máximo 5 productos por cliente");
                     int cuantos = sc.nextInt();
-                    if (cuantos > 5){
+                    if (cuantos > 5 || cuantos < 0){
                         System.out.println("No es válido, elija un numero menor o igual a 5");
                         eleccion = 3;
                         break;
@@ -132,7 +132,7 @@ public class UiEnviarPedido {
                             eleccion = 0;
                             break;
                         }
-                        if (numProductoSeleccionado > tiendaSeleccionada.getListaProductos().size()) {
+                        if (numProductoSeleccionado > tiendaSeleccionada.getListaProductos().size() || numProductoSeleccionado < 0) {
                             System.out.println("Número de producto inválido, por favor seleccione un producto en la lista");
                             cuantos++;
                         } else {
@@ -173,7 +173,7 @@ public class UiEnviarPedido {
                         break;
                     }
 
-                    if (numTransporteSeleccionado > listaTransFiltrada.size()) {
+                    if (numTransporteSeleccionado > listaTransFiltrada.size() || numTransporteSeleccionado < 0) {
                         System.out
                                 .println("Número de transporte inválido, por favor seleccione un producto en la lista");
                         eleccion = 4;

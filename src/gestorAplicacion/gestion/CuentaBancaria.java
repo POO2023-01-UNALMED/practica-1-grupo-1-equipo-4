@@ -21,10 +21,6 @@ public class CuentaBancaria implements Serializable {
         this.numeroCuenta = numeroCuenta;
         this.saldo = saldo;
     }
-
-
-
-
 /*
 
 
@@ -33,14 +29,11 @@ SALIDA: Ninguna
 
 Este método permite agregar fondos a la cuenta bancaria del cliente.
 
-
 */
 
     public void anadirFondos(double fondos){
         saldo+= fondos;
     }
-
-
 
 /*
 ENTRADA: un double que indica la cantidad de fondos a descontar.
@@ -52,10 +45,6 @@ DESCRIPCIÓN: Este método permite descontar una cantidad específica de fondos 
     public void descontarFondos(double fondos){
         saldo -= fondos;
     }
-
-
-
-
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
      * 
@@ -73,8 +62,6 @@ DESCRIPCIÓN: Este método permite descontar una cantidad específica de fondos 
         cuenta.anadirFondos(total);
     }
 
-
-
     /* 
 * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Pago a trabajadores
 *
@@ -83,7 +70,6 @@ DESCRIPCIÓN: Este método permite descontar una cantidad específica de fondos 
 * SALIDA: 
 * DESCRIPCIÓN: Un entero que representa el pago total de la persona.
 */
-
 
     public static int calcularPago(Persona persona){
         int trabajo = persona.getTrabajo();
@@ -103,7 +89,6 @@ DESCRIPCIÓN: Este método permite descontar una cantidad específica de fondos 
         return total;
     }
 
-  
     // Getters
     public int getNumeroCuenta() {
         return numeroCuenta;

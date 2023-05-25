@@ -130,10 +130,4 @@ public class Producto implements Serializable {
     public static ArrayList<Producto> getListaProductos(){
         return listaProductos;
     }
-
-    
-
-
-
-    
 }

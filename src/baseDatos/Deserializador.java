@@ -9,8 +9,6 @@ import java.io.*;
 
 public class Deserializador {
 
-
-
     public static Serializable deserializar(String strArchivo) throws IOException, ClassNotFoundException{
 
         FileInputStream fileInputStream;
@@ -26,7 +24,6 @@ public class Deserializador {
       
         return s;
     }
-
 
     public static ArrayList<Factura> cargarFacturas() throws IOException, ClassNotFoundException{
         @SuppressWarnings("unchecked") /*Jaider: Lo puse porque me tiraba que esta operacion no era segura cuando intentaba hacer un .jar*/

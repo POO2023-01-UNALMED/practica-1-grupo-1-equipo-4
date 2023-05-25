@@ -14,10 +14,7 @@ public class Meta implements Serializable{
     private double indice;
     private double pago;
 
-
-
     //Constructor
-
 
     public Meta(String nivelDeDificultad, double indice, double pago) {
         this.nivelDeDificultad = nivelDeDificultad;
@@ -26,7 +23,6 @@ public class Meta implements Serializable{
 
     }
 
-    
     //Métodos
 
     /*
@@ -48,7 +44,6 @@ public class Meta implements Serializable{
             return false;
         }
     }
-
 
     /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Pago a trabajadores
@@ -108,6 +103,5 @@ public class Meta implements Serializable{
     public void setPago(double pago) {
         this.pago = pago;
     }
-
-    
+  
 }

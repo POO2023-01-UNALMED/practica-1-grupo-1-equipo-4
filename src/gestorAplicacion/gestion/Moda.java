@@ -7,9 +7,6 @@ Luis Alejandro Varela Ojeda, Maria Fernanda Calle Agudelo, Jaider Castañeda Vil
  */
 package gestorAplicacion.gestion;
 
-
-
-
 public interface Moda {
 
     public String getNombre();
