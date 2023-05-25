@@ -217,6 +217,11 @@ public class Load {
     
     public static void guardar(){
 
+      facturas = Factura.getListaFacturas();
+      clientes = Cliente.getListaClientes();
+      catalogo = Producto.getListaProductos();
+      conductores = Conductor.getListaConductores();
+
       Serializador.guardarTiendas();
       Serializador.guardarCatalogo();
       Serializador.guardarFabrica();
