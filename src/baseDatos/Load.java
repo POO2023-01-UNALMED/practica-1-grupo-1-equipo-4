@@ -116,7 +116,32 @@ public class Load {
              tienda2.setListaProductos(new ArrayList<>(Arrays.asList(producto8,producto9,producto10,producto11,producto12,producto13,producto14)));
              tienda3.setListaProductos(new ArrayList<>(Arrays.asList(producto15,producto16,producto17,producto18,producto19,producto20,producto21,producto22)));
              
+             for(int i=0;i<3;i++){
+              tienda1.getListaProductos().add(producto1);
+              tienda1.getListaProductos().add(producto2);
+              tienda1.getListaProductos().add(producto3);
+              tienda1.getListaProductos().add(producto4);
+              tienda1.getListaProductos().add(producto5);
+              tienda1.getListaProductos().add(producto6);
+              tienda1.getListaProductos().add(producto7);
 
+              tienda2.getListaProductos().add(producto8);
+              tienda2.getListaProductos().add(producto9);
+              tienda2.getListaProductos().add(producto10);
+              tienda2.getListaProductos().add(producto11);
+              tienda2.getListaProductos().add(producto12);
+              tienda2.getListaProductos().add(producto13);
+              tienda2.getListaProductos().add(producto14);
+
+              tienda3.getListaProductos().add(producto15);
+              tienda3.getListaProductos().add(producto16);
+              tienda3.getListaProductos().add(producto17);
+              tienda3.getListaProductos().add(producto18);
+              tienda3.getListaProductos().add(producto19);
+              tienda3.getListaProductos().add(producto20);
+              tienda3.getListaProductos().add(producto21);
+              tienda3.getListaProductos().add(producto22);
+             }
              tiendas.add(tienda1);
              tiendas.add(tienda2);
              tiendas.add(tienda3);
