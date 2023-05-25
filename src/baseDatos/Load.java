@@ -1,13 +1,12 @@
 package baseDatos;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import gestorAplicacion.gestion.*;
 import gestorAplicacion.produccion.*;
 
-import java.util.Scanner;
 
 public class Load {
      public static ArrayList<Producto> catalogo = new ArrayList<Producto>();
@@ -17,7 +16,8 @@ public class Load {
      public static ArrayList<Factura> facturas = new ArrayList<Factura>();
     public static ArrayList<Conductor> conductores = new ArrayList<Conductor>();
 
-     static Scanner sc = new Scanner(System.in);
+    public static HashMap<String, Moda> infoAtributos = new HashMap<String,Moda>();
+
 
      public static Fabrica fabrica;
      public static Transporte transporteAbastecer;
@@ -28,8 +28,7 @@ public class Load {
  
  
              //productos disponibles en la fabrica:
- 
-             ArrayList<Producto> catalogo = new ArrayList<Producto>();
+
       
              //Producto(String nombre, String descripcion, Double valor, Double peso, Double tamano, Double costoDeProduccion);
              Producto producto1 = new Producto("Ladrillo"," Bloque utilizado en paredes y estructuras", 1, 2.5, 10374,0.25,"construccion");
@@ -225,6 +224,7 @@ public class Load {
       clientes = Cliente.getListaClientes();
       catalogo = Producto.getListaProductos();
       conductores = Conductor.getListaConductores();
+      infoAtributos = Factura.getInfoAtributos();
 
       Serializador.guardarTiendas();
       Serializador.guardarCatalogo();
@@ -234,6 +234,7 @@ public class Load {
       Serializador.guardarVendedores();
       Serializador.guardarClientes();
       Serializador.guardarConductores();
+      Serializador.guardarAtributos();
 
     }
 
@@ -249,22 +250,22 @@ public class Load {
        vendedores =  Deserializador.cargarVendedores();
        facturas =  Deserializador.cargarFacturas();
        conductores = Deserializador.cargaConductores();
+       infoAtributos = Deserializador.cargaAtributos();
 
        Factura.setListaFacturas(facturas);
        Cliente.setListaClientes(clientes);
        Producto.setListaProductos(catalogo);
        Conductor.setListaConductores(conductores);
+       Factura.setInfoAtributos(infoAtributos);
 
       }catch(Exception e){
         System.out.println("Ha ocurrido un error en la deserialización");
-        //e.printStackTrace();
+        e.printStackTrace();
       }
     }
 
     public static void main(String[] args){
 
- //   Load.cargarPorDefecto();
 
 	}
-
 }

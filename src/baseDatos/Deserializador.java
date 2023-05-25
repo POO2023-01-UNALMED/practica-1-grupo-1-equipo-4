@@ -2,6 +2,8 @@ package baseDatos;
 
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import gestorAplicacion.gestion.*;
 import gestorAplicacion.produccion.*;
 import java.io.*;
@@ -87,6 +89,13 @@ public class Deserializador {
         ArrayList<Conductor> conductores = (ArrayList<Conductor>) deserializar("src/baseDatos/temp/conductores.txt");
 
         return conductores;
+    }
+
+    public static HashMap<String, Moda> cargaAtributos() throws IOException, ClassNotFoundException{
+
+        HashMap<String, Moda>  infoAtributos = (HashMap<String, Moda>) deserializar("src/baseDatos/temp/infoAtributos.txt");
+
+        return infoAtributos;
 
     }
 

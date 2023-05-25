@@ -552,11 +552,19 @@ public static String mostrarFacturas(){
         return operario;
     }
     
+    public static HashMap<String, Moda> getInfoAtributos(){
+        return infoAtributos;
+    }
+    
 
 
     // Setters
     public void setTienda(Tienda tienda) {
         this.tienda = tienda;
+    }
+
+    public static void setInfoAtributos(HashMap<String, Moda> infoAtributos){
+        Factura.infoAtributos = infoAtributos;
     }
 
     public void setCliente(Cliente cliente) {

@@ -66,13 +66,10 @@ public class Serializador {
          public static void guardarConductores(){
             serializar(Load.conductores, "src/baseDatos/temp/conductores.txt");
          }
+
+         public static void guardarAtributos(){
+            serializar(Load.infoAtributos, "src/baseDatos/temp/infoAtributos.txt");
+         }
         
-
-        public static void main(String args[]){
-
-            System.out.println(Load.catalogo);
-
-        }
-
        
 }
