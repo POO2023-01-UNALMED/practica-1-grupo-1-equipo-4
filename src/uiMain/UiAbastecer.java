@@ -10,10 +10,7 @@ package uiMain;
 
 import gestorAplicacion.produccion.*;
 import java.util.Scanner;
-
 import baseDatos.Load;
-
-
 import java.util.ArrayList;
 
 
@@ -68,7 +65,7 @@ public class UiAbastecer {
                     break;
                 case 2:
                     System.out.println("\nAbastecer tiendas - Apartado de productos");
-                    System.out.print("\nLa capacidad de productos para esta tienda es la siguiente: \n");
+                    System.out.print("\nLa capacidad de productos por categoria para esta tienda es la siguiente: \n");
                     System.out.println(tiendaSeleccionada.productosPorCategoria());
                     System.out.println("\n0. Regresar al menu anterior");
                     System.out.println(Load.fabrica.mostrarProductos());
