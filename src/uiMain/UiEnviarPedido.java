@@ -224,7 +224,6 @@ public class UiEnviarPedido {
                     +tiendaSeleccionada.getNombre() + "\nA nombre del cliente: " + clienteSeleccionado.getNombre()+"\n" 
                     +tiendaSeleccionada.enviarPedido(listaProductosPedidos,
                             transporteSeleccionado, clienteSeleccionado, dia, Load.fabrica.getOperario())+"\n************************************\n\n\n");
-                    System.out.print(listaProductosPedidos+"//////////////////////");
                     transporteSeleccionado.reestablecerPrecioTrans();
                     listaProductosPedidos.clear();
 
