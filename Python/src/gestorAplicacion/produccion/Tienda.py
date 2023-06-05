@@ -11,18 +11,18 @@ import random
 
 class Tienda(Moda):
     
-    numTiendas = 0
+    _numTiendas = 0
 
     def __init__(self, nombre, vendedor, cuentaBancaria):
-        self.nombre = nombre
-        self.vendedor = vendedor
-        self.cuentaBancaria = cuentaBancaria
-        self.listaProductos = []
-        self.listaCantidadProductos = {}
-        self.productosPorCategoria = {}
-        self.productosDevueltos = []
-        Tienda.numTiendas += 1
-        self.cantidadPorCategoria = {
+        self._nombre = nombre
+        self._vendedor = vendedor
+        self._cuentaBancaria = cuentaBancaria
+        self._listaProductos = []
+        self._listaCantidadProductos = {}
+        self._productosPorCategoria = {}
+        self._productosDevueltos = []
+        Tienda._numTiendas += 1
+        self._cantidadPorCategoria = {
             "aseo": random.randint(100, 200),
             "consumible": random.randint(100, 200),
             "construccion": random.randint(100, 200)
@@ -40,7 +40,7 @@ class Tienda(Moda):
 
     def mostrarProductos(self):
         str = ""
-        for i, producto in enumerate(self.listaProductos):
+        for i, producto in enumerate(self._listaProductos):
             str += f"\n{i + 1}" + str(producto) + "\n"
         return str
     
@@ -56,19 +56,19 @@ class Tienda(Moda):
     # Este método permite visualizar los productos que tiene una tienda y la cantidad que hay por cada uno.
     
     def cantidadProductos(self):
-        self.listaCantidadProductos = {}
+        self._listaCantidadProductos = {}
         cadena = "    "
             
         # Ciclo para agregar los valores al diccionario y hacer el conteo
-        for producto in self.listaProductos:
-            if producto in self.listaCantidadProductos:
-                self.listaCantidadProductos[producto] += 1
+        for producto in self._listaProductos:
+            if producto in self._listaCantidadProductos:
+                self._listaCantidadProductos[producto] += 1
             else:
-                self.listaCantidadProductos[producto] = 1
+                self._listaCantidadProductos[producto] = 1
 
         # Bucle for para generar la cadena con la cantidad de cada producto
-        for producto, cantidad in self.listaCantidadProductos.items():
-            cadena += f"\n     {producto.nombre}: {cantidad} "
+        for producto, cantidad in self._listaCantidadProductos.items():
+            cadena += f"\n     {producto.getNombre()}: {cantidad} "
 
         return cadena
 
@@ -87,21 +87,206 @@ class Tienda(Moda):
      
     def productosPorCategoria(self):
         cadena = ""
-        self.productosPorCategoria = {
+        self._productosPorCategoria = {
             "aseo": 0,
             "consumible": 0,
             "construccion": 0
         }
-        for producto in self.listaProductos:
-            categoria = producto.categoria
-            if categoria in self.productosPorCategoria:
-                self.productosPorCategoria[categoria] += 1
+        for producto in self._listaProductos:
+            categoria = producto.getCategoria()
+            if categoria in self._productosPorCategoria:
+                self._productosPorCategoria[categoria] += 1
 
-        cadena += "Aseo " + str(self.productosPorCategoria["aseo"]) + "/" + str(self.cantidadPorCategoria["aseo"]) + "  "
-        cadena += "Consumible " + str(self.productosPorCategoria["consumible"]) + "/" + str(self.cantidadPorCategoria["consumible"]) + "  "
-        cadena += "Construccion " + str(self.productosPorCategoria["construccion"]) + "/" + str(self.cantidadPorCategoria["construccion"]) + "  "
+        cadena += "Aseo " + str(self._productosPorCategoria["aseo"]) + "/" + str(self._cantidadPorCategoria["aseo"]) + "  "
+        cadena += "Consumible " + str(self._productosPorCategoria["consumible"]) + "/" + str(self._cantidadPorCategoria["consumible"]) + "  "
+        cadena += "Construccion " + str(self._productosPorCategoria["construccion"]) + "/" + str(self._cantidadPorCategoria["construccion"]) + "  "
         return cadena
 
+    # FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: EnviarPedido
+    # 
+    # RECIBE: 
+    # No recibe ningun argumento
+    # 
+    # DEVUELVE:
+    # String cadena de texto que contiene la cantidad de productos en una lista de ventas.
+    # 
+    # DESCRIPCIÓN:
+    # Dentro del método, se crea un diccionario (HashMap) llamado "listaCantidadProductos" 
+    # para almacenar la cantidad de cada producto. Luego, se recorre una lista de productos 
+    # y se actualiza el diccionario con el conteo de cada producto. Al final,
+    # se genera una cadena que muestra el índice, el nombre del producto y su cantidad, y se retorna dicha cadena.
+    # Esta cadena se vé en consola y es con la que el 
+    # usuario elige su producto.
 
-     
+    def cantidadProductosVentas(self):
+        self._listaCantidadProductos = {}
+        cadena = "    "
+        indice = 1
+        
+        # Ciclo para agregar los valores al diccionario y hacer el conteo
+        for producto in self._listaProductos:
+            if producto in self._listaCantidadProductos:
+                self._listaCantidadProductos[producto] += 1
+            else:
+                self._listaCantidadProductos[producto] = 1
+        
+        # Bucle for para generar la cadena con la cantidad de cada producto
+        for producto in self._listaProductos:
+            if producto.getNombre() not in cadena:
+                cadena += f"\n{indice}. {producto.getNombre()}: {self._listaCantidadProductos[producto]} "
+                indice += 1
+        
+        return cadena
+    
+    # FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer, EnviarPedido
+    # 
+    # RECIBE:
+    # No recibe ningun argumento
+    # 
+    # DEVUELVE:
+    # Devuelve un String con las tiendas y los productos que tiene con su
+    # respectiva cantidad
+    # 
+    # DESCRIPCIÓN:
+    # sirve para actualizar la cantidad de un productos en la lista de productos 
+    # y en el diccionario listaCantidadProductos. Muestra en tiempo real que el producto ha
+    # sido seleccionado y no está disponible para otros como en EnviarPedido 
+    # se llama cada vez que se selecciona un producto, en consola va bajando el número
+    # de productos disponibles cada vez que selecciones uno.
+    
+    def venderProducto(self, producto):
+        if producto in self._listaProductos:
+            self._listaProductos.remove(producto)
+            
+            if producto in self._listaCantidadProductos and self._listaCantidadProductos[producto] > 1:
+                self._listaCantidadProductos[producto] -= 1
+            else:
+                del self._listaCantidadProductos[producto]
 
+    # FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Enviar Pedido
+    # 
+    # RECIBE: 
+    # lista de productos que se pidieron (ArrayList con objetos de tipo
+    # Producto), el transporte que se eligio (objeto tipo transporte),
+    # el cliente al que se le enviará el pedido (objeto tipo Cliente) y el dia 
+    # del mes del envio (entero).
+    # 
+    # DEVUELVE: 
+    # la factura correspondiente al envio realizado (objeto tipo Factura).
+    # 
+    # DESCRIPCIÓN: 
+    # elimina las cantidades de productos pedidos de las listas
+    # de la tienda, suma el respectivo trabajo a las personas involucradas (vendedor,
+    # operario y conductor), añade los productos pedidos a la lista del cliente y 
+    # genera la factura asociada al envío.
+
+    def enviarPedido(self, listaProductosPedidos, transporte, cliente, dia, operario):
+        # Resto 1 unidad de las cantidades de los productos, pues se envió
+        for producto in listaProductosPedidos:
+            if producto in self._listaCantidadProductos and self._listaCantidadProductos[producto] > 1:
+                self._listaCantidadProductos[producto] -= 1
+            else:
+                del self._listaCantidadProductos[producto]
+
+        # Añado la suma de trabajo a los trabajadores
+
+        # Al vendedor
+        self._vendedor.setTrabajo(self._vendedor.getTrabajo()+1)
+        self._vendedor.setIndiceMeta(self._vendedor.getIndiceMeta() + len(listaProductosPedidos))
+
+        # Al conductor
+        transporte.getConductor().setTrabajo(transporte.getConductor().getTrabajo() + 1)
+        for producto in listaProductosPedidos:
+            transporte.getConductor().setIndiceMeta(transporte.getConductor().getIndiceMeta() + producto.getPeso)
+
+        # Al operario
+        operario.setTrabajo(operario.getTrabajo()+1)
+        operario.setIndiceMeta(operario.getIndiceMeta() + len(listaProductosPedidos))
+
+        # Agrego los productos al cliente
+        for producto in listaProductosPedidos:
+            cliente.setProductos(cliente.getProductos().append(producto))
+
+        # Creo la factura
+        factura = Factura(self, cliente, transporte, listaProductosPedidos, dia, "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.", operario)
+        return factura
+
+    # FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
+    # 
+    # RECIBE: 
+    # objeto de tipo Factura y uno de tipo Producto.
+    # 
+    # DEVUELVE: 
+    # un objeto de tipo CLiente.
+    # 
+    # DESCRIPCIÓN: 
+    # devuelve el producto seleccionado 
+    # a una lista de la tienda donde se almacenan las devoluciones
+    # y por ultimo retorna el cliente al que se le hizo la devolución.
+
+    def devolverProducto(self, factura, producto):
+        self._productosDevueltos.append(producto)  # se devuelve el producto
+        return factura.getCliente()
+    
+    # FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Abastecer
+    # 
+    # RECIBE: 
+    # transporte: Transporte que lleva los productos.
+    # 
+    # DEVUELVE: Jaider ponga que se devuelve
+    # 
+    # DESCRIPCIÓN:
+    # Este método envia los poductos del transporte a la tienda.
+
+    def descargarProducto(self, transporte):
+        while len(transporte.getListaDeProductos()) > 0:
+            self._listaProductos.append(transporte.getListaDeProductos().pop(0))
+        transporte.getConductor().setTrabajo(transporte.getConductor().getTrabajo() + 1)
+
+    # Getters and Setters
+
+    def getNombre(self):
+        return self._nombre
+
+    def setNombre(self, nombre):
+        self._nombre = nombre
+
+    def getVendedor(self):
+        return self._vendedor
+
+    def setVendedor(self, vendedor):
+        self._vendedor = vendedor
+
+    def getCuentaBancaria(self):
+        return self._cuentaBancaria
+
+    def setCuentaBancaria(self, cuentaBancaria):
+        self._cuentaBancaria = cuentaBancaria
+
+    def getListaProductos(self):
+        return self._listaProductos
+
+    def setListaProductos(self, listaProductos):
+        self._listaProductos = listaProductos
+
+    def getProductosPorCategoria(self):
+        return self._productosPorCategoria
+
+    def getCantidadPorCategoria(self):
+        return self._cantidadPorCategoria
+
+    def getListaCantidadProductos(self):
+        return self._listaCantidadProductos
+
+    def setListaCantidadProductos(self, listaCantidadProductos):
+        self._listaCantidadProductos = listaCantidadProductos
+
+    def getProductosDevueltos(self):
+        return self._productosDevueltos
+
+    def setProductosDevueltos(self, productosDevueltos):
+        self._productosDevueltos = productosDevueltos
+
+    @classmethod
+    def get_num_tiendas(cls):
+        return cls._numTiendas

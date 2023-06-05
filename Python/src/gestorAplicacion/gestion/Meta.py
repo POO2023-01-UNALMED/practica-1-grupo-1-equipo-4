@@ -7,9 +7,9 @@ import pickle
 
 class Meta:
     def __init__(self, nivelDeDificultad, indice, pago):
-        self.nivelDeDificultad = nivelDeDificultad
-        self.indice = indice
-        self.pago = pago
+        self._nivelDeDificultad = nivelDeDificultad
+        self._indice = indice
+        self._pago = pago
 
     # Métodos
 
@@ -25,7 +25,7 @@ class Meta:
     # Este método permite saber si la meta fue o no cumplida.
 
     def cumpleMeta(self, indiceTrabajado):
-        if indiceTrabajado >= self.indice:
+        if indiceTrabajado >= self._indice:
             return True
         else:
             return False
@@ -44,34 +44,34 @@ class Meta:
     # porcentaje faltante y cuando falta para que se cumpla la meta.
     
     def porcentajesCumplidos(self, indiceTrabajado):
-        porcentajeindice = (indiceTrabajado*100)/self.indice
+        porcentajeindice = (indiceTrabajado*100)/self._indice
         texto = "Porcentaje de la meta cumplido: " + str(porcentajeindice) + "%"
         if porcentajeindice < 100:
             texto += "\nPorcentaje faltante: " + str(100-porcentajeindice) + "%"
-            texto += "\nCantidad faltante del indice indicado: " + str(self.indice-indiceTrabajado) 
+            texto += "\nCantidad faltante del indice indicado: " + str(self._indice-indiceTrabajado) 
         return texto
     
     def __str__(self):
-        return "Nivel de dificultad: "            + self.nivelDeDificultad + "\n" \
-             + "indice requerido: "               + str(self.indice) + "\n" \
-             + "Bonificación por cumplimiento: "  + str(self.pago) + "\n"
+        return "Nivel de dificultad: "            + self._nivelDeDificultad + "\n" \
+             + "indice requerido: "               + str(self._indice) + "\n" \
+             + "Bonificación por cumplimiento: "  + str(self._pago) + "\n"
     
-    # Gets and sets
+    # Getters and Setters
 
     def getNivelDeDificultad(self):
-        return self.nivelDeDificultad
+        return self._nivelDeDificultad
     
     def setNivelDeDificultad(self, nivelDeDificultad):
-        self.nivelDeDificultad = nivelDeDificultad
+        self._nivelDeDificultad = nivelDeDificultad
     
     def getIndice(self):
-        return self.indice
+        return self._indice
     
     def setIndice(self, indice):
-        self.indice = indice
+        self._indice = indice
     
     def getPago(self):
-        return self.pago
+        return self._pago
     
     def setPago(self, pago):
-        self.pago = pago
+        self._pago = pago

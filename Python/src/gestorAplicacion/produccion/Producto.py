@@ -6,91 +6,92 @@
 import pickle
 
 class Producto:
-    numProductos = 0
-    listaProductos = []
+    _numProductos = 0
+    _listaProductos = []
 
     def __init__(self, nombre, descripcion, valor, peso, tamano, costoDeProduccion, categoria):
-        self.nombre = nombre
-        self.descripcion = descripcion
-        self.valor = valor
-        self.peso = peso
-        self.tamano = tamano
-        self.costoDeProduccion = costoDeProduccion
-        self.categoria = categoria.lower()
-        Producto.numProductos += 1
-        Producto.listaProductos.append(self)
-        self.devuelto = False
+        self._nombre = nombre
+        self._descripcion = descripcion
+        self._valor = valor
+        self._peso = peso
+        self._tamano = tamano
+        self._costoDeProduccion = costoDeProduccion
+        self._categoria = categoria.lower()
+        Producto._numProductos += 1
+        Producto._listaProductos.append(self)
+        self._devuelto = False
 
     def __init__(self, nombre, valor, peso, tamano, categoria):
         self(nombre, "Sin descripción", valor, peso, tamano, 10.0, categoria)
 
     # Métodos
+    
     def __str__(self):
-        return "\nNombre: " + self.nombre + "\n" \
-               + "Descripción: " + self.descripcion + "\n" \
-               + "Valor: " + str(self.valor) + "\n" \
-               + "Peso: " + str(self.peso) + "\n" \
-               + "Tamaño: " + str(self.tamano) + "\n" \
-               + "Costo de produccion: " + str(self.costoDeProduccion) + "\n"
+        return "\nNombre: " + self._nombre + "\n" \
+               + "Descripción: " + self._descripcion + "\n" \
+               + "Valor: " + str(self._valor) + "\n" \
+               + "Peso: " + str(self._peso) + "\n" \
+               + "Tamaño: " + str(self._tamano) + "\n" \
+               + "Costo de produccion: " + str(self._costoDeProduccion) + "\n"
     
     # Getters and Setters
     
     def getNombre(self):
-        return self.nombre
+        return self._nombre
     
     def setNombre(self, nombre):
-        self.nombre = nombre
+        self._nombre = nombre
 
     def isDevuelto(self):
-        return self.devuelto
+        return self._devuelto
     
     def setDevuelto(self, devuelto):
-        self.devuelto = devuelto
+        self._devuelto = devuelto
 
     def getDescripcion(self):
-        return self.descripcion
+        return self._descripcion
 
     def setDescripcion(self, descripcion):
-        self.descripcion = descripcion
+        self._descripcion = descripcion
 
     def getValor(self):
-        return self.valor
+        return self._valor
 
     def setValor(self, valor):
-        self.valor = valor
+        self._valor = valor
 
     def getPeso(self):
-        return self.peso
+        return self._peso
 
     def setPeso(self, peso):
-        self.peso = peso
+        self._peso = peso
 
     def getTamano(self):
-        return self.tamano
+        return self._tamano
 
     def setTamano(self, tamano):
-        self.tamano = tamano
+        self._tamano = tamano
 
     def getCostoDeProduccion(self):
-        return self.costoDeProduccion
+        return self._costoDeProduccion
 
     def setCostoDeProduccion(self, costoDeProduccion):
-        self.costoDeProduccion = costoDeProduccion
+        self._costoDeProduccion = costoDeProduccion
 
     def getCategoria(self):
-        return self.categoria
+        return self._categoria
     
     def setCategoria(self, categoria):
-        self.categoria = categoria
+        self._categoria = categoria
 
-    @staticmethod
-    def getNumProductos():
-        return Producto.numProductos
+    @classmethod
+    def getNumProductos(cls):
+        return cls._numProductos
 
-    @staticmethod
-    def setListaProductos(listaproductos):
-        Producto.listaProductos = listaproductos
+    @classmethod
+    def setListaProductos(cls,listaproductos):
+        cls._listaProductos = listaproductos
 
-    @staticmethod
-    def getListaProductos():
-        return Producto.listaProductos
+    @classmethod
+    def getListaProductos(cls):
+        return cls._listaProductos
