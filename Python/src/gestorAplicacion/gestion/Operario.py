@@ -9,6 +9,7 @@ from gestorAplicacion.persona import Persona
 
 #aaa
 #bbb
+#ccc
 class Operario(Persona):
     #/*-------------------Atributos-------------------------*/
     metasOperario = [
