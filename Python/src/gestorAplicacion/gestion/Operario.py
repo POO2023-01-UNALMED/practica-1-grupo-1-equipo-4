@@ -7,6 +7,7 @@ from gestorAplicacion.produccion.fabrica import Fabrica
 from gestorAplicacion.gestion.meta import Meta
 from gestorAplicacion.persona import Persona
 
+#aaa
 
 class Operario(Persona):
     #/*-------------------Atributos-------------------------*/
