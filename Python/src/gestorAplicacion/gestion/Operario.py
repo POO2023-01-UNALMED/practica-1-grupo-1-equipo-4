@@ -8,7 +8,7 @@ from gestorAplicacion.gestion.meta import Meta
 from gestorAplicacion.persona import Persona
 
 #aaa
-
+#bbb
 class Operario(Persona):
     #/*-------------------Atributos-------------------------*/
     metasOperario = [
