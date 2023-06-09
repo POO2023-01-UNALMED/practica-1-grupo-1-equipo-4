@@ -2,12 +2,12 @@ import random
 
 class TipoTransporte:
     def __init__(self, precioEnvio, capacidadMax, nombre):
-        self.precioEnvio = precioEnvio
-        self.capacidadMax = capacidadMax
-        self.nombre = nombre
+        self._precioEnvio = precioEnvio
+        self._capacidadMax = capacidadMax
+        self._nombre = nombre
     
     def __str__(self):
-        return self.nombre
+        return self._nombre
     
     @staticmethod
     def crearTipoTransporteSegunCarga(PesoTotalProductos):
