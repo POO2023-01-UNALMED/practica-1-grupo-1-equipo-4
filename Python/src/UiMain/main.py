@@ -1,6 +1,7 @@
 from Ventanas.ventanaDeInicio import VentanaDeInicio
 import tkinter as tk
-ventana = VentanaDeInicio()
+if __name__=='__main__':
+    ventana = VentanaDeInicio()
 
-# Iniciar el bucle principal de la aplicación
-ventana.mainloop()
+    # Iniciar el bucle principal de la aplicación
+    ventana.mainloop()
