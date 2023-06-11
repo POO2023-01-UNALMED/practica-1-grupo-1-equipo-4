@@ -1,10 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
 
-def changed(ventana,event):
-    ventana.delete(0,"end")
-    ventana.insert(0,combo.get())
-
 ventana = tk.Tk()
 ventana.title("Abastecimiento de tiendas")
 ventana.geometry("900x800")
