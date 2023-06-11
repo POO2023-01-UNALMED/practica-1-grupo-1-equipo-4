@@ -3,7 +3,7 @@
 #  * FUNCIONALIDAD DE LA CLASE: clase abstracta que proporciona atributos y métodos 
 #  * comunes para la creación de los distintos tipos de trabajadores de la empresa.
 #  */
-from gestorAplicacion.gestion.cuenta_bancaria import CuentaBancaria
+from gestorAplicacion.gestion.CuentaBancaria import CuentaBancaria
 
 class Persona:
     #/*-------------------Atributos-------------------------*/
@@ -12,13 +12,13 @@ class Persona:
     SALARIO=1000
     #/*-------------------Constructores-------------------------*/
     def __init__(self, nombre, edad, cedula, cuentaBancaria):
-        self.nombre = nombre
-        self.edad = edad
-        self.cedula = cedula
-        self.cuentaBancaria = cuentaBancaria
-        self.trabajo = 0
-        self.indiceMeta = 0
-        self.verificadorMetasCumplidas = [False, False]
+        self._nombre = nombre
+        self._edad = edad
+        self._cedula = cedula
+        self._cuentaBancaria = cuentaBancaria
+        self._trabajo = 0
+        self._indiceMeta = 0
+        self._verificadorMetasCumplidas = [False, False]
         Persona.listaPersonas.append(self)
     #/*------------------- Metodos -------------------------*/
     def recibirSueldo(self, total):
@@ -62,22 +62,22 @@ class Persona:
         return cls.SALARIO
 
     def getTrabajo(self):
-        return self.trabajo
+        return self._trabajo
 
     def setTrabajo(self, trabajo):
-        self.trabajo = trabajo
+        self._trabajo = trabajo
 
     def getIndiceMeta(self):
-        return self.indiceMeta
+        return self._indiceMeta
 
     def setIndiceMeta(self, indiceMeta):
-        self.indiceMeta = indiceMeta
+        self._indiceMeta = indiceMeta
 
     def getVerificadorMetasCumplidas(self):
-        return self.verificadorMetasCumplidas
+        return self._verificadorMetasCumplidas
 
     def setVerificadorMetasCumplidas(self, verificadorMetasCumplidas):
-        self.verificadorMetasCumplidas = verificadorMetasCumplidas
+        self._verificadorMetasCumplidas = verificadorMetasCumplidas
 
     @classmethod
     def getPersonasTotales(cls):

@@ -5,7 +5,12 @@
 # de todas las operaciones. Como tal, la Tienda está estrechamente vinculada con todas las funcionalidades relacionadas, ya que actúa como 
 # el vínculo entre el cliente y la empresa.
 
-from gestorAplicacion.gestion import Cliente, CuentaBancaria, Vendedor, Factura, Moda, Operario
+from gestorAplicacion.gestion.Cliente import Cliente
+from gestorAplicacion.gestion.CuentaBancaria import CuentaBancaria
+from gestorAplicacion.gestion.Vendedor import Vendedor  
+from gestorAplicacion.gestion.Factura import Factura  
+from gestorAplicacion.gestion.Moda import Moda
+from gestorAplicacion.gestion.Operario import Operario
 import pickle
 import random
 

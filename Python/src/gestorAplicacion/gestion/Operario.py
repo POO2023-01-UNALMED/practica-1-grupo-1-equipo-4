@@ -3,9 +3,9 @@
 #  * FUNCIONALIDAD DE LA CLASE: clase que hereda de Persona, que representa al trabajador 
 #  * que controla la producción de los productos en las fábricas.
 #  */
-from gestorAplicacion.produccion.fabrica import Fabrica
-from gestorAplicacion.gestion.meta import Meta
-from gestorAplicacion.persona import Persona
+from gestorAplicacion.produccion.Fabrica import Fabrica
+from gestorAplicacion.gestion.Meta import Meta
+from gestorAplicacion.gestion.Persona import Persona
 
 #aaa
 #bbb
