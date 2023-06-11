@@ -22,7 +22,7 @@ class Transporte:
         self._tienda = tienda
         self._listaDeProductos = lista_de_productos
 
-    @staticmethod
+    @classmethod
     def mostrar_tipo_transporte():
         for tipo in TipoTransporte:
             print(tipo.value)
@@ -31,7 +31,7 @@ class Transporte:
         texto_tipo_transporte = f"Tipo de transporte: {tipo_transporte.value}, Precio: {tipo_transporte.precio_envio}, Capacidad máxima: {tipo_transporte.capacidad_max}"
         return texto_tipo_transporte
 
-    @staticmethod
+    @classmethod
     def enviar_gratis(transporte_seleccionado):
         transporte_seleccionado.tipo.precio_envio = 0
         return transporte_seleccionado
