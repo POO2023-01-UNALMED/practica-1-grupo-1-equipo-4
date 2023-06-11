@@ -3,7 +3,7 @@ from Ventanas.ventanaDeEntrada import ventanaDeEntrada
 class VentanaBase(Tk):
     def __init__(self) :
         super().__init__()
-        self.geometry("880x640")
+        self.geometry("700x640")
         self.title("Distribuidora MJLJM")
 
 
