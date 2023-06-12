@@ -1,3 +1,4 @@
+import os
 import tkinter as tk
 from Ventanas.ventanaBase import VentanaBase
 
@@ -21,7 +22,19 @@ class VentanaDeInicio(tk.Tk):
 
 
         # --------------- APARTIR DE ACA LUIS HARÁ SU MAGIA PARA NO DAÑAR LO DEMAS --------------
+        #eventos de click
+        def evento_clic(event):
+            marco_derecho.configure(bg="black")
 
+        #  ---------Fotos ----------
+
+        # # Obtener la ruta del directorio actual del script
+        # directorio_actual = os.path.dirname(os.path.abspath("Pyhton\\UiMain\\Ventanas\\imagenes\\fotosLuis\\viendoTamano.png"))
+        
+        # # Construir la ruta relativa al archivo
+        # ruta_archivo = os.path.join(directorio_actual, "viendoTamano.png")
+        # print(directorio_actual)
+        # imagen1 = tk.PhotoImage(file="C:\\Users\\LENOVO\\Downloads\\LuizZz\\wakaPruebaCopia.png") #ruta_archivo
 
         self.columnconfigure(0, weight=1)
         self.columnconfigure(1, weight=2)
@@ -79,12 +92,35 @@ class VentanaDeInicio(tk.Tk):
 
         derecho_2 = tk.Frame(marco_derecho, bg="#f5425a") #, width="400", height="100"
         derecho_2.grid(row=1, padx=10, pady=10, sticky="nsew")
+        
         derecho_2.rowconfigure(0, weight=1)
+        derecho_2.rowconfigure(1, weight=1)
         derecho_2.columnconfigure(0, weight=1)
-        algo4 = tk.Label(derecho_2, text="aqui deben ir algunas imagenes")
-        algo4.grid(row=0, padx=20, pady=20, sticky="nsew")
+        derecho_2.columnconfigure(1, weight=1)
+        
+        algo4 = tk.Label(derecho_2, text="imagen 1") #image= imagen1
+        algo4.grid(row=0,column=0, padx=10, pady=10, sticky="nsew")
+        algo5 = tk.Label(derecho_2, text="imagen 2")
+        algo5.grid(row=0,column=1, padx=10, pady=10, sticky="nsew")
+        algo6 = tk.Label(derecho_2, text="imagen 3")
+        algo6.grid(row=1,column=0, padx=10, pady=10, sticky="nsew")
+        algo7 = tk.Label(derecho_2, text="imagen 4")
+        algo7.grid(row=1,column=1, padx=10, pady=10, sticky="nsew")
+
+
+        marco_derecho.bind("<Button-1>", evento_clic)
+        derecho_1.bind("<Button-1>", evento_clic)
+        derecho_2.bind("<Button-1>", evento_clic)
+        algo3.bind("<Button-1>", evento_clic)
+        algo4.bind("<Button-1>", evento_clic)
+        algo5.bind("<Button-1>", evento_clic)
+        algo6.bind("<Button-1>", evento_clic)
+        algo7.bind("<Button-1>", evento_clic)
 
         # ---------------      ACÁ TERMINA LA MAGIA DE LUIS             -------------
+
+    
+
 
         
     def reset_screen(self):
