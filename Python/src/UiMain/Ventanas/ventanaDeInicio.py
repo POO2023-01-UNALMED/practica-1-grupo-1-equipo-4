@@ -6,7 +6,7 @@ class VentanaDeInicio(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.title("Distribuidora MJLJM")
+        self.title("Inicio")
         self.geometry("1080x720")
         menuArchivo = tk.Menu(self)
         self.config(menu=menuArchivo)

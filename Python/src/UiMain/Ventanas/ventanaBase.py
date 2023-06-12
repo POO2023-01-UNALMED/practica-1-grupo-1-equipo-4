@@ -1,5 +1,6 @@
 from tkinter import Menu,Tk,BOTH,Frame, messagebox
 from Ventanas.ventanaDeEntrada import ventanaDeEntrada
+from Funcionalidades.PagoTrabajadores import PagoTrabajadores
 class VentanaBase(Tk):
     def __init__(self) :
         super().__init__()
@@ -22,7 +23,7 @@ class VentanaBase(Tk):
         self.config(menu=menuProcesos)
         menuBar.add_cascade(menu = menuProcesos,label = 'Procesos y Consultas')
         menuProcesos.add_command(label='Enviar pedido')#command
-        menuProcesos.add_command(label='Pagar trabajadores')#command
+        menuProcesos.add_command(label='Pagar trabajadores', command= self.pagoTrabajadores)#command
         menuProcesos.add_command(label='Abastecer tiendas')#command
         menuProcesos.add_command(label='Gestionar devoluciones')#command
         menuProcesos.add_command(label='Mostrar estadísticas')#command
@@ -41,6 +42,11 @@ class VentanaBase(Tk):
     # def Abastecer(self):
     #     geC = Abastecer(self)
     #     self.Limpiar(geC)
+
+    def pagoTrabajadores(self):
+        geC = PagoTrabajadores(self)
+        self.Limpiar(geC)
+        
     
     def abrir_ventana_principal(self):
         self.destroy()
