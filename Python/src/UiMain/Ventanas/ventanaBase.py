@@ -1,4 +1,4 @@
-from tkinter import Menu,Tk,BOTH,Frame
+from tkinter import Menu,Tk,BOTH,Frame, messagebox
 from Ventanas.ventanaDeEntrada import ventanaDeEntrada
 class VentanaBase(Tk):
     def __init__(self) :
@@ -29,7 +29,7 @@ class VentanaBase(Tk):
 
         #----------Ayuda---------
         menuBar.add_cascade(menu=menuAyuda,label='Ayuda')
-        menuAyuda.add_command(label='Acerca de')#command
+        menuAyuda.add_command(label='Acerca de', command=self.acercaDe)
         # #submenu de procesos y consultas
         # menuProcesos.add_command(label = "Gestionar Ciudades", command = self.gestionarCiudades)
 
@@ -49,4 +49,7 @@ class VentanaBase(Tk):
         for frame in self.winfo_children():
             frame.pack_forget()
         funcionalidadEnPantalla.pack(fill=BOTH,expand=True)
+
+    def acercaDe(self):
+        messagebox.showinfo("Desarrolladores","Maria Fernanda Calle Agudelo\nMonica Sofia Restrepo Leon\nJaider Catañeda Villa\nLuis Alejandro Varela Ojeda\nJoan Sebastian Salazar Montoya \n")
     
