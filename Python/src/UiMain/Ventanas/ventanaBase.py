@@ -28,10 +28,10 @@ class VentanaBase(Tk):
         menuProcesos.add_command(label='Mostrar estadísticas')#command
 
         #----------Ayuda---------
-        menuBar.add_command(label='Ayuda')
+        menuBar.add_cascade(menu=menuAyuda,label='Ayuda')
+        menuAyuda.add_command(label='Acerca de')#command
         # #submenu de procesos y consultas
         # menuProcesos.add_command(label = "Gestionar Ciudades", command = self.gestionarCiudades)
-
 
         interfazInicio = ventanaDeEntrada(self)
         interfazInicio.pack()
