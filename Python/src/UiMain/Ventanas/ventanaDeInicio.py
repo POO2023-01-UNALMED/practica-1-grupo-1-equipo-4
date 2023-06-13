@@ -6,10 +6,11 @@ class VentanaDeInicio(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.title("Inicio")
+        self.title("La mejor empresa del mundo0o0o0 MJLJM")
         self.geometry("1080x720+0+0")
+        self.config(bg="#dab5ff")
         menuArchivo = tk.Menu(self)
-        self.config(menu=menuArchivo)
+        self.config(menu=menuArchivo, height=30)
         menu1 = tk.Menu(menuArchivo,activebackground="blue",activeforeground="white")
         menuArchivo.add_cascade(label="Inicio", menu=menu1)
         menu1.add_command(label="Descripcion del sistema")#,command=)
@@ -36,8 +37,8 @@ class VentanaDeInicio(tk.Tk):
         # print(directorio_actual)
         # imagen1 = tk.PhotoImage(file="C:\\Users\\LENOVO\\Downloads\\LuizZz\\wakaPruebaCopia.png") #ruta_archivo
 
-        self.columnconfigure(0, weight=1)
-        self.columnconfigure(1, weight=2)
+        self.columnconfigure(0, weight=4)
+        self.columnconfigure(1, weight=5)
         # Crear el marco izquierdo
         marco_izquierdo = tk.Frame(self, bg="#45ffb8")
         marco_izquierdo.columnconfigure(0, weight=1)
