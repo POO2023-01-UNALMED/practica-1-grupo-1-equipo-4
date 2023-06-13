@@ -32,15 +32,15 @@ class PagoTrabajadores(Frame):
             pass
 
         #--------------Divisiones filas y columnas --------------
-        for i in range(12):
+        for i in range(5):
             self.rowconfigure(i, weight=1)
 
-        for j in range(4):
+        for j in range(8):
             self.columnconfigure(j, weight=1)
 
         #--------------Título y descripción --------------
         frameCabecera = tk.Frame(self)
-        frameCabecera.grid(row=0, column=0, columnspan=4,padx=5, pady=5)
+        frameCabecera.grid(row=0, column=0, columnspan=8,padx=5, pady=5)
         titulo = tk.Label(frameCabecera, text='Pagar a trabajadores', font=("Arial", 15))
         titulo.pack()
         textoDescripcion = """Aquí podra seleccionar alguno de los trabajadores disponibles
