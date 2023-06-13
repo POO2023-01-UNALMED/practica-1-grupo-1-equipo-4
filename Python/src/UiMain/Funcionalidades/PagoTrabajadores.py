@@ -23,10 +23,16 @@ class PagoTrabajadores(Frame):
                 desplegableTrabajadores['values'] = ()
 
         def opcionTrabajador(evento):
+            frameInfo.grid()
+
+        def opcionMetaSi(evento):
+            pass
+
+        def opcionMetaNo(evento):
             pass
 
         #--------------Divisiones filas y columnas --------------
-        for i in range(8):
+        for i in range(12):
             self.rowconfigure(i, weight=1)
 
         for j in range(4):
@@ -45,7 +51,7 @@ class PagoTrabajadores(Frame):
         descripcion.pack()
 
         #--------------Tipo de trabajador --------------
-        frameTipos1 = tk.Frame(self, width=200 ,height=100)
+        frameTipos1 = tk.Frame(self)
         frameTipos1.grid(row=1, column=1, columnspan=2, padx=5, pady=5)
 
         frameTipos11 = tk.Frame(frameTipos1)
@@ -72,13 +78,35 @@ class PagoTrabajadores(Frame):
         desplegableTrabajadores.pack(side='top', anchor='center')
         desplegableTrabajadores.bind("<<ComboboxSelected>>",opcionTrabajador)
 
-        #--------------Información trabajador seleccionado --------------
+        #--------------Información trabajador seleccionado y Pregunta metas --------------
+
+        frameInfo = tk.Frame(self)
+        frameInfo.grid(row=2, column=1, columnspan=2 ,padx=5, pady=5)
+        frameInfo.grid_remove()
+
+        info = """Aquí se muestra la información del pago al trabajador por las horas
+        trabajadas"""
+        infoTrabajador = tk.Label(frameInfo, text=info, font=("Arial", 12))
+        infoTrabajador.pack()
+
+        pregunta = "¿Desea analizar y bonificar al trabajador por sus metas cumplidas?"
+        textoPregunta = tk.Label(frameInfo, text=pregunta, font=("Arial", 12))
+        textoPregunta.pack()
+
+        frameInfoBotones = tk.Frame(frameInfo)
+        frameInfoBotones.pack()
+
+        #Estilo botones
+        estilo = ttk.Style()
+        estilo.configure("Estilo.TButton", font=("Arial", 12), padding=10, width=10)
+        # Crear el botón "Sí"
+        botonSi = ttk.Button(frameInfoBotones, text="Sí", style="Estilo.TButton",command=opcionMetaSi)
+        botonSi.pack(side="left", padx=10)
+        # Crear el botón "No"
+        botonNo = ttk.Button(frameInfoBotones, text="No", style="Estilo.TButton", command=opcionMetaNo)
+        botonNo.pack(side="right", padx=10)
 
         #--------------Bonificación metas --------------
 
         #--------------Pago --------------
         
-
-
-
-
