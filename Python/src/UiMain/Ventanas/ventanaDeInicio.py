@@ -7,7 +7,7 @@ class VentanaDeInicio(tk.Tk):
         super().__init__()
 
         self.title("Inicio")
-        self.geometry("1080x720")
+        self.geometry("1080x720+0+0")
         menuArchivo = tk.Menu(self)
         self.config(menu=menuArchivo)
         menu1 = tk.Menu(menuArchivo,activebackground="blue",activeforeground="white")
