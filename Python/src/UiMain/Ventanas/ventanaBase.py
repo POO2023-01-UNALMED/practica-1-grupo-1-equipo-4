@@ -19,8 +19,8 @@ class VentanaBase(Tk):
         #----------Archivo---------
         self.config(menu=menuArchivo)
         menuBar.add_cascade(menu = menuArchivo,label='Archivo')
-        menuArchivo.add_command(label='Aplicacion')#command
-        menuArchivo.add_command(label='Salir')#command
+        menuArchivo.add_command(label='Aplicacion', command = self.aplicacion)#command
+        menuArchivo.add_command(label='Salir', command = self.salir)
 
         #----------Procesos y consultas---------
         self.config(menu=menuProcesos)
@@ -59,6 +59,29 @@ class VentanaBase(Tk):
         for frame in self.winfo_children():
             frame.pack_forget()
         funcionalidadEnPantalla.pack(fill=BOTH,expand=True)
+
+    def aplicacion(self):
+
+        info = """Distribuidora JMLMJ SAS es un programa diseñado para llevar el control de una empresa de distribuciones de diferentes tipos de productos, vista desde el punto de un administrador que es el encargado de controlar todos los procesos. A continuación una breve descripción de cada parte disponible del programa:
+
+Enviar Pedidos: Esta es la principal herramienta de la aplicación en donde el administrador podrá realizar envíos desde alguna tienda a diferentes clientes, seleccionar productos y hasta el tipo de transporte que se necesitará.
+
+Abastecer Tiendas: esta opción permite enviar productos desde una fábrica principal a 3 principales tiendas según el tipo de producto y la capacidad de de cada tienda.
+
+Pago Trabajadores: Le permite al encargado pagar un sueldo base y bonos a la cuenta dependiendo de las metas logradas a los diferentes trabajadores de la empresa: operarios, vendedores y  conductores.
+
+Realizar Devoluciones:  Como encargado de manejar la aplicación pueden ocurrir errores al momento de hacer un envió a un cliente, por lo tanto en base a la factura que se genera en un envío puede devolver productos.
+
+Estadísticas: este apartado permite observar el rendimiento de la empresa para saber que productos abastecer y así poder vender más, desde las ganancias  discretas, totales, promedios y aumento porcentual.  """
+
+        messagebox.showinfo("Aplicación", info)
+
+
+    def salir(self):
+
+        self.destroy()
+        from Ventanas.ventanaDeInicio import VentanaDeInicio
+        VentanaDeInicio()
 
     def acercaDe(self):
         messagebox.showinfo("Desarrolladores","Maria Fernanda Calle Agudelo\nMonica Sofia Restrepo Leon\nJaider Catañeda Villa\nLuis Alejandro Varela Ojeda\nJoan Sebastian Salazar Montoya \n")
