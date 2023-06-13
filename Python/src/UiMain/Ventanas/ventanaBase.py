@@ -2,6 +2,8 @@ from tkinter import Menu,Tk,BOTH,Frame, messagebox
 from Ventanas.ventanaDeEntrada import ventanaDeEntrada
 from Funcionalidades.PagoTrabajadores import PagoTrabajadores
 from Funcionalidades.Abastecer import Abastecer
+from Funcionalidades.EnviarPedido import EnviarPedido
+
 class VentanaBase(Tk):
     def __init__(self) :
         super().__init__()
@@ -40,14 +42,15 @@ class VentanaBase(Tk):
 
         self['menu'] = menuBar
 
-    def Abastecer(self):
-        geC = Abastecer(self)
-        self.Limpiar(geC)
+    # def Abastecer(self):
+    #     geC = Abastecer(self)
+    #     self.Limpiar(geC)
 
     def pagoTrabajadores(self):
         geC = PagoTrabajadores(self)
         self.Limpiar(geC)
         
+    
     
     def abrir_ventana_principal(self):
         self.destroy()
