@@ -3,10 +3,9 @@
 #  * FUNCIONALIDAD DE LA CLASE: clase que hereda de Persona, representa al trabajador 
 #  * que realiza la venta en su respectiva tienda. 
 #  */
-from gestorAplicacion.gestion.Persona import Persona
-from gestorAplicacion.produccion.Tienda import Tienda
-from gestorAplicacion.gestion.CuentaBancaria import CuentaBancaria
 from gestorAplicacion.gestion.Meta import Meta
+
+from .Persona import Persona
 
 
 class Vendedor(Persona):

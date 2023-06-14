@@ -21,9 +21,6 @@ class Producto:
         Producto._listaProductos.append(self)
         self._devuelto = False
 
-    def __init__(self, nombre, valor, peso, tamano, categoria):
-        self(nombre, "Sin descripción", valor, peso, tamano, 10.0, categoria)
-
     # Métodos
     
     def __str__(self):

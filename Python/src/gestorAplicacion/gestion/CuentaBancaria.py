@@ -1,7 +1,7 @@
-from Python.src.gestorAplicacion.gestion import Conductor
-from Python.src.gestorAplicacion.gestion import Vendedor
-from Python.src.gestorAplicacion.gestion import Operario
-from Python.src.gestorAplicacion.gestion import Persona
+from ..gestion.Conductor import Conductor
+from ..gestion.Vendedor import Vendedor
+from ..gestion.Operario import Operario
+from ..gestion.Persona import Persona
 
 
 class CuentaBancaria:

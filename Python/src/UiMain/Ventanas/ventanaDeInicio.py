@@ -1,6 +1,6 @@
 import os
 import tkinter as tk
-from Ventanas.ventanaBase import VentanaBase
+from .ventanaBase import VentanaBase
 
 class VentanaDeInicio(tk.Tk):
     def __init__(self):

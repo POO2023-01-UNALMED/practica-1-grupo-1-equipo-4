@@ -4,9 +4,9 @@
 #  * transporte desde la tienda hasta los clientes o desde la fábrica hasta la tienda en el momento de abastecer.
 #  * Cada uno está asociado a un transporte.
 #  */
-from gestorAplicacion.produccion.transporte import Transporte
-from gestorAplicacion.gestion.meta import Meta
-from gestorAplicacion.persona import Persona
+from gestorAplicacion.produccion.Transporte import Transporte
+from gestorAplicacion.gestion.Meta import Meta
+from gestorAplicacion.gestion.Persona import Persona
 
 
 class Conductor(Persona):

@@ -6,8 +6,7 @@
 # el vínculo entre el cliente y la empresa.
 
 from gestorAplicacion.gestion.Cliente import Cliente
-from gestorAplicacion.gestion.CuentaBancaria import CuentaBancaria
-from gestorAplicacion.gestion.Vendedor import Vendedor  
+from gestorAplicacion.gestion.Vendedor import Vendedor
 from gestorAplicacion.gestion.Factura import Factura  
 from gestorAplicacion.gestion.Moda import Moda
 from gestorAplicacion.gestion.Operario import Operario

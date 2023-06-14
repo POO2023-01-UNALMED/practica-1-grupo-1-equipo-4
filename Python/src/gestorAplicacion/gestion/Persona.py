@@ -3,7 +3,6 @@
 #  * FUNCIONALIDAD DE LA CLASE: clase abstracta que proporciona atributos y métodos 
 #  * comunes para la creación de los distintos tipos de trabajadores de la empresa.
 #  */
-from gestorAplicacion.gestion.CuentaBancaria import CuentaBancaria
 
 class Persona:
     #/*-------------------Atributos-------------------------*/
