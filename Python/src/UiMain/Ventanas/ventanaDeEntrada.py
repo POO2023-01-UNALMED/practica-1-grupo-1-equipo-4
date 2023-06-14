@@ -6,12 +6,12 @@ import pathlib
 class ventanaDeEntrada(Frame):
     def __init__(self, window):
         super().__init__(window)
-        self.text = scrolledtext.ScrolledText(self)
+        text = scrolledtext.ScrolledText(self)
         texto = "Bienvenido al menú principal de Distribuidora JMLMJ\n \
                 Instrucciones de uso\n \
                 ...              "
-        self.text.insert(END, texto)
-        self.text.tag_configure('center', justify='center')
-        self.text.configure(state='disabled')
-        self.text.pack()
+        text.insert(END, texto)
+        text.tag_configure('center', justify='center')
+        text.configure(state='disabled')
+        text.pack(expand=True, fill='both')
         
