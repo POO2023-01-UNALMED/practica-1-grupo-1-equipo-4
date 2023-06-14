@@ -1,6 +1,7 @@
 import os
 import tkinter as tk
 from .ventanaBase import VentanaBase
+from tkinter import messagebox
 
 class VentanaDeInicio(tk.Tk):
     def __init__(self):
@@ -13,7 +14,7 @@ class VentanaDeInicio(tk.Tk):
         self.config(menu=menuArchivo, height=30)
         menu1 = tk.Menu(menuArchivo,activebackground="blue",activeforeground="white")
         menuArchivo.add_cascade(label="Inicio", menu=menu1)
-        menu1.add_command(label="Descripcion del sistema")#,command=)
+        menu1.add_command(label="Descripcion del sistema", command= self.descripcionDelSistema)
         menu1.add_command(label="Salir",command=self.reset_screen)
 
         # Configurar y mostrar los widgets iniciales en la ventana
@@ -121,9 +122,28 @@ class VentanaDeInicio(tk.Tk):
         # ---------------      ACÁ TERMINA LA MAGIA DE LUIS             -------------
 
     
+    def descripcionDelSistema(self):
+            info = """Distribuidora JMLMJ SAS es un programa diseñado para llevar el control de una empresa de distribuciones de diferentes tipos de productos, vista desde el punto de un administrador encargado de controlar todos los procesos. 
+
+            Tiene funcionalidades para:
+                - Enviar pedido 
+                - Pagarle a los trabajadores
+                - Abastecer tiendas 
+                - Gestionar devoluciones 
+                - Mostar estadísticas 
+
+            Básicamente todo lo necesario para organizar, administrar y atender una empresa distibuidora con éxito. 
+
+              """
+
+            messagebox.showinfo("Aplicación", info)
 
 
-        
+
+    # def descripcionDelSistema(self):
+    #     geC = descripcionDelSistema(self)
+    #     self.Limpiar(geC)
+            
     def reset_screen(self):
         # Destruir la ventana actual
         #Ubicacion serializidor

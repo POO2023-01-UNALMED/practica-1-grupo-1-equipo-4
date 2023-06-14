@@ -5,6 +5,14 @@ class EnviarPedido(Frame):
     def __init__(self, window):
         super().__init__(window)
 
+
+        #--------------Divisiones filas y columnas --------------
+        for i in range(12):
+            self.rowconfigure(i, weight=1)
+
+        for j in range(4):
+            self.columnconfigure(j, weight=1)
+            
         #----------------TITULO
         frameCabecera = tk.Frame(self)
         frameCabecera.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
