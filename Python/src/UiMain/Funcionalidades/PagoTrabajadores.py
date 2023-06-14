@@ -34,18 +34,26 @@ class PagoTrabajadores(Frame):
         def opcionMetaSi():
             frameMetas.grid()
 
-        def opcionMetaNo():
+        def opcionPago():
             messagebox.showinfo("Pago existoso","Comprobante de pago\nPago asociado a los envios realizados: xxx\nPago asociado al cumplimiento de metas: 0\nTotal: xxx ")
             frameTipos12.grid_remove()
             frameInfo.grid_remove()
-
-        def opcionMeta():
-            pass
-
-        def opcionPagar(evento):
-            frameTipos12.grid_remove()
-            frameInfo.grid_remove()
             frameMetas.grid_remove()
+
+        def opcionMeta(evento):
+            opc = desplegableMetas.get()
+
+            if opc == "Meta 1":
+                frameMetas2.grid()
+                textoInfoMeta.config(text="Esta meta no se ha cumplido\nPorcentaje cumplido: 45%")
+                botonPago.grid()
+            elif opc == "Meta 2":
+                frameMetas2.grid()
+                textoInfoMeta.config(text="Esta meta se ha cumplido\nPorcentaje cumplido: 125%\nSe añadira la bonificación al pago total ")
+                botonPago.grid()
+            else:
+                frameMetas2.grid_remove()
+                textoInfoMeta.config(text="")
 
         #--------------Divisiones filas y columnas --------------
         for i in range(12):
@@ -123,19 +131,19 @@ class PagoTrabajadores(Frame):
         botonSi.pack(side="left", padx=10)
         # Crear el botón "No"
         textPago = """No, proceder con el pago"""
-        botonNo = ttk.Button(frameInfoBotones, text=textPago, style="Estilo.TButton", command=opcionMetaNo)
+        botonNo = ttk.Button(frameInfoBotones, text=textPago, style="Estilo.TButton", command=opcionPago)
         botonNo.pack(side="right", padx=10)
 
         #--------------Bonificación metas --------------
 
         frameMetas = tk.Frame(self)
-        frameMetas.grid(row=3, column=1, columnspan=2, rowspan=2 ,padx=5, pady=5)
+        frameMetas.grid(row=3, column=1, columnspan=2, rowspan=3 ,padx=5, pady=5)
         frameMetas.grid_remove()
 
         #Metas dependiendo del tipo
-        metas = "Meta 1: Vender más de 5 productos \nMeta 2: Vender más de 20 productos"
+        metas = "Meta 1: Vender más de 5 productos \nBonificación: 10000\nMeta 2: Vender más de 20 productos\nBonificación: 4000"
         textoMetas = tk.Label( frameMetas, text=metas, font=("Arial", 10)) #, bg ="#B856E5"
-        textoMetas.grid(row=3, column=1, padx=5, pady=5)
+        textoMetas.grid(row=3, column=1,columnspan=2,padx=5, pady=5)
 
         #Elección de meta 
 
@@ -155,4 +163,10 @@ class PagoTrabajadores(Frame):
         frameMetas2.grid(row=4, column=2, padx=5, pady=5)
         frameMetas2.grid_remove()
 
-        #Botón de pago        
+        textoInfoMeta= tk.Label(frameMetas2,font=("Arial", 10))
+        textoInfoMeta.pack(anchor='center')
+
+        #Botón de pago
+        botonPago = ttk.Button(frameMetas, text="Pagar total", style="Estilo.TButton",command=opcionPago)
+        botonPago.grid(row=5, column=1, columnspan=2,padx=5, pady=5)
+        botonPago.grid_remove()               
