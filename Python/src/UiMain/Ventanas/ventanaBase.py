@@ -52,9 +52,9 @@ class VentanaBase(Tk):
         geC = Abastecer(self)
         self.Limpiar(geC)
 
-    def pagoTrabajadores(self):
-        geC = PagoTrabajadores(self)
-        self.Limpiar(geC)
+    # def pagoTrabajadores(self):
+    #     geC = PagoTrabajadores(self)
+    #     self.Limpiar(geC)
 
     def enviarPedido(self):
         geC = EnviarPedido(self)
