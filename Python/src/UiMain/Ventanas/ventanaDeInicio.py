@@ -30,8 +30,10 @@ class VentanaDeInicio(tk.Tk):
 
         # --------------- APARTIR DE ACA LUIS HARÁ SU MAGIA PARA NO DAÑAR LO DEMAS --------------
 
-        python_imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis1.png').resize((300,225), Image.ANTIALIAS)) 
-        python_imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis2.png').resize((300,225), Image.ANTIALIAS)) 
+        python_imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis1.png').resize((150,125), Image.ANTIALIAS)) 
+        python_imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis2.png').resize((150,125), Image.ANTIALIAS)) 
+        python_imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis3.png').resize((150,125), Image.ANTIALIAS)) 
+        python_imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis4.png').resize((150,125), Image.ANTIALIAS)) 
         
         #eventos de click
         def evento_clic(event):
@@ -208,9 +210,9 @@ class VentanaDeInicio(tk.Tk):
         algo4.grid(row=0,column=0, padx=10, pady=10, sticky="nsew")
         algo5 = tk.Label(derecho_2, text="imagen 2", image = python_imagen2)
         algo5.grid(row=0,column=1, padx=10, pady=10, sticky="nsew")
-        algo6 = tk.Label(derecho_2, text="imagen 3")
+        algo6 = tk.Label(derecho_2, text="imagen 3", image = python_imagen3)
         algo6.grid(row=1,column=0, padx=10, pady=10, sticky="nsew")
-        algo7 = tk.Label(derecho_2, text="imagen 4")
+        algo7 = tk.Label(derecho_2, text="imagen 4", image = python_imagen4)
         algo7.grid(row=1,column=1, padx=10, pady=10, sticky="nsew")
 
 
