@@ -1,7 +1,12 @@
-import os
 import tkinter as tk
 from .ventanaBase import VentanaBase
 from tkinter import messagebox
+
+import os
+import pathlib
+path = os.path.join(pathlib.Path(__file__).parent.absolute())
+path = os.path.dirname(path)
+from PIL import Image, Image, ImageTk
 
 class VentanaDeInicio(tk.Tk):
     def __init__(self):
@@ -24,19 +29,120 @@ class VentanaDeInicio(tk.Tk):
 
 
         # --------------- APARTIR DE ACA LUIS HARÁ SU MAGIA PARA NO DAÑAR LO DEMAS --------------
+
+        python_imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis1.png').resize((150,125), Image.ANTIALIAS)) 
+        python_imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis2.png').resize((150,125), Image.ANTIALIAS)) 
+        python_imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis3.png').resize((150,125), Image.ANTIALIAS)) 
+        python_imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis4.png').resize((150,125), Image.ANTIALIAS)) 
+        
         #eventos de click
         def evento_clic(event):
             marco_derecho.configure(bg="black")
 
         #  ---------Fotos ----------
 
-        # # Obtener la ruta del directorio actual del script
-        # directorio_actual = os.path.dirname(os.path.abspath("Pyhton\\UiMain\\Ventanas\\imagenes\\fotosLuis\\viendoTamano.png"))
-        
-        # # Construir la ruta relativa al archivo
-        # ruta_archivo = os.path.join(directorio_actual, "viendoTamano.png")
-        # print(directorio_actual)
-        # imagen1 = tk.PhotoImage(file="C:\\Users\\LENOVO\\Downloads\\LuizZz\\wakaPruebaCopia.png") #ruta_archivo
+        #robando cosas (aún debe adaptarlas)
+
+        #def cambiarInfoDesarrolladores(self, e=None):
+            """ Funcion encargada de cambiar la infomacion y las imagenes de los desarroladors '
+            cuando se da click en la información"""
+
+            #self._numeroInicio == 0
+            # Como solo son 3 desarroladores para se repita en ciclo
+            #self._numeroInicio %= 5
+
+            #nuevos_valores = self.VALUES[self._numeroInicio]
+
+            # Se cambian los label con los datos del respectivo desarrollador
+            # self._nombre.config(text= nuevos_valores["name"])
+            # self._descripcioncita.config(text=nuevos_valores["description"])
+            # self._correo.config(text=nuevos_valores["email"])
+
+            # Condicionales para configurar las 4 imagenes de cada desarrollador
+            #if self._numeroInicio == 0 :
+            #python_imagen1 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotosLuis/foto1.png').resize((300,225), Image.ANTIALIAS))
+            #self.imagen1.image = python_imagen1
+            #self.imagen1.configure(image = python_imagen1)
+
+                # python_imagen2 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotosLuis/hina2.jpg').resize((300,225), Image.ANTIALIAS))
+                # self.imagen2.image = python_imagen2
+                # self.imagen2.configure(image = python_imagen2)
+
+                # python_imagen3 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotosLuis/hina3.jpg').resize((300,225), Image.ANTIALIAS))
+                # self.imagen3.image = python_imagen3
+                # self.imagen3.configure(image = python_imagen3)
+
+                # python_imagen4 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotosLuis/hina4.jpg').resize((300,225), Image.ANTIALIAS))
+                # self.imagen4.image = python_imagen4
+                # self.imagen4.configure(image = python_imagen4)
+
+            # elif self._numeroInicio == 1:
+            #     python_imagen1 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_ale/ale1.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen1.image = python_imagen1
+            #     self.imagen1.configure(image = python_imagen1)
+
+            #     python_imagen2 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_ale/ale2.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen2.image = python_imagen2
+            #     self.imagen2.configure(image = python_imagen2)
+
+            #     python_imagen3 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_ale/ale3.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen3.image = python_imagen3
+            #     self.imagen3.configure(image = python_imagen3)
+
+            #     python_imagen4 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_ale/ale4.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen4.image = python_imagen4
+            #     self.imagen4.configure(image = python_imagen4)
+
+            # elif self._numeroInicio == 2:
+            #     python_imagen1 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_anna/anna1.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen1.image = python_imagen1
+            #     self.imagen1.configure(image = python_imagen1)
+
+            #     python_imagen2 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_anna/anna2.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen2.image = python_imagen2
+            #     self.imagen2.configure(image = python_imagen2)
+
+            #     python_imagen3 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_anna/anna3.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen3.image = python_imagen3
+            #     self.imagen3.configure(image = python_imagen3)
+
+            #     python_imagen4 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_anna/anna4.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen4.image = python_imagen4
+            #     self.imagen4.configure(image = python_imagen4)
+                
+            # elif self._numeroInicio == 3:
+            #     python_imagen1 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_felo/felo1.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen1.image = python_imagen1
+            #     self.imagen1.configure(image = python_imagen1)
+
+            #     python_imagen2 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_felo/felo2.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen2.image = python_imagen2
+            #     self.imagen2.configure(image = python_imagen2)
+
+            #     python_imagen3 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_felo/felo3.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen3.image = python_imagen3
+            #     self.imagen3.configure(image = python_imagen3)
+
+            #     python_imagen4 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_felo/felo4.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen4.image = python_imagen4
+            #     self.imagen4.configure(image = python_imagen4)
+                
+            # elif self._numeroInicio == 4:
+            #     python_imagen1 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_juanjo/juanjo1.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen1.image = python_imagen1
+            #     self.imagen1.configure(image = python_imagen1)
+
+            #     python_imagen2 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_juanjo/juanjo2.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen2.image = python_imagen2
+            #     self.imagen2.configure(image = python_imagen2)
+
+            #     python_imagen3 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_juanjo/juanjo3.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen3.image = python_imagen3
+            #     self.imagen3.configure(image = python_imagen3)
+
+            #     python_imagen4 = ImageTk.PhotoImage(Image.open(path+'/imagenes/fotos_juanjo/juanjo4.jpeg').resize((300,225), Image.ANTIALIAS))
+            #     self.imagen4.image = python_imagen4
+            #     self.imagen4.configure(image = python_imagen4)
 
         self.columnconfigure(0, weight=4)
         self.columnconfigure(1, weight=5)
@@ -100,13 +206,13 @@ class VentanaDeInicio(tk.Tk):
         derecho_2.columnconfigure(0, weight=1)
         derecho_2.columnconfigure(1, weight=1)
         
-        algo4 = tk.Label(derecho_2, text="imagen 1") #image= imagen1
+        algo4 = tk.Label(derecho_2,image= python_imagen1) #image= imagen1
         algo4.grid(row=0,column=0, padx=10, pady=10, sticky="nsew")
-        algo5 = tk.Label(derecho_2, text="imagen 2")
+        algo5 = tk.Label(derecho_2, text="imagen 2", image = python_imagen2)
         algo5.grid(row=0,column=1, padx=10, pady=10, sticky="nsew")
-        algo6 = tk.Label(derecho_2, text="imagen 3")
+        algo6 = tk.Label(derecho_2, text="imagen 3", image = python_imagen3)
         algo6.grid(row=1,column=0, padx=10, pady=10, sticky="nsew")
-        algo7 = tk.Label(derecho_2, text="imagen 4")
+        algo7 = tk.Label(derecho_2, text="imagen 4", image = python_imagen4)
         algo7.grid(row=1,column=1, padx=10, pady=10, sticky="nsew")
 
 

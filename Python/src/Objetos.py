@@ -4,6 +4,11 @@ from gestorAplicacion.gestion.Vendedor import Vendedor
 from gestorAplicacion.produccion.Fabrica import Fabrica
 from gestorAplicacion.produccion.Producto import Producto
 from gestorAplicacion.produccion.Tienda import Tienda
+from gestorAplicacion.gestion.Factura import Factura
+from gestorAplicacion.gestion.Cliente import Cliente
+from gestorAplicacion.gestion.Conductor import Conductor
+from gestorAplicacion.produccion.Transporte import Transporte
+from gestorAplicacion.produccion.TipoTransporte import TipoTransporte
 
 producto1 = Producto("Ladrillo", "Bloque utilizado en paredes y estructuras", 1, 2.5, 10374, 0.25, "construccion")
 producto2 = Producto("Lámpara LED", "Bombilla LED de bajo consumo energético", 80, 0.2, 500, 50, "construccion")
@@ -74,3 +79,43 @@ for i in range(3):
         tienda.getListaProductos().extend(productos_tienda)
 
 fabrica = Fabrica(catalogoProductos, tiendas, cuentaEmpresa,operario1)
+
+"Clientes"
+cuentaCliente1 = CuentaBancaria(11111, 5000000)
+cliente1 = Cliente("Juan Pérez", "Calle 123", cuentaCliente1)
+cuentaCliente2 = CuentaBancaria(22222, 200)
+cliente2 = Cliente("María García", "Avenida 456", cuentaCliente2)
+cuentaCliente3 = CuentaBancaria(33333, 20000)
+cliente3 = Cliente("Pedro Gómez", "Carrera 789", cuentaCliente3)
+cuentaCliente4 = CuentaBancaria(44444, 20000)
+cliente4 = Cliente("Luis Gómez", "Carrera 789", cuentaCliente4)
+cuentaCliente5 = CuentaBancaria(55555, 20000)
+cliente5 = Cliente("Josesito Gómez", "Carrera 789", cuentaCliente5)
+cuentaCliente6 = CuentaBancaria(66666, 30000)
+cliente6 = Cliente("Julián Araña Alvarez", "Carrera 101", cuentaCliente6)
+cuentaCliente7 = CuentaBancaria(77777, 70000)
+cliente7 = Cliente("Emiliano Dibu Martinez", "Carrera 23", cuentaCliente7)
+cuentaCliente8 = CuentaBancaria(88888, 211000)
+cliente8 = Cliente("Diego Armando Maradona", "Carrera 10", cuentaCliente8)
+
+
+"Conductores"
+cuentaConductor1 = CuentaBancaria(646541231, 100)
+cuentaConductor2 = CuentaBancaria(13213544, 100)
+cuentaConductor3 = CuentaBancaria(1321354, 100)
+
+conductor1 = Conductor("Pablo Ramirez", 45, 544764513, cuentaConductor1, None)
+conductor2 = Conductor("Hernando Cruz", 50, 645541321, cuentaConductor2, None)
+conductor3 = Conductor("Mario Casas", 25, 13216531, cuentaConductor3, None)
+
+conductor1.setFabrica(fabrica)
+conductor2.setFabrica(fabrica)
+conductor3.setFabrica(fabrica)
+
+transporteAbastecer = Transporte(TipoTransporte.CAMION, TipoTransporte.CAMION.getCapacidadMax(), TipoTransporte.CAMION.getCapacidadMax(), conductor1)
+conductor1.setTransporte(transporteAbastecer)
+
+"Facturas"
+factura1 = Factura(tienda1,cliente1,transporteAbastecer,productos,1,"Nada" )
+factura2 = Factura(tienda2,cliente2,transporteAbastecer,productos,2,"Nada" )
+factura3 = Factura(tienda3,cliente3,transporteAbastecer,productos,3,"Nada" )
