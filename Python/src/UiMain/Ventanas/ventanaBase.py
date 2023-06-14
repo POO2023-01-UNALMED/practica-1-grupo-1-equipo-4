@@ -32,12 +32,7 @@ class VentanaBase(Tk):
         menuProcesos.add_command(label='Abastecer tiendas', command=self.Abastecer)  # command
         menuProcesos.add_command(label='Gestionar devoluciones')  # command
         menuProcesos.add_command(label='Mostrar estadísticas', command=self.estadisticas)  # command
-        menuBar.add_cascade(menu = menuProcesos,label = 'Procesos y Consultas')
-        menuProcesos.add_command(label='Enviar pedido',command= self.enviarPedido)
-        menuProcesos.add_command(label='Pagar trabajadores', command= self.pagoTrabajadores)
-        menuProcesos.add_command(label='Abastecer tiendas')#command
-        menuProcesos.add_command(label='Gestionar devoluciones')#command
-        menuProcesos.add_command(label='Mostrar estadísticas')#command
+
         
 
         menuProcesos.add_command(label='Mostrar estadísticas', command = self.estadisticas)#command
