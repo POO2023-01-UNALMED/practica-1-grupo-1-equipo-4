@@ -6,13 +6,14 @@ class Factura:
     listaFacturas = []
     infoAtributos = {}
 
-    def __init__(self, tienda, cliente, transporte, listaProductos, fecha, disclaimer):
+    def __init__(self, tienda, cliente, transporte, listaProductos, fecha, disclaimer, operario):
         self.tienda = tienda
         self.cliente = cliente
         self.transporte = transporte
         self.listaProductos = listaProductos
         self.fecha = fecha
         self.disclaimer = disclaimer
+        self.operario = operario
 
         self.infoAtributos["tienda"] = tienda
         self.infoAtributos["transporte"] = transporte
