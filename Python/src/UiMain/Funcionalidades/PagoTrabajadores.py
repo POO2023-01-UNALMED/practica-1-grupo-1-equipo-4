@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import ttk,Frame
+#from gestorAplicacion.produccion.Fabrica import Fabrica
+#from gestorAplicacion.gestion.Factura import Factura
 
 class PagoTrabajadores(Frame):
     def __init__(self, window):
@@ -8,15 +10,19 @@ class PagoTrabajadores(Frame):
         #--------------Eventos --------------
         def opcionTipoTrabajador(evento):
             opc = desplegableTipos.get()
+            #listaFacturas = Factura.getListaFacturas()
 
             if opc == "Conductores":
                 frameTipos12.grid()
+                #listaMostrar = Fabrica.busquedaTrabajo(listaFacturas,2)
                 desplegableTrabajadores['values'] = ["Conductor 1", "Conductor 2", "Conductor 3"]
             elif opc == "Operarios":
                 frameTipos12.grid()
+                #listaMostrar = Fabrica.busquedaTrabajo(listaFacturas,1)
                 desplegableTrabajadores['values'] = ["Operario 1", "Operario 2", "Operario 3"]
             elif opc == "Vendedores":
                 frameTipos12.grid()
+                #listaMostrar = Fabrica.busquedaTrabajo(listaFacturas,3)
                 desplegableTrabajadores['values'] = ["Vendedor 1", "Vendedor 2", "Vendedor 3"]
             else:
                 frameTipos12.grid_remove()
@@ -32,22 +38,21 @@ class PagoTrabajadores(Frame):
             pass
 
         #--------------Divisiones filas y columnas --------------
-        for i in range(5):
+        for i in range(12):
             self.rowconfigure(i, weight=1)
 
-        for j in range(8):
+        for j in range(4):
             self.columnconfigure(j, weight=1)
 
         #--------------Título y descripción --------------
         frameCabecera = tk.Frame(self)
-        frameCabecera.grid(row=0, column=0, columnspan=8,padx=5, pady=5)
+        frameCabecera.grid(row=0, column=1, columnspan=2,padx=5, pady=5)
         titulo = tk.Label(frameCabecera, text='Pagar a trabajadores', font=("Arial", 15))
         titulo.pack()
-        textoDescripcion = """Aquí podra seleccionar alguno de los trabajadores disponibles
-        según su función (Conductores,Operarios y Vendedores), pagarles por sus respectivas
-        horas trabajadas y además verificar sus metas dando bonificaciones por el cumpliento
-        de las mismas"""
-        descripcion = tk.Label(frameCabecera, text=textoDescripcion,font=("Arial", 10))
+        textoDescripcion = """Aquí podra seleccionar alguno de los trabajadores disponibles según su función 
+        (Conductores,Operarios y Vendedores), pagarles por sus respectivas horas trabajadas 
+        y además verificar sus metas dando bonificaciones por el cumpliento de las mismas."""
+        descripcion = tk.Label(frameCabecera, text=textoDescripcion,font=("Arial", 12))
         descripcion.pack()
 
         #--------------Tipo de trabajador --------------
@@ -98,7 +103,7 @@ class PagoTrabajadores(Frame):
 
         #Estilo botones
         estilo = ttk.Style()
-        estilo.configure("Estilo.TButton", font=("Arial", 12), padding=10, width=10)
+        estilo.configure("Estilo.TButton", font=("Arial", 12), padding=5, width=5)
         # Crear el botón "Sí"
         botonSi = ttk.Button(frameInfoBotones, text="Sí", style="Estilo.TButton",command=opcionMetaSi)
         botonSi.pack(side="left", padx=10)
