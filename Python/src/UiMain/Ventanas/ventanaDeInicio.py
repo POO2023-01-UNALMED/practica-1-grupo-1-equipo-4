@@ -1,6 +1,7 @@
 import tkinter as tk
 from .ventanaBase import VentanaBase
 from tkinter import messagebox
+#from tkinter import ttk
 
 import os
 import pathlib
@@ -29,29 +30,30 @@ class VentanaDeInicio(tk.Tk):
 
 
         # --------------- APARTIR DE ACA LUIS HARÁ SU MAGIA PARA NO DAÑAR LO DEMAS --------------
-    #valores para la descripcion
+        #valores para la descripcion
+
+        def click_event(self):
+            marco_derecho.config(bg="black")
+
         VALUES  = [
-        {"name": "Luis alejandro Varela Ojeda", "description":"Amante del fútbol y el arte", "email":"hisanchezm@unal.edu.co"},
+        {"name": "Luis Alejandro Varela Ojeda", "description":"Amante del fútbol y el arte", "email":"hisanchezm@unal.edu.co"},
         {"name": "Monica Sofia Restrepo León", "description":"Amante de la ciencia de datos", "email":"aluribes@unal.edu.co" },
         {"name":"Maria Fernanda Calle Agudelo", "description":"Apasionada por el baile", "email":"anospina@unal.edu.co"},
         {"name": "Jaider Castañeda Villa", "description":"Amante de la comida", "email":"jualopezra@unal.edu.co" },
-        {"name":"Joan alexdander gutierritos", "description":"Apasionado por la lectura", "email":"jtobonz@unal.edu.co"}
+        {"name":"Joan Sebastian Salazar Montoya", "description":"Apasionado por la lectura", "email":"jtobonz@unal.edu.co"}
             ]
 
 
         #  ---------Fotos ----------
-        imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis1.png').resize((150,125), Image.ANTIALIAS)) 
-        imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis2.png').resize((150,125), Image.ANTIALIAS)) 
-        imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis3.png').resize((150,125), Image.ANTIALIAS)) 
-        imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis4.png').resize((150,125), Image.ANTIALIAS)) 
-
-
-
-
-
-
+        imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis1.png').resize((250,200), Image.ANTIALIAS)) 
+        imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis2.png').resize((250,200), Image.ANTIALIAS)) 
+        imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis3.png').resize((250,200), Image.ANTIALIAS)) 
+        imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis4.png').resize((250,200), Image.ANTIALIAS)) 
+        self.image_names = [imagen1, imagen2, imagen3, imagen4]
+       
         self.columnconfigure(0, weight=4)
         self.columnconfigure(1, weight=5)
+        
         # Crear el marco izquierdo
         marco_izquierdo = tk.Frame(self, bg="#45ffb8")
         marco_izquierdo.columnconfigure(0, weight=1)
@@ -89,7 +91,7 @@ class VentanaDeInicio(tk.Tk):
         izquierdo_3.grid(row=2, padx=10, pady=10, sticky="nsew")
         izquierdo_3.rowconfigure(0, weight=1)
         izquierdo_3.columnconfigure(0, weight=1)
-        reset_button = tk.Button(izquierdo_3, text="Ventana principal del administrador", command=self.abrir_ventana_principal, height=10)
+        reset_button = tk.Button(izquierdo_3, text="Ventana principal del administrador",command=self.abrir_ventana_principal,  height=10)
         reset_button.grid(row=0, padx=20, pady=20, sticky="nsew")
 
         #todo lo del lado derecho
@@ -112,7 +114,8 @@ class VentanaDeInicio(tk.Tk):
         derecho_2.columnconfigure(0, weight=1)
         derecho_2.columnconfigure(1, weight=1)
         
-        algo4 = tk.Label(derecho_2,image=  imagen1) #image= imagen1
+        
+        algo4 = tk.Label(derecho_2, image =  imagen1) #image= imagen1
         algo4.grid(row=0,column=0, padx=10, pady=10, sticky="nsew")
         algo5 = tk.Label(derecho_2, text="imagen 2", image =  imagen2)
         algo5.grid(row=0,column=1, padx=10, pady=10, sticky="nsew")
@@ -121,9 +124,14 @@ class VentanaDeInicio(tk.Tk):
         algo7 = tk.Label(derecho_2, text="imagen 4", image =  imagen4)
         algo7.grid(row=1,column=1, padx=10, pady=10, sticky="nsew")
 
-
-
-
+        marco_derecho.bind('<ButtonPress-1>', click_event)
+        derecho_1.bind('<ButtonPress-1>', click_event)
+        derecho_2.bind('<ButtonPress-1>', click_event)
+        algo3.bind('<ButtonPress-1>', click_event)
+        algo4.bind('<ButtonPress-1>', click_event)
+        algo5.bind('<ButtonPress-1>', click_event)
+        algo6.bind('<ButtonPress-1>', click_event)
+        algo7.bind('<ButtonPress-1>', click_event)
 
         # ---------------      ACÁ TERMINA LA MAGIA DE LUIS             -------------
 

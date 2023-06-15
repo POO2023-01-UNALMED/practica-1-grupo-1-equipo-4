@@ -174,4 +174,4 @@ class PagoTrabajadores(Frame):
         #Botón de pago
         botonPago = ttk.Button(frameMetas, text="Pagar total", style="Estilo.TButton",command=opcionPago)
         botonPago.grid(row=5, column=1, columnspan=2,padx=5, pady=5)
-        botonPago.grid_remove()               
+        botonPago.grid_remove() 
