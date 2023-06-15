@@ -29,15 +29,3 @@ class EnviarPedido(Frame):
         transporte y descuentos aplicables al pedido. Todo lo necesario para gestionar los pedidos de la empresa """
         descripcion = tk.Label(frameCabecera, text=textoDescripcion, font=("Arial", 10))
         descripcion.grid(row=1, column=0, sticky="nsew")  # Centrado vertical y horizontalmente
-
-# # Crear la ventana principal
-# ventanaEnvio = tk.Tk()
-# ventanaEnvio.title("Envío de pedidos")
-# ventanaEnvio.geometry("900x800")
-
-# # Crear la instancia de la clase EnviarPedido
-# enviarPedido = EnviarPedido(ventanaEnvio)
-# enviarPedido.pack(fill="both", expand=True)
-
-# # Ejecutar el bucle principal de la aplicación
-# ventanaEnvio.mainloop()

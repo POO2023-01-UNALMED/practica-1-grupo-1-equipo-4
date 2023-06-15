@@ -7,7 +7,7 @@ from ..Funcionalidades.Abastecer import Abastecer
 from ..Funcionalidades.EnviarPedido import EnviarPedido
 
 
-class VentanaBase(Tk):
+class   VentanaBase(Tk):
     def __init__(self):
         super().__init__()
         self.geometry("700x640")
@@ -52,9 +52,9 @@ class VentanaBase(Tk):
         geC = Abastecer(self)
         self.Limpiar(geC)
 
-    # def pagoTrabajadores(self):
-    #     geC = PagoTrabajadores(self)
-    #     self.Limpiar(geC)
+    def pagoTrabajadores(self):
+        geC = PagoTrabajadores(self)
+        self.Limpiar(geC)
 
     def enviarPedido(self):
         geC = EnviarPedido(self)
