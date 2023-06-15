@@ -1,4 +1,4 @@
-import tkinter as tk
+""" import tkinter as tk
 from tkinter import ttk, Frame, DISABLED,Entry
 import sys
 sys.path.append('../')  # Retrocede un nivel al directorio padre
@@ -40,4 +40,4 @@ class Devoluciones(Frame):
         productos = ["producto1","producto2","producto3","producto4","producto5","producto6","producto7"]
         desplegableProducto = ttk.Combobox(marcoDerecho,values= productos, textvariable=seleccionarProducto, state='readonly', width=20)
         desplegableProducto.grid(row=1, padx=10, pady= 10, sticky="nw")
-       
+        """
