@@ -75,11 +75,14 @@ class VentanaDeInicio(tk.Tk):
             algo5.configure(image=imagen2)
             algo6.configure(image=imagen3)
             algo7.configure(image=imagen4)
+            nombre.configure(text= VALUES[VentanaDeInicio.contador]["name"]) 
+            descripcion.configure(text=VALUES[VentanaDeInicio.contador]["description"]) 
+            correo.configure(text=VALUES[VentanaDeInicio.contador]["email"]) 
 
         VALUES  = [
         {"name": "Luis Alejandro Varela Ojeda", "description":"Amante de la Natacion y Waterpolo", "email":"luvarelao@unal.edu.co"},
-        {"name": "Monica Sofia Restrepo León", "description":"Amante de la ciencia de datos", "email":"aluribes@unal.edu.co" },
         {"name":"Maria Fernanda Calle Agudelo", "description":"Trabaja en la vaganciaaaaa", "email":"mcalleag@unal.edu.co"},
+        {"name": "Monica Sofia Restrepo León", "description":"Amante de la ciencia de datos", "email":"aluribes@unal.edu.co" },
         {"name": "Jaider Castañeda Villa", "description":"Amante de la comida", "email":"jualopezra@unal.edu.co" },
         {"name":"Joan Sebastian Salazar Montoya", "description":"Apasionado por la lectura", "email":"jtobonz@unal.edu.co"}
             ]
@@ -90,9 +93,10 @@ class VentanaDeInicio(tk.Tk):
         imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis2.png').resize((250,200), Image.ANTIALIAS)) 
         imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis3.png').resize((250,200), Image.ANTIALIAS)) 
         imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis4.png').resize((250,200), Image.ANTIALIAS))
+        imagenSistema1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema1.jpg').resize((250,200), Image.ANTIALIAS))
 
         #fotos = [imagen1, imagen2, imagen3, imagen4] 
-        self.image_names = [imagen1, imagen2, imagen3, imagen4]
+        self.image_names = [imagen1, imagen2, imagen3, imagen4, imagenSistema1]
        
         self.columnconfigure(0, weight=4)
         self.columnconfigure(1, weight=5)
@@ -114,19 +118,19 @@ class VentanaDeInicio(tk.Tk):
         marco_izquierdo.rowconfigure(1,pad=5, weight=1)
         marco_izquierdo.rowconfigure(2,pad=5, weight=1)
 
-        izquierdo_1 = tk.Frame(marco_izquierdo, bg="#70fa2a") #, width="400", height="100"
+        izquierdo_1 = tk.Frame(marco_izquierdo, bg="#35f242") # 70fa2a
         izquierdo_1.rowconfigure(0, weight=1)
         izquierdo_1.columnconfigure(0, weight=1)
         izquierdo_1.grid(row=0, padx=10, pady=10, sticky="nsew")
         #aqui va lo que vaya dentro del frame
-        algo = tk.Label(izquierdo_1, text="bienvenidos a la empresa\n MJLJM")
+        algo = tk.Label(izquierdo_1, text="Bienvenidos a la empresa\n MJLJM", font=("Franklin Gothic", 15, "bold"), fg= "#ff005d")
         algo.grid(row=0, padx=20, pady=20, sticky="nsew")
 
-        izquierdo_2 = tk.Frame(marco_izquierdo, bg="#e8eb34") #, width="400", height="100"
+        izquierdo_2 = tk.Frame(marco_izquierdo, bg="#ac34e3") #, width="400", height="100"
         izquierdo_2.grid(row=1, padx=10, pady=10, sticky="nsew")
         izquierdo_2.rowconfigure(0, weight=1)
         izquierdo_2.columnconfigure(0, weight=1)
-        algo2 = tk.Label(izquierdo_2, text="aqui deben ir algunas imagenes")
+        algo2 = tk.Label(izquierdo_2 , image= imagenSistema1 ) #
         algo2.grid(row=0, padx=20, pady=20, sticky="nsew")
 
 
@@ -145,30 +149,39 @@ class VentanaDeInicio(tk.Tk):
         derecho_1 = tk.Frame(marco_derecho, bg="#ba3cf0", width=200, height=100) #, width="400", height="100"
         derecho_1.grid(row=0, padx=10, pady=10, sticky="nsew")
         derecho_1.rowconfigure(0, weight=1)
+        derecho_1.rowconfigure(1, weight=1)
         derecho_1.columnconfigure(0, weight=1)
+        algo8 = tk.Label(derecho_1, text="Integrantes", font=("Arial", 15, "bold"))
+        algo8.grid(row=0, padx=20, pady=10, sticky="nsew")
         algo3 = tk.Label(derecho_1)
-        algo3.grid(row=0, padx=20, pady=20, sticky="nsew")
+        algo3.grid(row=1, padx=20, pady=10, sticky="nsew")
 
         algo3.rowconfigure(0, weight=1)
         algo3.rowconfigure(1, weight=1)
         algo3.rowconfigure(2, weight=1)
+        algo3.rowconfigure(3, weight=1)
         algo3.columnconfigure(0, weight=1)
         algo3.columnconfigure(1, weight=1)
-        algo3.columnconfigure(2, weight=1)
+        
 
-        #descripcion de los Integrantes
-        name = tk.Label(algo3, text="Name: " )
+        #Descripcion de los Integrantes
+
+        name = tk.Label(algo3, text="Name: " ,font=("Arial", 12, "bold"))
         name.grid(row=0,column=0, sticky="nsew")
-        nombre = tk.Label(algo3, text=VALUES[VentanaDeInicio.contador]["name"] )
+        nombre = tk.Label(algo3, text=  VALUES[VentanaDeInicio.contador]["name"])
         nombre.grid(row=0,column=1, sticky="nsew")
-        description = tk.Label(algo3, text="Description: " )
+        description = tk.Label(algo3, text="Description: ",font=("Arial", 12, "bold") )
         description.grid(row=1,column=0, sticky="nsew")
-        descripcion = tk.Label(algo3, text=VALUES[VentanaDeInicio.contador]["description"] )
+        descripcion = tk.Label(algo3, text= VALUES[VentanaDeInicio.contador]["description"] )
         descripcion.grid(row=1,column=1, sticky="nsew")
-        email = tk.Label(algo3, text="Email: " )
+        email = tk.Label(algo3, text="Email: ",font=("Arial", 12, "bold") )
         email.grid(row=2,column=0, sticky="nsew")
-        correo = tk.Label(algo3, text= VALUES[VentanaDeInicio.contador]["email"] )
+        correo = tk.Label(algo3, text= VALUES[VentanaDeInicio.contador]["email"]  )
         correo.grid(row=2,column=1, sticky="nsew")
+        uni = tk.Label(algo3, text="Universidad: " ,font=("Arial", 12, "bold"))
+        uni.grid(row=3,column=0, sticky="nsew")
+        universidad = tk.Label(algo3, text= "Universidad Nacional de Colombia" )
+        universidad.grid(row=3,column=1, sticky="nsew")
 
         derecho_2 = tk.Frame(marco_derecho, bg="#f5425a") #, width="400", height="100"
         derecho_2.grid(row=1, padx=10, pady=10, sticky="nsew")
@@ -196,6 +209,7 @@ class VentanaDeInicio(tk.Tk):
         algo5.bind('<ButtonPress-1>', click_event)
         algo6.bind('<ButtonPress-1>', click_event)
         algo7.bind('<ButtonPress-1>', click_event)
+        algo8.bind('<ButtonPress-1>', click_event)
 
         # ---------------      ACÁ TERMINA LA MAGIA DE LUIS             -------------
 
