@@ -45,7 +45,6 @@ class VentanaDeInicio(tk.Tk):
         imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis3.png').resize((150,125), Image.ANTIALIAS)) 
         imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis4.png').resize((150,125), Image.ANTIALIAS)) 
 
-       
 
 
 
