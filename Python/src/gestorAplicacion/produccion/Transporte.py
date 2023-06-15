@@ -1,87 +1,74 @@
 from enum import Enum
-
-
+from gestorAplicacion.produccion.TipoTransporte import TipoTransporte
 
 class Transporte:
     def __init__(self, tipo, capacidad, costo, conductor):
-        self._tipoTransporte = tipo
-        self._capacidad = capacidad 
-        self._costo = costo
-        self._conductor = conductor
-        self._listaTransportes = []
-        self._tienda = None
-        self._listaDeProductos = []
+        self.tipoTransporte = tipo
+        self.capacidad = capacidad 
+        self.costo = costo
+        self.conductor = conductor
+        self.listaTransportes = []
+        self.tienda = None
+        self.listaDeProductos = []
 
-
-    def abastecer_producto(self, tienda, listaDeProductos):
-        self._tienda = tienda
-        self._listaDeProductos = listaDeProductos
-
-# def mostrar_tipo_transporte():
-#     tipo_transportes = [tipo.name for tipo in TipoTransporte]
-#     for tipo in tipo_transportes:
-#         print(tipo)
+    def abastecerProducto(self, tienda, listaDeProductos):
+        self.tienda = tienda
+        self.listaDeProductos = listaDeProductos
 
     def tipoTransporte(self, tipoTransporte):
-        texto_tipoTransporte = f"Tipo de transporte: {tipoTransporte.value}, Precio: {tipoTransporte.precio_envio}, Capacidad máxima: {tipoTransporte.capacidad_max}"
-        return texto_tipoTransporte
+        textoTipoTransporte = f"Tipo de transporte: {tipoTransporte.value}, Precio: {tipoTransporte.precio_envio}, Capacidad máxima: {tipoTransporte.capacidad_max}"
+        return textoTipoTransporte
 
     @classmethod
-    def enviar_gratis(transporteSeleccionado):
-       transporteSeleccionado.tipo.precio_envio = 0
-       return transporteSeleccionado
+    def enviarGratis(cls, transporteSeleccionado):
+        transporteSeleccionado.tipo.precio_envio = 0
+        return transporteSeleccionado
 
-    def recordar_precio_transporte(self):
-        self._precioOriginalTransporte = self._tipo.precio_envio
+    def recordarPrecioTransporte(self):
+        self.precioOriginalTransporte = self.tipo.precio_envio
 
-    def reestablecer_precio_trans(self):
-        self._tipo.precio_envio = self._precioOriginalTransporte
+    def reestablecerPrecioTrans(self):
+        self.tipo.precio_envio = self.precioOriginalTransporte
 
-    def get_precio_original_transporte(self):
-        return self._precioOriginalTransporte
+    def getPrecioOriginalTransporte(self):
+        return self.precioOriginalTransporte
 
-    def get_nombre(self):
-        return self._tipo.name
+    def getNombre(self):
+        return self.tipo.name
 
-    def get_tipoTransporte(self):
-        return self._tipo
+    def getTipoTransporte(self):
+        return self.tipo
 
-    def set_tipoTransporte(self, tipo):
-        self._tipo = tipo
+    def setTipoTransporte(self, tipo):
+        self.tipo = tipo
 
-    def get_capacidad(self):
-        return self._capacidad
+    def getCapacidad(self):
+        return self.capacidad
 
-    def set_capacidad(self, capacidad):
-        self._capacidad = capacidad
+    def setCapacidad(self, capacidad):
+        self.capacidad = capacidad
 
-    def get_costo(self):
-        return self._costo
+    def getCosto(self):
+        return self.costo
 
-    def set_costo(self, costo):
-        self._costo = costo
+    def setCosto(self, costo):
+        self.costo = costo
 
-    def get_conductor(self):
-        return self._conductor
+    def getConductor(self):
+        return self.conductor
 
-    def set_conductor(self, conductor):
-        self._conductor = conductor
+    def setConductor(self, conductor):
+        self.conductor = conductor
 
-    def get_tienda(self):
-        return self._tienda
+    def getTienda(self):
+        return self.tienda
 
-    def set_tienda(self, tienda):
-        self._tienda = tienda
+    def setTienda(self, tienda):
+        self.tienda = tienda
 
-    def get_listaDeProductos(self):
-        return self._listaDeProductos
+    def getListaDeProductos(self):
+        return self.listaDeProductos
 
-    def set_listaDeProductos(self, listaDeProductos):
-        self._listaDeProductos = listaDeProductos
+    def setListaDeProductos(self, listaDeProductos):
+        self.listaDeProductos = listaDeProductos
 
-    def get_lista_transportes(self):
-        return self._listaTransportes
-
-    def set_lista_transportes(self, lista_transportes):
-        self._listaTransportes = lista_transportes 
-        

@@ -112,10 +112,11 @@ conductor1.setFabrica(fabrica)
 conductor2.setFabrica(fabrica)
 conductor3.setFabrica(fabrica)
 
-#transporteAbastecer = Transporte(TipoTransporte.CAMION, TipoTransporte.CAMION.getCapacidadMax(), TipoTransporte.CAMION.getCapacidadMax(), conductor1)
+#un_transporte = Transporte(tipo, capacidad, costo, conductor)
+#transporteAbastecer = Transporte(TipoTransporte.CAMION, TipoTransporte.CAMION.get_precio_original_transporte(), TipoTransporte.CAMION.get_capacidad(), conductor1)
 #conductor1.setTransporte(transporteAbastecer)
 
-"Facturas"
+#"Facturas"
 # factura1 = Factura(tienda1,cliente1,transporteAbastecer,productos,1,"Nada" )
 # factura2 = Factura(tienda2,cliente2,transporteAbastecer,productos,2,"Nada" )
 # factura3 = Factura(tienda3,cliente3,transporteAbastecer,productos,3,"Nada" )
