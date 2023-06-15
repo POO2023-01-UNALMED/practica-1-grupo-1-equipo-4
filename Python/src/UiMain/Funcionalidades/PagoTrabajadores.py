@@ -19,6 +19,7 @@ class PagoTrabajadores(Frame):
                 
         #-----------------------------Eventos -------------------------------------------------------------
         
+        #Cuando escoge un tipo del desplegable de tipos
         def opcionTipoTrabajador(evento):
             global listaMostrar
             global num
@@ -41,6 +42,7 @@ class PagoTrabajadores(Frame):
             desplegableTrabajadores['values'] = values
             frameTipos12.grid()
 
+        #Cuando escoge un trabajador del desplegable de trabajadores
         def opcionTrabajador(evento):
             global trabajadorEscogido
             global pagoTrabajo
@@ -58,15 +60,9 @@ class PagoTrabajadores(Frame):
             
             frameInfo.grid()
 
-        def opcionPagoSinMeta():      
-            messagebox.showinfo(f"Pago existoso",f"Comprobante de pago\nPago asociado a los envios realizados: {pagoTrabajo}\nPago asociado al cumplimiento de metas: {0}\nTotal: {pagoTrabajo}")
-            frameTipos12.grid_remove()
-            frameInfo.grid_remove()
-            frameMetas.grid_remove()
-
+        #Cuando desea analizar y bonificar metas
         def opcionMetaSi():
-
-            indice = trabajadorEscogido.getIndiceMeta()
+            global listaMetas
 
             if num == 1:
                 listaMetas = Operario.getMetasOperario()
@@ -87,31 +83,49 @@ class PagoTrabajadores(Frame):
             textoMetas.config(text=textoMetasTrabajador)
             frameMetas.grid()
 
+        #Cuando escoge una meta del desplegable de metas
         def opcionMeta(evento):
             opc = desplegableMetas.get()
             global pagoMeta
-            
+           
             if opc == "Meta 1":
-
-                
-                textoInfoMeta.config(text="")
-                pagoMeta = 0
-                frameMetas2.grid()
-                botonPago.grid()
+                posicion = 0
+                metaEscogida = listaMetas[0]                
                 
             elif opc == "Meta 2":
+                posicion = 1
+                metaEscogida = listaMetas[1]        
 
-                textoInfoMeta.config(text="")
-                pagoMeta = 0
-                frameMetas2.grid()
-                botonPago.grid()
+            indice = trabajadorEscogido.getIndiceMeta()
+            verificadorMeta = metaEscogida.cumpleMeta(indice)
+            estadisticasMeta = metaEscogida.porcentajesCumplidos(indice)
             
+            listaVerificadores = trabajadorEscogido.getVerificadorMetasCumplidas()
+            if listaVerificadores[posicion] == False:
+                textoInfoMeta.config(text=estadisticasMeta)
+                if verificadorMeta == True:
+                    pagoMeta = metaEscogida.getPago()
+                else:
+                    pagoMeta = 0
+            else:
+                textoInfoMeta.config(text="Ya se ha dado la bonificación por esta meta, seleccione otra opcion o proceda a pagar")
+                pagoMeta == 0            
 
-        def opcionPagoConMeta():
+            frameMetas2.grid()
+            botonPago.grid()
+            
+            
+        #Cuando paga
+        def opcionPago():
+            trabajadorEscogido.recibirSueldo(pagoTrabajo + pagoMeta)
             messagebox.showinfo(f"Pago existoso",f"Comprobante de pago\nPago asociado a los envios realizados: {pagoTrabajo}\nPago asociado al cumplimiento de metas: {pagoMeta}\nTotal: {pagoTrabajo+pagoMeta}")
             frameTipos12.grid_remove()
             frameInfo.grid_remove()
             frameMetas.grid_remove()
+
+            #Asignamos de nuevo 0 al trabajo, para que si se le paga de nuevo,
+            #no se le pague más de una vez por el mismo trabajo
+            trabajadorEscogido.setTrabajo(0)
 
         #----------------------------------Divisiones filas y columnas-------------------------------------
         for i in range(12):
@@ -190,7 +204,7 @@ class PagoTrabajadores(Frame):
         botonSi.pack(side="left", padx=10)
         #Botón No
         textPago = """No, proceder con el pago"""
-        botonNo = ttk.Button(frameInfoBotones, text=textPago, style="Estilo.TButton", command=opcionPagoSinMeta)
+        botonNo = ttk.Button(frameInfoBotones, text=textPago, style="Estilo.TButton", command=opcionPago)
         botonNo.pack(side="right", padx=10)
 
         #-------------------------------------Bonificación metas-----------------------------------------
@@ -225,6 +239,6 @@ class PagoTrabajadores(Frame):
         textoInfoMeta.pack(anchor='center')
 
         #Botón de pago
-        botonPago = ttk.Button(frameMetas, text="Pagar total", style="Estilo.TButton",command=opcionPagoConMeta)
+        botonPago = ttk.Button(frameMetas, text="Pagar total", style="Estilo.TButton",command=opcionPago)
         botonPago.grid(row=5, column=1, columnspan=2,padx=5, pady=5)
         botonPago.grid_remove()
