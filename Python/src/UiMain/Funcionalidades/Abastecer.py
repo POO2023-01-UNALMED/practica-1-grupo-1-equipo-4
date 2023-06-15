@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, Frame, DISABLED
+from tkinter import ttk, Frame, DISABLED,Entry
 import sys
 sys.path.append('../')  # Retrocede un nivel al directorio padre
 import Objetos as prueba
@@ -84,8 +84,8 @@ class Abastecer(Frame):
         casillaTextoProductos.grid(row=1 + 1, column=1, columnspan=1)
         # Crear un cuadro de texto para mostrar información
         informacion = "Texto de ejemplo"
-        texto_widgetProductos = tk.Text(casillaTextoProductos, width=16, height=8, bg="grey")
-        texto_widgetProductos.pack()
+        texto_widgetProductos = tk.Entry(self, width=16,bg="grey")
+        texto_widgetProductos.grid(row=1 + 1, column=1, columnspan=1,sticky='nsew')
         # Agregar contenido al widget de texto
         texto_widgetProductos.insert(tk.END, informacion)
         texto_widgetProductos.configure(state=tk.DISABLED)
@@ -104,17 +104,6 @@ class Abastecer(Frame):
         entradaProductosQa = tk.Entry(stack)
         entradaProductosQa.pack(side='top', anchor='center')
         entradaProductosQa.configure(state=DISABLED)
-
-        # Crear una casilla para contener el cuadro de texto
-        casillaTextoProductos = tk.Frame(self, width=113, height=200)
-        casillaTextoProductos.grid(row=1 + 1, column=1, columnspan=1)
-        # Crear un cuadro de texto para mostrar información
-        informacion = "Texto de ejemplo"
-        texto_widgetProductos = tk.Text(casillaTextoProductos, width=16, height=8, bg="grey")
-        texto_widgetProductos.pack()
-        # Agregar contenido al widget de texto
-        texto_widgetProductos.insert(tk.END, informacion)
-        texto_widgetProductos.configure(state=DISABLED)
 
         # /*--------------Transporte--------------*/
         # Stack para la parte de productos
