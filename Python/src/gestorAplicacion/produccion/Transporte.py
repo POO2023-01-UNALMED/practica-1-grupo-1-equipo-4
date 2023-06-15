@@ -1,40 +1,35 @@
 from enum import Enum
 
 
-class TipoTransporte(Enum):
-    AVION = "Avion"
-    BARCO = "Barco"
-    CAMION = "Camion"
-
 
 class Transporte:
     def __init__(self, tipo, capacidad, costo, conductor):
-        self._tipo = tipo
-        self._capacidad = capacidad
+        self._tipoTransporte = tipo
+        self._capacidad = capacidad 
         self._costo = costo
         self._conductor = conductor
         self._listaTransportes = []
-        self._precioOriginalTransporte = None
         self._tienda = None
         self._listaDeProductos = []
 
-    def abastecer_producto(self, tienda, lista_de_productos):
+
+    def abastecer_producto(self, tienda, listaDeProductos):
         self._tienda = tienda
-        self._listaDeProductos = lista_de_productos
+        self._listaDeProductos = listaDeProductos
+
+# def mostrar_tipo_transporte():
+#     tipo_transportes = [tipo.name for tipo in TipoTransporte]
+#     for tipo in tipo_transportes:
+#         print(tipo)
+
+    def tipoTransporte(self, tipoTransporte):
+        texto_tipoTransporte = f"Tipo de transporte: {tipoTransporte.value}, Precio: {tipoTransporte.precio_envio}, Capacidad máxima: {tipoTransporte.capacidad_max}"
+        return texto_tipoTransporte
 
     @classmethod
-    def mostrar_tipo_transporte():
-        for tipo in TipoTransporte:
-            print(tipo.value)
-
-    def tipo_transporte(self, tipo_transporte):
-        texto_tipo_transporte = f"Tipo de transporte: {tipo_transporte.value}, Precio: {tipo_transporte.precio_envio}, Capacidad máxima: {tipo_transporte.capacidad_max}"
-        return texto_tipo_transporte
-
-    @classmethod
-    def enviar_gratis(transporte_seleccionado):
-        transporte_seleccionado.tipo.precio_envio = 0
-        return transporte_seleccionado
+    def enviar_gratis(transporteSeleccionado):
+       transporteSeleccionado.tipo.precio_envio = 0
+       return transporteSeleccionado
 
     def recordar_precio_transporte(self):
         self._precioOriginalTransporte = self._tipo.precio_envio
@@ -48,10 +43,10 @@ class Transporte:
     def get_nombre(self):
         return self._tipo.name
 
-    def get_tipo(self):
+    def get_tipoTransporte(self):
         return self._tipo
 
-    def set_tipo(self, tipo):
+    def set_tipoTransporte(self, tipo):
         self._tipo = tipo
 
     def get_capacidad(self):
@@ -78,11 +73,11 @@ class Transporte:
     def set_tienda(self, tienda):
         self._tienda = tienda
 
-    def get_lista_de_productos(self):
+    def get_listaDeProductos(self):
         return self._listaDeProductos
 
-    def set_lista_de_productos(self, lista_de_productos):
-        self._listaDeProductos = lista_de_productos
+    def set_listaDeProductos(self, listaDeProductos):
+        self._listaDeProductos = listaDeProductos
 
     def get_lista_transportes(self):
         return self._listaTransportes
