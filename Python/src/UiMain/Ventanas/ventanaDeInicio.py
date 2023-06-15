@@ -9,12 +9,13 @@ path = os.path.join(pathlib.Path(__file__).parent.absolute())
 path = os.path.dirname(path)
 from PIL import Image, Image, ImageTk
 
+contador = 0
 class VentanaDeInicio(tk.Tk):
     def __init__(self):
         super().__init__()
 
         self.title("La mejor empresa del mundo0o0o0 MJLJM")
-        self.geometry("1080x720+0+0")
+        self.geometry("1080x720+100+0")
         self.config(bg="#dab5ff")
         menuArchivo = tk.Menu(self)
         self.config(menu=menuArchivo, height=30)
@@ -31,12 +32,51 @@ class VentanaDeInicio(tk.Tk):
 
         # --------------- APARTIR DE ACA LUIS HARÁ SU MAGIA PARA NO DAÑAR LO DEMAS --------------
         #valores para la descripcion
-
+        
         def click_event(self):
-            marco_derecho.config(bg="black")
+            global  imagen1, imagen2, imagen3,imagen4, contador
+            contador += 1
+            contador %= 5 
+            
+            
+            if contador == 0:
+            #fotos de luis
+                imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis1.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis2.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis3.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis4.png').resize((250,200), Image.ANTIALIAS))
+                
+            elif contador == 1:
+            #fotos de Mafe
+                imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMafe/mafe1.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMafe/mafe2.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMafe/mafe3.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMafe/mafe4.png').resize((250,200), Image.ANTIALIAS))
+            elif contador == 2:
+            #fotos de Moni
+                imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/Moni1.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/Moni2.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/Moni3.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/Moni4.png').resize((250,200), Image.ANTIALIAS))
+            elif contador == 3:
+            #fotos de Jaider
+                imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosJaider/jaider1.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosJaider/jaider2.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosJaider/jaider3.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosJaider/jaider4.png').resize((250,200), Image.ANTIALIAS))
+            elif contador == 4:
+            #fotos de Joan
+                imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosJoan/joan1.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosJoan/joan2.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosJoan/joan3.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosJoan/joan4.png').resize((250,200), Image.ANTIALIAS))
+            algo4.configure(image=imagen1)
+            algo5.configure(image=imagen2)
+            algo6.configure(image=imagen3)
+            algo7.configure(image=imagen4)
 
         VALUES  = [
-        {"name": "Luis Alejandro Varela Ojeda", "description":"Amante del fútbol y el arte", "email":"hisanchezm@unal.edu.co"},
+        {"name": "Luis Alejandro Varela Ojeda", "description":"Amante de la Natacion y Waterpolo", "email":"luvarelao@unal.edu.co"},
         {"name": "Monica Sofia Restrepo León", "description":"Amante de la ciencia de datos", "email":"aluribes@unal.edu.co" },
         {"name":"Maria Fernanda Calle Agudelo", "description":"Apasionada por el baile", "email":"anospina@unal.edu.co"},
         {"name": "Jaider Castañeda Villa", "description":"Amante de la comida", "email":"jualopezra@unal.edu.co" },
@@ -48,7 +88,9 @@ class VentanaDeInicio(tk.Tk):
         imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis1.png').resize((250,200), Image.ANTIALIAS)) 
         imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis2.png').resize((250,200), Image.ANTIALIAS)) 
         imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis3.png').resize((250,200), Image.ANTIALIAS)) 
-        imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis4.png').resize((250,200), Image.ANTIALIAS)) 
+        imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis4.png').resize((250,200), Image.ANTIALIAS))
+
+        #fotos = [imagen1, imagen2, imagen3, imagen4] 
         self.image_names = [imagen1, imagen2, imagen3, imagen4]
        
         self.columnconfigure(0, weight=4)
@@ -76,7 +118,7 @@ class VentanaDeInicio(tk.Tk):
         izquierdo_1.columnconfigure(0, weight=1)
         izquierdo_1.grid(row=0, padx=10, pady=10, sticky="nsew")
         #aqui va lo que vaya dentro del frame
-        algo = tk.Label(izquierdo_1, text="ayuda esto no es un meme")
+        algo = tk.Label(izquierdo_1, text="bienvenidos a la empresa\n MJLJM")
         algo.grid(row=0, padx=20, pady=20, sticky="nsew")
 
         izquierdo_2 = tk.Frame(marco_izquierdo, bg="#e8eb34") #, width="400", height="100"
@@ -103,8 +145,29 @@ class VentanaDeInicio(tk.Tk):
         derecho_1.grid(row=0, padx=10, pady=10, sticky="nsew")
         derecho_1.rowconfigure(0, weight=1)
         derecho_1.columnconfigure(0, weight=1)
-        algo3 = tk.Label(derecho_1, text="ayuda esto no es un meme")
+        algo3 = tk.Label(derecho_1)
         algo3.grid(row=0, padx=20, pady=20, sticky="nsew")
+
+        algo3.rowconfigure(0, weight=1)
+        algo3.rowconfigure(1, weight=1)
+        algo3.rowconfigure(2, weight=1)
+        algo3.columnconfigure(0, weight=1)
+        algo3.columnconfigure(1, weight=1)
+        algo3.columnconfigure(2, weight=1)
+
+        #descripcion de los Integrantes
+        name = tk.Label(algo3, text="Name: " )
+        name.grid(row=0,column=0, sticky="nsew")
+        nombre = tk.Label(algo3, text=VALUES[contador]["name"] )
+        nombre.grid(row=0,column=1, sticky="nsew")
+        description = tk.Label(algo3, text="Description: " )
+        description.grid(row=1,column=0, sticky="nsew")
+        descripcion = tk.Label(algo3, text=VALUES[contador]["description"] )
+        descripcion.grid(row=1,column=1, sticky="nsew")
+        email = tk.Label(algo3, text="Email: " )
+        email.grid(row=2,column=0, sticky="nsew")
+        correo = tk.Label(algo3, text= VALUES[contador]["email"] )
+        correo.grid(row=2,column=1, sticky="nsew")
 
         derecho_2 = tk.Frame(marco_derecho, bg="#f5425a") #, width="400", height="100"
         derecho_2.grid(row=1, padx=10, pady=10, sticky="nsew")
@@ -115,7 +178,7 @@ class VentanaDeInicio(tk.Tk):
         derecho_2.columnconfigure(1, weight=1)
         
         
-        algo4 = tk.Label(derecho_2, image =  imagen1) #image= imagen1
+        algo4 = tk.Label(derecho_2, text="imagen 1", image =  imagen1) #image= imagen1
         algo4.grid(row=0,column=0, padx=10, pady=10, sticky="nsew")
         algo5 = tk.Label(derecho_2, text="imagen 2", image =  imagen2)
         algo5.grid(row=0,column=1, padx=10, pady=10, sticky="nsew")
