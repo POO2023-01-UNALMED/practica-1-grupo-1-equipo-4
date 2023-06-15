@@ -4,6 +4,11 @@ import sys
 sys.path.append('../')  # Retrocede un nivel al directorio padre
 import Objetos as prueba
 from gestorAplicacion.gestion.Factura import Factura
+from gestorAplicacion.produccion.Fabrica import Fabrica
+from gestorAplicacion.gestion.CuentaBancaria import CuentaBancaria
+from gestorAplicacion.gestion.Operario import Operario
+from gestorAplicacion.gestion.Vendedor import Vendedor
+from gestorAplicacion.gestion.Conductor import Conductor
 
 
 class PagoTrabajadores(Frame):
@@ -11,54 +16,102 @@ class PagoTrabajadores(Frame):
         super().__init__(window)
 
         listaFacturas = Factura.getListaFacturas()
-        print(listaFacturas)
-
+                
         #-----------------------------Eventos -------------------------------------------------------------
+        
         def opcionTipoTrabajador(evento):
-            opc = desplegableTipos.get()
+            global listaMostrar
+            global num
 
+            opc = desplegableTipos.get()         
             if opc == "Conductores":
-                frameTipos12.grid()
-                #listaMostrar = Fabrica.busquedaTrabajo(listaFacturas,2)
-                desplegableTrabajadores['values'] = ["Conductor 1", "Conductor 2", "Conductor 3"]
+                num = 2
             elif opc == "Operarios":
-                frameTipos12.grid()
-                #listaMostrar = Fabrica.busquedaTrabajo(listaFacturas,1)
-                desplegableTrabajadores['values'] = ["Operario 1", "Operario 2", "Operario 3"]
+                num = 1
             elif opc == "Vendedores":
-                frameTipos12.grid()
-                #listaMostrar = Fabrica.busquedaTrabajo(listaFacturas,3)
-                desplegableTrabajadores['values'] = ["Vendedor 1", "Vendedor 2", "Vendedor 3"]
+                num = 3
             else:
                 frameTipos12.grid_remove()
                 desplegableTrabajadores['values'] = ()
 
+            listaMostrar = Fabrica.busquedaTrabajo(listaFacturas,num)
+            values = []
+            for trabajador in listaMostrar:
+                values.append(trabajador.getNombre())
+            desplegableTrabajadores['values'] = values
+            frameTipos12.grid()
+
         def opcionTrabajador(evento):
+            global trabajadorEscogido
+            global pagoTrabajo
+
+            opc = desplegableTrabajadores.get()
+
+            for trabajador in listaMostrar:
+                if trabajador.getNombre() == opc:
+                    trabajadorEscogido = trabajador
+            datosTrabajador.config(text=trabajadorEscogido.__str__())
+
+            pagoTrabajo = CuentaBancaria.calcularPago(trabajadorEscogido)
+            textoInfoTrabajador = f"Al trabajador se le pagará {pagoTrabajo} por trabajar {trabajadorEscogido.getTrabajo()} veces"
+            infoTrabajador.config(text=textoInfoTrabajador)
+            
             frameInfo.grid()
 
-        def opcionMetaSi():
-            frameMetas.grid()
-
-        def opcionPago():
-            messagebox.showinfo("Pago existoso","Comprobante de pago\nPago asociado a los envios realizados: xxx\nPago asociado al cumplimiento de metas: 0\nTotal: xxx ")
+        def opcionPagoSinMeta():      
+            messagebox.showinfo(f"Pago existoso",f"Comprobante de pago\nPago asociado a los envios realizados: {pagoTrabajo}\nPago asociado al cumplimiento de metas: {0}\nTotal: {pagoTrabajo}")
             frameTipos12.grid_remove()
             frameInfo.grid_remove()
             frameMetas.grid_remove()
 
+        def opcionMetaSi():
+
+            indice = trabajadorEscogido.getIndiceMeta()
+
+            if num == 1:
+                listaMetas = Operario.getMetasOperario()
+                textoIndice = "Indice: número de productos vendidos\n"
+            elif num == 2:
+                listaMetas = Conductor.getMetasConductor()
+                textoIndice = "Indice: peso de productos transportados\n"
+            elif num ==3:
+                listaMetas = Vendedor.getMetasVendedor()
+                textoIndice = "Indice: número de productos vendidos\n"
+
+
+            textoMetasTrabajador = textoIndice
+            for i in range(len(listaMetas)):
+                textoMetasTrabajador += f"Meta {i+1}"
+                textoMetasTrabajador += listaMetas[i].__str__()
+
+            textoMetas.config(text=textoMetasTrabajador)
+            frameMetas.grid()
+
         def opcionMeta(evento):
             opc = desplegableMetas.get()
-
+            global pagoMeta
+            
             if opc == "Meta 1":
-                frameMetas2.grid()
-                textoInfoMeta.config(text="Esta meta no se ha cumplido\nPorcentaje cumplido: 45%")
-                botonPago.grid()
-            elif opc == "Meta 2":
-                frameMetas2.grid()
-                textoInfoMeta.config(text="Esta meta se ha cumplido\nPorcentaje cumplido: 125%\nSe añadira la bonificación al pago total ")
-                botonPago.grid()
-            else:
-                frameMetas2.grid_remove()
+
+                
                 textoInfoMeta.config(text="")
+                pagoMeta = 0
+                frameMetas2.grid()
+                botonPago.grid()
+                
+            elif opc == "Meta 2":
+
+                textoInfoMeta.config(text="")
+                pagoMeta = 0
+                frameMetas2.grid()
+                botonPago.grid()
+            
+
+        def opcionPagoConMeta():
+            messagebox.showinfo(f"Pago existoso",f"Comprobante de pago\nPago asociado a los envios realizados: {pagoTrabajo}\nPago asociado al cumplimiento de metas: {pagoMeta}\nTotal: {pagoTrabajo+pagoMeta}")
+            frameTipos12.grid_remove()
+            frameInfo.grid_remove()
+            frameMetas.grid_remove()
 
         #----------------------------------Divisiones filas y columnas-------------------------------------
         for i in range(12):
@@ -113,13 +166,13 @@ class PagoTrabajadores(Frame):
         frameInfo.grid_remove()
 
         #Información del trabajador
-        datos = "Edad:  10 \nCédula: 92345 \nTienda: La tienda de la esquina"
-        datosTrabajador = tk.Label(frameInfo, text=datos, font=("Arial", 10))#, bg ="#56E5D1"
+        #datos = "Edad:  10 \nCédula: 92345 \nTienda: La tienda de la esquina"
+        datosTrabajador = tk.Label(frameInfo,font=("Arial", 10))#, bg ="#56E5D1"
         datosTrabajador.pack()
 
         #Información de lo que se le va a pagar
-        info = """A Pepito se le pagará 5000 por trabajar 4 veces"""
-        infoTrabajador = tk.Label(frameInfo, text=info, font=("Arial", 10))#,bg ="#DFE556"
+        #info = """A Pepito se le pagará 5000 por trabajar 4 veces"""
+        infoTrabajador = tk.Label(frameInfo,font=("Arial", 10))#,bg ="#DFE556"
         infoTrabajador.pack()
 
         pregunta = "¿Desea analizar y bonificar al trabajador por sus metas cumplidas?"
@@ -137,7 +190,7 @@ class PagoTrabajadores(Frame):
         botonSi.pack(side="left", padx=10)
         #Botón No
         textPago = """No, proceder con el pago"""
-        botonNo = ttk.Button(frameInfoBotones, text=textPago, style="Estilo.TButton", command=opcionPago)
+        botonNo = ttk.Button(frameInfoBotones, text=textPago, style="Estilo.TButton", command=opcionPagoSinMeta)
         botonNo.pack(side="right", padx=10)
 
         #-------------------------------------Bonificación metas-----------------------------------------
@@ -147,8 +200,8 @@ class PagoTrabajadores(Frame):
         frameMetas.grid_remove()
 
         #Metas dependiendo del tipo
-        metas = "Meta 1: Vender más de 5 productos \nBonificación: 10000\nMeta 2: Vender más de 20 productos\nBonificación: 4000"
-        textoMetas = tk.Label( frameMetas, text=metas, font=("Arial", 10)) #, bg ="#B856E5"
+        #metas = "Meta 1: Vender más de 5 productos \nBonificación: 10000\nMeta 2: Vender más de 20 productos\nBonificación: 4000"
+        textoMetas = tk.Label( frameMetas, font=("Arial", 10)) #, bg ="#B856E5"
         textoMetas.grid(row=3, column=1,columnspan=2,padx=5, pady=5)
 
         #Elección de meta 
@@ -172,6 +225,6 @@ class PagoTrabajadores(Frame):
         textoInfoMeta.pack(anchor='center')
 
         #Botón de pago
-        botonPago = ttk.Button(frameMetas, text="Pagar total", style="Estilo.TButton",command=opcionPago)
+        botonPago = ttk.Button(frameMetas, text="Pagar total", style="Estilo.TButton",command=opcionPagoConMeta)
         botonPago.grid(row=5, column=1, columnspan=2,padx=5, pady=5)
-        botonPago.grid_remove() 
+        botonPago.grid_remove()
