@@ -2,12 +2,34 @@ import tkinter as tk
 from tkinter import ttk, Frame, DISABLED,Entry
 import sys
 sys.path.append('../')  # Retrocede un nivel al directorio padre
-import Objetos as prueba
+import Objetos
+
 
 class Abastecer(Frame):
+    
     def __init__(self, window):
-        print(prueba.Fabrica)
         super().__init__(window)
+        # /*--------------Eventos--------------*/
+        def rellenarCuadroDeTextoTienda(event):                    
+            # Agregar contenido al widget de texto
+            texto_widget.config(state=tk.NORMAL)
+            tienda = encontrarObjeto(desplegableTiendas,Objetos.fabrica.getListaTienda())[0]
+            print(tienda)
+            cadenaDeTexto = tienda.productosPorCategoria()+"\n"+tienda.cantidadProductos()
+            print(cadenaDeTexto)
+            texto_widget.insert(tk.END, cadenaDeTexto)
+            texto_widget.config(state=DISABLED)
+
+
+        def encontrarObjeto(comboBox,listaObjetos):
+            nombre = comboBox.get()
+            objeto = None
+            # for i in listaObjetos:
+            #     if i.getNombre()==nombre:
+            #         objeto = i
+            objeto = list(filter(lambda x: x.getNombre()==nombre,listaObjetos))
+            return objeto
+        
         # Distribución uniforme de filas
         for i in range(5):
             self.rowconfigure(i, weight=1)
@@ -45,9 +67,8 @@ class Abastecer(Frame):
         textoTiedas = tk.Label(stack, text='Lista de tiendas')
         textoTiedas.pack(side='top', anchor='center')
 
-        desplegableTiendas = ttk.Combobox(stack, values=["Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado",
-                                                         "Domingo"], textvariable=predeterminadoTiendas,
-                                          state='readonly')
+        desplegableTiendas = ttk.Combobox(stack, values=[x.getNombre() for x in Objetos.fabrica.getListaTienda()], 
+                                          textvariable=predeterminadoTiendas,state='readonly')
         desplegableTiendas.pack(side='top', anchor='center')
 
         # Crear una casilla para contener el cuadro de texto
@@ -58,10 +79,11 @@ class Abastecer(Frame):
         informacion = "Texto de ejemplo"
         texto_widget = tk.Text(casillaTextoTiendas, width=16, height=8, bg="grey")
         texto_widget.pack()
-
         # Agregar contenido al widget de texto
         texto_widget.insert(tk.END, informacion)
         texto_widget.configure(state=tk.DISABLED)
+        tienda = encontrarObjeto(desplegableTiendas,Objetos.fabrica.getListaTienda())
+        desplegableTiendas.bind("<<ComboboxSelected>>",rellenarCuadroDeTextoTienda)
 
         # /*--------------Productos--------------*/
         # Stack para la parte de productos
@@ -76,7 +98,7 @@ class Abastecer(Frame):
         textoProductos.pack(side='top', anchor='center')
 
         desplegableProductos = ttk.Combobox(stack, values=["Pan", "Agua"], textvariable=predeterminadoProductos,
-                                            state='readonly')
+                                            state='readonly',width=20)
         desplegableProductos.pack(side='top', anchor='center')
 
         # Crear una casilla para contener el cuadro de texto
@@ -84,8 +106,8 @@ class Abastecer(Frame):
         casillaTextoProductos.grid(row=1 + 1, column=1, columnspan=1)
         # Crear un cuadro de texto para mostrar información
         informacion = "Texto de ejemplo"
-        texto_widgetProductos = tk.Entry(self, width=16,bg="grey")
-        texto_widgetProductos.grid(row=1 + 1, column=1, columnspan=1,sticky='nsew')
+        texto_widgetProductos = tk.Text(casillaTextoProductos, width=16,height=8,bg="grey")
+        texto_widgetProductos.pack()
         # Agregar contenido al widget de texto
         texto_widgetProductos.insert(tk.END, informacion)
         texto_widgetProductos.configure(state=tk.DISABLED)
