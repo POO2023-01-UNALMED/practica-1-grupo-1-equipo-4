@@ -39,3 +39,8 @@ class TipoTransporte:
     #     return transporte
 
 
+
+
+kdfjdsjf = TipoTransporte.CAMION()
+
+print(kdfjdsjf)
