@@ -1,3 +1,4 @@
+from tkinter import messagebox
 
 class ErrorAplicacion(Exception):
     def __init__(self, msg):
@@ -5,7 +6,7 @@ class ErrorAplicacion(Exception):
         super().__init__(self._excepcion)
 
     def mostrarMensaje(self):
-        print(self._excepcion)
+        messagebox.showerror(self._excepcion)
 
 class ExceptionC1(ErrorAplicacion):
     def __init__(self, msg):
