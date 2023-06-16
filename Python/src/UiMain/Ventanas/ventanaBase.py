@@ -8,7 +8,7 @@ from .ventanaDeEntrada import ventanaDeEntrada
 from ..Funcionalidades.PagoTrabajadores import PagoTrabajadores
 from ..Funcionalidades.Abastecer import Abastecer
 from ..Funcionalidades.EnviarPedido import EnviarPedido
-#from ..Funcionalidades.Devoluciones import Devoluciones 
+from ..Funcionalidades.Devoluciones import Devoluciones 
 
 
 
@@ -35,7 +35,7 @@ class   VentanaBase(Tk):
         menuProcesos.add_command(label='Enviar pedido', command=self.enviarPedido) 
         menuProcesos.add_command(label='Pagar trabajadores', )  #  command=self.pagoTrabajadores
         menuProcesos.add_command(label='Abastecer tiendas', command=self.Abastecer)  # command
-        menuProcesos.add_command(label='Gestionar devoluciones')  # command = self.Devoluciones
+        menuProcesos.add_command(label='Gestionar devoluciones', command = self.Devoluciones)  # , command = self.Devoluciones
         menuProcesos.add_command(label='Mostrar estadísticas', command=self.estadisticas)  # command
 
         
@@ -65,9 +65,9 @@ class   VentanaBase(Tk):
         geC = EnviarPedido(self)
         self.Limpiar(geC)
     
-    # def Devoluciones(self):
-    #     geC = Devoluciones(self)
-    #     self.Limpiar(geC)
+    def Devoluciones(self):
+        geC = Devoluciones(self)
+        self.Limpiar(geC)
 
     def estadisticas(self):
         geC = Estadisticas(self)
