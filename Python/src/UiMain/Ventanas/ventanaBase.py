@@ -1,11 +1,13 @@
 from tkinter import Menu, Tk, BOTH, Frame, messagebox
 
 from ..Funcionalidades.Estadisticas import Estadisticas
+from ..Funcionalidades.Estadisticas import Estadisticas
 from .ventanaDeEntrada import ventanaDeEntrada
 from ..Funcionalidades.PagoTrabajadores import PagoTrabajadores
 from ..Funcionalidades.Abastecer import Abastecer
 from ..Funcionalidades.EnviarPedido import EnviarPedido
 #from ..Funcionalidades.Devoluciones import Devoluciones 
+
 
 
 class   VentanaBase(Tk):

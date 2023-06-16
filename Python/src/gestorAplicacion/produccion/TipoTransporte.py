@@ -2,7 +2,11 @@ from random import choice
 from enum import Enum
 
 
+from enum import Enum
+
 class TipoTransporte(Enum):
+
+
     CAMION = ("Camion", 5, 16329)
     AVION = ("Avion", 10, 640000)
     AUTOMOVIL = ("Automovil", 3, 500)
@@ -14,15 +18,16 @@ class TipoTransporte(Enum):
     TREN = ("Tren", 33, 30000)
     CAMINANDO = ("Caminando", 1, 15)
 
-
-    def crearTipoTransporteSegunCarga(self,PesoTotalProductos):
+    @classmethod
+    def crearTipoTransporteSegunCarga(cls,PesoTotalProductos):
         listaTransFiltrada = []
         for tipoTransporte in TipoTransporte:
-            if tipoTransporte[2] >= PesoTotalProductos:
+            if tipoTransporte.value[2] >= PesoTotalProductos:
                 listaTransFiltrada.append(tipoTransporte)
         return listaTransFiltrada
 
-
+    def __str__(self):
+        return f"TipoTransporte: {self.name}\n Precio: {self.value[1]} \n Capacidad: {self.value[2]}"
     # @staticmethod
     # def mostrar_tipo_transporte_segun_carga(lista_filtrada: List['TipoTransporte']) -> str:
     #     texto_trans_filtrado = ""
@@ -43,6 +48,6 @@ class TipoTransporte(Enum):
 
 
 if __name__=='__main__':
-    kdfjdsjf = TipoTransporte.CAMION.value
-
-    print(kdfjdsjf)
+# Ejemplo de prueba
+    resultado = TipoTransporte.crearTipoTransporteSegunCarga(600)
+    print(resultado)

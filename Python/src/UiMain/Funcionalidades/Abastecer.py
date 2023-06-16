@@ -3,6 +3,8 @@ from tkinter import ttk, Frame, DISABLED,Entry
 import sys
 sys.path.append('../')  # Retrocede un nivel al directorio padre
 import Objetos
+from gestorAplicacion.produccion.TipoTransporte import TipoTransporte
+from gestorAplicacion.produccion.Transporte import Transporte
 
 
 class Abastecer(Frame):
@@ -10,19 +12,26 @@ class Abastecer(Frame):
     producto = None
     cantidadProducto = None
     tipoTransporte = None
-
-    def __init__(self, window):
+    listaFiltradaTransportes = None
+    def __init__(self, window): 
         super().__init__(window)
         # /*--------------Eventos--------------*/
+        def deshabilitarTienda(event):
+            desplegableTiendas.config(state='readonly')
+
         def rellenarCuadroDeTextoTienda(event):                    
             # Agregar contenido al widget de texto
             texto_widget.config(state=tk.NORMAL)
-            desplegableProductos.config(state='readonly')
+            desplegableProductos.config(state=tk.NORMAL)
             texto_widget.delete("1.0", tk.END)
             Abastecer.tienda = encontrarObjeto(desplegableTiendas,Objetos.fabrica.getListaTienda())[0]
             cadenaDeTexto = Abastecer.tienda.productosPorCategoria()+"\n"+Abastecer.tienda.cantidadProductos()
             texto_widget.insert(tk.END, cadenaDeTexto)
             texto_widget.config(state=DISABLED)
+
+        def deshabilitarProductos(event):
+            desplegableProductos.config(state='readonly')
+
 
         def rellenarCuadroDeTextoProducto(event):                    
             # Agregar contenido al widget de texto
@@ -36,18 +45,35 @@ class Abastecer(Frame):
 
         def eventoEntry(event):                    
             # Agregar contenido al widget de texto
+            desplegableTransporte.config(state=tk.NORMAL)
+            Abastecer.cantidadProducto = entradaProductosQa.get()
+            Abastecer.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(Abastecer.producto.getPeso()*float(Abastecer.cantidadProducto))
+            desplegableTransporte['values']=[x.value[0] for x in Abastecer.listaFiltradaTransportes]
+
+        def deshabilitarTransporte(event):
             desplegableTransporte.config(state='readonly')
-            Abastecer.cantidadProducto = int(entradaProductosQa.get())
+
+        def rellenarCuadroDeTextoTransporte(event):                    
+            # Agregar contenido al widget de texto
+            texto_widgetTransporte.config(state=tk.NORMAL)
+            texto_widgetTransporte.delete("1.0", tk.END)
+            Abastecer.tipoTransporte = list(filter(lambda x: x.value[0]==desplegableTransporte.get(),TipoTransporte))[0]
+            cadenaDeTexto = Abastecer.tipoTransporte.__str__()
+            texto_widgetTransporte.insert(tk.END, cadenaDeTexto)
+            texto_widgetTransporte.config(state=DISABLED)
 
         def encontrarObjeto(comboBox,listaObjetos):
             nombre = comboBox.get()
             objeto = None
-            # for i in listaObjetos:
-            #     if i.getNombre()==nombre:
-            #         objeto = i
             objeto = list(filter(lambda x: x.getNombre()==nombre,listaObjetos))
             return objeto
         
+        def envio():
+            listaProductos = Objetos.fabrica.cantidadProductos(int(Abastecer.cantidadProducto),Abastecer.producto)
+            machetazo = Transporte("Abastecer.tipoTransporte[0]",20,300,Objetos.conductor1)
+            machetazo.abastecerProducto(Abastecer.tienda,listaProductos)
+            Abastecer.tienda.descargarProducto(machetazo)
+            print(Abastecer.tienda)
         # Distribución uniforme de filas
         for i in range(5):
             self.rowconfigure(i, weight=1)
@@ -84,7 +110,7 @@ class Abastecer(Frame):
         textoTiedas.pack(side='top', anchor='center')
 
         desplegableTiendas = ttk.Combobox(stack, values=[x.getNombre() for x in Objetos.fabrica.getListaTienda()], 
-                                          textvariable=predeterminadoTiendas,state='readonly')
+                                          textvariable=predeterminadoTiendas,state=tk.NORMAL)
         desplegableTiendas.pack(side='top', anchor='center')
 
         # Crear una casilla para contener el cuadro de texto
@@ -100,6 +126,7 @@ class Abastecer(Frame):
         texto_widget.configure(state=tk.DISABLED)
 
         desplegableTiendas.bind("<<ComboboxSelected>>",rellenarCuadroDeTextoTienda)
+        desplegableTiendas.bind("<Button-1>",deshabilitarTienda)
 
         # /*--------------Productos--------------*/
         # Stack para la parte de productos
@@ -127,9 +154,9 @@ class Abastecer(Frame):
         # Agregar contenido al widget de texto
         texto_widgetProductos.insert(tk.END, informacion)
         texto_widgetProductos.configure(state=tk.DISABLED)
-        desplegableProductos.bind("<<ComboboxSelected>>",rellenarCuadroDeTextoTienda)
 
         desplegableProductos.bind("<<ComboboxSelected>>",rellenarCuadroDeTextoProducto)
+        desplegableProductos.bind("<Button-1>",deshabilitarProductos)
 
         # /*--------------Cantidad de Productos--------------*/
         # Stack para la parte de productos
@@ -145,6 +172,7 @@ class Abastecer(Frame):
         entradaProductosQa = tk.Entry(stack)
         entradaProductosQa.pack(side='top', anchor='center')
         entradaProductosQa.configure(state=DISABLED)
+        entradaProductosQa.bind("<KeyRelease>", eventoEntry)
 
         # /*--------------Transporte--------------*/
         # Stack para la parte de productos
@@ -157,8 +185,7 @@ class Abastecer(Frame):
 
         textoTransporte = tk.Label(stack, text='Lista de Transporte')
         textoTransporte.pack(side='top', anchor='center')
-
-        desplegableTransporte = ttk.Combobox(stack, values=["Pan", "Agua"], textvariable=predeterminadoTransporte,
+        desplegableTransporte = ttk.Combobox(stack, values=["a"], textvariable=predeterminadoTransporte,
                                              state='readonly')
         desplegableTransporte.pack(side='top', anchor='center')
         desplegableTransporte.configure(state="disabled")
@@ -173,11 +200,15 @@ class Abastecer(Frame):
         # Agregar contenido al widget de texto
         texto_widgetTransporte.insert(tk.END, informacion)
         texto_widgetTransporte.configure(state=DISABLED)
-
+        desplegableTransporte.bind("<<ComboboxSelected>>",rellenarCuadroDeTextoTransporte)
+        desplegableTransporte.bind("<Button-1>",deshabilitarTransporte)
         # /*--------------Botones--------------*/
         # Crear un botón
-        botonSalida = tk.Button(self, text="Salida", width=10)
+        botonSalida = tk.Button(self, text="Salida", width=10,command=envio)
         botonSalida.grid(row=3 + 1, column=1, sticky="ew")
 
         botonEnviar = tk.Button(self, text="Enviar", width=5)
         botonEnviar.grid(row=3 + 1, column=2, sticky="ew")
+        #/*--------------Comando--------------*/
+ 
+
