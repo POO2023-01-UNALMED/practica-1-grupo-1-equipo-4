@@ -55,10 +55,10 @@ class VentanaDeInicio(tk.Tk):
                 imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMafe/mafe4.png').resize((250,200), Image.ANTIALIAS))
             elif VentanaDeInicio.contador == 2:
             #fotos de Moni
-                imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/Moni1.png').resize((250,200), Image.ANTIALIAS)) 
-                imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/Moni2.png').resize((250,200), Image.ANTIALIAS)) 
-                imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/Moni3.png').resize((250,200), Image.ANTIALIAS)) 
-                imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/Moni4.png').resize((250,200), Image.ANTIALIAS))
+                imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/moni2.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/moni3.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/moni4.png').resize((250,200), Image.ANTIALIAS)) 
+                imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/moni5.png').resize((250,200), Image.ANTIALIAS))
             elif VentanaDeInicio.contador == 3:
             #fotos de Jaider
                 imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosJaider/jaider1.png').resize((250,200), Image.ANTIALIAS)) 
