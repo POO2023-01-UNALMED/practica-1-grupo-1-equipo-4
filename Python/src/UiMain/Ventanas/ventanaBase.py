@@ -38,10 +38,7 @@ class   VentanaBase(Tk):
         menuProcesos.add_command(label='Gestionar devoluciones', command = self.Devoluciones)  # , command = self.Devoluciones
         menuProcesos.add_command(label='Mostrar estadísticas', command=self.estadisticas)  # command
 
-        
-
-        menuProcesos.add_command(label='Mostrar estadísticas', command = self.estadisticas)#command
-
+    
         # ----------Ayuda---------
         menuBar.add_cascade(menu=menuAyuda, label='Ayuda')
         menuAyuda.add_command(label='Acerca de', command=acercaDe)
