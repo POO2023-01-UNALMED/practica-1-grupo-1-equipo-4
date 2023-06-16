@@ -26,6 +26,11 @@ class Factura:
         Factura.facturasCreadas += 1
 
     
+
+    def calcularTarifaEnvio(self):
+
+        return  self.transporte.costo
+
     def calcularTotal(self):
         totalParcial = 0
         for i in range(len(self.listaProductos)):
@@ -43,29 +48,29 @@ class Factura:
         return facturasEntreFechas
     
     @staticmethod
-    def getListaFechas(fecha1, fecha2):
+    def getListaFechas(fecha1 = "", fecha2 = ""):
+
+        if fecha1 == "" and fecha2 == "":
+
+            listaFechas = []
+            for factura in Factura.listaFacturas:
+                if factura.fecha not in listaFechas:
+                    listaFechas.append(factura.fecha)
+            return listaFechas
+
         listaFechas = []
         for factura in Factura.listaFacturas:
             if factura.fecha >= fecha1 and factura.fecha <= fecha2 and factura.fecha not in listaFechas:
                 listaFechas.append(factura.fecha)
         return listaFechas
 
-
-    def getListaFechas(fecha1, fecha2):
-        listaFechas = []
-        for factura in Factura.listaFacturas:
-            if factura.fecha >= fecha1 and factura.fecha <= fecha2 and factura.fecha not in listaFechas:
-                listaFechas.append(factura.fecha)
-        return listaFechas    
-    
-
-    @staticmethod
+    """@staticmethod
     def getListaFechas():
         listaFechas = []
         for factura in Factura.listaFacturas:
             if factura.fecha not in listaFechas:
                 listaFechas.append(factura.fecha)
-        return listaFechas
+        return listaFechas"""
     
 
     @staticmethod
@@ -85,7 +90,7 @@ class Factura:
 
         return dictGananciasDiscretas
     
-    @staticmethod
+    """@staticmethod
     def gananciasDiscretas(fechas):
         fecha1 = fechas[0]
         fecha2 = fechas[-1]
@@ -102,7 +107,7 @@ class Factura:
                     dictGananciasDiscretas[fecha] = valorAnterior + factura.getTotal()
 
         return dictGananciasDiscretas
-    
+    """
 
     @staticmethod
     def gananciasTotales(dictGananciasDiscretas):
@@ -143,6 +148,10 @@ class Factura:
     @staticmethod
     def getFechaMin():
         return min(Factura.getListaFechas())
+    
+    @staticmethod
+    def getFechaMax():
+        return max(Factura.getListaFechas())
     
 
     @staticmethod

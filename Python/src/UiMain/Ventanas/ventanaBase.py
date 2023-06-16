@@ -1,5 +1,7 @@
 from tkinter import Menu, Tk, BOTH, Frame, messagebox
 
+
+
 from ..Funcionalidades.Estadisticas import Estadisticas
 from ..Funcionalidades.Estadisticas import Estadisticas
 from .ventanaDeEntrada import ventanaDeEntrada
@@ -104,6 +106,9 @@ class   VentanaBase(Tk):
 
     def salir(self):
         self.destroy()
+
+        from .ventanaDeInicio import VentanaDeInicio
+        
         VentanaDeInicio()
 
 

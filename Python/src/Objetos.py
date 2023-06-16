@@ -53,6 +53,8 @@ vendedor1 = Vendedor("Maria Beatriz",20,57793,cuentaVendedor1,None)
 vendedor2 = Vendedor("Adriana Alexia Putellas",21,89235,cuentaVendedor2,None)
 vendedor3 = Vendedor("Lionel Andres Messi",22,14720,cuentaVendedor3,None)
 
+
+
 #CuentaOperario
 cuentaOperario1 = CuentaBancaria(95687, 200)
 #Operario
@@ -114,11 +116,16 @@ conductor1.setFabrica(fabrica)
 conductor2.setFabrica(fabrica)
 conductor3.setFabrica(fabrica)
 
+transporte1 = Transporte(TipoTransporte.TREN, 100, 1000, conductor1)
+
 #un_transporte = Transporte(tipo, capacidad, costo, conductor)
 #transporteAbastecer = Transporte(TipoTransporte.CAMION, TipoTransporte.CAMION.get_precio_original_transporte(), TipoTransporte.CAMION.get_capacidad(), conductor1)
 #conductor1.setTransporte(transporteAbastecer)
 
 #"Facturas"
-# factura1 = Factura(tienda1,cliente1,transporteAbastecer,productos,1,"Nada" )
-# factura2 = Factura(tienda2,cliente2,transporteAbastecer,productos,2,"Nada" )
-# factura3 = Factura(tienda3,cliente3,transporteAbastecer,productos,3,"Nada" )
+factura2 = Factura(tienda2,cliente2,  transporte1 ,productos[0:2],2,"Nada", operario1 )
+factura1 = Factura(tienda1,cliente1,transporte1 ,productos[0:4],1,"Nada", operario1 )
+factura3 = Factura(tienda3,cliente3,transporte1 ,productos[4:6],3,"Nada", operario1 )
+
+if __name__ == '__main__':
+    print(Factura.getListaFacturas())

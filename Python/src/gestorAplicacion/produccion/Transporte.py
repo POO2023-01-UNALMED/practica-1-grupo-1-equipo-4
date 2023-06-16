@@ -13,6 +13,7 @@ class Transporte:
         self.listaTransportes = []
         self.tienda = None
         self.listaDeProductos = []
+        self.tipo = tipo,
 
     def abastecerProducto(self, tienda, listaDeProductos):
         self.tienda = tienda
