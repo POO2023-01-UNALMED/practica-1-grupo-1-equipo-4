@@ -98,6 +98,8 @@ cliente7 = Cliente("Emiliano Dibu Martinez", "Carrera 23", cuentaCliente7)
 cuentaCliente8 = CuentaBancaria(88888, 211000)
 cliente8 = Cliente("Diego Armando Maradona", "Carrera 10", cuentaCliente8)
 
+ListaClientes = [cliente1, cliente2, cliente3, cliente4, cliente5, cliente6, cliente7, cliente8]
+
 
 "Conductores"
 cuentaConductor1 = CuentaBancaria(646541231, 100)

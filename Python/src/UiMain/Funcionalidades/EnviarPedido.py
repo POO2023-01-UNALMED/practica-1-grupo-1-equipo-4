@@ -47,7 +47,7 @@ class EnviarPedido(Frame):
         def numeroProductos(evento):
             opc = desplegableNumProductos.get()
             if opc == "1":
-                frameproducto31.grid()
+                frameproducto31.grid()                    
             elif opc =="2":
                 frameproducto31.grid()
                 frameproducto32.grid()
@@ -59,6 +59,7 @@ class EnviarPedido(Frame):
 
         def productosSeleccionados(evento):
             frameTransporte42.grid()
+            print(f"el producto seleccionado es: {productoSeleccionado1}")
             #hacer que se sumen los pesos para filtrar transportes
 
         def transporteSeleccionado(evento):
@@ -86,7 +87,7 @@ class EnviarPedido(Frame):
         textoClientes.pack(side='top', anchor='center')
 
         clientePredeterminado = tk.StringVar(value='Seleccionar cliente')
-        desplegableClientes = ttk.Combobox(frameClientes11, values=["Cliente1", "Cliente2 ", "Cliente3"], textvariable=clientePredeterminado, state='readonly')
+        desplegableClientes = ttk.Combobox(frameClientes11, values =[x.getNombre() for x in Objetos.ListaClientes], textvariable=clientePredeterminado, state='readonly')
         desplegableClientes.pack(side='top', anchor='center')
         desplegableClientes.bind("<<ComboboxSelected>>", clienteSeleccionado)
 
@@ -134,6 +135,8 @@ class EnviarPedido(Frame):
         #desplegableProductos1 = ttk.Combobox(frameproducto31,values=["pan", "agua", "unicornios"], textvariable=productoPredeterminado, state='readonly')  
         desplegableProductos1.pack(side='top', anchor='center')
         desplegableProductos1.bind("<<ComboboxSelected>>",productosSeleccionados)
+        opc1=desplegableProductos1.get()
+        # productoSeleccionado1 = Objetos.fabrica.getListaProductos().get(opc1)
 
         #----------------Segunda casilla de productos------------------
 
