@@ -24,12 +24,13 @@ class Producto:
     # Métodos
     
     def __str__(self):
-        return "\nNombre: " + self._nombre + "\n" \
+        return "Nombre: " + self._nombre + "\n" \
                + "Descripción: " + self._descripcion + "\n" \
                + "Valor: " + str(self._valor) + "\n" \
                + "Peso: " + str(self._peso) + "\n" \
                + "Tamaño: " + str(self._tamano) + "\n" \
-               + "Costo de produccion: " + str(self._costoDeProduccion) + "\n"
+               + "Costo de produccion: " + str(self._costoDeProduccion) + "\n"\
+               + "Categoria: "+str(self._categoria)
     
     # Getters and Setters
     

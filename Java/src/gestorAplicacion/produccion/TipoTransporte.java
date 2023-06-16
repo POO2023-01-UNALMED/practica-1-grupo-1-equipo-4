@@ -68,7 +68,7 @@ public enum TipoTransporte {
             }
 	}
     return listaTransFiltrada;
-}
+    }
             /*
      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO:  EnviarPedido
      * 

@@ -1,7 +1,8 @@
 from random import choice
+from enum import Enum
 
 
-class TipoTransporte:
+class TipoTransporte(Enum):
     CAMION = ("Camion", 5, 16329)
     AVION = ("Avion", 10, 640000)
     AUTOMOVIL = ("Automovil", 3, 500)
@@ -13,13 +14,14 @@ class TipoTransporte:
     TREN = ("Tren", 33, 30000)
     CAMINANDO = ("Caminando", 1, 15)
 
-    # @staticmethod
-    # def crear_tipo_transporte_segun_carga(peso_total_productos: int) -> List['TipoTransporte']:
-    #     lista_trans_filtrada = []
-    #     for tipo in TipoTransporte.__members__.values():
-    #         if tipo[2] >= peso_total_productos:
-    #             lista_trans_filtrada.append(tipo)
-    #     return lista_trans_filtrada
+
+    def crearTipoTransporteSegunCarga(self,PesoTotalProductos):
+        listaTransFiltrada = []
+        for tipoTransporte in TipoTransporte:
+            if tipoTransporte[2] >= PesoTotalProductos:
+                listaTransFiltrada.append(tipoTransporte)
+        return listaTransFiltrada
+
 
     # @staticmethod
     # def mostrar_tipo_transporte_segun_carga(lista_filtrada: List['TipoTransporte']) -> str:
@@ -40,7 +42,7 @@ class TipoTransporte:
 
 
 
+if __name__=='__main__':
+    kdfjdsjf = TipoTransporte.CAMION.value
 
-kdfjdsjf = TipoTransporte.CAMION()
-
-print(kdfjdsjf)
+    print(kdfjdsjf)

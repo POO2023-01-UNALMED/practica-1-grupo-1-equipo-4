@@ -6,20 +6,38 @@ import Objetos
 
 
 class Abastecer(Frame):
-    
+    tienda = None
+    producto = None
+    cantidadProducto = None
+    tipoTransporte = None
+
     def __init__(self, window):
         super().__init__(window)
         # /*--------------Eventos--------------*/
         def rellenarCuadroDeTextoTienda(event):                    
             # Agregar contenido al widget de texto
             texto_widget.config(state=tk.NORMAL)
-            tienda = encontrarObjeto(desplegableTiendas,Objetos.fabrica.getListaTienda())[0]
-            print(tienda)
-            cadenaDeTexto = tienda.productosPorCategoria()+"\n"+tienda.cantidadProductos()
-            print(cadenaDeTexto)
+            desplegableProductos.config(state='readonly')
+            texto_widget.delete("1.0", tk.END)
+            Abastecer.tienda = encontrarObjeto(desplegableTiendas,Objetos.fabrica.getListaTienda())[0]
+            cadenaDeTexto = Abastecer.tienda.productosPorCategoria()+"\n"+Abastecer.tienda.cantidadProductos()
             texto_widget.insert(tk.END, cadenaDeTexto)
             texto_widget.config(state=DISABLED)
 
+        def rellenarCuadroDeTextoProducto(event):                    
+            # Agregar contenido al widget de texto
+            texto_widgetProductos.config(state=tk.NORMAL)
+            entradaProductosQa.config(state=tk.NORMAL)
+            texto_widgetProductos.delete("1.0", tk.END)
+            Abastecer.producto = encontrarObjeto(desplegableProductos,Objetos.fabrica.getListaProductos())[0]
+            cadenaDeTexto = Abastecer.producto.__str__()
+            texto_widgetProductos.insert(tk.END, cadenaDeTexto)
+            texto_widgetProductos.config(state=DISABLED)
+
+        def eventoEntry(event):                    
+            # Agregar contenido al widget de texto
+            desplegableTransporte.config(state='readonly')
+            Abastecer.cantidadProducto = int(entradaProductosQa.get())
 
         def encontrarObjeto(comboBox,listaObjetos):
             nombre = comboBox.get()
@@ -45,13 +63,11 @@ class Abastecer(Frame):
         self.rowconfigure(0, weight=1)
         self.columnconfigure(0, weight=1)
 
-        titulo = tk.Label(frameCabecera, text='Pagar a trabajadores', font=("Arial", 15))
+        titulo = tk.Label(frameCabecera, text='Abastecer', font=("Arial", 15))
         titulo.pack()
 
-        textoDescripcion = """Aquí podrá seleccionar alguno de los trabajadores disponibles
-        según su función (Conductores, Operarios y Vendedores), pagarles por sus respectivas
-        horas trabajadas y además verificar sus metas dando bonificaciones por el cumplimiento
-        de las mismas"""
+        textoDescripcion = """El administrador podrá abastecer ciertos productos que vienen predeterminados 
+        en la fábrica a algunas de las tiendas. Intervienen las clases Fabrica, Tienda y Transporte."""
         descripcion = tk.Label(frameCabecera, text=textoDescripcion, font=("Arial", 10))
         descripcion.pack()
 
@@ -77,12 +93,12 @@ class Abastecer(Frame):
 
         # Crear un cuadro de texto para mostrar información
         informacion = "Texto de ejemplo"
-        texto_widget = tk.Text(casillaTextoTiendas, width=16, height=8, bg="grey")
+        texto_widget = tk.Text(casillaTextoTiendas, width=32, height=8, bg="grey")
         texto_widget.pack()
         # Agregar contenido al widget de texto
         texto_widget.insert(tk.END, informacion)
         texto_widget.configure(state=tk.DISABLED)
-        tienda = encontrarObjeto(desplegableTiendas,Objetos.fabrica.getListaTienda())
+
         desplegableTiendas.bind("<<ComboboxSelected>>",rellenarCuadroDeTextoTienda)
 
         # /*--------------Productos--------------*/
@@ -97,7 +113,7 @@ class Abastecer(Frame):
         textoProductos = tk.Label(stack, text='Lista de Productos')
         textoProductos.pack(side='top', anchor='center')
 
-        desplegableProductos = ttk.Combobox(stack, values=["Pan", "Agua"], textvariable=predeterminadoProductos,
+        desplegableProductos = ttk.Combobox(stack, values=[x.getNombre() for x in Objetos.fabrica.getListaProductos()], textvariable=predeterminadoProductos,
                                             state='readonly',width=20)
         desplegableProductos.pack(side='top', anchor='center')
 
@@ -106,11 +122,14 @@ class Abastecer(Frame):
         casillaTextoProductos.grid(row=1 + 1, column=1, columnspan=1)
         # Crear un cuadro de texto para mostrar información
         informacion = "Texto de ejemplo"
-        texto_widgetProductos = tk.Text(casillaTextoProductos, width=16,height=8,bg="grey")
+        texto_widgetProductos = tk.Text(casillaTextoProductos, width=32,height=8,bg="grey")
         texto_widgetProductos.pack()
         # Agregar contenido al widget de texto
         texto_widgetProductos.insert(tk.END, informacion)
         texto_widgetProductos.configure(state=tk.DISABLED)
+        desplegableProductos.bind("<<ComboboxSelected>>",rellenarCuadroDeTextoTienda)
+
+        desplegableProductos.bind("<<ComboboxSelected>>",rellenarCuadroDeTextoProducto)
 
         # /*--------------Cantidad de Productos--------------*/
         # Stack para la parte de productos
@@ -149,7 +168,7 @@ class Abastecer(Frame):
         casillaTextoTransporte.grid(row=2 + 1, column=1, columnspan=1)
         # Crear un cuadro de texto para mostrar información
         informacion = "Texto de ejemplo"
-        texto_widgetTransporte = tk.Text(casillaTextoTransporte, width=16, height=8, bg="grey")
+        texto_widgetTransporte = tk.Text(casillaTextoTransporte, width=32, height=8, bg="grey")
         texto_widgetTransporte.pack()
         # Agregar contenido al widget de texto
         texto_widgetTransporte.insert(tk.END, informacion)
