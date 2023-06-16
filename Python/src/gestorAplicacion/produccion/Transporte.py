@@ -1,5 +1,8 @@
 from enum import Enum
-from gestorAplicacion.produccion.TipoTransporte import TipoTransporte
+
+#from gestorAplicacion.produccion.TipoTransporte import TipoTransporte
+
+
 
 class Transporte:
     def __init__(self, tipo, capacidad, costo, conductor):
@@ -23,6 +26,7 @@ class Transporte:
     def enviarGratis(cls, transporteSeleccionado):
         transporteSeleccionado.tipo.precio_envio = 0
         return transporteSeleccionado
+
 
     def recordarPrecioTransporte(self):
         self.precioOriginalTransporte = self.tipo.precio_envio
@@ -48,6 +52,7 @@ class Transporte:
     def setCapacidad(self, capacidad):
         self.capacidad = capacidad
 
+
     def getCosto(self):
         return self.costo
 
@@ -59,6 +64,12 @@ class Transporte:
 
     def setConductor(self, conductor):
         self.conductor = conductor
+
+    def getListaTransportes(self):
+        return self.listaTransportes
+
+    # def setListaTransportes(self, capacidad):
+    #     self.listaTransportes = listaTransportes
 
     def getTienda(self):
         return self.tienda
@@ -72,3 +83,8 @@ class Transporte:
     def setListaDeProductos(self, listaDeProductos):
         self.listaDeProductos = listaDeProductos
 
+if __name__=='__main__':
+# Ejemplo de prueba
+
+    resultado2 =Transporte.mostrarTransportes()
+    print(resultado2)

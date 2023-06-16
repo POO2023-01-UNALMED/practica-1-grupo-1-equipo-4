@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk, Frame
+import Objetos
 
 class EnviarPedido(Frame):
     def __init__(self, window):
@@ -26,7 +27,8 @@ class EnviarPedido(Frame):
         
         #---------------------Descripción
         textoDescripcion = """Aquí podrá seleccionar el cliente, productos a enviar, cliente de 
-        transporte y descuentos aplicables al pedido. Todo lo necesario para gestionar los pedidos de la empresa """
+        transporte y descuentos aplicables al pedido. Todo lo necesario para gestionar los pedidos de la empresa.
+         Intervienen las clases: Cliente, Tienda, Producto y Transporte.  """
         descripcion = tk.Label(frameCabecera, text=textoDescripcion, font=("Arial", 10))
         descripcion.grid(row=1, column=0, sticky="nsew")  # Centrado vertical y horizontalmente
 
@@ -53,24 +55,24 @@ class EnviarPedido(Frame):
                 frameproducto31.grid()
                 frameproducto32.grid()
                 frameproducto33.grid()
+                
 
         def productosSeleccionados(evento):
             frameTransporte42.grid()
+            #hacer que se sumen los pesos para filtrar transportes
 
         def transporteSeleccionado(evento):
-            if True:
-                print("Hasta aquí llego, a momir ")
-            #frameEnvioGratis52.grid()
+            frameEnvioGratis52.grid()
+            #seleccionar transporte y usar la lista de transporte filtrada
 
-        # def EnvioGratisAplicado(evento):
-        #     if True:
-        #         print("acá irá algo")
+        def EnvioGratisAplicado(evento):
+            opc = desplegableEnvioGratis.get()
+            if opc == "Si":
+                print("El envío será gratis")
+                #Aquí pooner lo de envío gratis, recordar precio y reestablecer.
+            elif opc == "No":
+                print("El envío cuesta")
         
-        # def EnvioCuesta(evento):
-        #     if True:
-        #         print("acá irá algo... o no?")     
-            
-            
 
         #para seleccionar cliente 
 
@@ -98,7 +100,7 @@ class EnviarPedido(Frame):
         textoTiendas.pack(side='top', anchor='center')
 
         trabajadorPredeterminado = tk.StringVar(value='Seleccionar Tienda')
-        desplegableTiendas = ttk.Combobox(frameTienda12,values = ["Tienda1", "Tienda2 ", "Tienda3"], textvariable=trabajadorPredeterminado, state='readonly')  # Cambio aquí
+        desplegableTiendas = ttk.Combobox(frameTienda12, values=[x.getNombre() for x in Objetos.fabrica.getListaTienda()], textvariable=trabajadorPredeterminado,state='readonly')
         desplegableTiendas.pack(side='top', anchor='center')
         desplegableTiendas.bind("<<ComboboxSelected>>",tiendaSeleccionada)
 
@@ -128,7 +130,8 @@ class EnviarPedido(Frame):
         textoSeleccProductos.pack(side='top', anchor='center')
 
         productoPredeterminado = tk.StringVar(value='Seleccionar productos')
-        desplegableProductos1 = ttk.Combobox(frameproducto31,values=["pan", "agua", "unicornios"], textvariable=productoPredeterminado, state='readonly')  
+        desplegableProductos1 = ttk.Combobox(frameproducto31, values=[x.getNombre() for x in Objetos.fabrica.getListaProductos()], textvariable=productoPredeterminado, state='readonly')
+        #desplegableProductos1 = ttk.Combobox(frameproducto31,values=["pan", "agua", "unicornios"], textvariable=productoPredeterminado, state='readonly')  
         desplegableProductos1.pack(side='top', anchor='center')
         desplegableProductos1.bind("<<ComboboxSelected>>",productosSeleccionados)
 
@@ -142,7 +145,7 @@ class EnviarPedido(Frame):
         textoSeleccProductos.pack(side='top', anchor='center')
 
         productoPredeterminado = tk.StringVar(value='Seleccionar productos')
-        desplegableProductos2 = ttk.Combobox(frameproducto32,values=["pan", "agua", "unicornios"], textvariable=productoPredeterminado, state='readonly')  
+        desplegableProductos2 = ttk.Combobox(frameproducto32,values=[x.getNombre() for x in Objetos.fabrica.getListaProductos()], textvariable=productoPredeterminado, state='readonly')  
         desplegableProductos2.pack(side='top', anchor='center')
         desplegableProductos2.bind("<<ComboboxSelected>>",productosSeleccionados)
 
@@ -155,7 +158,7 @@ class EnviarPedido(Frame):
         textoSeleccProductos.pack(side='top', anchor='center')
 
         productoPredeterminado = tk.StringVar(value='Seleccionar productos')
-        desplegableProductos3 = ttk.Combobox(frameproducto33,values=["pan", "agua", "unicornios"], textvariable=productoPredeterminado, state='readonly')  
+        desplegableProductos3 = ttk.Combobox(frameproducto33,values=[x.getNombre() for x in Objetos.fabrica.getListaProductos()], textvariable=productoPredeterminado, state='readonly')  
         desplegableProductos3.pack(side='top', anchor='center')
         desplegableProductos3.bind("<<ComboboxSelected>>",productosSeleccionados)
 
@@ -172,24 +175,15 @@ class EnviarPedido(Frame):
         desplegableTransporte.bind("<<ComboboxSelected>>",transporteSeleccionado)
 
         #-----------------decidir si envío gratis-----------
-        # frameEnvioGratis52 = tk.Frame(frameClientes1)
-        # frameEnvioGratis52.grid(row=5, column=2, columnspan=2, rowspan=3 ,padx=5, pady=5)
-        # frameEnvioGratis52.grid_remove()
 
-        # BotonEnvioGratis =ttk.Button(frameEnvioGratis52, text="Aplicar Envío Gratis", command=EnvioGratisAplicado)
-
-        # frameInfo = tk.Frame(self)
-        # frameInfoBotones = tk.Frame(frameInfo)
-        # frameInfoBotones.pack()
-        # #Estilo botones
-        # estilo = ttk.Style()
-        # estilo.configure("Estilo.TButton", font=("Arial", 10), padding=10, width=30)
-        # #Botón Si
-        # botonSi = ttk.Button(frameInfoBotones, text="Sí", style="Estilo.TButton",command=EnvioGratisAplicado)
-        # botonSi.pack(side="left", padx=10)
-        # #Botón No
-        # textPago = """No, proceder con el pago"""
-        # botonNo = ttk.Button(frameInfoBotones, text=textPago, style="Estilo.TButton", command=EnvioCuesta)
-        # botonNo.pack(side="right", padx=10)
+        frameEnvioGratis52 = tk.Frame(frameClientes1)
+        frameEnvioGratis52.grid(row=5, column=2, columnspan=2, rowspan=3 ,padx=5, pady=5)
+        frameEnvioGratis52.grid_remove()
+        textoEnvioGratis = tk.Label(frameTransporte42, text='Desea aplicar envío gratis?', font=("Arial", 12))
+        textoEnvioGratis.pack(side='top', anchor='center')
+        EnvioPredeterminado = tk.StringVar(value='Alplicar Envío Gratis')
+        desplegableEnvioGratis = ttk.Combobox(frameTransporte42,values=["Si", "No"], textvariable=EnvioPredeterminado, state='readonly')  
+        desplegableEnvioGratis.pack(side='top', anchor='center')
+        desplegableEnvioGratis.bind("<<ComboboxSelected>>",EnvioGratisAplicado)
 
 

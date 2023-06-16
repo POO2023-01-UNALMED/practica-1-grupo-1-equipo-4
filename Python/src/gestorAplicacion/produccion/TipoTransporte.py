@@ -1,12 +1,13 @@
 from random import choice
 from enum import Enum
 
+from gestorAplicacion.produccion.Transporte import Transporte
 
 from enum import Enum
 
 class TipoTransporte(Enum):
 
-
+    #NOMBRE = ("Nombre", precioEnvio, CapacidadMax)
     CAMION = ("Camion", 5, 16329)
     AVION = ("Avion", 10, 640000)
     AUTOMOVIL = ("Automovil", 3, 500)
@@ -28,20 +29,33 @@ class TipoTransporte(Enum):
 
     def __str__(self):
         return f"TipoTransporte: {self.name}\n Precio: {self.value[1]} \n Capacidad: {self.value[2]}"
-    # @staticmethod
-    # def mostrar_tipo_transporte_segun_carga(lista_filtrada: List['TipoTransporte']) -> str:
-    #     texto_trans_filtrado = ""
-    #     for indice, tipo in enumerate(lista_filtrada, start=1):
-    #         texto_trans_filtrado += f"{indice}. {tipo[0]} ${tipo[1]}\n"
-    #     return texto_trans_filtrado
+    
+    @staticmethod
+    def mostrarTransportes():
+        cadenaTexto = ""
+        
+        for tipoTransporte in TipoTransporte:
+            cadenaTexto+=(tipoTransporte.value[0])
+            cadenaTexto+=("\n")
+        return cadenaTexto
+    
+    @staticmethod
+    def mostrarTransportesSegunCarga():
+        cadenaTexto = ""
+        
+        for tipoTransporte in TipoTransporte:
+            cadenaTexto+=(tipoTransporte.value[0])
+            cadenaTexto+=("\n")
+        return cadenaTexto
+    
 
     # @staticmethod
-    # def seleccionar_transporte(lista_filtrada: List['TipoTransporte'], opcion: int) -> 'Transporte':
-    #     conductor = choice(Conductor.get_lista_conductores())
+    # def seleccionar_transporte(lista_filtrada, opcion):
+    #     conductor = choice(conductor.get_lista_conductores())
     #     tipo = lista_filtrada[opcion - 1]
     #     capacidad = tipo[2]
     #     precio_envio = tipo[1]
-    #     transporte = Transporte(tipo[0], capacidad, precio_envio, conductor)
+    #     transporte = transporte(tipo[0], capacidad, precio_envio, conductor)
     #     conductor.set_transporte(transporte)
     #     return transporte
 
@@ -51,3 +65,6 @@ if __name__=='__main__':
 # Ejemplo de prueba
     resultado = TipoTransporte.crearTipoTransporteSegunCarga(600)
     print(resultado)
+
+    resultado2 =TipoTransporte.mostrarTransportes()
+    print(resultado2)
