@@ -138,7 +138,7 @@ class VentanaDeInicio(tk.Tk):
         izquierdo_3.grid(row=2, padx=10, pady=10, sticky="nsew")
         izquierdo_3.rowconfigure(0, weight=1)
         izquierdo_3.columnconfigure(0, weight=1)
-        reset_button = tk.Button(izquierdo_3, text="Ventana principal del administrador",command=self.abrir_ventana_principal,  height=10)
+        reset_button = tk.Button(izquierdo_3, text="Ventana principal del administrador",command=self.abrir_ventana_principal,  height=5, width=5)
         reset_button.grid(row=0, padx=20, pady=20, sticky="nsew")
 
         #todo lo del lado derecho

@@ -7,9 +7,12 @@ Luis Alejandro Varela Ojeda, Maria Fernanda Calle Agudelo, Jaider Castañeda Vil
  * Esta clase es utilizada por todas las funcionalidades del sistema, excepto Estadísticas.
  """
 
-from gestorAplicacion.gestion.Operario import Operario
-from gestorAplicacion.gestion.Persona import Persona
-from gestorAplicacion.gestion.Factura import Factura
+from ..gestion.Operario import Operario
+from ..gestion.Persona import Persona
+from ..gestion.Factura import Factura
+from ..gestion.CuentaBancaria import CuentaBancaria
+from ..produccion.Producto import Producto
+from ..produccion.Tienda import Tienda
 
 
 import pickle
@@ -41,7 +44,7 @@ class Fabrica:
     def mostrarProductos(self):
         textoProducto = "\nINDICE-PRODUCTO-PESO-PRECIO-CATEGORIA\n"
         indice = 1
-        for producto in self.listaProductos:
+        for producto in self._listaProductos:
             textoProducto += f"{indice}. {producto.getNombre()} - {producto.getPeso()} - {producto.getCostoDeProduccion()} - {producto.getCategoria()}\n"
             indice += 1
         return textoProducto
@@ -60,10 +63,10 @@ class Fabrica:
     def mostrarTiendas(self):
         textoTiendas = ""
         indice = 1
-        for tienda in self.listaTienda:
+        for tienda in self._listaTienda:
             textoTiendas += f"{indice}. {tienda.getNombre()}-PRODUCTOS: {tienda.cantidadProductos()}\n"
             indice += 1
-            if indice == len(self.listaTienda):
+            if indice == len(self._listaTienda):
                 textoTiendas += "\n"
         return textoTiendas
     
@@ -82,7 +85,7 @@ class Fabrica:
     #  * y lo asigna al objeto tiendaSeleccionada que servirá en la funcionalidad
     
     def seleccionarTienda(self, opcion):
-        tiendaSeleccionada = self.listaTienda[opcion-1]
+        tiendaSeleccionada = self._listaTienda[opcion-1]
         return tiendaSeleccionada
     
 #      * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
@@ -100,7 +103,7 @@ class Fabrica:
     
     def descontarDineroCuentaAdmin(self, productoDevuelto):
         total = productoDevuelto.getValor()
-        cuentaAdmin = self.cuentaBancaria
+        cuentaAdmin = self._cuentaBancaria
         cuentaAdmin.descontarFondos(total)
         return total
     
