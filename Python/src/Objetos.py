@@ -116,6 +116,16 @@ conductor1.setFabrica(fabrica)
 conductor2.setFabrica(fabrica)
 conductor3.setFabrica(fabrica)
 
+
+#Esto es para probar la funcionalidad pago a trabajadores
+vendedor1.setTrabajo(10)
+vendedor2.setTrabajo(3)
+vendedor3.setTrabajo(8)
+operario1.setTrabajo(4)
+conductor1.setTrabajo(20)
+conductor2.setTrabajo(2)
+conductor3.setTrabajo(9)
+
 transporte1 = Transporte(TipoTransporte.TREN, 100, 1000, conductor1)
 
 #un_transporte = Transporte(tipo, capacidad, costo, conductor)

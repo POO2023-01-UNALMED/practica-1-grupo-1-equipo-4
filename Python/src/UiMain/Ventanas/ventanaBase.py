@@ -33,7 +33,7 @@ class   VentanaBase(Tk):
         self.config(menu=menuProcesos)
         menuBar.add_cascade(menu=menuProcesos, label='Procesos y Consultas')
         menuProcesos.add_command(label='Enviar pedido', command=self.enviarPedido) 
-        menuProcesos.add_command(label='Pagar trabajadores', )  #  command=self.pagoTrabajadores
+        menuProcesos.add_command(label='Pagar trabajadores',command=self.pagoTrabajadores)  #  
         menuProcesos.add_command(label='Abastecer tiendas', command=self.Abastecer)  # command
         menuProcesos.add_command(label='Gestionar devoluciones', command = self.Devoluciones)  # , command = self.Devoluciones
         menuProcesos.add_command(label='Mostrar estadísticas', command=self.estadisticas)  # command
@@ -41,7 +41,7 @@ class   VentanaBase(Tk):
     
         # ----------Ayuda---------
         menuBar.add_cascade(menu=menuAyuda, label='Ayuda')
-        menuAyuda.add_command(label='Acerca de', command=acercaDe)
+        menuAyuda.add_command(label='Acerca de', command=self.acercaDe)
         # #submenu de procesos y consultas
         # menuProcesos.add_command(label = "Gestionar Ciudades", command = self.gestionarCiudades)
 
@@ -109,7 +109,7 @@ class   VentanaBase(Tk):
         VentanaDeInicio()
 
 
-def acercaDe():
-    messagebox.showinfo("Desarrolladores", "Maria Fernanda Calle Agudelo\nMonica Sofia Restrepo Leon\nJaider "
-                                           "Castañeda Villa\nLuis Alejandro Varela Ojeda\nJoan Sebastian Salazar "
-                                           "Montoya \n")
+    def acercaDe():
+        messagebox.showinfo("Desarrolladores", "Maria Fernanda Calle Agudelo\nMonica Sofia Restrepo Leon\nJaider "
+                                            "Castañeda Villa\nLuis Alejandro Varela Ojeda\nJoan Sebastian Salazar "
+                                            "Montoya \n")
