@@ -21,7 +21,7 @@ class Persona:
         Persona.listaPersonas.append(self)
     #/*------------------- Metodos -------------------------*/
     def recibirSueldo(self, total):
-        self.cuentaBancaria.descontarFondos(total)
+        self._cuentaBancaria.descontarFondos(total)
         self.getCuentaBancaria().anadirFondos(total)
 
     def __str__(self):
@@ -33,28 +33,28 @@ class Persona:
     
     #/*-------------------Getters y setters-------------------------*/
     def getNombre(self):
-        return self.nombre
+        return self._nombre
 
     def setNombre(self, nombre):
-        self.nombre = nombre
+        self._nombre = nombre
 
     def getEdad(self):
-        return self.edad
+        return self._edad
 
     def setEdad(self, edad):
-        self.edad = edad
+        self._edad = edad
 
     def getCedula(self):
-        return self.cedula
+        return self._cedula
 
     def setCedula(self, cedula):
-        self.cedula = cedula
+        self._cedula = cedula
 
     def getCuentaBancaria(self):
-        return self.cuentaBancaria
+        return self._cuentaBancaria
 
     def setCuentaBancaria(self, cuentaBancaria):
-        self.cuentaBancaria = cuentaBancaria
+        self._cuentaBancaria = cuentaBancaria
 
     @classmethod
     def getSalario(cls):

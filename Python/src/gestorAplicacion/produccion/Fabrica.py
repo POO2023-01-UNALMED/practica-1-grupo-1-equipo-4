@@ -147,8 +147,8 @@ class Fabrica:
         listaPersonas = []
         for factura in listaFacturas:
             if tipo == 1:
-                if factura.getOperario() not in listaPersonas and factura.getOperario().getTrabajo() > 0:
-                    listaPersonas.append(factura.getOperario())
+                if factura.operario not in listaPersonas and factura.operario.getTrabajo() > 0:
+                    listaPersonas.append(factura.operario)
             elif tipo == 2:
                 if factura.getTransporte().getConductor() not in listaPersonas and factura.getTransporte().getConductor().getTrabajo() > 0:
                     listaPersonas.append(factura.getTransporte().getConductor())
