@@ -65,6 +65,7 @@ class PagoTrabajadores(Frame):
 
         #Cuando desea analizar y bonificar metas
         def opcionMetaSi():
+            
             global listaMetas
 
             if num == 1:
@@ -85,6 +86,10 @@ class PagoTrabajadores(Frame):
 
             textoMetas.config(text=textoMetasTrabajador)
             frameMetas.grid()
+
+            #Deshabilitar los desplegables
+            desplegableTipos.config(state='disabled')
+            desplegableTrabajadores.config(state='disabled')
 
         #Cuando escoge una meta del desplegable de metas
         def opcionMeta(evento):
@@ -128,6 +133,10 @@ class PagoTrabajadores(Frame):
             trabajadorEscogido.setTrabajo(0)
             if pagoMeta != 0:
                 trabajadorEscogido.getVerificadorMetasCumplidas()[posicionMeta] = True
+            
+            #Habilitar los desplegables
+            desplegableTipos.config(state='readonly')
+            desplegableTrabajadores.config(state='readonly')
 
         #----------------------------------Divisiones filas y columnas-------------------------------------
         for i in range(12):
@@ -162,6 +171,7 @@ class PagoTrabajadores(Frame):
         desplegableTipos = ttk.Combobox(frameTipos11, values=["Operarios", "Conductores", "Vendedores"], textvariable=tipoPredeterminado, state='readonly')
         desplegableTipos.pack(side='top', anchor='center')
         desplegableTipos.bind("<<ComboboxSelected>>", opcionTipoTrabajador)
+        
 
         #Trabajador
         frameTipos12 = tk.Frame(frameTipos1)
@@ -175,6 +185,7 @@ class PagoTrabajadores(Frame):
         desplegableTrabajadores = ttk.Combobox(frameTipos12, textvariable=trabajadorPredeterminado, state='readonly')  # Cambio aquí
         desplegableTrabajadores.pack(side='top', anchor='center')
         desplegableTrabajadores.bind("<<ComboboxSelected>>",opcionTrabajador)
+        
 
         #------------------------------Información trabajador seleccionado y Pregunta metas---------------
         frameInfo = tk.Frame(self)
