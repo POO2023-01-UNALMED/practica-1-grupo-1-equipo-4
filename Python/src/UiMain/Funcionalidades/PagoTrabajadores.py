@@ -132,9 +132,6 @@ class PagoTrabajadores(Frame):
         def opcionPago():
             trabajadorEscogido.recibirSueldo(pagoTrabajo + pagoMeta)
             messagebox.showinfo(f"Pago existoso",f"Comprobante de pago\nPago asociado a los envios realizados: {pagoTrabajo}\nPago asociado al cumplimiento de metas: {pagoMeta}\nTotal: {pagoTrabajo+pagoMeta}")
-            frameTipos12.grid_remove()
-            frameInfo.grid_remove()
-            frameMetas.grid_remove()
 
             #Asignamos de nuevo 0 al trabajo, para que si se le paga de nuevo,
             #no se le pague más de una vez por el mismo trabajo
@@ -145,6 +142,17 @@ class PagoTrabajadores(Frame):
             #Habilitar los desplegables
             desplegableTipos.config(state='readonly')
             desplegableTrabajadores.config(state='readonly')
+
+            #Remover los frames mostrados y textos del trabajador pasado
+            desplegableTipos.set('')
+            desplegableTrabajadores.set('')
+            frameTipos12.grid_remove()
+            frameInfo.grid_remove()
+            desplegableMetas.set('')
+            frameMetas.grid_remove()
+            textoInfoMeta.config(text="")
+            frameMetas2.grid_remove()
+            botonPago.grid_remove()
 
         #----------------------------------Divisiones filas y columnas-------------------------------------
         for i in range(12):
