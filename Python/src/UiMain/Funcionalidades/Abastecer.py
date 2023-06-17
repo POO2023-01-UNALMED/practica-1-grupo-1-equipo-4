@@ -5,13 +5,13 @@ sys.path.append('../')  # Retrocede un nivel al directorio padre
 import Objetos
 from gestorAplicacion.produccion.TipoTransporte import TipoTransporte
 from gestorAplicacion.produccion.Transporte import Transporte
-from excepciones import Abastecer0productos,Letras,MayorA
+from excepciones import Abastecer0productos,Letras,MayorA,FaltaUno
 
 
 class Abastecer(Frame):
     tienda = None
     producto = None
-    cantidadProducto = 1
+    cantidadProducto = None
     tipoTransporte = None
     listaFiltradaTransportes = None
     def __init__(self, window): 
@@ -25,6 +25,8 @@ class Abastecer(Frame):
             texto_widget.config(state=tk.NORMAL)
             desplegableProductos.config(state=tk.NORMAL)
             texto_widget.delete("1.0", tk.END)
+            desplegableTransporte.set("")
+            Abastecer.tipoTransporte = None
             Abastecer.tienda = encontrarObjeto(desplegableTiendas,Objetos.fabrica.getListaTienda())[0]
             cadenaDeTexto = Abastecer.tienda.productosPorCategoria()+"\n"+Abastecer.tienda.cantidadProductos()
             texto_widget.insert(tk.END, cadenaDeTexto)
@@ -57,6 +59,7 @@ class Abastecer(Frame):
                     Abastecer.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(Abastecer.producto.getPeso()*float(Abastecer.cantidadProducto))
                     desplegableTransporte['values']=[x.value[0] for x in Abastecer.listaFiltradaTransportes]
             except ValueError:
+                Abastecer.cantidadProducto = None
                 Letras()
             
 
@@ -80,7 +83,9 @@ class Abastecer(Frame):
         
         def envio():
             try:
-                if entradaProductosQa.get()=='0':
+                if any(var is None for var in (Abastecer.tienda, Abastecer.producto, Abastecer.cantidadProducto, Abastecer.tipoTransporte)):
+                    raise FaltaUno
+                elif entradaProductosQa.get()=='0':
                     raise Abastecer0productos
                 elif Abastecer.tienda.getCantidadPorCategoria()[Abastecer.producto.getCategoria()]\
                 -(Abastecer.tienda.getProductosPorCategoria()[Abastecer.producto.getCategoria()]+int(Abastecer.cantidadProducto))<=0:
@@ -92,6 +97,8 @@ class Abastecer(Frame):
                     Abastecer.tienda.descargarProducto(machetazo)
                     messagebox.showinfo("Abasteciemintos",f"La tienda {Abastecer.tienda.getNombre()} ha sido abastecida exitosamente\
                                          con {Abastecer.cantidadProducto} unidades de {Abastecer.producto.getNombre()}")
+            except FaltaUno:
+                FaltaUno()
             except Abastecer0productos:
                 raise Abastecer0productos()
             except MayorA:

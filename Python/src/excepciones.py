@@ -34,6 +34,10 @@ class MayorA(ExceptionC1):
     def __init__(self):
         super().__init__("La cantidad de productos que intenta enviar es superior a la permitida en esa categoria")
         messagebox.showerror("Superar lo permitido",self._excepcion)
+class FaltaUno(ExceptionC1):
+    def __init__(self):
+        super().__init__("Falta seleccionar uno de los campos para el abastecimiento")
+        messagebox.showerror("Superar lo permitido",self._excepcion)
 
 
 #Segunda rama
