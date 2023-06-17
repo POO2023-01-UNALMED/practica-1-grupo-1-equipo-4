@@ -96,7 +96,7 @@ class Abastecer(Frame):
                     machetazo.abastecerProducto(Abastecer.tienda,listaProductos)
                     Abastecer.tienda.descargarProducto(machetazo)
                     messagebox.showinfo("Abasteciemintos",f"La tienda {Abastecer.tienda.getNombre()} ha sido abastecida exitosamente\
-                                         con {Abastecer.cantidadProducto} unidades de {Abastecer.producto.getNombre()}")
+ con {Abastecer.cantidadProducto} unidades de {Abastecer.producto.getNombre()}")
             except FaltaUno:
                 FaltaUno()
             except Abastecer0productos:
