@@ -117,14 +117,6 @@ conductor2.setFabrica(fabrica)
 conductor3.setFabrica(fabrica)
 
 
-#Esto es para probar la funcionalidad pago a trabajadores
-vendedor1.setTrabajo(10)
-vendedor2.setTrabajo(3)
-vendedor3.setTrabajo(8)
-operario1.setTrabajo(4)
-conductor1.setTrabajo(20)
-conductor2.setTrabajo(2)
-conductor3.setTrabajo(9)
 
 transporte1 = Transporte(TipoTransporte.TREN, 100, 1000, conductor1)
 
@@ -140,6 +132,20 @@ factura4 = Factura(tienda3,cliente3,transporte1 ,productos[1:6],4,"Nada", operar
 factura5 = Factura(tienda3,cliente3,transporte1 ,productos[1:6], 4,"Nada", operario1 )
 factura6 = Factura(tienda3,cliente3,transporte1 ,productos[2:-1],5,"Nada", operario1 )
 factura7 = Factura(tienda3,cliente3,transporte1 ,productos[0:6],3,"Nada", operario1 )
+
+#Esto es para probar la funcionalidad pago a trabajadores
+vendedor1.setTienda(tienda1)
+vendedor2.setTienda(tienda2)
+vendedor3.setTienda(tienda3)
+vendedor1.setTrabajo(10)
+vendedor2.setTrabajo(3)
+vendedor3.setTrabajo(8)
+operario1.setTrabajo(4)
+conductor1.setTrabajo(20)
+conductor2.setTrabajo(2)
+conductor3.setTrabajo(9)
+conductor1.setTransporte(transporte1)
+operario1.setFabrica(fabrica)
 
 if __name__ == '__main__':
     print(Factura.getListaFacturas())

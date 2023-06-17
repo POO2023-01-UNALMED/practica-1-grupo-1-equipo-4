@@ -44,6 +44,7 @@ class PagoTrabajadores(Frame):
 
         #Cuando escoge un trabajador del desplegable de trabajadores
         def opcionTrabajador(evento):
+            
             global trabajadorEscogido
             global pagoTrabajo
 

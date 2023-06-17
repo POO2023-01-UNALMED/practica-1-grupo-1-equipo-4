@@ -42,12 +42,11 @@ class Conductor(Persona):
         super().getCuentaBancaria().anadirFondos(total)
 
     def __str__(self):
-        return (
-            "\nNombre: " + self.getNombre() + "\n"
-            + "Edad: " + str(self.getEdad()) + "\n"
-            + "Cedula: " + str(self.getCedula()) + "\n"
-            + "Transporte: " + self.getTransporte().getTipo() + "\n"
-        )
+        return "\nNombre: " + self.getNombre() + "\n" \
+               + "Edad: " + str(self.getEdad()) + "\n" \
+               + "Cedula: " + str(self.getCedula()) + "\n" \
+               + "Transporte: " + str(self.getTransporte().getTipoTransporte()) + "\n"
+            
     
     #	/*-------------------Getter y setter-------------------------*/
     def getTransporte(self):
