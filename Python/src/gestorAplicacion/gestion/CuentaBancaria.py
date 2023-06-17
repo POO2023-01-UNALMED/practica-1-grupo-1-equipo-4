@@ -7,14 +7,14 @@ from ..gestion.Persona import Persona
 class CuentaBancaria:
 
     def __init__(self, numeroCuenta, saldo):
-        self.numeroCuenta = numeroCuenta
-        self.saldo = saldo
+        self._numeroCuenta = numeroCuenta
+        self._saldo = saldo
 
     def anadirFondos(self, fondos):
-        self.saldo += fondos
+        self._saldo += fondos
 
     def descontarFondos(self, fondos):
-        self.fondos -= fondos
+        self._saldo -= fondos
 
     def devolverDinero(self, total, cliente):
         cuenta = cliente.getCuentaBancaria()
