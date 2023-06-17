@@ -44,9 +44,11 @@ class PagoTrabajadores(Frame):
 
         #Cuando escoge un trabajador del desplegable de trabajadores
         def opcionTrabajador(evento):
-            
+
             global trabajadorEscogido
             global pagoTrabajo
+            global pagoMeta
+            pagoMeta = 0
 
             opc = desplegableTrabajadores.get()
 
@@ -78,7 +80,7 @@ class PagoTrabajadores(Frame):
 
             textoMetasTrabajador = textoIndice
             for i in range(len(listaMetas)):
-                textoMetasTrabajador += f"Meta {i+1}"
+                textoMetasTrabajador += f"Meta {i+1}\n"
                 textoMetasTrabajador += listaMetas[i].__str__()
 
             textoMetas.config(text=textoMetasTrabajador)
@@ -87,7 +89,6 @@ class PagoTrabajadores(Frame):
         #Cuando escoge una meta del desplegable de metas
         def opcionMeta(evento):
             opc = desplegableMetas.get()
-            global pagoMeta
            
             if opc == "Meta 1":
                 posicion = 0
@@ -106,11 +107,8 @@ class PagoTrabajadores(Frame):
                 textoInfoMeta.config(text=estadisticasMeta)
                 if verificadorMeta == True:
                     pagoMeta = metaEscogida.getPago()
-                else:
-                    pagoMeta = 0
             else:
-                textoInfoMeta.config(text="Ya se ha dado la bonificación por esta meta, seleccione otra opcion o proceda a pagar")
-                pagoMeta == 0            
+                textoInfoMeta.config(text="Ya se ha dado la bonificación por esta meta, seleccione otra opcion o proceda a pagar")      
 
             frameMetas2.grid()
             botonPago.grid()
@@ -181,12 +179,10 @@ class PagoTrabajadores(Frame):
         frameInfo.grid_remove()
 
         #Información del trabajador
-        #datos = "Edad:  10 \nCédula: 92345 \nTienda: La tienda de la esquina"
         datosTrabajador = tk.Label(frameInfo,font=("Arial", 10))#, bg ="#56E5D1"
         datosTrabajador.pack()
 
         #Información de lo que se le va a pagar
-        #info = """A Pepito se le pagará 5000 por trabajar 4 veces"""
         infoTrabajador = tk.Label(frameInfo,font=("Arial", 10))#,bg ="#DFE556"
         infoTrabajador.pack()
 
@@ -223,8 +219,8 @@ class PagoTrabajadores(Frame):
         frameMetas1 = tk.Frame(frameMetas)
         frameMetas1.grid(row=4, column=1, padx=5, pady=5)
 
-        textoMetas = tk.Label(frameMetas1, text='Metas', font=("Arial", 12))
-        textoMetas.pack(side='top', anchor='center')
+        textoTituloMetas = tk.Label(frameMetas1, text='Metas', font=("Arial", 12))
+        textoTituloMetas.pack(side='top', anchor='center')
 
         metasPredeterminada = tk.StringVar(value='Seleccionar meta')
         desplegableMetas = ttk.Combobox(frameMetas1, values=["Meta 1", "Meta 2"], textvariable=metasPredeterminada, state='readonly')
