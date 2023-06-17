@@ -1,4 +1,6 @@
 import pickle
+from excepciones import ExceptionFechasFueraDeRango, ExceptionFecha1MayorQueFecha2
+
 
 class Factura:
     serialVersionUID = 1
@@ -76,6 +78,13 @@ class Factura:
 
     @staticmethod
     def gananciasDiscretas(fecha1, fecha2):
+
+        if(fecha1 < Factura.getFechaMin() or fecha2 > Factura.getFechaMax()):
+                raise ExceptionFechasFueraDeRango
+
+        if(fecha1 > fecha2):
+            raise ExceptionFecha1MayorQueFecha2
+
         fechas = Factura.getListaFechas(fecha1, fecha2)
         facturas = Factura.getFacturasEntreFechas(fecha1, fecha2)
         dictGananciasDiscretas = {}
