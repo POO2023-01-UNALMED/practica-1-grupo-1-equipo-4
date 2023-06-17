@@ -61,7 +61,7 @@ class Tienda(Moda):
     
     def cantidadProductos(self):
         self._listaCantidadProductos = {}
-        cadena = "    "
+        cadena = "\n"
             
         # Ciclo para agregar los valores al diccionario y hacer el conteo
         for producto in self._listaProductos:
@@ -72,7 +72,7 @@ class Tienda(Moda):
 
         # Bucle for para generar la cadena con la cantidad de cada producto
         for producto, cantidad in self._listaCantidadProductos.items():
-            cadena += f"\n     {producto.getNombre()}: {cantidad} "
+            cadena += f"{producto.getNombre()}: {cantidad} \n"
 
         return cadena
 

@@ -1,16 +1,17 @@
 import tkinter as tk
-from tkinter import ttk, Frame, DISABLED,Entry
+from tkinter import ttk, Frame, DISABLED,Entry,scrolledtext,messagebox
 import sys
 sys.path.append('../')  # Retrocede un nivel al directorio padre
 import Objetos
 from gestorAplicacion.produccion.TipoTransporte import TipoTransporte
 from gestorAplicacion.produccion.Transporte import Transporte
+from excepciones import Abastecer0productos,Letras,MayorA
 
 
 class Abastecer(Frame):
     tienda = None
     producto = None
-    cantidadProducto = None
+    cantidadProducto = 1
     tipoTransporte = None
     listaFiltradaTransportes = None
     def __init__(self, window): 
@@ -45,10 +46,19 @@ class Abastecer(Frame):
 
         def eventoEntry(event):                    
             # Agregar contenido al widget de texto
-            desplegableTransporte.config(state=tk.NORMAL)
-            Abastecer.cantidadProducto = entradaProductosQa.get()
-            Abastecer.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(Abastecer.producto.getPeso()*float(Abastecer.cantidadProducto))
-            desplegableTransporte['values']=[x.value[0] for x in Abastecer.listaFiltradaTransportes]
+            if event.keysym in ["BackSpace", "Delete"]:
+                return
+            try:
+                if len(entradaProductosQa.get())>0 and not isinstance(float(entradaProductosQa.get()),float):
+                    raise Letras
+                else:
+                    desplegableTransporte.config(state=tk.NORMAL)
+                    Abastecer.cantidadProducto = entradaProductosQa.get()
+                    Abastecer.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(Abastecer.producto.getPeso()*float(Abastecer.cantidadProducto))
+                    desplegableTransporte['values']=[x.value[0] for x in Abastecer.listaFiltradaTransportes]
+            except ValueError:
+                Letras()
+            
 
         def deshabilitarTransporte(event):
             desplegableTransporte.config(state='readonly')
@@ -69,11 +79,24 @@ class Abastecer(Frame):
             return objeto
         
         def envio():
-            listaProductos = Objetos.fabrica.cantidadProductos(int(Abastecer.cantidadProducto),Abastecer.producto)
-            machetazo = Transporte("Abastecer.tipoTransporte[0]",20,300,Objetos.conductor1)
-            machetazo.abastecerProducto(Abastecer.tienda,listaProductos)
-            Abastecer.tienda.descargarProducto(machetazo)
-            print(Abastecer.tienda)
+            try:
+                if entradaProductosQa.get()=='0':
+                    raise Abastecer0productos
+                elif Abastecer.tienda.getCantidadPorCategoria()[Abastecer.producto.getCategoria()]\
+                -(Abastecer.tienda.getProductosPorCategoria()[Abastecer.producto.getCategoria()]+int(Abastecer.cantidadProducto))<=0:
+                    raise MayorA
+                else:
+                    listaProductos = Objetos.fabrica.cantidadProductos(int(Abastecer.cantidadProducto),Abastecer.producto)
+                    machetazo = Transporte("Abastecer.tipoTransporte[0]",20,300,Objetos.conductor1)
+                    machetazo.abastecerProducto(Abastecer.tienda,listaProductos)
+                    Abastecer.tienda.descargarProducto(machetazo)
+                    messagebox.showinfo("Abasteciemintos",f"La tienda {Abastecer.tienda.getNombre()} ha sido abastecida exitosamente\
+                                         con {Abastecer.cantidadProducto} unidades de {Abastecer.producto.getNombre()}")
+            except Abastecer0productos:
+                raise Abastecer0productos()
+            except MayorA:
+                MayorA()
+
         # Distribución uniforme de filas
         for i in range(5):
             self.rowconfigure(i, weight=1)
@@ -119,7 +142,7 @@ class Abastecer(Frame):
 
         # Crear un cuadro de texto para mostrar información
         informacion = "Texto de ejemplo"
-        texto_widget = tk.Text(casillaTextoTiendas, width=32, height=8, bg="grey")
+        texto_widget = scrolledtext.ScrolledText(casillaTextoTiendas, width=32, height=8, bg="grey")
         texto_widget.pack()
         # Agregar contenido al widget de texto
         texto_widget.insert(tk.END, informacion)
@@ -204,11 +227,8 @@ class Abastecer(Frame):
         desplegableTransporte.bind("<Button-1>",deshabilitarTransporte)
         # /*--------------Botones--------------*/
         # Crear un botón
-        botonSalida = tk.Button(self, text="Salida", width=10,command=envio)
-        botonSalida.grid(row=3 + 1, column=1, sticky="ew")
-
-        botonEnviar = tk.Button(self, text="Enviar", width=5)
-        botonEnviar.grid(row=3 + 1, column=2, sticky="ew")
+        botonEnviar = tk.Button(self, text="Enviar", width=10,command=envio)
+        botonEnviar.grid(row=3 + 1, column=1, sticky="ew")
         #/*--------------Comando--------------*/
  
 
