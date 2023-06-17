@@ -88,14 +88,15 @@ class PagoTrabajadores(Frame):
 
         #Cuando escoge una meta del desplegable de metas
         def opcionMeta(evento):
+            global posicionMeta
             opc = desplegableMetas.get()
            
             if opc == "Meta 1":
-                posicion = 0
+                posicionMeta = 0
                 metaEscogida = listaMetas[0]                
                 
             elif opc == "Meta 2":
-                posicion = 1
+                posicionMeta = 1
                 metaEscogida = listaMetas[1]        
 
             indice = trabajadorEscogido.getIndiceMeta()
@@ -103,7 +104,7 @@ class PagoTrabajadores(Frame):
             estadisticasMeta = metaEscogida.porcentajesCumplidos(indice)
             
             listaVerificadores = trabajadorEscogido.getVerificadorMetasCumplidas()
-            if listaVerificadores[posicion] == False:
+            if listaVerificadores[posicionMeta] == False:
                 textoInfoMeta.config(text=estadisticasMeta)
                 if verificadorMeta == True:
                     pagoMeta = metaEscogida.getPago()
@@ -125,6 +126,8 @@ class PagoTrabajadores(Frame):
             #Asignamos de nuevo 0 al trabajo, para que si se le paga de nuevo,
             #no se le pague más de una vez por el mismo trabajo
             trabajadorEscogido.setTrabajo(0)
+            if pagoMeta != 0:
+                trabajadorEscogido.getVerificadorMetasCumplidas()[posicionMeta] = True
 
         #----------------------------------Divisiones filas y columnas-------------------------------------
         for i in range(12):
@@ -179,11 +182,11 @@ class PagoTrabajadores(Frame):
         frameInfo.grid_remove()
 
         #Información del trabajador
-        datosTrabajador = tk.Label(frameInfo,font=("Arial", 10))#, bg ="#56E5D1"
+        datosTrabajador = tk.Label(frameInfo,font=("Arial", 10), bg ="#56E5D1")#, bg ="#56E5D1"
         datosTrabajador.pack()
 
         #Información de lo que se le va a pagar
-        infoTrabajador = tk.Label(frameInfo,font=("Arial", 10))#,bg ="#DFE556"
+        infoTrabajador = tk.Label(frameInfo,font=("Arial", 10), bg ="#DFE556")#,bg ="#DFE556"
         infoTrabajador.pack()
 
         pregunta = "¿Desea analizar y bonificar al trabajador por sus metas cumplidas?"
@@ -195,7 +198,7 @@ class PagoTrabajadores(Frame):
 
         #Estilo botones
         estilo = ttk.Style()
-        estilo.configure("Estilo.TButton", font=("Arial", 10), padding=10, width=30)
+        estilo.configure("Estilo.TButton", font=("Arial", 10), padding=5, width=25)
         #Botón Si
         botonSi = ttk.Button(frameInfoBotones, text="Sí", style="Estilo.TButton",command=opcionMetaSi)
         botonSi.pack(side="left", padx=10)
@@ -211,8 +214,7 @@ class PagoTrabajadores(Frame):
         frameMetas.grid_remove()
 
         #Metas dependiendo del tipo
-        #metas = "Meta 1: Vender más de 5 productos \nBonificación: 10000\nMeta 2: Vender más de 20 productos\nBonificación: 4000"
-        textoMetas = tk.Label( frameMetas, font=("Arial", 10)) #, bg ="#B856E5"
+        textoMetas = tk.Label( frameMetas, font=("Arial", 10), bg ="#B856E5") #, bg ="#B856E5"
         textoMetas.grid(row=3, column=1,columnspan=2,padx=5, pady=5)
 
         #Elección de meta 
