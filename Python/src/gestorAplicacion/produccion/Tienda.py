@@ -294,3 +294,6 @@ class Tienda(Moda):
     @classmethod
     def get_num_tiendas(cls):
         return cls._numTiendas
+    
+    def __str__(self) -> str:
+        return self._nombre

@@ -92,6 +92,14 @@ class Estadisticas(Frame):
         buttonAumentoPorcentual = tk.Button(self.frameEstadisticas, text='Aumento porcentual', command = self.mostrarAumentoPorcentual)
         buttonAumentoPorcentual.grid(row=2, column=1, padx=5, pady=5)
 
+        # Add a frame below frameEstadisticas called framModas.
+# This frame has 3 rows and 2 columns, each of them with a label
+
+        self.frameModas = tk.Frame(self)
+
+        
+
+
     def ingresar(self):
 
        # print(Factura.getListaFacturas(Factura.getFechaMin(), Factura.getFechaMax()))
@@ -111,8 +119,24 @@ class Estadisticas(Frame):
         self.entryPromedioPorDia.configure(state="readonly")
 
 
+        self.frameModas.grid(row=3, column=0, columnspan=8, padx=5, pady=5)
+    
+        fecha1 =   int(self.fieldFecha1.get())
+        fecha2  =  int(self.fieldFecha2.get())
 
-       # print(str(Factura.gananciasTotales(self.dict)))
+        tiendaModa     = Factura.moda(fecha1, fecha2, "tienda")
+        clienteModa    = Factura.moda(fecha1, fecha2, "cliente")
+        transporteModa = Factura.moda(fecha1, fecha2, "transporte")
+
+        lblModaTienda = tk.Label(self.frameModas, text='Tienda más usada: ' + str(tiendaModa))
+        lblModaTienda.grid(row=0, column=0, padx=5, pady=5)
+    
+       
+        lblModaTransporte = tk.Label(self.frameModas, text='Transporte más usado: ' + str(transporteModa))
+        lblModaTransporte.grid(row=1, column=0, padx=5, pady=5)
+
+        lblModaCliente = tk.Label(self.frameModas, text='Cliente más vendido: ' + str(clienteModa))
+        lblModaCliente.grid(row=2, column=0, padx=5, pady=5)
 
 
 
@@ -171,4 +195,6 @@ class Estadisticas(Frame):
             # Crear etiqueta para las ganancias
             lbl_aumento = tk.Label(ventana, text= aumento)
             lbl_aumento.grid(row=i + 1, column=1, padx=5, pady=5)
+
+
 
