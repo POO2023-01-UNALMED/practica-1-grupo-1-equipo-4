@@ -135,7 +135,7 @@ class EnviarPedido(Frame):
             pesoProductos += float(EnviarPedido.productoSeleccionado1.getPeso())
             pesoProductos += float(EnviarPedido.productoSeleccionado2.getPeso())
             pesoProductos += float(EnviarPedido.productoSeleccionado3.getPeso())
-            print("producto" + EnviarPedido.productoSeleccionado1.getNombre() + EnviarPedido.productoSeleccionado2.getNombre()) + EnviarPedido.productoSeleccionado3.getNombre()
+            print("producto" + EnviarPedido.productoSeleccionado1.getNombre() + EnviarPedido.productoSeleccionado2.getNombre() + EnviarPedido.productoSeleccionado3.getNombre())
             print("el peso: " + str(pesoProductos))
             
             frameTransporte42.grid()
