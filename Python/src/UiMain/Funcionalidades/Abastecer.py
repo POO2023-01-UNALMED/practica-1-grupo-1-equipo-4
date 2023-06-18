@@ -37,7 +37,8 @@ class Abastecer(Frame):
             texto_widget.config(state=DISABLED)
 
         def deshabilitarProductos(event):
-            desplegableProductos.config(state='readonly')
+            if Abastecer.tienda != None:
+                desplegableProductos.config(state='readonly')
 
 
         def rellenarCuadroDeTextoProducto(event):                    
@@ -52,6 +53,8 @@ class Abastecer(Frame):
 
         def eventoEntry(event):                    
             # Agregar contenido al widget de texto
+            if event.keysym == "Return":
+                return
             try:
                 if len(entradaProductosQa.get())>0 and not isinstance(float(entradaProductosQa.get()),float):
                     raise Letras
@@ -66,7 +69,8 @@ class Abastecer(Frame):
             
 
         def deshabilitarTransporte(event):
-            desplegableTransporte.config(state='readonly')
+            if Abastecer.cantidadProducto != None:
+                desplegableTransporte.config(state='readonly')
 
         def rellenarCuadroDeTextoTransporte(event):                    
             # Agregar contenido al widget de texto
@@ -172,7 +176,7 @@ class Abastecer(Frame):
         textoProductos.pack(side='top', anchor='center')
 
         desplegableProductos = ttk.Combobox(stack, values=[x.getNombre() for x in fabrica.getListaFabricas()[0].getListaProductos()], textvariable=predeterminadoProductos,
-                                            state='readonly',width=20)
+                                            state=DISABLED,width=20)
         desplegableProductos.pack(side='top', anchor='center')
 
         # Crear una casilla para contener el cuadro de texto
@@ -219,7 +223,7 @@ class Abastecer(Frame):
         desplegableTransporte = ttk.Combobox(stack, values=["a"], textvariable=predeterminadoTransporte,
                                              state='readonly')
         desplegableTransporte.pack(side='top', anchor='center')
-        desplegableTransporte.configure(state="disabled")
+        desplegableTransporte.configure(state=DISABLED)
 
         # Crear una casilla para contener el cuadro de texto
         casillaTextoTransporte = tk.Frame(self, width=113, height=200)
@@ -237,6 +241,5 @@ class Abastecer(Frame):
         # Crear un botón
         botonEnviar = tk.Button(self, text="Enviar", width=10,command=envio)
         botonEnviar.grid(row=3 + 1, column=1, sticky="ew")
-        #/*--------------Comando--------------*/
  
 
