@@ -10,12 +10,12 @@ class ErrorAplicacion(Exception):
 
 class ExceptionC1(ErrorAplicacion):
     def __init__(self, msg):
-        self._excepcion = msg
+        self._excepcion = "Categoría 1 " + msg
         super().__init__(self._excepcion)
 
 class ExceptionC2(ErrorAplicacion):
     def __init__(self, msg): 
-        self._excepcion = "Excepcion C2 " +  msg
+        self._excepcion = "Categoría 2 " +  msg
         super().__init__(self._excepcion)
 
 #Primera rama
@@ -35,26 +35,17 @@ class FaltaUno(ExceptionC1):
     def __init__(self):
         super().__init__("Falta seleccionar uno de los campos para el abastecimiento")
 
-
 #Segunda rama
 class NoTrabajadores(ExceptionC2): #Inventada3
     def __init__(self):
         super().__init__("No hay pagos pendientes para este tipo de trabajadores")
         self.mostrarMensaje("No es posible el pago")
 
-class ExceptionInventada4(ExceptionC2):
-    def __init__(self):
-        super().__init__("ExceptionInventada4")
-
-class ExceptionSugerida2(ExceptionC2):
-    def __init__(self):
-        super().__init__("ExceptionSugerida2")
-
-class ExceptionFechasFueraDeRango(Exception):
+class ExceptionFechasFueraDeRango(ExceptionC2):
     def __init__(self):
         super().__init__()
 
-class ExceptionFecha1MayorQueFecha2(Exception):
+class ExceptionFecha1MayorQueFecha2(ExceptionC2):
     def __init__(self):
         super().__init__()
 
