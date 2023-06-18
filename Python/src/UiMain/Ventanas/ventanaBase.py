@@ -9,6 +9,9 @@ from ..Funcionalidades.PagoTrabajadores import PagoTrabajadores
 from ..Funcionalidades.Abastecer import Abastecer
 from ..Funcionalidades.EnviarPedido import EnviarPedido
 from ..Funcionalidades.Devoluciones import Devoluciones 
+import sys
+sys.path.append('../') 
+from baseDatos.Serializador import Serializador
 from ..Funcionalidades.AnadirProducto import AnadirProducto
 
 
@@ -29,7 +32,7 @@ class   VentanaBase(Tk):
         self.config(menu=menuArchivo)
         menuBar.add_cascade(menu=menuArchivo, label='Archivo')
         menuArchivo.add_command(label='Aplicacion', command=self.aplicacion)  # command
-        menuArchivo.add_command(label='Salir', command=self.salir)
+        menuArchivo.add_command(label='Salir y guardar', command=self.salirYGuardar)
 
         # ----------Procesos y consultas---------
         self.config(menu=menuProcesos)
@@ -108,12 +111,13 @@ class   VentanaBase(Tk):
 
         messagebox.showinfo("Aplicación", info)
 
-    def salir(self):
+    def salirYGuardar(self):
         self.destroy()
-
-        from .ventanaDeInicio import VentanaDeInicio
-        
+        Serializador.serializar()
+        from UiMain.Ventanas.ventanaDeInicio import VentanaDeInicio
         VentanaDeInicio()
+        
+
 
 
     def acercaDe(Self):
