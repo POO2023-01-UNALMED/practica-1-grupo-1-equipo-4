@@ -1,12 +1,24 @@
 import tkinter as tk
 from tkinter import ttk, Frame
 import Objetos
+import sys
+sys.path.append('../') 
+
+from gestorAplicacion.produccion.TipoTransporte import TipoTransporte
+from gestorAplicacion.produccion.Transporte import Transporte
 
 class EnviarPedido(Frame):
     def __init__(self, window):
         super().__init__(window)
 
-
+        clienteSeleccionado=None
+        tiendaSeleccionada = None
+        cantidadProductos = 0
+        productoSeleccionado1= None
+        productoSeleccionado2= None
+        productoSeleccionado3 = None
+        tipoTransporte = None
+        listaFiltradaTransportes = None
         #--------------Divisiones filas y columnas --------------
         for i in range(12):
             self.rowconfigure(i, weight=1)
@@ -38,6 +50,7 @@ class EnviarPedido(Frame):
         def clienteSeleccionado(evento):
             opc = desplegableClientes.get()
             frameTienda12.grid() #llama a la siguiente 
+            clienteSeleccionado = encontrarObjeto(desplegableClientes, Objetos.ListaClientes)[0]
             
         #aqui poner para seleccionar tienda 
         def tiendaSeleccionada(evento):
@@ -46,8 +59,13 @@ class EnviarPedido(Frame):
 
         def numeroProductos(evento):
             opc = desplegableNumProductos.get()
+            cantidadProductos = opc
             if opc == "1":
-                frameproducto31.grid()                    
+                frameproducto31.grid()       
+                #pesoTotalProducto =  productosSeleccionados.getPeso()   
+                EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Objetos.fabrica.getListaProductos())[0]
+                CadenaDeTexto = EnviarPedido.productoSeleccionado1.producto__str__()  
+                print(CadenaDeTexto)    
             elif opc =="2":
                 frameproducto31.grid()
                 frameproducto32.grid()
@@ -59,7 +77,7 @@ class EnviarPedido(Frame):
 
         def productosSeleccionados(evento):
             frameTransporte42.grid()
-            print(f"el producto seleccionado es: {productoSeleccionado1}")
+            #print(f"el producto seleccionado es: {EnviarPedido.producto}")
             #hacer que se sumen los pesos para filtrar transportes
 
         def transporteSeleccionado(evento):
@@ -73,6 +91,13 @@ class EnviarPedido(Frame):
                 #Aquí pooner lo de envío gratis, recordar precio y reestablecer.
             elif opc == "No":
                 print("El envío cuesta")
+        
+        #métodos necesarios 
+        def encontrarObjeto(comboBox,listaObjetos):
+            nombre = comboBox.get()
+            listaObjetos = None
+            listaObjetos = list(filter(lambda x: x.getNombre()==nombre,listaObjetos))
+            return listaObjetos
         
 
         #para seleccionar cliente 
@@ -173,7 +198,11 @@ class EnviarPedido(Frame):
         textoSeleccTransporte = tk.Label(frameTransporte42, text='Transportes', font=("Arial", 12))
         textoSeleccTransporte.pack(side='top', anchor='center')
         TransportePredeterminado = tk.StringVar(value='Seleccionar transporte')
-        desplegableTransporte = ttk.Combobox(frameTransporte42,values=["Camion", "Lambo", "Barco"], textvariable=TransportePredeterminado, state='readonly')  
+        EnviarPedido.cantidadProducto = desplegableNumProductos.get()
+        #EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.productoSeleccionado1.getPeso()*float(EnviarPedido.cantidadProducto))
+        #desplegableTransporte = ttk.Combobox(frameTransporte42,values=[x.value[0] for x in EnviarPedido.listaFiltradaTransportes], textvariable=TransportePredeterminado, state='readonly') 
+        #EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.productoSeleccionado1.getPeso()*float(EnviarPedido.cantidadProducto))
+        desplegableTransporte = ttk.Combobox(frameTransporte42, values = ["mercedes", "lambo", "El diablo en patines"], textvariable=TransportePredeterminado, state='readonly')   
         desplegableTransporte.pack(side='top', anchor='center')
         desplegableTransporte.bind("<<ComboboxSelected>>",transporteSeleccionado)
 

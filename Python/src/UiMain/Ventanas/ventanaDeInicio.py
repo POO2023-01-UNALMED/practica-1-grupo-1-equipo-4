@@ -82,8 +82,13 @@ class VentanaDeInicio(tk.Tk):
         VALUES  = [
         {"name": "Luis Alejandro Varela Ojeda", "description":"Amante de la Natacion y Waterpolo", "email":"luvarelao@unal.edu.co"},
         {"name":"Maria Fernanda Calle Agudelo", "description":"Trabaja en la vaganciaaaaa", "email":"mcalleag@unal.edu.co"},
+<<<<<<< Updated upstream
         {"name": "Monica Sofia Restrepo León", "description":"Amante de la ciencia de datos", "email":"aluribes@unal.edu.co" },
         {"name": "Jaider Castañeda Villa", "description":"Entusiasta de la programacion", "email":"jcastanedavi@unal.edu.co" },
+=======
+        {"name": "Monica Sofia Restrepo León", "description":"Me gusta el morado y los caballos", "email":"morestrepol@unal.edu.co" },
+        {"name": "Jaider Castañeda Villa", "description":"Amante de la comida", "email":"jualopezra@unal.edu.co" },
+>>>>>>> Stashed changes
         {"name":"Joan Sebastian Salazar Montoya", "description":"Apasionado por la lectura", "email":"jtobonz@unal.edu.co"}
             ]
 
