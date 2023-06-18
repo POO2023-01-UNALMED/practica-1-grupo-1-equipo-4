@@ -85,11 +85,11 @@ class Cliente:
     def setProductos(self, productos):
         self._productos = productos
 
-    @staticmethod
-    def getListaClientes():
-        return Cliente._lista_clientes
+    @classmethod
+    def getListaClientes(cls):
+        return cls._lista_clientes
 
-    @staticmethod
-    def setListaClientes(lista_clientes):
-        Cliente._lista_clientes = lista_clientes
+    @classmethod
+    def setListaClientes(cls,lista_clientes):
+        cls._lista_clientes = lista_clientes
 

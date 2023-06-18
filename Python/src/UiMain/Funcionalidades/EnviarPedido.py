@@ -6,6 +6,8 @@ sys.path.append('../')
 
 from gestorAplicacion.produccion.TipoTransporte import TipoTransporte
 from gestorAplicacion.produccion.Transporte import Transporte
+from gestorAplicacion.produccion.Fabrica import Fabrica
+from gestorAplicacion.gestion.Cliente import Cliente
 
 class EnviarPedido(Frame):
     def __init__(self, window):
@@ -27,7 +29,7 @@ class EnviarPedido(Frame):
         for i in range(12):
             self.rowconfigure(i, weight=1)
 
-        for j in range(4):
+        for j in range(8):
             self.columnconfigure(j, weight=1)
             
         #----------------TITULO
@@ -55,7 +57,7 @@ class EnviarPedido(Frame):
             opc = desplegableClientes.get()
             frameTienda12.grid() #llama a la siguiente 
             
-            clienteSeleccionado = encontrarObjeto(desplegableClientes, Objetos.ListaClientes)[0]
+            clienteSeleccionado = encontrarObjeto(desplegableClientes, Cliente.getListaClientes())[0]
             print(clienteSeleccionado.getNombre())
             
         #aqui poner para seleccionar tienda 
@@ -63,7 +65,7 @@ class EnviarPedido(Frame):
             opc=desplegableTiendas.get()
             frameNumero22.grid()
 
-            tiendaSeleccionada = encontrarObjeto(desplegableTiendas, Objetos.tiendas)[0]
+            tiendaSeleccionada = encontrarObjeto(desplegableTiendas, Fabrica.getListaFabricas()[0].getListaTienda())[0]
             print(tiendaSeleccionada.getNombre())
 
         def numeroProductos(evento):
@@ -86,8 +88,7 @@ class EnviarPedido(Frame):
         def numproductosSeleccionado1(evento):
             opc1 = desplegableProductos1.get()
                
-            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Objetos.fabrica.getListaProductos())[0]
-            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Objetos.catalogoProductos)[0]
+            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Fabrica.getListaFabricas()[0].getListaProductos())[0]
             pesoProductos = 0
             pesoProductos = float(EnviarPedido.productoSeleccionado1.getPeso())
             print("producto" + EnviarPedido.productoSeleccionado1.getNombre())
@@ -100,12 +101,9 @@ class EnviarPedido(Frame):
             opc1 = desplegableProductos1.get()
             opc2 = desplegableProductos2.get()
 
-            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Objetos.fabrica.getListaProductos())[0]
-            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Objetos.catalogoProductos)[0]
+            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Fabrica.getListaFabricas()[0].getListaProductos())[0]
             pesoProductos = 0
-
-            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Objetos.catalogoProductos)[0]
-            EnviarPedido.productoSeleccionado2 = encontrarObjeto(desplegableProductos2, Objetos.catalogoProductos)[0]
+            EnviarPedido.productoSeleccionado2 = encontrarObjeto(desplegableProductos2, Fabrica.getListaFabricas()[0].getListaProductos())[0]
             pesoProductos = 0
             pesoProductos += float(EnviarPedido.productoSeleccionado1.getPeso())
             pesoProductos += float(EnviarPedido.productoSeleccionado2.getPeso())
@@ -121,16 +119,10 @@ class EnviarPedido(Frame):
             opc2 = desplegableProductos2.get()
             opc3 = desplegableProductos3.get()
 
-            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Objetos.fabrica.getListaProductos())[0]
-            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Objetos.catalogoProductos)[0]
+            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Fabrica.getListaFabricas()[0].getListaProductos())[0]
 
-            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Objetos.catalogoProductos)[0]
-            EnviarPedido.productoSeleccionado2 = encontrarObjeto(desplegableProductos2, Objetos.catalogoProductos)[0]
             pesoProductos = 0
 
-            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Objetos.catalogoProductos)[0]
-            EnviarPedido.productoSeleccionado2 = encontrarObjeto(desplegableProductos2, Objetos.catalogoProductos)[0]
-            EnviarPedido.productoSeleccionado3 = encontrarObjeto(desplegableProductos3, Objetos.catalogoProductos)[0]
             pesoProductos = 0
             pesoProductos += float(EnviarPedido.productoSeleccionado1.getPeso())
             pesoProductos += float(EnviarPedido.productoSeleccionado2.getPeso())
@@ -173,7 +165,7 @@ class EnviarPedido(Frame):
         textoClientes.pack(side='top', anchor='center')
 
         clientePredeterminado = tk.StringVar(value='Seleccionar cliente')
-        desplegableClientes = ttk.Combobox(frameClientes11, values =[x.getNombre() for x in Objetos.ListaClientes], textvariable=clientePredeterminado, state='readonly')
+        desplegableClientes = ttk.Combobox(frameClientes11, values =[x.getNombre() for x in Cliente.getListaClientes()], textvariable=clientePredeterminado, state='readonly')
         desplegableClientes.pack(side='top', anchor='center')
         desplegableClientes.bind("<<ComboboxSelected>>", clienteSeleccionado)
 
@@ -187,7 +179,7 @@ class EnviarPedido(Frame):
         textoTiendas.pack(side='top', anchor='center')
 
         trabajadorPredeterminado = tk.StringVar(value='Seleccionar Tienda')
-        desplegableTiendas = ttk.Combobox(frameTienda12, values=[x.getNombre() for x in Objetos.fabrica.getListaTienda()], textvariable=trabajadorPredeterminado,state='readonly')
+        desplegableTiendas = ttk.Combobox(frameTienda12, values=[x.getNombre() for x in Fabrica.getListaFabricas()[0].getListaTienda()], textvariable=trabajadorPredeterminado,state='readonly')
         desplegableTiendas.pack(side='top', anchor='center')
         desplegableTiendas.bind("<<ComboboxSelected>>",tiendaSeleccionada)
 
@@ -217,7 +209,7 @@ class EnviarPedido(Frame):
         textoSeleccProductos.pack(side='top', anchor='center')
 
         productoPredeterminado = tk.StringVar(value='Seleccionar productos')
-        desplegableProductos1 = ttk.Combobox(frameproducto31, values=[x.getNombre() for x in Objetos.fabrica.getListaProductos()], textvariable=productoPredeterminado, state='readonly')
+        desplegableProductos1 = ttk.Combobox(frameproducto31, values=[x.getNombre() for x in Fabrica.getListaFabricas()[0].getListaProductos()], textvariable=productoPredeterminado, state='readonly')
         #desplegableProductos1 = ttk.Combobox(frameproducto31,values=["pan", "agua", "unicornios"], textvariable=productoPredeterminado, state='readonly')  
         desplegableProductos1.pack(side='top', anchor='center')
         desplegableProductos1.bind("<<ComboboxSelected>>",numproductosSeleccionado1)
@@ -234,7 +226,7 @@ class EnviarPedido(Frame):
         textoSeleccProductos.pack(side='top', anchor='center')
 
         productoPredeterminado = tk.StringVar(value='Seleccionar productos')
-        desplegableProductos2 = ttk.Combobox(frameproducto32,values=[x.getNombre() for x in Objetos.fabrica.getListaProductos()], textvariable=productoPredeterminado, state='readonly')  
+        desplegableProductos2 = ttk.Combobox(frameproducto32,values=[x.getNombre() for x in Fabrica.getListaFabricas()[0].getListaProductos()], textvariable=productoPredeterminado, state='readonly')  
         desplegableProductos2.pack(side='top', anchor='center')
         desplegableProductos2.bind("<<ComboboxSelected>>",numproductosSeleccionado2)
 
@@ -247,7 +239,7 @@ class EnviarPedido(Frame):
         textoSeleccProductos.pack(side='top', anchor='center')
 
         productoPredeterminado = tk.StringVar(value='Seleccionar productos')
-        desplegableProductos3 = ttk.Combobox(frameproducto33,values=[x.getNombre() for x in Objetos.fabrica.getListaProductos()], textvariable=productoPredeterminado, state='readonly')  
+        desplegableProductos3 = ttk.Combobox(frameproducto33,values=[x.getNombre() for x in Fabrica.getListaFabricas()[0].getListaProductos()], textvariable=productoPredeterminado, state='readonly')  
         desplegableProductos3.pack(side='top', anchor='center')
         desplegableProductos3.bind("<<ComboboxSelected>>", numproductosSeleccionado3)
  
