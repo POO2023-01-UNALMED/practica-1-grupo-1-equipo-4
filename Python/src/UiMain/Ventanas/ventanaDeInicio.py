@@ -182,15 +182,15 @@ class VentanaDeInicio(tk.Tk):
 
         #Descripcion de los Integrantes
 
-        name = tk.Label(algo3, text="Name: " ,font=("Arial", 12, "bold"), bg="#329bfc", relief="raised", border=2)
+        name = tk.Label(algo3, text="Nombre: " ,font=("Arial", 12, "bold"), bg="#329bfc", relief="raised", border=2)
         name.grid(row=0,column=0, sticky="nsew")
         nombre = tk.Label(algo3, text=  VALUES[VentanaDeInicio.contador]["name"], bg="#329bfc", relief="raised", border=2, font=("Arial", 8, "bold"))
         nombre.grid(row=0,column=1, sticky="nsew")
-        description = tk.Label(algo3, text="Description: ",font=("Arial", 12, "bold") , bg="#329bfc", relief="raised", border=2)
+        description = tk.Label(algo3, text="Descripcion: ",font=("Arial", 12, "bold") , bg="#329bfc", relief="raised", border=2)
         description.grid(row=1,column=0, sticky="nsew")
         descripcion = tk.Label(algo3, text= VALUES[VentanaDeInicio.contador]["description"] , bg="#329bfc", relief="raised", border=2, font=("Arial", 8, "bold"))
         descripcion.grid(row=1,column=1, sticky="nsew")
-        email = tk.Label(algo3, text="Email: ",font=("Arial", 12, "bold") , bg="#329bfc", relief="raised", border=2,)
+        email = tk.Label(algo3, text="Correo: ",font=("Arial", 12, "bold") , bg="#329bfc", relief="raised", border=2,)
         email.grid(row=2,column=0, sticky="nsew")
         correo = tk.Label(algo3, text= VALUES[VentanaDeInicio.contador]["email"] , bg="#329bfc", relief="raised", border=2, font=("Arial", 8, "bold") )
         correo.grid(row=2,column=1, sticky="nsew")
