@@ -13,7 +13,7 @@ class Estadisticas(Frame):
 
     def __init__(self, window):
         super().__init__(window)
-
+        self.config(bg="#b6fce6")
         for i in range(6):
             self.rowconfigure(i, weight=1)
 
