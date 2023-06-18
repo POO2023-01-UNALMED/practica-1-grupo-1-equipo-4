@@ -22,22 +22,18 @@ class ExceptionC2(ErrorAplicacion):
 class Abastecer0productos(ExceptionC1):
     def __init__(self):
         super().__init__("No es posible hacer un abastecimiento de 0 productos")
-        messagebox.showerror("0 Productos",self._excepcion)
-
 
 class Letras(ExceptionC1):
     def __init__(self):
         super().__init__("No se pueden poner caracteres que no son numeros en el apartado de cantidad")
-        messagebox.showerror("Letras",self._excepcion)
-
+        
 class MayorA(ExceptionC1):
     def __init__(self):
         super().__init__("La cantidad de productos que intenta enviar es superior a la permitida en esa categoria")
-        messagebox.showerror("Superar lo permitido",self._excepcion)
+
 class FaltaUno(ExceptionC1):
     def __init__(self):
         super().__init__("Falta seleccionar uno de los campos para el abastecimiento")
-        messagebox.showerror("Superar lo permitido",self._excepcion)
 
 
 #Segunda rama

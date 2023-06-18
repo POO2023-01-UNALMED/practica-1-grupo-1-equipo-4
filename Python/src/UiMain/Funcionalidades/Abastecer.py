@@ -60,7 +60,7 @@ class Abastecer(Frame):
                     desplegableTransporte['values']=[x.value[0] for x in Abastecer.listaFiltradaTransportes]
             except ValueError:
                 Abastecer.cantidadProducto = None
-                Letras()
+                messagebox.showerror("Error", Letras())
             
 
         def deshabilitarTransporte(event):
@@ -98,11 +98,11 @@ class Abastecer(Frame):
                     messagebox.showinfo("Abasteciemintos",f"La tienda {Abastecer.tienda.getNombre()} ha sido abastecida exitosamente\
  con {Abastecer.cantidadProducto} unidades de {Abastecer.producto.getNombre()}")
             except FaltaUno:
-                FaltaUno()
+                messagebox.showerror("Error", FaltaUno())
             except Abastecer0productos:
-                raise Abastecer0productos()
+                messagebox.showerror("Error", Abastecer0productos())
             except MayorA:
-                MayorA()
+                messagebox.showerror("Error", MayorA())
 
         # Distribución uniforme de filas
         for i in range(5):
