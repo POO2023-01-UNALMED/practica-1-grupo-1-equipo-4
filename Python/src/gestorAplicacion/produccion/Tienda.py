@@ -15,6 +15,7 @@ import random
 
 class Tienda(Moda):
     
+    _listaTiendas= []
     _numTiendas = 0
 
     def __init__(self, nombre, vendedor, cuentaBancaria):
@@ -26,6 +27,7 @@ class Tienda(Moda):
         self._productosPorCategoria = {}
         self._productosDevueltos = []
         Tienda._numTiendas += 1
+        Tienda._listaTiendas.append(self)
         self._cantidadPorCategoria = {
             "aseo": random.randint(100, 200),
             "consumible": random.randint(100, 200),
@@ -294,6 +296,14 @@ class Tienda(Moda):
     @classmethod
     def get_num_tiendas(cls):
         return cls._numTiendas
+    
+    @classmethod
+    def setListaTiendas(cls,listaTiendas):
+        cls._listaTiendas = listaTiendas
+
+    @classmethod
+    def getListaTiendas(cls):
+        return cls._listaTiendas
     
     def __str__(self) -> str:
         return self._nombre
