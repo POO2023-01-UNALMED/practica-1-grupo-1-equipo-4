@@ -17,6 +17,7 @@ class   VentanaBase(Tk):
         super().__init__()
         self.geometry("700x640")
         self.title("Distribuidora MJLJM")
+        self.config(bg="#b6fce6")
 
         # Barra menu superior
         menuBar = Menu()

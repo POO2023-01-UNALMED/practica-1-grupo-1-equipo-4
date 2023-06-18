@@ -12,12 +12,13 @@ from PIL import Image, Image, ImageTk
 
 class VentanaDeInicio(tk.Tk):
     contador = 0
+    contador2 = 0
     def __init__(self):
         super().__init__()
 
         self.title("La mejor empresa del mundo0o0o0 MJLJM")
         self.geometry("1080x720+100+0")
-        self.config(bg="#bee4ed")
+        self.config(bg="#b6fce6")
         menuArchivo = tk.Menu(self)
         self.config(menu=menuArchivo, height=30)
         menu1 = tk.Menu(menuArchivo,activebackground="blue",activeforeground="white")
@@ -78,17 +79,29 @@ class VentanaDeInicio(tk.Tk):
             nombre.configure(text= VALUES[VentanaDeInicio.contador]["name"]) 
             descripcion.configure(text=VALUES[VentanaDeInicio.contador]["description"]) 
             correo.configure(text=VALUES[VentanaDeInicio.contador]["email"]) 
-
+        
+        def mouse_entra(event):
+            # Acciones a realizar cuando el mouse entra en el widget
+            # Puedes cambiar el color de fondo, mostrar información adicional, etc.
+            global  imagenSistema1
+            VentanaDeInicio.contador2 += 1
+            VentanaDeInicio.contador2 %= 5 
+            if VentanaDeInicio.contador2 == 0:
+                imagen =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema1.jpg').resize((250,200), Image.ANTIALIAS))
+            elif VentanaDeInicio.contador2 == 1:
+                imagen =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema2.png').resize((250,200), Image.ANTIALIAS))
+            elif VentanaDeInicio.contador2 == 2:
+                imagen =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema3.png').resize((250,200), Image.ANTIALIAS))
+            elif VentanaDeInicio.contador2 == 3:
+                imagen =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema4.png').resize((250,200), Image.ANTIALIAS))
+            elif VentanaDeInicio.contador2 == 4:
+                imagen =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema5.png').resize((250,200), Image.ANTIALIAS))
+            algo2.configure(image=imagen)
         VALUES  = [
         {"name": "Luis Alejandro Varela Ojeda", "description":"Amante de la Natacion y Waterpolo", "email":"luvarelao@unal.edu.co"},
         {"name":"Maria Fernanda Calle Agudelo", "description":"Trabaja en la vaganciaaaaa", "email":"mcalleag@unal.edu.co"},
-<<<<<<< Updated upstream
-        {"name": "Monica Sofia Restrepo León", "description":"Amante de la ciencia de datos", "email":"aluribes@unal.edu.co" },
-        {"name": "Jaider Castañeda Villa", "description":"Entusiasta de la programacion", "email":"jcastanedavi@unal.edu.co" },
-=======
         {"name": "Monica Sofia Restrepo León", "description":"Me gusta el morado y los caballos", "email":"morestrepol@unal.edu.co" },
         {"name": "Jaider Castañeda Villa", "description":"Amante de la comida", "email":"jualopezra@unal.edu.co" },
->>>>>>> Stashed changes
         {"name":"Joan Sebastian Salazar Montoya", "description":"Apasionado por la lectura", "email":"jtobonz@unal.edu.co"}
             ]
 
@@ -99,19 +112,23 @@ class VentanaDeInicio(tk.Tk):
         imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis3.png').resize((250,200), Image.ANTIALIAS)) 
         imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis4.png').resize((250,200), Image.ANTIALIAS))
         imagenSistema1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema1.jpg').resize((250,200), Image.ANTIALIAS))
+        imagenSistema2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema2.png').resize((250,200), Image.ANTIALIAS))
+        imagenSistema3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema3.png').resize((250,200), Image.ANTIALIAS))
+        imagenSistema4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema4.png').resize((250,200), Image.ANTIALIAS))
+        imagenSistema5 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema5.png').resize((250,200), Image.ANTIALIAS))
 
         #fotos = [imagen1, imagen2, imagen3, imagen4] 
-        self.image_names = [imagen1, imagen2, imagen3, imagen4, imagenSistema1]
+        self.image_names = [imagen1, imagen2, imagen3, imagen4, imagenSistema1, imagenSistema2, imagenSistema3, imagenSistema4, imagenSistema5]
        
         self.columnconfigure(0, weight=4)
         self.columnconfigure(1, weight=5)
         
         # Crear el marco izquierdo
-        marco_izquierdo = tk.Frame(self, bg="#329bfc", relief="raised", border=2)
+        marco_izquierdo = tk.Frame(self, bg="#33a8d6", relief="raised", border=2)
         marco_izquierdo.columnconfigure(0, weight=1)
         marco_izquierdo.grid(row=0, column=0,padx=10, pady=10, sticky="nsew")
         # Crear el marco derecho
-        marco_derecho = tk.Frame(self, bg="#329bfc", relief="raised", border=2)
+        marco_derecho = tk.Frame(self, bg="#33a8d6", relief="raised", border=2)
         marco_derecho.columnconfigure(0, weight=1)
         marco_derecho.grid(row=0, column=1,padx=10, pady=10, sticky="nsew")
         # Configurar el peso para que los marcos se ajusten al tamaño de la ventana
@@ -123,7 +140,7 @@ class VentanaDeInicio(tk.Tk):
         marco_izquierdo.rowconfigure(1,pad=5, weight=1)
         marco_izquierdo.rowconfigure(2,pad=5, weight=1)
 
-        izquierdo_1 = tk.Frame(marco_izquierdo, bg="#588db8", relief="sunken", border=2) # 70fa2a
+        izquierdo_1 = tk.Frame(marco_izquierdo, bg="#93cfbc", relief="sunken", border=2) # 70fa2a
         izquierdo_1.rowconfigure(0, weight=1)
         izquierdo_1.columnconfigure(0, weight=1)
         izquierdo_1.grid(row=0, padx=10, pady=10, sticky="nsew")
@@ -131,7 +148,7 @@ class VentanaDeInicio(tk.Tk):
         algo = tk.Label(izquierdo_1, text="Bienvenidos a la distribuidora\n JMLMJ", font=("Franklin Gothic", 15, "bold"), bg="#329bfc", relief="raised", border=2)
         algo.grid(row=0, padx=20, pady=20, sticky="nsew")
 
-        izquierdo_2 = tk.Frame(marco_izquierdo, bg="#588db8",relief="sunken", border=2) #, width="400", height="100"
+        izquierdo_2 = tk.Frame(marco_izquierdo, bg="#93cfbc",relief="sunken", border=2) #, width="400", height="100"
         izquierdo_2.grid(row=1, padx=10, pady=10, sticky="nsew")
         izquierdo_2.rowconfigure(0, weight=1)
         izquierdo_2.columnconfigure(0, weight=1)
@@ -139,7 +156,7 @@ class VentanaDeInicio(tk.Tk):
         algo2.grid(row=0, padx=20, pady=20, sticky="nsew")
 
 
-        izquierdo_3 = tk.Frame(marco_izquierdo, bg="#588db8", relief="sunken", border=2) #, width="400", height="100"
+        izquierdo_3 = tk.Frame(marco_izquierdo, bg="#93cfbc", relief="sunken", border=2) #, width="400", height="100"
         izquierdo_3.grid(row=2, padx=10, pady=10, sticky="nsew")
         izquierdo_3.rowconfigure(0, weight=1)
         izquierdo_3.columnconfigure(0, weight=1)
@@ -151,7 +168,7 @@ class VentanaDeInicio(tk.Tk):
         marco_derecho.rowconfigure(0,pad=5, weight=1)
         marco_derecho.rowconfigure(1,pad=5, weight=1)
 
-        derecho_1 = tk.Frame(marco_derecho, bg="#588db8", relief="sunken", border=2, width=200, height=100) #, width="400", height="100"
+        derecho_1 = tk.Frame(marco_derecho, bg="#93cfbc", relief="sunken", border=2, width=200, height=100) #, width="400", height="100"
         derecho_1.grid(row=0, padx=10, pady=10, sticky="nsew")
         derecho_1.rowconfigure(0, weight=1)
         derecho_1.rowconfigure(1, weight=1)
@@ -188,7 +205,7 @@ class VentanaDeInicio(tk.Tk):
         universidad = tk.Label(algo3, text= "Universidad Nacional de Colombia" , bg="#329bfc", relief="raised", border=2, font=("Arial", 8, "bold"))
         universidad.grid(row=3,column=1, sticky="nsew")
 
-        derecho_2 = tk.Frame(marco_derecho, bg="#588db8", relief="sunken", border=2) #, width="400", height="100"
+        derecho_2 = tk.Frame(marco_derecho, bg="#93cfbc", relief="sunken", border=2) #, width="400", height="100"
         derecho_2.grid(row=1, padx=10, pady=10, sticky="nsew")
         
         derecho_2.rowconfigure(0, weight=1)
@@ -215,6 +232,10 @@ class VentanaDeInicio(tk.Tk):
         algo6.bind('<ButtonPress-1>', click_event)
         algo7.bind('<ButtonPress-1>', click_event)
         algo8.bind('<ButtonPress-1>', click_event)
+
+        # Asociar el evento <Enter> (mouse entra) con la función mouse_entra
+        izquierdo_2.bind("<Enter>", mouse_entra)
+        algo2.bind("<Enter>", mouse_entra)
 
         # ---------------      ACÁ TERMINA LA MAGIA DE LUIS             -------------
 
