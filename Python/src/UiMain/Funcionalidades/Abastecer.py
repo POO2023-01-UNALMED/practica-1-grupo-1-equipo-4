@@ -82,6 +82,7 @@ class Abastecer(Frame):
             return objeto
         
         def envio():
+            Abastecer.cantidadProducto=entradaProductosQa.get()
             try:
                 if any(var is None for var in (Abastecer.tienda, Abastecer.producto, Abastecer.cantidadProducto, Abastecer.tipoTransporte)):
                     raise FaltaUno

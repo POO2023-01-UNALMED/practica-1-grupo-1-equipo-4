@@ -1,13 +1,15 @@
 import tkinter as tk
 from .ventanaBase import VentanaBase
 from tkinter import messagebox
-#from tkinter import ttk
-
 import os
 import pathlib
 path = os.path.join(pathlib.Path(__file__).parent.absolute())
 path = os.path.dirname(path)
 from PIL import Image, Image, ImageTk
+#from tkinter import ttk
+import sys
+sys.path.append('../') 
+from baseDatos.Deserializador import Deserializador
 
 
 class VentanaDeInicio(tk.Tk):
@@ -246,4 +248,5 @@ class VentanaDeInicio(tk.Tk):
 
     def abrir_ventana_principal(self):
         self.destroy()
+        #Deserializador.deserializar()
         VentanaBase()
