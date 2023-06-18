@@ -16,7 +16,7 @@ class VentanaDeInicio(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.title("La mejor empresa del mundo0o0o0 MJLJM")
+        self.title("La mejor empresa del mundo JMLMJ")
         self.geometry("1080x720+100+0")
         self.config(bg="#b6fce6")
         menuArchivo = tk.Menu(self)
@@ -82,21 +82,21 @@ class VentanaDeInicio(tk.Tk):
         
         def mouse_entra(event):
             # Acciones a realizar cuando el mouse entra en el widget
-            # Puedes cambiar el color de fondo, mostrar información adicional, etc.
-            global  imagenSistema1
+            global imagenSistema1
             VentanaDeInicio.contador2 += 1
             VentanaDeInicio.contador2 %= 5 
             if VentanaDeInicio.contador2 == 0:
-                imagen =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema1.jpg').resize((250,200), Image.ANTIALIAS))
+                imagenSistema1 =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema1.jpg').resize((300,250), Image.ANTIALIAS))
             elif VentanaDeInicio.contador2 == 1:
-                imagen =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema2.png').resize((250,200), Image.ANTIALIAS))
+                imagenSistema1 =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema2.png').resize((300,250), Image.ANTIALIAS))
             elif VentanaDeInicio.contador2 == 2:
-                imagen =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema3.png').resize((250,200), Image.ANTIALIAS))
+                imagenSistema1 =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema3.png').resize((300,250), Image.ANTIALIAS))
             elif VentanaDeInicio.contador2 == 3:
-                imagen =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema4.png').resize((250,200), Image.ANTIALIAS))
+                imagenSistema1 =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema4.png').resize((300,250), Image.ANTIALIAS))
             elif VentanaDeInicio.contador2 == 4:
-                imagen =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema5.png').resize((250,200), Image.ANTIALIAS))
-            algo2.configure(image=imagen)
+                imagenSistema1 =ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema5.png').resize((300,250), Image.ANTIALIAS))
+            algo2.configure(image=imagenSistema1)
+
         VALUES  = [
         {"name": "Luis Alejandro Varela Ojeda", "description":"Amante de la Natacion y Waterpolo", "email":"luvarelao@unal.edu.co"},
         {"name":"Maria Fernanda Calle Agudelo", "description":"Apasionada por el baloncesto", "email":"mcalleag@unal.edu.co"},
@@ -111,14 +111,8 @@ class VentanaDeInicio(tk.Tk):
         imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis2.png').resize((250,200), Image.ANTIALIAS)) 
         imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis3.png').resize((250,200), Image.ANTIALIAS)) 
         imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosLuis/luis4.png').resize((250,200), Image.ANTIALIAS))
-        imagenSistema1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema1.jpg').resize((250,200), Image.ANTIALIAS))
-        imagenSistema2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema2.png').resize((250,200), Image.ANTIALIAS))
-        imagenSistema3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema3.png').resize((250,200), Image.ANTIALIAS))
-        imagenSistema4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema4.png').resize((250,200), Image.ANTIALIAS))
-        imagenSistema5 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema5.png').resize((250,200), Image.ANTIALIAS))
-
-        #fotos = [imagen1, imagen2, imagen3, imagen4] 
-        self.image_names = [imagen1, imagen2, imagen3, imagen4, imagenSistema1, imagenSistema2, imagenSistema3, imagenSistema4, imagenSistema5]
+        imagenSistema1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosSistema/sistema1.jpg').resize((300,250), Image.ANTIALIAS))
+        self.image_names = [imagen1, imagen2, imagen3, imagen4, imagenSistema1]
        
         self.columnconfigure(0, weight=4)
         self.columnconfigure(1, weight=5)
@@ -234,7 +228,6 @@ class VentanaDeInicio(tk.Tk):
         algo8.bind('<ButtonPress-1>', click_event)
 
         # Asociar el evento <Enter> (mouse entra) con la función mouse_entra
-        izquierdo_2.bind("<Enter>", mouse_entra)
         algo2.bind("<Enter>", mouse_entra)
 
         # ---------------      ACÁ TERMINA LA MAGIA DE LUIS             -------------
@@ -254,7 +247,7 @@ class VentanaDeInicio(tk.Tk):
 
               """
 
-            messagebox.showinfo("Aplicación", info)
+            messagebox.showinfo("Descripción del sistema", info)
 
 
 

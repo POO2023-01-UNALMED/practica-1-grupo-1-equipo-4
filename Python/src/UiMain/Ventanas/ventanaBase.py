@@ -116,7 +116,7 @@ class   VentanaBase(Tk):
         VentanaDeInicio()
 
 
-    def acercaDe():
+    def acercaDe(Self):
         messagebox.showinfo("Desarrolladores", "Maria Fernanda Calle Agudelo\nMonica Sofia Restrepo Leon\nJaider "
                                             "Castañeda Villa\nLuis Alejandro Varela Ojeda\nJoan Sebastian Salazar "
                                             "Montoya \n")

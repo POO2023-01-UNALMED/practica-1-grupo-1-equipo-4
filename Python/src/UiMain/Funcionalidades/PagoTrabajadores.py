@@ -16,6 +16,8 @@ class PagoTrabajadores(Frame):
     def __init__(self, window):
         super().__init__(window)
 
+        self.config(bg="#b6fce6")
+
         listaFacturas = Factura.getListaFacturas()
                 
         #-----------------------------Eventos -------------------------------------------------------------
