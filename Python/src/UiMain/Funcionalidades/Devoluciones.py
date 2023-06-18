@@ -18,7 +18,7 @@ class Devoluciones(Frame):
             boton.grid()
 
         #-----------Divisiones filas y columnas--------
-        self.config(bg="#bee4ed")
+        self.config(bg="#b6fce6")
         for i in range(12):
             self.rowconfigure(i, weight=1)
         for j in range(3):
