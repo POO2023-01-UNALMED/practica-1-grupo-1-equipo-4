@@ -16,7 +16,7 @@ class VentanaDeInicio(tk.Tk):
     def __init__(self):
         super().__init__()
 
-        self.title("La mejor empresa del mundo0o0o0 MJLJM")
+        self.title("La mejor empresa del mundo JMLMJ")
         self.geometry("1080x720+100+0")
         self.config(bg="#b6fce6")
         menuArchivo = tk.Menu(self)
@@ -247,7 +247,7 @@ class VentanaDeInicio(tk.Tk):
 
               """
 
-            messagebox.showinfo("Aplicación", info)
+            messagebox.showinfo("Descripción del sistema", info)
 
 
 
