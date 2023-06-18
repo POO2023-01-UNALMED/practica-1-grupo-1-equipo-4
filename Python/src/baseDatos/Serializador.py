@@ -1,13 +1,13 @@
 import pickle
-from gestorAplicacion.gestion.Operario import Operario
-from gestorAplicacion.gestion.Vendedor import Vendedor
-from gestorAplicacion.produccion.Fabrica import Fabrica
-from gestorAplicacion.produccion.Producto import Producto
-from gestorAplicacion.produccion.Tienda import Tienda
-from gestorAplicacion.gestion.Factura import Factura
-from gestorAplicacion.gestion.Cliente import Cliente
-from gestorAplicacion.gestion.Conductor import Conductor
-from gestorAplicacion.produccion.Transporte import Transporte
+from ..gestorAplicacion.gestion.Operario import Operario
+from ..gestorAplicacion.gestion.Vendedor import Vendedor
+from ..gestorAplicacion.produccion.Fabrica import Fabrica
+from ..gestorAplicacion.produccion.Producto import Producto
+from ..gestorAplicacion.produccion.Tienda import Tienda
+from ..gestorAplicacion.gestion.Factura import Factura
+from ..gestorAplicacion.gestion.Cliente import Cliente
+from ..gestorAplicacion.gestion.Conductor import Conductor
+from ..gestorAplicacion.produccion.Transporte import Transporte
 
 class Serializador:
 

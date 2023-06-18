@@ -49,8 +49,11 @@ class EnviarPedido(Frame):
 
         def clienteSeleccionado(evento):
             opc = desplegableClientes.get()
+            print(opc)
+            print(list(map(lambda x: x.getNombre(),Objetos.ListaClientes)))
             frameTienda12.grid() #llama a la siguiente 
-            clienteSeleccionado = encontrarObjeto(desplegableClientes, Objetos.ListaClientes)[0]
+            if opc !='Seleccionar cliente':
+                clienteSeleccionado = encontrarObjeto(desplegableClientes, Objetos.ListaClientes)[0]
             
         #aqui poner para seleccionar tienda 
         def tiendaSeleccionada(evento):
@@ -62,10 +65,7 @@ class EnviarPedido(Frame):
             cantidadProductos = opc
             if opc == "1":
                 frameproducto31.grid()       
-                #pesoTotalProducto =  productosSeleccionados.getPeso()   
-                EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Objetos.fabrica.getListaProductos())[0]
-                CadenaDeTexto = EnviarPedido.productoSeleccionado1.producto__str__()  
-                print(CadenaDeTexto)    
+                #pesoTotalProducto =  productosSeleccionados.getPeso()
             elif opc =="2":
                 frameproducto31.grid()
                 frameproducto32.grid()
@@ -77,6 +77,8 @@ class EnviarPedido(Frame):
 
         def productosSeleccionados(evento):
             frameTransporte42.grid()
+            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Objetos.fabrica.getListaProductos())[0]
+            CadenaDeTexto = EnviarPedido.productoSeleccionado1.producto__str__()  
             #print(f"el producto seleccionado es: {EnviarPedido.producto}")
             #hacer que se sumen los pesos para filtrar transportes
 
@@ -95,9 +97,9 @@ class EnviarPedido(Frame):
         #métodos necesarios 
         def encontrarObjeto(comboBox,listaObjetos):
             nombre = comboBox.get()
-            listaObjetos = None
-            listaObjetos = list(filter(lambda x: x.getNombre()==nombre,listaObjetos))
-            return listaObjetos
+            Objetos = None
+            Objetos = list(filter(lambda x: x.getNombre()==nombre,listaObjetos))
+            return Objetos
         
 
         #para seleccionar cliente 
