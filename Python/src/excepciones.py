@@ -50,16 +50,11 @@ class ExceptionSugerida2(ExceptionC2):
     def __init__(self):
         super().__init__("ExceptionSugerida2")
 
-
 class ExceptionFechasFueraDeRango(Exception):
-
     def __init__(self):
-
         super().__init__()
 
 class ExceptionFecha1MayorQueFecha2(Exception):
-
     def __init__(self):
-
         super().__init__()
 

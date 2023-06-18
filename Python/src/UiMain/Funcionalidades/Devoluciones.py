@@ -11,6 +11,7 @@ class Devoluciones(Frame):
 
         #----  Funciones ----
         def opcionFactura(event):
+            print("aksjdbkajsbdkjasbdkanskjaskf")
             Productos.grid()
         
         def opcionProducto(event):
@@ -52,7 +53,7 @@ class Devoluciones(Frame):
         ListaFacturas = ["factura1","factura2","factura3","factura4","factura5","factura6","Factura7"]
         desplegableFactura = ttk.Combobox(Facturas,values= ListaFacturas, textvariable=seleccionarFactura, state='readonly', width=30)
         desplegableFactura.grid(row=1, padx=10, pady= 10, sticky="nsew")
-        desplegableFactura.bind(("<<ComboboxSelected>>", opcionFactura)) #llamado a la funcion para mostrar los productos
+        desplegableFactura.bind("<<ComboboxSelected>>", opcionFactura) #llamado a la funcion para mostrar los productos
         
         # --- Productos
         descripcionProducto = tk.Label(Productos, text="Seleccione un producto")
@@ -62,7 +63,7 @@ class Devoluciones(Frame):
         ListaProductos = ["producto1","producto2","producto3","producto4","producto5","producto6","producto7"]
         desplegableProducto = ttk.Combobox(Productos,values= ListaProductos, textvariable=seleccionarProducto, state='readonly', width=30)
         desplegableProducto.grid(row=1, padx=10, pady= 10, sticky="nsew")
-        desplegableProducto.bind(("<<ComboboxSelected>>", opcionProducto))
+        desplegableProducto.bind("<<ComboboxSelected>>", opcionProducto)
 
 
         boton = tk.Button(self, text= "Realizar\nDevolcion", width=20, height=4, bg="#a6e4ff", font=("Franklin Gothic", 10, "bold"))
