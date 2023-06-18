@@ -18,6 +18,8 @@ class Abastecer(Frame):
     listaFiltradaTransportes = None
     def __init__(self, window): 
         super().__init__(window)
+        self.config(bg="#b6fce6")
+
         # /*--------------Eventos--------------*/
         def deshabilitarTienda(event):
             desplegableTiendas.config(state='readonly')

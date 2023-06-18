@@ -13,22 +13,19 @@ class Estadisticas(Frame):
 
     def __init__(self, window):
         super().__init__(window)
-
+        self.config(bg="#b6fce6")
         for i in range(6):
             self.rowconfigure(i, weight=1)
 
         for j in range(8):
             self.columnconfigure(j, weight=1)
 
-        # Create the header frame
         frameCabecera = tk.Frame(self)
         frameCabecera.grid(row=0, column=0, columnspan=8, padx=5, pady=5)
 
-        # Create the title label
         titulo = tk.Label(frameCabecera, text='Estadísticas', font=('Arial', 15))
         titulo.pack()
 
-        # Create the description label
         textoDescripcion = """Aquí podrá ver información estadística sobre las ganancias de la empresa entre dos fechas ingresadas"""
         descripcion = tk.Label(frameCabecera, text=textoDescripcion, font=('Arial', 10))
         descripcion.pack()
@@ -41,60 +38,43 @@ class Estadisticas(Frame):
         lblRangoFechas = tk.Label(frameCabecera, text=textoRangoFechas, font=('Arial', 10))
         lblRangoFechas.pack()
 
-        # Create the dates frame
         frameFechas = tk.Frame(self)
         frameFechas.grid(row=1, column=3, columnspan=2, padx=5, pady=5, sticky="n s e w")
 
-        # Create the date 1 label
         lblFecha1 = tk.Label(frameFechas, text='Fecha 1')
         lblFecha1.grid(row=0, column=0)
 
-        # Create the date 2 label
         lblFecha2 = tk.Label(frameFechas, text='Fecha 2')
         lblFecha2.grid(row=1, column=0)
 
-        # Create the date 1 entry
         self.fieldFecha1 = tk.Entry(frameFechas)
         self.fieldFecha1.grid(row=0, column=1, sticky="ew", ipadx=10)
 
-        # Create the date 2 entry
         self.fieldFecha2 = tk.Entry(frameFechas)
         self.fieldFecha2.grid(row=1, column=1, sticky="ew", ipadx=10)
 
-        # Create the ingresar button
         buttonIngresar = tk.Button(frameFechas, text="Ingresar", command=self.ingresar)
         buttonIngresar.grid(row=2, column=0, columnspan=2, pady=10, sticky="ew")
 
-        # Create the statistics frame
         self.frameEstadisticas = tk.Frame(self)
-       # self.frameEstadisticas.grid(row=2, column=0, columnspan=8, padx=5, pady=5)
 
-                # Create the total earnings label
         lblGananciasTotales = tk.Label(self.frameEstadisticas, text='Ganancias totales')
         lblGananciasTotales.grid(row=0, column=0, padx=5, pady=5)
 
-        # Create the total earnings entry
         self.entryGananciasTotales = tk.Entry(self.frameEstadisticas)
         self.entryGananciasTotales.grid(row=0, column=1, padx=5, pady=5)
 
-        # Create the average per day label
         lblPromedioPorDia = tk.Label(self.frameEstadisticas, text='Promedio por día')
         lblPromedioPorDia.grid(row=1, column=0, padx=5, pady=5)
 
-        # Create the average per day entry
         self.entryPromedioPorDia = tk.Entry(self.frameEstadisticas, state="readonly")
         self.entryPromedioPorDia.grid(row=1, column=1, padx=5, pady=5)
 
-        # Create the discrete earnings button
         buttonGananciasDiscretas = tk.Button(self.frameEstadisticas, text='Ganancias discretas', command = self.mostrarGananciasDiscretas)
         buttonGananciasDiscretas.grid(row=2, column=0, padx=5, pady=5)
 
-        # Create the percentage increase button
         buttonAumentoPorcentual = tk.Button(self.frameEstadisticas, text='Aumento porcentual', command = self.mostrarAumentoPorcentual)
         buttonAumentoPorcentual.grid(row=2, column=1, padx=5, pady=5)
-
-        # Add a frame below frameEstadisticas called framModas.
-# This frame has 3 rows and 2 columns, each of them with a label
 
         self.frameModas = tk.Frame(self)
 
@@ -103,7 +83,6 @@ class Estadisticas(Frame):
 
     def ingresar(self):
 
-       # print(Factura.getListaFacturas(Factura.getFechaMin(), Factura.getFechaMax()))
 
         if(self.fieldFecha1.get() == "" or self.fieldFecha1.get() == ""):
 
@@ -120,7 +99,7 @@ class Estadisticas(Frame):
                 self.frameEstadisticas.grid(row=2, column=0, columnspan=8)
 
                 self.entryGananciasTotales.configure(state="normal")
-                self.entryGananciasTotales.delete(0, tk.END)  # Limpiar el texto actual si lo deseas
+                self.entryGananciasTotales.delete(0, tk.END)  
                 self.entryGananciasTotales.insert(0, str(Factura.gananciasTotales(self.dict)))  # Insert the new text
                 self.entryGananciasTotales.configure(state="readonly")
 

@@ -12,6 +12,8 @@ from ..Funcionalidades.Devoluciones import Devoluciones
 import sys
 sys.path.append('../') 
 from baseDatos.Serializador import Serializador
+from ..Funcionalidades.AnadirProducto import AnadirProducto
+
 
 
 class   VentanaBase(Tk):
@@ -41,7 +43,8 @@ class   VentanaBase(Tk):
         menuProcesos.add_command(label='Gestionar devoluciones', command = self.Devoluciones)  # , command = self.Devoluciones
         menuProcesos.add_command(label='Mostrar estadísticas', command=self.estadisticas)  # command
 
-    
+        menuProcesos.add_command(label='Añadir producto', command=self.anadirProducto)  # command
+
         # ----------Ayuda---------
         menuBar.add_cascade(menu=menuAyuda, label='Ayuda')
         menuAyuda.add_command(label='Acerca de', command=self.acercaDe)
@@ -52,7 +55,6 @@ class   VentanaBase(Tk):
         interfazInicio.pack()
 
         self['menu'] = menuBar
-
     def Abastecer(self):
         geC = Abastecer(self)
         self.Limpiar(geC)
@@ -73,8 +75,13 @@ class   VentanaBase(Tk):
         geC = Estadisticas(self)
         self.Limpiar(geC)
 
+
     def abrir_ventana_principal(self):
         self.destroy()
+
+    def anadirProducto(self):
+        geC = AnadirProducto(self)
+        self.Limpiar(geC)
 
     def Limpiar(self, funcionalidadEnPantalla):
         for frame in self.winfo_children():
@@ -113,7 +120,7 @@ class   VentanaBase(Tk):
 
 
 
-    def acercaDe():
+    def acercaDe(Self):
         messagebox.showinfo("Desarrolladores", "Maria Fernanda Calle Agudelo\nMonica Sofia Restrepo Leon\nJaider "
                                             "Castañeda Villa\nLuis Alejandro Varela Ojeda\nJoan Sebastian Salazar "
                                             "Montoya \n")
