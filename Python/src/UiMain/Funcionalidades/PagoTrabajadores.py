@@ -2,7 +2,8 @@ import tkinter as tk
 from tkinter import ttk,Frame,messagebox
 import sys
 sys.path.append('../')  # Retrocede un nivel al directorio padre
-import Objetos as prueba
+
+from excepciones import NoTrabajadores
 from gestorAplicacion.gestion.Factura import Factura
 from gestorAplicacion.produccion.Fabrica import Fabrica
 from gestorAplicacion.gestion.CuentaBancaria import CuentaBancaria
@@ -39,7 +40,11 @@ class PagoTrabajadores(Frame):
             values = []
             for trabajador in listaMostrar:
                 values.append(trabajador.getNombre())
-            desplegableTrabajadores['values'] = values
+            if values == []:
+                #Excepción
+                raise NoTrabajadores()
+            else:
+                desplegableTrabajadores['values'] = values
             frameTipos12.grid()
 
         #Cuando escoge un trabajador del desplegable de trabajadores
@@ -65,6 +70,7 @@ class PagoTrabajadores(Frame):
 
         #Cuando desea analizar y bonificar metas
         def opcionMetaSi():
+            
             global listaMetas
 
             if num == 1:
@@ -86,10 +92,16 @@ class PagoTrabajadores(Frame):
             textoMetas.config(text=textoMetasTrabajador)
             frameMetas.grid()
 
+            #Deshabilitar los desplegables
+            desplegableTipos.config(state='disabled')
+            desplegableTrabajadores.config(state='disabled')
+
         #Cuando escoge una meta del desplegable de metas
         def opcionMeta(evento):
             global posicionMeta
+            global pagoMeta
             opc = desplegableMetas.get()
+            cumple = ""
            
             if opc == "Meta 1":
                 posicionMeta = 0
@@ -105,11 +117,12 @@ class PagoTrabajadores(Frame):
             
             listaVerificadores = trabajadorEscogido.getVerificadorMetasCumplidas()
             if listaVerificadores[posicionMeta] == False:
-                textoInfoMeta.config(text=estadisticasMeta)
                 if verificadorMeta == True:
                     pagoMeta = metaEscogida.getPago()
+                    cumple = "Meta cumplida\n"
+                textoInfoMeta.config(text=cumple+estadisticasMeta)
             else:
-                textoInfoMeta.config(text="Ya se ha dado la bonificación por esta meta, seleccione otra opcion o proceda a pagar")      
+                textoInfoMeta.config(text="""Ya se ha dado la bonificación por esta meta,\nseleccione otra opción o proceda a pagar""")      
 
             frameMetas2.grid()
             botonPago.grid()
@@ -119,15 +132,27 @@ class PagoTrabajadores(Frame):
         def opcionPago():
             trabajadorEscogido.recibirSueldo(pagoTrabajo + pagoMeta)
             messagebox.showinfo(f"Pago existoso",f"Comprobante de pago\nPago asociado a los envios realizados: {pagoTrabajo}\nPago asociado al cumplimiento de metas: {pagoMeta}\nTotal: {pagoTrabajo+pagoMeta}")
-            frameTipos12.grid_remove()
-            frameInfo.grid_remove()
-            frameMetas.grid_remove()
 
             #Asignamos de nuevo 0 al trabajo, para que si se le paga de nuevo,
             #no se le pague más de una vez por el mismo trabajo
             trabajadorEscogido.setTrabajo(0)
             if pagoMeta != 0:
                 trabajadorEscogido.getVerificadorMetasCumplidas()[posicionMeta] = True
+            
+            #Habilitar los desplegables
+            desplegableTipos.config(state='readonly')
+            desplegableTrabajadores.config(state='readonly')
+
+            #Remover los frames mostrados y textos del trabajador pasado
+            desplegableTipos.set('')
+            desplegableTrabajadores.set('')
+            frameTipos12.grid_remove()
+            frameInfo.grid_remove()
+            desplegableMetas.set('')
+            frameMetas.grid_remove()
+            textoInfoMeta.config(text="")
+            frameMetas2.grid_remove()
+            botonPago.grid_remove()
 
         #----------------------------------Divisiones filas y columnas-------------------------------------
         for i in range(12):
@@ -162,6 +187,7 @@ class PagoTrabajadores(Frame):
         desplegableTipos = ttk.Combobox(frameTipos11, values=["Operarios", "Conductores", "Vendedores"], textvariable=tipoPredeterminado, state='readonly')
         desplegableTipos.pack(side='top', anchor='center')
         desplegableTipos.bind("<<ComboboxSelected>>", opcionTipoTrabajador)
+        
 
         #Trabajador
         frameTipos12 = tk.Frame(frameTipos1)
@@ -175,6 +201,7 @@ class PagoTrabajadores(Frame):
         desplegableTrabajadores = ttk.Combobox(frameTipos12, textvariable=trabajadorPredeterminado, state='readonly')  # Cambio aquí
         desplegableTrabajadores.pack(side='top', anchor='center')
         desplegableTrabajadores.bind("<<ComboboxSelected>>",opcionTrabajador)
+        
 
         #------------------------------Información trabajador seleccionado y Pregunta metas---------------
         frameInfo = tk.Frame(self)

@@ -1,10 +1,11 @@
 import pickle
+from excepciones import ExceptionFechasFueraDeRango, ExceptionFecha1MayorQueFecha2
+
 
 class Factura:
     serialVersionUID = 1
     facturasCreadas = 0
     listaFacturas = []
-    infoAtributos = {}
 
     def __init__(self, tienda, cliente, transporte, listaProductos, fecha, disclaimer, operario):
         self.tienda = tienda
@@ -14,6 +15,8 @@ class Factura:
         self.fecha = fecha
         self.disclaimer = disclaimer
         self.operario = operario
+
+        self.infoAtributos = {}
 
         self.infoAtributos["tienda"] = tienda
         self.infoAtributos["transporte"] = transporte
@@ -75,6 +78,13 @@ class Factura:
 
     @staticmethod
     def gananciasDiscretas(fecha1, fecha2):
+
+        if(fecha1 < Factura.getFechaMin() or fecha2 > Factura.getFechaMax()):
+                raise ExceptionFechasFueraDeRango
+
+        if(fecha1 > fecha2):
+            raise ExceptionFecha1MayorQueFecha2
+
         fechas = Factura.getListaFechas(fecha1, fecha2)
         facturas = Factura.getFacturasEntreFechas(fecha1, fecha2)
         dictGananciasDiscretas = {}
@@ -138,11 +148,15 @@ class Factura:
     
     @staticmethod
     def moda(fecha1, fecha2, atributo):
+
+
         facturas = Factura.getFacturasEntreFechas(fecha1, fecha2)
         objetos = []
         for factura in facturas:
             objetos.append(factura.getAtributos().get(atributo))
-        return Factura.masComun(objetos)
+
+
+        return max(objetos,key=objetos.count)
     
 
     @staticmethod

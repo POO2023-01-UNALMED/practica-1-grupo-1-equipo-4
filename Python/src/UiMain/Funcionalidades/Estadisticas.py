@@ -4,8 +4,9 @@ import sys
 
 sys.path.append('../')
 from gestorAplicacion.gestion.Factura import Factura
+from excepciones import ExceptionFechasFueraDeRango, ExceptionFecha1MayorQueFecha2
 
-from tkinter import ttk, Frame
+from tkinter import ttk, Frame, messagebox
 
 
 class Estadisticas(Frame):
@@ -92,28 +93,76 @@ class Estadisticas(Frame):
         buttonAumentoPorcentual = tk.Button(self.frameEstadisticas, text='Aumento porcentual', command = self.mostrarAumentoPorcentual)
         buttonAumentoPorcentual.grid(row=2, column=1, padx=5, pady=5)
 
+        # Add a frame below frameEstadisticas called framModas.
+# This frame has 3 rows and 2 columns, each of them with a label
+
+        self.frameModas = tk.Frame(self)
+
+        
+
+
     def ingresar(self):
 
        # print(Factura.getListaFacturas(Factura.getFechaMin(), Factura.getFechaMax()))
-        
-        self.dict = Factura.gananciasDiscretas(int(self.fieldFecha1.get()), int(self.fieldFecha2.get()))
 
-        self.frameEstadisticas.grid(row=2, column=0, columnspan=8)
+        if(self.fieldFecha1.get() == "" or self.fieldFecha1.get() == ""):
 
-        self.entryGananciasTotales.configure(state="normal")
-        self.entryGananciasTotales.delete(0, tk.END)  # Limpiar el texto actual si lo deseas
-        self.entryGananciasTotales.insert(0, str(Factura.gananciasTotales(self.dict)))  # Insert the new text
-        self.entryGananciasTotales.configure(state="readonly")
+                  messagebox.showerror('Error', 
+                                 'Debe llenar ambos campos de fecha')
+        else:
+            try:
 
-        self.entryPromedioPorDia.configure(state="normal")
-        self.entryPromedioPorDia.delete(0, tk.END)  # Limpiar el texto actual si lo deseas
-        self.entryPromedioPorDia.insert(0, str(Factura.promedioPorDia(self.dict)))  # Insert the new text
-        self.entryPromedioPorDia.configure(state="readonly")
+                fecha1 = int(self.fieldFecha1.get())
+                fecha2 = int(self.fieldFecha2.get())
+
+                self.dict = Factura.gananciasDiscretas(fecha1, fecha2)
+
+                self.frameEstadisticas.grid(row=2, column=0, columnspan=8)
+
+                self.entryGananciasTotales.configure(state="normal")
+                self.entryGananciasTotales.delete(0, tk.END)  # Limpiar el texto actual si lo deseas
+                self.entryGananciasTotales.insert(0, str(Factura.gananciasTotales(self.dict)))  # Insert the new text
+                self.entryGananciasTotales.configure(state="readonly")
+
+                self.entryPromedioPorDia.configure(state="normal")
+                self.entryPromedioPorDia.delete(0, tk.END)  # Limpiar el texto actual si lo deseas
+                self.entryPromedioPorDia.insert(0, str(Factura.promedioPorDia(self.dict)))  # Insert the new text
+                self.entryPromedioPorDia.configure(state="readonly")
 
 
+                self.frameModas.grid(row=3, column=0, columnspan=8, padx=5, pady=5)
+            
+                fecha1 =   int(self.fieldFecha1.get())
+                fecha2  =  int(self.fieldFecha2.get())
 
-       # print(str(Factura.gananciasTotales(self.dict)))
+                tiendaModa     = Factura.moda(fecha1, fecha2, "tienda")
+                clienteModa    = Factura.moda(fecha1, fecha2, "cliente")
+                transporteModa = Factura.moda(fecha1, fecha2, "transporte")
 
+                lblModaTienda = tk.Label(self.frameModas, text='Tienda más usada: ' + str(tiendaModa))
+                lblModaTienda.grid(row=0, column=0, padx=5, pady=5)
+            
+            
+                lblModaTransporte = tk.Label(self.frameModas, text='Transporte más usado: ' + str(transporteModa))
+                lblModaTransporte.grid(row=1, column=0, padx=5, pady=5)
+
+                lblModaCliente = tk.Label(self.frameModas, text='Cliente más vendido: ' + str(clienteModa))
+                lblModaCliente.grid(row=2, column=0, padx=5, pady=5)
+
+            except(ExceptionFechasFueraDeRango):
+
+                messagebox.showerror('Error', 
+                                    'Debe ingresar fechas dentro del rango permitido: La fecha mínima es {} y la máxima es {}'.format(Factura.getFechaMin(), Factura.getFechaMax()))
+
+            except(ExceptionFecha1MayorQueFecha2):
+
+                messagebox.showerror('Error', 
+                                    'La fecha mínima no puede ser mayor que la fecha máxima')
+                
+            except(ValueError):
+
+                messagebox.showerror('Error', 
+                                    'Solo se pueden ingresar números enteros')
 
 
     import tkinter as tk
@@ -171,4 +220,6 @@ class Estadisticas(Frame):
             # Crear etiqueta para las ganancias
             lbl_aumento = tk.Label(ventana, text= aumento)
             lbl_aumento.grid(row=i + 1, column=1, padx=5, pady=5)
+
+
 

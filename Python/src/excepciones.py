@@ -5,8 +5,8 @@ class ErrorAplicacion(Exception):
         self._excepcion = "Manejo de errores de la Aplicacion: " + msg
         super().__init__(self._excepcion)
 
-    def mostrarMensaje(self):
-        messagebox.showerror(self._excepcion)
+    def mostrarMensaje(self,titulo):
+        messagebox.showerror(titulo,self._excepcion)
 
 class ExceptionC1(ErrorAplicacion):
     def __init__(self, msg):
@@ -14,8 +14,8 @@ class ExceptionC1(ErrorAplicacion):
         super().__init__(self._excepcion)
 
 class ExceptionC2(ErrorAplicacion):
-    def __init__(self, msg):
-        self._excepcion = "ExceptionC1" +  msg
+    def __init__(self, msg): 
+        self._excepcion = "Excepcion C2 " +  msg
         super().__init__(self._excepcion)
 
 #Primera rama
@@ -37,9 +37,10 @@ class FaltaUno(ExceptionC1):
 
 
 #Segunda rama
-class ExceptionInventada3(ExceptionC2):
+class NoTrabajadores(ExceptionC2): #Inventada3
     def __init__(self):
-        super().__init__("ExceptionInventada3")
+        super().__init__("No hay pagos pendientes para este tipo de trabajadores")
+        self.mostrarMensaje("No es posible el pago")
 
 class ExceptionInventada4(ExceptionC2):
     def __init__(self):
@@ -48,3 +49,17 @@ class ExceptionInventada4(ExceptionC2):
 class ExceptionSugerida2(ExceptionC2):
     def __init__(self):
         super().__init__("ExceptionSugerida2")
+
+
+class ExceptionFechasFueraDeRango(Exception):
+
+    def __init__(self):
+
+        super().__init__()
+
+class ExceptionFecha1MayorQueFecha2(Exception):
+
+    def __init__(self):
+
+        super().__init__()
+

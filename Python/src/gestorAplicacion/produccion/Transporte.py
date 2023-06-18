@@ -84,6 +84,9 @@ class Transporte:
     def setListaDeProductos(self, listaDeProductos):
         self.listaDeProductos = listaDeProductos
 
+    def __str__(self) -> str:
+        return self.tipoTransporte.value[0]
+
 if __name__=='__main__':
 # Ejemplo de prueba
 
