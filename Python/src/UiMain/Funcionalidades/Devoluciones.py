@@ -9,35 +9,40 @@ class Devoluciones(Frame):
         #print(prueba.Fabrica)
         super().__init__(window)
 
-                    #----  Funciones ----
+        #----  Funciones ----
         def opcionFactura(event):
             Productos.grid()
-            # descripcionProducto.grid()
-            # desplegableProducto.grid()
+        
+        def opcionProducto(event):
+            boton.grid()
 
         #-----------Divisiones filas y columnas--------
-        self.config(bg="#c6bff5")
+        self.config(bg="#bee4ed")
         for i in range(12):
             self.rowconfigure(i, weight=1)
         for j in range(3):
             self.columnconfigure(j, weight=1)
 
-        Cabecera = tk.Frame(self, relief="raised", bg="#c6bff5")
+        Cabecera = tk.Frame(self, bg="#bee4ed")
         for k in range(3):
             Cabecera.columnconfigure(k, weight=1)
-        Cabecera.rowconfigure(0,weight=1)
+        Cabecera.rowconfigure(0, weight=1)
+        Cabecera.rowconfigure(1, weight=1)
         Cabecera.grid(row=0, column=1,padx=5, pady=5, sticky="nsew")
-        titulo = tk.Label(Cabecera, text='Gestionar Devoluciones', font=("Arial", 15), fg="#fc035e" , bg ="#ffffff" )
-        titulo.grid(row=0, column=1,padx=10, pady=10, sticky="nsew")
-
+        tituloCabecera = tk.Label(Cabecera, text='Gestionar Devoluciones', font=("Arial", 15), fg="#fc035e" , bg ="#fa6b05", relief="raised", border=2 )
+        tituloCabecera.grid(row=0, column=1,padx=10, pady=10, sticky="nsew")
+        variableD = "probando"
+        descripcionCabecera = tk.Label(Cabecera, text=variableD, font=("Arial", 15), bg ="#bee4ed", border=2,relief="sunken" )
+        descripcionCabecera.grid(row=1, column=1,padx=10, pady=10, sticky="nsew")
         # Crear el contenedos para las facturas
         Facturas = tk.Frame(self, bg="#de6ac7",relief="raised", border=2)
         Facturas.columnconfigure(0, weight=1)
-        Facturas.grid(row=1, column=1,padx=10, pady=10, sticky="nsew")
+        Facturas.grid(row=2, column=1,padx=10, pady=10, sticky="nsew")
+
         # Crear el contenedorpara  la lista de productos de la factura
-        Productos = tk.Frame(self, bg="#c96ade",relief="raised")
+        Productos = tk.Frame(self, bg="#c96ade",relief="raised",  border=2)
         Productos.columnconfigure(0, weight=1)
-        Productos.grid(row=2, column=1,padx=10, pady=10, sticky="nsew")
+        Productos.grid(row=3, column=1,padx=10, pady=10, sticky="nsew")
         Productos.grid_remove()
 
         # --- Facturas 
@@ -46,21 +51,23 @@ class Devoluciones(Frame):
         seleccionarFactura = tk.StringVar(value='Seleccionar Factura')
         ListaFacturas = ["factura1","factura2","factura3","factura4","factura5","factura6","Factura7"]
         desplegableFactura = ttk.Combobox(Facturas,values= ListaFacturas, textvariable=seleccionarFactura, state='readonly', width=30)
-        desplegableFactura.grid(row=1, padx=10, pady= 10, sticky="nw")
+        desplegableFactura.grid(row=1, padx=10, pady= 10, sticky="nsew")
         desplegableFactura.bind(("<<ComboboxSelected>>", opcionFactura)) #llamado a la funcion para mostrar los productos
+        
         # --- Productos
-
         descripcionProducto = tk.Label(Productos, text="Seleccione un producto")
-        descripcionProducto.pack()
+        descripcionProducto.grid(row=0, padx=10, pady= 10, sticky="nsew")
 
         seleccionarProducto = tk.StringVar(value='Seleccionar producto')
         ListaProductos = ["producto1","producto2","producto3","producto4","producto5","producto6","producto7"]
         desplegableProducto = ttk.Combobox(Productos,values= ListaProductos, textvariable=seleccionarProducto, state='readonly', width=30)
-        desplegableProducto.pack()
+        desplegableProducto.grid(row=1, padx=10, pady= 10, sticky="nsew")
+        desplegableProducto.bind(("<<ComboboxSelected>>", opcionProducto))
 
 
         boton = tk.Button(self, text= "Realizar\nDevolcion", width=20, height=4, bg="#a6e4ff", font=("Franklin Gothic", 10, "bold"))
-        boton.grid(row=3, column=1)
+        boton.grid(row=4, column=1)
+        boton.grid_remove()
 
 
        
