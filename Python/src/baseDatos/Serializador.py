@@ -9,52 +9,57 @@ from gestorAplicacion.gestion.Cliente import Cliente
 from gestorAplicacion.gestion.Conductor import Conductor
 from gestorAplicacion.produccion.Transporte import Transporte
 
+import os
+import pathlib
+path = os.path.join(pathlib.Path(__file__).parent.absolute())
+path = os.path.dirname(path)
+
 class Serializador:
 
     @classmethod
     def serializar(cls):
 
         #Fábrica
-        pickleFileFabrica = open("src/baseDatos/temp/pickleFileFabrica.pkl","wb")
+        pickleFileFabrica = open(path+"/baseDatos/temp/pickleFileFabrica.pkl","wb")
         pickle.dump(Fabrica.getListaFabricas(),pickleFileFabrica)
         pickleFileFabrica.close()
 
         #Tiendas
-        pickleFileTienda = open("src/baseDatos/temp/pickleFileTienda.pkl","wb")
+        pickleFileTienda = open(path+"/baseDatos/temp/pickleFileTienda.pkl","wb")
         pickle.dump(Tienda.getListaTiendas(),pickleFileTienda)
         pickleFileTienda.close()
 
         #Productos
-        pickleFileProducto = open("src/baseDatos/temp/pickleFileProducto.pkl","wb")
+        pickleFileProducto = open(path+"/baseDatos/temp/pickleFileProducto.pkl","wb")
         pickle.dump(Producto.getListaProductos(),pickleFileProducto)
         pickleFileProducto.close()
 
         #Facturas
-        pickleFileFactura = open("src/baseDatos/temp/pickleFileFactura.pkl","wb")
+        pickleFileFactura = open(path+"/baseDatos/temp/pickleFileFactura.pkl","wb")
         pickle.dump(Factura.getListaFacturas(),pickleFileFactura)
         pickleFileFactura.close()
 
         #Clientes
-        pickleFileCliente = open("src/baseDatos/temp/pickleFileCliente.pkl","wb")
+        pickleFileCliente = open(path+"/baseDatos/temp/pickleFileCliente.pkl","wb")
         pickle.dump(Cliente.getListaClientes(),pickleFileCliente)
         pickleFileCliente.close()
 
         #Vendedores
-        pickleFileVendedor = open("src/baseDatos/temp/pickleFileVendedor.pkl","wb")
+        pickleFileVendedor = open(path+"/baseDatos/temp/pickleFileVendedor.pkl","wb")
         pickle.dump(Vendedor.getListaVendedores(),pickleFileVendedor)
         pickleFileVendedor.close()
 
         #Conductores
-        pickleFileConductor = open("src/baseDatos/temp/pickleFileConductor.pkl","wb")
+        pickleFileConductor = open(path+"/baseDatos/temp/pickleFileConductor.pkl","wb")
         pickle.dump(Conductor.getListaConductores(),pickleFileConductor)
         pickleFileConductor.close()
 
         #Operarios
-        pickleFileOperario = open("src/baseDatos/temp/pickleFileOperario.pkl","wb")
+        pickleFileOperario = open(path+"/baseDatos/temp/pickleFileOperario.pkl","wb")
         pickle.dump(Operario.getListaOperarios(),pickleFileOperario)
         pickleFileOperario.close()
 
         #Transportes
-        pickleFileTransporte = open("src/baseDatos/temp/pickleFileTransporte.pkl","wb")
+        pickleFileTransporte = open(path+"/baseDatos/temp/pickleFileTransporte.pkl","wb")
         pickle.dump(Transporte.getListaTransportes(),pickleFileTransporte)
         pickleFileTransporte.close()
