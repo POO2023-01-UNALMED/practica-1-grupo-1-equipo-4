@@ -19,6 +19,8 @@ import pickle
 
 class Fabrica:
 
+    _listaFabricas = []
+
     #------------- constructor -------------
 
     def __init__(self, listaProductos, listaTienda, cuentaBancaria, operario):
@@ -26,6 +28,7 @@ class Fabrica:
         self._listaTienda = listaTienda
         self._cuentaBancaria = cuentaBancaria
         self._operario = operario
+        Fabrica._listaFabricas.append(self)
 
     # -------------- Metodos ------------------
     
@@ -204,6 +207,14 @@ class Fabrica:
     
     def setCuentaBancaria(self, cuentaBancaria):
         self._cuentaBancaria = cuentaBancaria
+
+    @classmethod
+    def setListaFabricas(cls,listaFabricas):
+        cls._listaFabricas = listaFabricas
+
+    @classmethod
+    def getListaFabricas(cls):
+        return cls._listaFabricas    
     
     # toString para saber que imprimir cuando se llame al objeto Fabrica     
     #@Override  

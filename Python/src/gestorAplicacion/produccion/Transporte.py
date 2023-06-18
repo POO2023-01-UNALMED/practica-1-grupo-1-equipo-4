@@ -5,6 +5,9 @@ from enum import Enum
 
 
 class Transporte:
+
+    listaTransportes = []
+
     def __init__(self, tipo, capacidad, costo, conductor):
         self.tipoTransporte = tipo
         self.capacidad = capacidad 
@@ -14,6 +17,7 @@ class Transporte:
         self.tienda = None
         self.listaDeProductos = []
         self.tipo = tipo,
+        self.listaTransportes.append(self)
 
     def abastecerProducto(self, tienda, listaDeProductos):
         self.tienda = tienda
@@ -66,12 +70,6 @@ class Transporte:
     def setConductor(self, conductor):
         self.conductor = conductor
 
-    def getListaTransportes(self):
-        return self.listaTransportes
-
-    # def setListaTransportes(self, capacidad):
-    #     self.listaTransportes = listaTransportes
-
     def getTienda(self):
         return self.tienda
 
@@ -86,6 +84,14 @@ class Transporte:
 
     def __str__(self) -> str:
         return self.tipoTransporte.value[0]
+    
+    @classmethod
+    def getListaTransportes(cls):
+        return cls.listaTransportes
+
+    @classmethod
+    def setListaTransportes(cls, listaTransportes):
+         cls.listaTransportes = listaTransportes
 
 if __name__=='__main__':
 # Ejemplo de prueba

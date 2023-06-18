@@ -11,11 +11,13 @@ from .Persona import Persona
 class Vendedor(Persona):
     #/*-------------------Atributos-------------------------*/
     metasVendedor = [Meta("Fácil", 2, 1000), Meta("Dificil", 5, 5000)]
+    listaVendedores = []
 
     #/*-------------------Constructores-------------------------*/
     def __init__(self, nombre, edad, cedula, cuentaBancaria, tienda):
         super().__init__(nombre, edad, cedula, cuentaBancaria)
         self.tienda = tienda
+        self.listaVendedores.append(self)
 
     #/*-------------------Metodos-------------------------*/
     #	/*
@@ -53,3 +55,11 @@ class Vendedor(Persona):
     @classmethod
     def setMetasVendedor(cls,metasVendedor):
         cls.metasVendedor = metasVendedor
+
+    @classmethod
+    def getListaVendedores(cls):
+        return cls.listaVendedores
+
+    @classmethod
+    def setListaVendedores(cls,listaVendedores):
+        cls.listaVendedores = listaVendedores

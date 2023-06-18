@@ -87,8 +87,8 @@ class Producto:
         return cls._numProductos
 
     @classmethod
-    def setListaProductos(cls,listaproductos):
-        cls._listaProductos = listaproductos
+    def setListaProductos(cls,listaProductos):
+        cls._listaProductos = listaProductos
 
     @classmethod
     def getListaProductos(cls):

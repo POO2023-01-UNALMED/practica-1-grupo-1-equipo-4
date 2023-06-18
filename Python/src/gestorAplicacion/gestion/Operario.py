@@ -17,10 +17,12 @@ class Operario(Persona):
         Meta("Fácil", 5, 5000),
         Meta("Dificil", 10, 7000)
     ]
+    listaOperarios = []
     #/*-------------------Constructores-------------------------*/
     def __init__(self, nombre, edad, cedula, cuentaBancaria, fabrica):
         super().__init__(nombre, edad, cedula, cuentaBancaria)
         self.fabrica = fabrica
+        self.listaOperarios.append(self)
 
     #/*-------------------Metodos-------------------------*/
     # 	/*
@@ -60,4 +62,12 @@ class Operario(Persona):
     @classmethod
     def setMetasOperario(cls,metasOperario):
         cls.metasOperario = metasOperario
+
+    @classmethod
+    def getListaOperarios(cls):
+        return cls.listaOperarios
+
+    @classmethod
+    def setListaOperarios(cls,listaOperarios):
+        cls.listaOperarios = listaOperarios
     
