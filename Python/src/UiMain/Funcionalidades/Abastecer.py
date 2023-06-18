@@ -5,6 +5,8 @@ sys.path.append('../')  # Retrocede un nivel al directorio padre
 import Objetos
 from gestorAplicacion.produccion.TipoTransporte import TipoTransporte
 from gestorAplicacion.produccion.Transporte import Transporte
+from gestorAplicacion.produccion.Fabrica import Fabrica as fabrica
+from gestorAplicacion.gestion.Conductor import Conductor 
 from excepciones import Abastecer0productos,Letras,MayorA,FaltaUno
 
 
@@ -27,7 +29,7 @@ class Abastecer(Frame):
             texto_widget.delete("1.0", tk.END)
             desplegableTransporte.set("")
             Abastecer.tipoTransporte = None
-            Abastecer.tienda = encontrarObjeto(desplegableTiendas,Objetos.fabrica.getListaTienda())[0]
+            Abastecer.tienda = encontrarObjeto(desplegableTiendas,fabrica.getListaFabricas()[0].getListaTienda())[0]
             cadenaDeTexto = Abastecer.tienda.productosPorCategoria()+"\n"+Abastecer.tienda.cantidadProductos()
             texto_widget.insert(tk.END, cadenaDeTexto)
             texto_widget.config(state=DISABLED)
@@ -41,15 +43,13 @@ class Abastecer(Frame):
             texto_widgetProductos.config(state=tk.NORMAL)
             entradaProductosQa.config(state=tk.NORMAL)
             texto_widgetProductos.delete("1.0", tk.END)
-            Abastecer.producto = encontrarObjeto(desplegableProductos,Objetos.fabrica.getListaProductos())[0]
+            Abastecer.producto = encontrarObjeto(desplegableProductos,fabrica.getListaFabricas()[0].getListaProductos())[0]
             cadenaDeTexto = Abastecer.producto.__str__()
             texto_widgetProductos.insert(tk.END, cadenaDeTexto)
             texto_widgetProductos.config(state=DISABLED)
 
         def eventoEntry(event):                    
             # Agregar contenido al widget de texto
-            if event.keysym in ["BackSpace", "Delete"]:
-                return
             try:
                 if len(entradaProductosQa.get())>0 and not isinstance(float(entradaProductosQa.get()),float):
                     raise Letras
@@ -82,7 +82,6 @@ class Abastecer(Frame):
             return objeto
         
         def envio():
-            Abastecer.cantidadProducto=entradaProductosQa.get()
             try:
                 if any(var is None for var in (Abastecer.tienda, Abastecer.producto, Abastecer.cantidadProducto, Abastecer.tipoTransporte)):
                     raise FaltaUno
@@ -92,8 +91,8 @@ class Abastecer(Frame):
                 -(Abastecer.tienda.getProductosPorCategoria()[Abastecer.producto.getCategoria()]+int(Abastecer.cantidadProducto))<=0:
                     raise MayorA
                 else:
-                    listaProductos = Objetos.fabrica.cantidadProductos(int(Abastecer.cantidadProducto),Abastecer.producto)
-                    machetazo = Transporte("Abastecer.tipoTransporte[0]",20,300,Objetos.conductor1)
+                    listaProductos = fabrica.getListaFabricas()[0].cantidadProductos(int(Abastecer.cantidadProducto),Abastecer.producto)
+                    machetazo = Transporte("Abastecer.tipoTransporte[0]",20,300,Conductor.getListaConductores()[0])
                     machetazo.abastecerProducto(Abastecer.tienda,listaProductos)
                     Abastecer.tienda.descargarProducto(machetazo)
                     messagebox.showinfo("Abasteciemintos",f"La tienda {Abastecer.tienda.getNombre()} ha sido abastecida exitosamente\
@@ -139,8 +138,7 @@ class Abastecer(Frame):
 
         textoTiedas = tk.Label(stack, text='Lista de tiendas')
         textoTiedas.pack(side='top', anchor='center')
-
-        desplegableTiendas = ttk.Combobox(stack, values=[x.getNombre() for x in Objetos.fabrica.getListaTienda()], 
+        desplegableTiendas = ttk.Combobox(stack, values=[x.getNombre() for x in fabrica.getListaFabricas()[0].getListaTienda()], 
                                           textvariable=predeterminadoTiendas,state=tk.NORMAL)
         desplegableTiendas.pack(side='top', anchor='center')
 
@@ -171,7 +169,7 @@ class Abastecer(Frame):
         textoProductos = tk.Label(stack, text='Lista de Productos')
         textoProductos.pack(side='top', anchor='center')
 
-        desplegableProductos = ttk.Combobox(stack, values=[x.getNombre() for x in Objetos.fabrica.getListaProductos()], textvariable=predeterminadoProductos,
+        desplegableProductos = ttk.Combobox(stack, values=[x.getNombre() for x in fabrica.getListaFabricas()[0].getListaProductos()], textvariable=predeterminadoProductos,
                                             state='readonly',width=20)
         desplegableProductos.pack(side='top', anchor='center')
 

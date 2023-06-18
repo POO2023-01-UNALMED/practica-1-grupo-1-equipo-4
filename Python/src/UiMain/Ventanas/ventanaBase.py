@@ -14,7 +14,6 @@ sys.path.append('../')
 from baseDatos.Serializador import Serializador
 
 
-
 class   VentanaBase(Tk):
     def __init__(self):
         super().__init__()
@@ -108,7 +107,10 @@ class   VentanaBase(Tk):
     def salirYGuardar(self):
         self.destroy()
         Serializador.serializar()
+        from UiMain.Ventanas.ventanaDeInicio import VentanaDeInicio
         VentanaDeInicio()
+        
+
 
 
     def acercaDe():
