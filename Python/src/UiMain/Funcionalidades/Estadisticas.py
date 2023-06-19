@@ -131,12 +131,12 @@ class Estadisticas(Frame):
             except(ExceptionFechasFueraDeRango):
 
                 messagebox.showerror('Error', 
-                                    str(ExceptionFechasFueraDeRango) + '.La fecha mínima es {} y la máxima es {}'.format(Factura.getFechaMin(), Factura.getFechaMax()))
+                                    'Debe ingresar fechas dentro del rango permitido: La fecha mínima es {} y la máxima es {}'.format(Factura.getFechaMin(), Factura.getFechaMax()))
 
             except(ExceptionFecha1MayorQueFecha2):
 
                 messagebox.showerror('Error', 
-                                    str(ExceptionFecha1MayorQueFecha2))
+                                    'La fecha mínima no puede ser mayor que la fecha máxima')
                 
             except(ValueError):
 

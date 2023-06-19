@@ -7,7 +7,6 @@ Luis Alejandro Varela Ojeda, Maria Fernanda Calle Agudelo, Jaider Castañeda Vil
  * Esta clase es utilizada por todas las funcionalidades del sistema, excepto Estadísticas.
  """
 
-from   excepciones import ProductoYaExistente
 from ..gestion.Operario import Operario
 from ..gestion.Persona import Persona
 from ..gestion.Factura import Factura
@@ -221,14 +220,5 @@ class Fabrica:
     #@Override  
     def __str__(self):
         return "Distribuidora JMLMJ SAS"
-
-    def anadirProducto(self, producto):
-
-        if( producto._nombre in [p._nombre for p in self._listaProductos]):
-            
-            raise ProductoYaExistente()
-
-        else:
-            self._listaProductos.append(producto)
 
 
