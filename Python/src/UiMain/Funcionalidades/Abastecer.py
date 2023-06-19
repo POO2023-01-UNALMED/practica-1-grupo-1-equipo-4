@@ -61,6 +61,7 @@ class Abastecer(Frame):
                 else:
                     desplegableTransporte.config(state=tk.NORMAL)
                     Abastecer.cantidadProducto = entradaProductosQa.get()
+                    print(isinstance(Abastecer.producto.getPeso(),str))
                     Abastecer.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(Abastecer.producto.getPeso()*float(Abastecer.cantidadProducto))
                     desplegableTransporte['values']=[x.value[0] for x in Abastecer.listaFiltradaTransportes]
             except ValueError:
@@ -76,6 +77,7 @@ class Abastecer(Frame):
             # Agregar contenido al widget de texto
             texto_widgetTransporte.config(state=tk.NORMAL)
             texto_widgetTransporte.delete("1.0", tk.END)
+            
             Abastecer.tipoTransporte = list(filter(lambda x: x.value[0]==desplegableTransporte.get(),TipoTransporte))[0]
             cadenaDeTexto = Abastecer.tipoTransporte.__str__()
             texto_widgetTransporte.insert(tk.END, cadenaDeTexto)
