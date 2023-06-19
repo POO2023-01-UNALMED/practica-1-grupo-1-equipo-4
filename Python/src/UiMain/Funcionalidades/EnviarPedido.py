@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import ttk, Frame
-import Objetos
 import sys
 sys.path.append('../') 
 
@@ -141,31 +140,56 @@ class EnviarPedido(Frame):
 
         def numproductosSeleccionado3(evento):
 
-            opc1 = desplegableProductos1.get()
-            opc2 = desplegableProductos2.get()
-            opc3 = desplegableProductos3.get()
+            op = desplegableNumProductos.get()
+            
+            if op == "1":
+                if desplegableProductos1.get() != None: 
+                    EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1.get(), Fabrica.getListaFabricas()[0].getListaProductos())
+                    EnviarPedido.productoSeleccionado1 = EnviarPedido.productoSeleccionado1[0]
+                    EnviarPedido.pesoProducto1 = float(EnviarPedido.productoSeleccionado1.getPeso())
+                    print("el 1 --------------")
+                    print(EnviarPedido.productoSeleccionado1)
+            
+            elif op == "2":
+                print(desplegableProductos1.get())
+                print(desplegableProductos2.get())
+                if desplegableProductos1.get() != None: 
+                    EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1.get(), Fabrica.getListaFabricas()[0].getListaProductos())
+                    EnviarPedido.productoSeleccionado1 = EnviarPedido.productoSeleccionado1[0]
+                    EnviarPedido.pesoProducto1 = float(EnviarPedido.productoSeleccionado1.getPeso())
+                    print("el 1 --------------")
+                    print(EnviarPedido.productoSeleccionado1)
+                print("el 1 --------------")
+                print(EnviarPedido.productoSeleccionado1)
+                if desplegableProductos2.get() != None:
+                    EnviarPedido.productoSeleccionado2 = encontrarObjeto(desplegableProductos2, Fabrica.getListaFabricas()[0].getListaProductos())
+                    EnviarPedido.productoSeleccionado2 = EnviarPedido.productoSeleccionado2[0]
+                    EnviarPedido.pesoProducto2 = float(EnviarPedido.productoSeleccionado2.getPeso())
+                    print("el 2----------------")
+                    print(EnviarPedido.productoSeleccionado2)
 
-            EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Fabrica.getListaFabricas()[0].getListaProductos())
-            EnviarPedido.productoSeleccionado1 = EnviarPedido.productoSeleccionado1[0]
-            EnviarPedido.pesoProducto1 = float(EnviarPedido.productoSeleccionado1.getPeso())
-            print("el 1 --------------")
-            print(EnviarPedido.productoSeleccionado1)
-            
-            
-            EnviarPedido.productoSeleccionado2 = encontrarObjeto(desplegableProductos2, Fabrica.getListaFabricas()[0].getListaProductos())
-            EnviarPedido.productoSeleccionado2 = EnviarPedido.productoSeleccionado2[0]
-            EnviarPedido.pesoProducto2 = float(EnviarPedido.productoSeleccionado2.getPeso())
-            print("el 2----------------")
-            print(EnviarPedido.productoSeleccionado2)
-            
-            EnviarPedido.productoSeleccionado3 = encontrarObjeto(desplegableProductos3, Fabrica.getListaFabricas()[0].getListaProductos())
-            EnviarPedido.productoSeleccionado3 = EnviarPedido.productoSeleccionado3[0]
-            EnviarPedido.pesoProducto3 = float(EnviarPedido.productoSeleccionado3.getPeso())
-            print("----------- el 3 ")
-            print(EnviarPedido.productoSeleccionado3)
+            elif op =="3":
+                if desplegableProductos1.get() != None: 
+                    EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1.get(), Fabrica.getListaFabricas()[0].getListaProductos())
+                    EnviarPedido.productoSeleccionado1 = EnviarPedido.productoSeleccionado1[0]
+                    EnviarPedido.pesoProducto1 = float(EnviarPedido.productoSeleccionado1.getPeso())
+                    print("el 1 --------------")
+                    print(EnviarPedido.productoSeleccionado1)
+                if desplegableProductos2.get() != None:
+                    EnviarPedido.productoSeleccionado2 = encontrarObjeto(desplegableProductos2, Fabrica.getListaFabricas()[0].getListaProductos())
+                    EnviarPedido.productoSeleccionado2 = EnviarPedido.productoSeleccionado2[0]
+                    EnviarPedido.pesoProducto2 = float(EnviarPedido.productoSeleccionado2.getPeso())
+                    print("el 2----------------")
+                    print(EnviarPedido.productoSeleccionado2)
+                print("el 2----------------")
+                print(EnviarPedido.productoSeleccionado2)
+                if desplegableProductos3.get() != None:
+                    EnviarPedido.productoSeleccionado3 = encontrarObjeto(desplegableProductos3, Fabrica.getListaFabricas()[0].getListaProductos())
+                    EnviarPedido.productoSeleccionado3 = EnviarPedido.productoSeleccionado3[0]
+                    EnviarPedido.pesoProducto3 = float(EnviarPedido.productoSeleccionado3.getPeso())
+                    print("----------- el 3 ")
+                    print(EnviarPedido.productoSeleccionado3)
 
-
-            
             EnviarPedido.pesoProductos = EnviarPedido.pesoProducto1 + EnviarPedido.pesoProducto2 + EnviarPedido.pesoProducto3
             
             if EnviarPedido.pesoProductos != 0 and (EnviarPedido.pesoProducto3 != 0): 
@@ -210,12 +234,6 @@ class EnviarPedido(Frame):
             Objetos = list(filter(lambda x: x.getNombre()==nombre,listaObjetos))
             print("si está entrandoooo")
             print(Objetos)
-            return Objetos
-        
-        def encontrarObjeto(comboBox,listaObjetos):
-            nombre = comboBox.get()
-            Objetos = None
-            Objetos = list(filter(lambda x: x.getNombre()==nombre,listaObjetos))
             return Objetos
 
         #para seleccionar cliente 
