@@ -41,13 +41,18 @@ class PagoTrabajadores(Frame):
             listaMostrar = Fabrica.busquedaTrabajo(listaFacturas,num)
             values = []
             for trabajador in listaMostrar:
-                values.append(trabajador.getNombre())
-            if values == []:
-                #Excepción
-                raise NoTrabajadores()
-            else:
-                desplegableTrabajadores['values'] = values
-            frameTipos12.grid()
+                    values.append(trabajador.getNombre())
+
+            #Excepción
+            try:
+                if values == []:
+                    raise NoTrabajadores()
+                else:
+                    desplegableTrabajadores['values'] = values
+                    frameTipos12.grid()
+            except NoTrabajadores:
+                    messagebox.showerror("No es posible el pago", NoTrabajadores())              
+                                
 
         #Cuando escoge un trabajador del desplegable de trabajadores
         def opcionTrabajador(evento):
