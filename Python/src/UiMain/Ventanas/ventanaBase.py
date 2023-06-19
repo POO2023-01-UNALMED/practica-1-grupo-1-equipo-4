@@ -19,7 +19,7 @@ from ..Funcionalidades.AnadirProducto import AnadirProducto
 class   VentanaBase(Tk):
     def __init__(self):
         super().__init__()
-        self.geometry("700x640")
+        self.geometry("700x700+150+5")
         self.title("Distribuidora MJLJM")
         self.config(bg="#b6fce6")
 

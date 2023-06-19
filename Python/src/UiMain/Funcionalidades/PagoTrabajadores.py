@@ -166,68 +166,68 @@ class PagoTrabajadores(Frame):
         #---------------------------------Título y descripción---------------------------------------------
         frameCabecera = tk.Frame(self)
         frameCabecera.grid(row=0, column=1, columnspan=2,padx=5, pady=5)
-        titulo = tk.Label(frameCabecera, text='Pagar a trabajadores', font=("Arial", 15))
-        titulo.pack()
+        titulo = tk.Label(frameCabecera, text='Pagar a trabajadores', font=("Arial", 15, "bold"), bg ="#33a8d6", relief="raised", border=3 )
+        titulo.pack(fill="x", pady=3, padx=4)
         textoDescripcion = """Aquí podra seleccionar alguno de los trabajadores disponibles según su función 
         (Conductores,Operarios y Vendedores), pagarles por sus respectivas horas trabajadas 
         y además verificar sus metas dando bonificaciones por el cumpliento de las mismas."""
-        descripcion = tk.Label(frameCabecera, text=textoDescripcion,font=("Arial", 10))
-        descripcion.pack()
+        descripcion = tk.Label(frameCabecera, text=textoDescripcion,font=("Arial", 12), bg ="#93cfbc", border=2,relief="sunken")
+        descripcion.pack(pady=2, padx=4)
 
         #-----------------------------------Trabajador ----------------------------------------------------
         #Tipo
-        frameTipos1 = tk.Frame(self)
+        frameTipos1 = tk.Frame(self, bg="#33a8d6",relief="raised", border=2)
         frameTipos1.grid(row=1, column=1, columnspan=2, padx=5, pady=5)
 
-        frameTipos11 = tk.Frame(frameTipos1)
+        frameTipos11 = tk.Frame(frameTipos1,relief="raised", border=2)
         frameTipos11.grid(row=1, column=1, padx=5, pady=5)
 
-        textoTipos = tk.Label(frameTipos11, text='Tipos de trabajadores', font=("Arial", 12))
-        textoTipos.pack(side='top', anchor='center')
+        textoTipos = tk.Label(frameTipos11, text='Tipos de trabajadores', font=("Arial", 12, "bold"))
+        textoTipos.pack(side='top', anchor='center', pady=3, padx=3)
 
         tipoPredeterminado = tk.StringVar(value='Seleccionar tipo')
         desplegableTipos = ttk.Combobox(frameTipos11, values=["Operarios", "Conductores", "Vendedores"], textvariable=tipoPredeterminado, state='readonly')
-        desplegableTipos.pack(side='top', anchor='center')
+        desplegableTipos.pack(side='top', anchor='center', pady=3, padx=3)
         desplegableTipos.bind("<<ComboboxSelected>>", opcionTipoTrabajador)
         
 
         #Trabajador
-        frameTipos12 = tk.Frame(frameTipos1)
+        frameTipos12 = tk.Frame(frameTipos1,relief="raised", border=2)
         frameTipos12.grid(row=1, column=2, padx=5, pady=5)
         frameTipos12.grid_remove()
 
-        textoTrabajadores = tk.Label(frameTipos12, text='Trabajadores', font=("Arial", 12))
-        textoTrabajadores.pack(side='top', anchor='center')
+        textoTrabajadores = tk.Label(frameTipos12, text='Trabajadores', font=("Arial", 12, "bold"))
+        textoTrabajadores.pack(side='top', anchor='center', pady=3, padx=3)
 
         trabajadorPredeterminado = tk.StringVar(value='Seleccionar trabajador')
         desplegableTrabajadores = ttk.Combobox(frameTipos12, textvariable=trabajadorPredeterminado, state='readonly')  # Cambio aquí
-        desplegableTrabajadores.pack(side='top', anchor='center')
+        desplegableTrabajadores.pack(side='top', anchor='center', pady=3, padx=3)
         desplegableTrabajadores.bind("<<ComboboxSelected>>",opcionTrabajador)
         
 
         #------------------------------Información trabajador seleccionado y Pregunta metas---------------
-        frameInfo = tk.Frame(self)
+        frameInfo = tk.Frame(self, bg="#33a8d6",relief="raised", border=2)
         frameInfo.grid(row=2, column=1, columnspan=2 ,padx=5, pady=5)
         frameInfo.grid_remove()
 
         #Información del trabajador
-        datosTrabajador = tk.Label(frameInfo,font=("Arial", 10), bg ="#56E5D1")#, bg ="#56E5D1"
-        datosTrabajador.pack()
+        datosTrabajador = tk.Label(frameInfo,font=("Arial", 10), border=2,relief="sunken" )#, bg ="#56E5D1"
+        datosTrabajador.pack(pady=3, padx=3)
 
         #Información de lo que se le va a pagar
-        infoTrabajador = tk.Label(frameInfo,font=("Arial", 10), bg ="#DFE556")#,bg ="#DFE556"
-        infoTrabajador.pack()
+        infoTrabajador = tk.Label(frameInfo,font=("Arial", 10), bg ="#2a32bf", fg="#ffffff", border=2,relief="sunken" )#,bg ="#DFE556"
+        infoTrabajador.pack(pady=3, padx=3)
 
         pregunta = "¿Desea analizar y bonificar al trabajador por sus metas cumplidas?"
-        textoPregunta = tk.Label(frameInfo, text=pregunta, font=("Arial", 12))
-        textoPregunta.pack()
+        textoPregunta = tk.Label(frameInfo, text=pregunta, font=("Arial", 12, "bold"), border=2,relief="sunken" )
+        textoPregunta.pack(pady=3, padx=3)
 
-        frameInfoBotones = tk.Frame(frameInfo)
-        frameInfoBotones.pack()
+        frameInfoBotones = tk.Frame(frameInfo, border=2,relief="sunken")
+        frameInfoBotones.pack(pady=6, padx=3)
 
         #Estilo botones
         estilo = ttk.Style()
-        estilo.configure("Estilo.TButton", font=("Arial", 10), padding=5, width=25)
+        estilo.configure("Estilo.TButton", font=("Arial", 10), padding=5, width=25, bg="#93cfbc")
         #Botón Si
         botonSi = ttk.Button(frameInfoBotones, text="Sí", style="Estilo.TButton",command=opcionMetaSi)
         botonSi.pack(side="left", padx=10)
@@ -238,24 +238,24 @@ class PagoTrabajadores(Frame):
 
         #-------------------------------------Bonificación metas-----------------------------------------
 
-        frameMetas = tk.Frame(self)
+        frameMetas = tk.Frame(self,bg="#33a8d6",relief="raised", border=2)
         frameMetas.grid(row=3, column=1, columnspan=2, rowspan=3 ,padx=5, pady=5)
         frameMetas.grid_remove()
 
         #Metas dependiendo del tipo
-        textoMetas = tk.Label( frameMetas, font=("Arial", 10), bg ="#B856E5") #, bg ="#B856E5"
+        textoMetas = tk.Label( frameMetas, font=("Arial", 10, ), border=2,relief="sunken") #, bg ="#B856E5"
         textoMetas.grid(row=3, column=1,columnspan=2,padx=5, pady=5)
 
         #Elección de meta 
-        frameMetas1 = tk.Frame(frameMetas)
+        frameMetas1 = tk.Frame(frameMetas, relief="raised", border=2)
         frameMetas1.grid(row=4, column=1, padx=5, pady=5)
 
-        textoTituloMetas = tk.Label(frameMetas1, text='Metas', font=("Arial", 12))
-        textoTituloMetas.pack(side='top', anchor='center')
+        textoTituloMetas = tk.Label(frameMetas1, text='Metas', font=("Arial", 12, "bold"))
+        textoTituloMetas.pack(side='top', anchor='center', padx=2, pady=2)
 
         metasPredeterminada = tk.StringVar(value='Seleccionar meta')
         desplegableMetas = ttk.Combobox(frameMetas1, values=["Meta 1", "Meta 2"], textvariable=metasPredeterminada, state='readonly')
-        desplegableMetas.pack(side='top', anchor='center')
+        desplegableMetas.pack(side='top', anchor='center', padx=2, pady=2)
         desplegableMetas.bind("<<ComboboxSelected>>", opcionMeta)
 
         #Información de la meta
@@ -263,7 +263,7 @@ class PagoTrabajadores(Frame):
         frameMetas2.grid(row=4, column=2, padx=5, pady=5)
         frameMetas2.grid_remove()
 
-        textoInfoMeta= tk.Label(frameMetas2,font=("Arial", 10))
+        textoInfoMeta= tk.Label(frameMetas2,font=("Arial", 10), border=2,relief="sunken")
         textoInfoMeta.pack(anchor='center')
 
         #Botón de pago

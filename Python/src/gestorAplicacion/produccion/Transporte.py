@@ -27,17 +27,17 @@ class Transporte:
         textoTipoTransporte = f"Tipo de transporte: {tipoTransporte.value}, Precio: {tipoTransporte.precio_envio}, Capacidad máxima: {tipoTransporte.capacidad_max}"
         return textoTipoTransporte
 
-    @classmethod
-    def enviarGratis(cls, transporteSeleccionado):
-        transporteSeleccionado.tipo.precio_envio = 0
-        return transporteSeleccionado
+    # @classmethod
+    # def enviarGratis(cls, transporteSeleccionado):
+    #     transporteSeleccionado.tipo.precio_envio = 0
+    #     return transporteSeleccionado
 
 
-    def recordarPrecioTransporte(self):
-        self.precioOriginalTransporte = self.tipo.precio_envio
+    # def recordarPrecioTransporte(self):
+    #     self.precioOriginalTransporte = self.tipo.precio_envio
 
-    def reestablecerPrecioTrans(self):
-        self.tipo.precio_envio = self.precioOriginalTransporte
+    # def reestablecerPrecioTrans(self):
+    #     self.tipo.precio_envio = self.precioOriginalTransporte
 
     def getPrecioOriginalTransporte(self):
         return self.precioOriginalTransporte
