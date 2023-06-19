@@ -35,6 +35,21 @@ class FaltaUno(ExceptionC1):
     def __init__(self):
         super().__init__("Falta seleccionar uno de los campos para el abastecimiento")
 
+class ProductoYaExistente(ExceptionC1):
+    def __init__(self):
+        super().__init__("Ya existe un producto con ese nombre en la lista de productos")
+
+class FaltanCamposPorLLenar(ExceptionC1):
+
+    def __init__(self, campos = ""):
+        super().__init__("Faltan campos por llenar en el formulario: " + campos)
+
+class SoloNumeros(ExceptionC1):
+
+    def __init__(self, campos = ""):
+        super().__init__("En los campos de valor, peso, tamaño y costo de producción solo se pueden ingresar números.")
+
+
 #Segunda rama
 class NoTrabajadores(ExceptionC2): #Inventada3
     def __init__(self):
@@ -43,9 +58,9 @@ class NoTrabajadores(ExceptionC2): #Inventada3
 
 class ExceptionFechasFueraDeRango(ExceptionC2):
     def __init__(self):
-        super().__init__()
+        super().__init__("Las fechas deben estar dentro del rango permitido")
 
 class ExceptionFecha1MayorQueFecha2(ExceptionC2):
     def __init__(self):
-        super().__init__()
+        super().__init__("La fecha 1 no puede ser mayor a la fecha 2")
 

@@ -34,3 +34,15 @@ class FieldFrame(Frame):
     
     def getEntry(self, criterio):
         return self.dict[criterio]
+    
+    def getEntrysVacios(self):
+
+        entrysVacios = []
+
+        for criterio in self.criterios:
+
+            if(self.getEntry(criterio).get() == ""):
+                entrysVacios.append(criterio)
+
+        return entrysVacios
+
