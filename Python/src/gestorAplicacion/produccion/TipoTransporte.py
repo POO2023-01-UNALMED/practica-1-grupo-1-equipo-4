@@ -48,23 +48,16 @@ class TipoTransporte(Enum):
             cadenaTexto+=("\n")
         return cadenaTexto
     
+    @classmethod
+    def enviarGratis(cls, transporteSeleccionado):
+        transporteSeleccionado.tipo.precio_envio = 0
+        return transporteSeleccionado
 
-    # @staticmethod
-    # def seleccionar_transporte(lista_filtrada, opcion):
-    #     conductor = choice(conductor.get_lista_conductores())
-    #     tipo = lista_filtrada[opcion - 1]
-    #     capacidad = tipo[2]
-    #     precio_envio = tipo[1]
-    #     transporte = transporte(tipo[0], capacidad, precio_envio, conductor)
-    #     conductor.set_transporte(transporte)
-    #     return transporte
+    @classmethod
+    def recordarPrecioTransporte(self):
+        self.precioOriginalTransporte = self.tipo.precio_envio
 
+    @classmethod
+    def reestablecerPrecioTrans(self):
+        self.tipo.precio_envio = self.precioOriginalTransporte
 
-
-if __name__=='__main__':
-# Ejemplo de prueba
-    resultado = TipoTransporte.crearTipoTransporteSegunCarga(600)
-    print(resultado)
-
-    resultado2 =TipoTransporte.mostrarTransportes()
-    print(resultado2)
