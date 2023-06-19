@@ -17,66 +17,76 @@ class Estadisticas(Frame):
         for i in range(6):
             self.rowconfigure(i, weight=1)
 
-        for j in range(8):
-            self.columnconfigure(j, weight=1)
+        
+        self.columnconfigure(0, weight=8)
+        self.columnconfigure(1, weight=1)
+        self.columnconfigure(2, weight=8)
 
-        frameCabecera = tk.Frame(self)
-        frameCabecera.grid(row=0, column=0, columnspan=8, padx=5, pady=5)
+        frameCabecera = tk.Frame(self, bg="#b6fce6")
+        frameCabecera.grid(row=0, column=1, padx=5, pady=5)
 
-        titulo = tk.Label(frameCabecera, text='Estadísticas', font=('Arial', 15))
-        titulo.pack()
+        titulo = tk.Label(frameCabecera, text='Estadísticas', font=("Arial", 15, "bold"), bg ="#33a8d6", relief="raised", border=3)
+        titulo.pack(padx=3, pady=3, fill="x")
 
-        textoDescripcion = """Aquí podrá ver información estadística sobre las ganancias de la empresa entre dos fechas ingresadas"""
-        descripcion = tk.Label(frameCabecera, text=textoDescripcion, font=('Arial', 10))
-        descripcion.pack()
+        textoDescripcion = """Aquí podrá ver información estadística 
+        sobre las ganancias de la empresa entre dos fechas ingresadas"""
+        descripcion = tk.Label(frameCabecera, text=textoDescripcion,font=("Arial", 12), bg ="#93cfbc", border=2,relief="sunken")
+        descripcion.pack(padx=3, pady=3)
 
         fechaMin = Factura.getFechaMin()
         fechaMax = Factura.getFechaMax()
 
         textoRangoFechas = "La fecha mínima es " + str(fechaMin) + " y la fecha máxima es " + str(fechaMax)
 
-        lblRangoFechas = tk.Label(frameCabecera, text=textoRangoFechas, font=('Arial', 10))
-        lblRangoFechas.pack()
+        lblRangoFechas = tk.Label(frameCabecera, text=textoRangoFechas, font=('Arial', 10), bg ="#2a32bf", fg="#ffffff", border=2,relief="sunken")
+        lblRangoFechas.pack(pady=6)
 
-        frameFechas = tk.Frame(self)
-        frameFechas.grid(row=1, column=3, columnspan=2, padx=5, pady=5, sticky="n s e w")
+        frameFechas = tk.Frame(self, bg="#338dd6",relief="raised",  border=2)
+        frameFechas.grid(row=1, column=1, padx=30, pady=5, sticky="nsew")
+        for a in range(3):
+            frameFechas.rowconfigure(a,weight=1)
+        frameFechas.columnconfigure(0, weight=2)
+        frameFechas.columnconfigure(1, weight=1)
+        frameFechas.columnconfigure(2, weight=2)
+        lblFecha1 = tk.Label(frameFechas, text='Fecha 1',font=("Arial", 12, "bold"), relief="raised",  border=2, width=10)
+        lblFecha1.grid(row=0, column=0, padx=1, pady=1)
 
-        lblFecha1 = tk.Label(frameFechas, text='Fecha 1')
-        lblFecha1.grid(row=0, column=0)
+        lblFecha2 = tk.Label(frameFechas, text='Fecha 2', font=("Arial", 12, "bold"), relief="raised",  border=2, width=10)
+        lblFecha2.grid(row=1, column=0, padx=1, pady=1)
 
-        lblFecha2 = tk.Label(frameFechas, text='Fecha 2')
-        lblFecha2.grid(row=1, column=0)
+        self.fieldFecha1 = tk.Entry(frameFechas, font=("Arial", 12), width=10)
+        self.fieldFecha1.grid(row=0, column=2, pady=1)
 
-        self.fieldFecha1 = tk.Entry(frameFechas)
-        self.fieldFecha1.grid(row=0, column=1, sticky="ew", ipadx=10)
+        self.fieldFecha2 = tk.Entry(frameFechas, font=("Arial", 12), width=10)
+        self.fieldFecha2.grid(row=1, column=2, pady=1)
 
-        self.fieldFecha2 = tk.Entry(frameFechas)
-        self.fieldFecha2.grid(row=1, column=1, sticky="ew", ipadx=10)
+        buttonIngresar = tk.Button(frameFechas, text="Ingresar", command=self.ingresar, font=("Arial", 12, "bold"), relief="raised",  border=2, width=10)
+        buttonIngresar.grid(row=2, column=1, pady=10)
 
-        buttonIngresar = tk.Button(frameFechas, text="Ingresar", command=self.ingresar)
-        buttonIngresar.grid(row=2, column=0, columnspan=2, pady=10, sticky="ew")
+        self.frameEstadisticas = tk.Frame(self, bg="#338dd6",relief="raised",  border=2)
 
-        self.frameEstadisticas = tk.Frame(self)
-
-        lblGananciasTotales = tk.Label(self.frameEstadisticas, text='Ganancias totales')
+        lblGananciasTotales = tk.Label(self.frameEstadisticas, text='Ganancias totales',font=("Arial", 12, "bold"))
         lblGananciasTotales.grid(row=0, column=0, padx=5, pady=5)
 
-        self.entryGananciasTotales = tk.Entry(self.frameEstadisticas)
+        self.entryGananciasTotales = tk.Entry(self.frameEstadisticas, font=("Arial", 12))
         self.entryGananciasTotales.grid(row=0, column=1, padx=5, pady=5)
 
-        lblPromedioPorDia = tk.Label(self.frameEstadisticas, text='Promedio por día')
+        lblPromedioPorDia = tk.Label(self.frameEstadisticas, text='Promedio por día',font=("Arial", 12, "bold"))
         lblPromedioPorDia.grid(row=1, column=0, padx=5, pady=5)
 
-        self.entryPromedioPorDia = tk.Entry(self.frameEstadisticas, state="readonly")
+        self.entryPromedioPorDia = tk.Entry(self.frameEstadisticas, state="readonly", font=("Arial", 12))
         self.entryPromedioPorDia.grid(row=1, column=1, padx=5, pady=5)
 
-        buttonGananciasDiscretas = tk.Button(self.frameEstadisticas, text='Ganancias discretas', command = self.mostrarGananciasDiscretas)
+        estilo = ttk.Style()
+        estilo.configure("Estilo.TButton", font=("Arial", 10), padding=5, width=25, bg="#93cfbc")
+
+        buttonGananciasDiscretas = ttk.Button(self.frameEstadisticas, text='Ganancias discretas', command = self.mostrarGananciasDiscretas, style="Estilo.TButton")
         buttonGananciasDiscretas.grid(row=2, column=0, padx=5, pady=5)
 
-        buttonAumentoPorcentual = tk.Button(self.frameEstadisticas, text='Aumento porcentual', command = self.mostrarAumentoPorcentual)
+        buttonAumentoPorcentual = ttk.Button(self.frameEstadisticas, text='Aumento porcentual', command = self.mostrarAumentoPorcentual, style="Estilo.TButton")
         buttonAumentoPorcentual.grid(row=2, column=1, padx=5, pady=5)
 
-        self.frameModas = tk.Frame(self)
+        self.frameModas = tk.Frame(self, bg="#338dd6",relief="raised",  border=2)
 
         
 
@@ -118,14 +128,14 @@ class Estadisticas(Frame):
                 clienteModa    = Factura.moda(fecha1, fecha2, "cliente")
                 transporteModa = Factura.moda(fecha1, fecha2, "transporte")
 
-                lblModaTienda = tk.Label(self.frameModas, text='Tienda más usada: ' + str(tiendaModa))
+                lblModaTienda = tk.Label(self.frameModas, text='Tienda más usada: ' + str(tiendaModa), font=("Arial", 12), border=2,relief="sunken")
                 lblModaTienda.grid(row=0, column=0, padx=5, pady=5)
             
             
-                lblModaTransporte = tk.Label(self.frameModas, text='Transporte más usado: ' + str(transporteModa))
+                lblModaTransporte = tk.Label(self.frameModas, text='Transporte más usado: ' + str(transporteModa), font=("Arial", 12), border=2,relief="sunken")
                 lblModaTransporte.grid(row=1, column=0, padx=5, pady=5)
 
-                lblModaCliente = tk.Label(self.frameModas, text='Cliente más vendido: ' + str(clienteModa))
+                lblModaCliente = tk.Label(self.frameModas, text='Cliente más vendido: ' + str(clienteModa), font=("Arial", 12), border=2,relief="sunken")
                 lblModaCliente.grid(row=2, column=0, padx=5, pady=5)
 
             except(ExceptionFechasFueraDeRango):
