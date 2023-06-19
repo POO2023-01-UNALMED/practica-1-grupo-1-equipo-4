@@ -5,9 +5,6 @@ class ErrorAplicacion(Exception):
         self._excepcion = "Manejo de errores de la Aplicacion: " + msg
         super().__init__(self._excepcion)
 
-    def mostrarMensaje(self,titulo):
-        messagebox.showerror(titulo,self._excepcion)
-
 class ExceptionC1(ErrorAplicacion):
     def __init__(self, msg):
         self._excepcion = "Categoría 1 " + msg
@@ -51,10 +48,9 @@ class SoloNumeros(ExceptionC1):
 
 
 #Segunda rama
-class NoTrabajadores(ExceptionC2): #Inventada3
+class NoTrabajadores(ExceptionC2):
     def __init__(self):
         super().__init__("No hay pagos pendientes para este tipo de trabajadores")
-        self.mostrarMensaje("No es posible el pago")
 
 class ExceptionFechasFueraDeRango(ExceptionC2):
     def __init__(self):

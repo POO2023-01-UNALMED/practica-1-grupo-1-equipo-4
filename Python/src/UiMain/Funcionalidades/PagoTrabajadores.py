@@ -41,13 +41,18 @@ class PagoTrabajadores(Frame):
             listaMostrar = Fabrica.busquedaTrabajo(listaFacturas,num)
             values = []
             for trabajador in listaMostrar:
-                values.append(trabajador.getNombre())
-            if values == []:
-                #Excepción
-                raise NoTrabajadores()
-            else:
-                desplegableTrabajadores['values'] = values
-            frameTipos12.grid()
+                    values.append(trabajador.getNombre())
+
+            #Excepción
+            try:
+                if values == []:
+                    raise NoTrabajadores()
+                else:
+                    desplegableTrabajadores['values'] = values
+                    frameTipos12.grid()
+            except NoTrabajadores:
+                    messagebox.showerror("No es posible el pago", NoTrabajadores())              
+                                
 
         #Cuando escoge un trabajador del desplegable de trabajadores
         def opcionTrabajador(evento):
@@ -164,7 +169,7 @@ class PagoTrabajadores(Frame):
             self.columnconfigure(j, weight=1)
 
         #---------------------------------Título y descripción---------------------------------------------
-        frameCabecera = tk.Frame(self)
+        frameCabecera = tk.Frame(self, bg="#b6fce6")
         frameCabecera.grid(row=0, column=1, columnspan=2,padx=5, pady=5)
         titulo = tk.Label(frameCabecera, text='Pagar a trabajadores', font=("Arial", 15, "bold"), bg ="#33a8d6", relief="raised", border=3 )
         titulo.pack(fill="x", pady=3, padx=4)
