@@ -14,8 +14,8 @@ class FieldFrame(Frame):
         self.dict = {}
 
         for i, criterio in enumerate(self.criterios):
-            label = Label(self, text=criterio)
-            entry = Entry(self)
+            label = Label(self, text=criterio, font=("Arial", 12, "bold"), border=2,relief="sunken")
+            entry = Entry(self, font=("Arial", 10))
 
             if(valores != None):
                 if i < len(self.valores):
@@ -24,8 +24,8 @@ class FieldFrame(Frame):
             if self.habilitado:
                 entry.config(state="disabled" if not self.habilitado else "normal")
 
-            label.grid(row=i, column=0)
-            entry.grid(row=i, column=1)
+            label.grid(row=i, column=0, padx=5, pady=3)
+            entry.grid(row=i, column=1, padx=5, pady=3)
 
             self.dict[criterio] = entry
 

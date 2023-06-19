@@ -122,7 +122,7 @@ class Devoluciones(Frame):
         desplegableProducto.bind("<<ComboboxSelected>>", opcionProducto)
 
 
-        boton = tk.Button(self, text= "Realizar\nDevolución", width=20, height=4, bg="#1c71b8", font=("Franklin Gothic", 14, "bold"),border=2,relief="raised",
+        boton = tk.Button(self, text= "Realizar\nDevolución", width=20, height=4, bg="#1c71b8", font=("Franklin Gothic", 14, "bold"), fg="#ffffff",border=2,relief="raised",
                           command= devolverProducto)
         boton.grid(row=4, column=1)
         boton.grid_remove()
