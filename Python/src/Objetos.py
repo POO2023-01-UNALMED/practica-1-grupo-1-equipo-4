@@ -56,7 +56,7 @@ vendedor3 = Vendedor("Lionel Andres Messi",22,14720,cuentaVendedor3,None)
 
 
 #CuentaOperario
-cuentaOperario1 = CuentaBancaria(95687, 200)
+cuentaOperario1 = CuentaBancaria(55555, 100000)
 #Operario
 operario1 = Operario("Jaime",20,97890,cuentaOperario1,None)#//cada oeprador tiene cien mil *hay que sacar cuentas*
 #Tiendas

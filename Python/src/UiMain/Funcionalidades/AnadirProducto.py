@@ -57,7 +57,7 @@ class AnadirProducto(Frame):
                 raise FaltanCamposPorLLenar()
 
             self.validarCampos()            
-            nuevoProducto = Producto(nombre, descripcion, valor, peso, tamano, costoProduccion, categoria)
+            nuevoProducto = Producto(nombre, descripcion, int(valor), int(peso), int(tamano), int(costoProduccion), categoria)
 
 
             fabrica = Fabrica.getListaFabricas()[0]
