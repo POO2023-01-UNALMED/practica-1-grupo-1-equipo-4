@@ -127,6 +127,7 @@ transporte1 = Transporte(TipoTransporte.TREN, 100, 1000, conductor1)
 #"Facturas"
 
 factura1 = Factura(tienda1,cliente1,transporte1 ,productos[0:4],1,"Nada", operario1 )
+
 factura2 = Factura(tienda2,cliente2,transporte1 ,productos[0:2],2,"Nada", operario1 )
 factura3 = Factura(tienda3,cliente3,transporte1 ,productos[4:6],3,"Nada", operario1 )
 factura4 = Factura(tienda3,cliente4,transporte1 ,productos[1:6],4,"Nada", operario1 )
@@ -153,4 +154,7 @@ conductor1.setTransporte(transporte1)
 operario1.setFabrica(fabrica)
 
 if __name__ == '__main__':
-    print(Factura.getListaFacturas())
+
+
+    print(transporte1.tipo[0].value[1])
+    

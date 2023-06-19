@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, Frame
 import sys
+from gestorAplicacion.gestion.Conductor import Conductor
 sys.path.append('../') 
 
 from gestorAplicacion.produccion.TipoTransporte import TipoTransporte
@@ -215,6 +216,8 @@ class EnviarPedido(Frame):
         def DiaDelMes(evento): 
             frameDiaMes62.grid()
             EnviarPedido.tipoTransporte = list(filter(lambda x: x.value[0]==desplegableTransporte.get(),TipoTransporte))[0]
+
+
             print("########## el transporte ##################")
             print(EnviarPedido.tipoTransporte)
             
@@ -227,8 +230,11 @@ class EnviarPedido(Frame):
             
         def GenerarFactura():
             #factura = Factura(tienda, cliente, transporte, listaProductos, fecha_actual, disclaimer, operario)
-            facturaNueva= Factura(EnviarPedido.tiendaSeleccionada, EnviarPedido.clienteSeleccionado, EnviarPedido.tipoTransporte, EnviarPedido.listaProductos, EnviarPedido.Dia, "Nada", operario= Fabrica.getListaFabricas()[0].getOperario())
-            print(facturaNueva.getId())
+            transporte = Transporte(EnviarPedido.tipoTransporte,
+                                    EnviarPedido.tipoTransporte.value[2], EnviarPedido.tipoTransporte.value[1], Conductor.getListaConductores()[0])
+            
+            facturaNueva= Factura(EnviarPedido.tiendaSeleccionada, EnviarPedido.clienteSeleccionado, transporte, EnviarPedido.listaProductos, EnviarPedido.Dia, "Nada", operario= Fabrica.getListaFabricas()[0].getOperario())
+            print(facturaNueva)
             
             
 
