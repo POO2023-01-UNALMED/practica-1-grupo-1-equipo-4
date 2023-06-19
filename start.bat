@@ -1,1 +1,3 @@
- java -jar EjecutableProyecto.jar
+@echo off
+
+python Python/src/main.py
