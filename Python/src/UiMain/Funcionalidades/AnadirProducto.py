@@ -10,36 +10,44 @@ class AnadirProducto(Frame):
 
     def __init__(self, window):
         super().__init__(window)
-
+        self.configure(bg="#b6fce6")
         for i in range(6):
             self.rowconfigure(i, weight=1)
 
-        for j in range(8):
-            self.columnconfigure(j, weight=1)
+        self.columnconfigure(0, weight=2)
+        self.columnconfigure(1, weight=1)
+        self.columnconfigure(2, weight=2)
 
-        frameCabecera = tk.Frame(self)
-        frameCabecera.grid(row=0, column=0, columnspan=8, padx=5, pady=5)
+        frameCabecera = tk.Frame(self, bg="#b6fce6")
+        frameCabecera.grid(row=0, column=1, padx=5, pady=5)
 
-        titulo = tk.Label(frameCabecera, text='Añadir producto', font=('Arial', 15))
-        titulo.pack()
+        titulo = tk.Label(frameCabecera, text='Añadir producto', font=("Arial", 15, "bold"), bg ="#33a8d6", relief="raised", border=3 )
+        titulo.pack(pady= 5, fill="x")
 
         textoDescripcion = """Aquí podrá añadir un producto rellenando el siguiente formulario."""
-        descripcion = tk.Label(frameCabecera, text=textoDescripcion, font=('Arial', 10))
-        descripcion.pack()
+        descripcion = tk.Label(frameCabecera, text=textoDescripcion, font=("Arial", 12), bg ="#93cfbc", border=2,relief="sunken" )
+        descripcion.pack(pady= 5)
+
+        contenedorField = tk.Frame(self, width=100, height=200, bg ="#93cfbc") #"#b6fce6"
+        contenedorField.grid(row=1, column=1, pady=3, sticky="nsew")
+        contenedorField.rowconfigure(0,weight=1)
+        contenedorField.columnconfigure(0,weight=1)
+        contenedorField.columnconfigure(1,weight=1)
+        contenedorField.columnconfigure(2,weight=1)
 
         self.criterios = ["Nombre", "Descripcion", "Valor", "Peso", "Tamaño", "Costo de producción", "Categoria"] 
+        self.fp = FieldFrame(contenedorField, "Criterio", self.criterios, "Valor", None, True)
+        self.fp.configure( bg="#33a8d6",relief="raised", border=2, padx=20,pady=20)
+        self.fp.grid(row=0,column=1, padx=50, pady=50, sticky="nsew")
 
-        self.fp = FieldFrame(self, "Criterio", self.criterios, "Valor", None, True)
-        self.fp.grid(row = 1, column = 3)
+        frameBotones = Frame(self, bg="#b6fce6")
+        frameBotones.grid(row = 2, column=1, padx=5)
 
-        frameBotones = Frame(self)
-        frameBotones.grid(row = 2, column=3)
+        botonIngresar = tk.Button(frameBotones, text = "Ingresar Producto", command = self.ingresarProducto, width=15, height=3, bg="#1c71b8", font=("Franklin Gothic", 14, "bold"), fg="#ffffff",border=2,relief="raised")
+        botonIngresar.grid(row = 0, column = 0, padx=6)
 
-        botonIngresar = tk.Button(frameBotones, text = "Ingresar Producto", command = self.ingresarProducto)
-        botonIngresar.grid(row = 0, column = 0)
-
-        botonBorrar = tk.Button(frameBotones, text = "Borrar", command = self.borrar)
-        botonBorrar.grid(row = 0, column = 1)
+        botonBorrar = tk.Button(frameBotones, text = "Borrar", command = self.borrar, width=10, height=3, bg="#1c71b8", font=("Franklin Gothic", 14, "bold"), fg="#ffffff",border=2,relief="raised")
+        botonBorrar.grid(row = 0, column = 1,padx=6)
 
 
     def ingresarProducto(self):

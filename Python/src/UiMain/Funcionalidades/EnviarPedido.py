@@ -385,7 +385,8 @@ class EnviarPedido(Frame):
 
         frameDiaMes71 = tk.Frame(self, relief="raised", border=3)
         frameDiaMes71.grid(row=3, column=1, padx=1, pady=3)
-        boton = tk.Button(frameDiaMes71, text="Realizar Envio \n Generar Factura", width=10, height=2, bg="#1c71b8", font=("Franklin Gothic", 10, "bold"), border=2, relief="raised", command= GenerarFactura)
+        boton = tk.Button(frameDiaMes71, text="Realizar Envio \n Generar Factura", width=10, height=2, bg="#1c71b8", font=("Franklin Gothic", 10, "bold"), border=2, relief="raised",
+                           fg="#ffffff", command= GenerarFactura)
         boton.grid(row=0, column=0)
         #boton.grid_remove()
 
