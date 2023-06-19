@@ -34,33 +34,36 @@ class EnviarPedido(Frame):
     
     def __init__(self, window):
         super().__init__(window)
+        self.config(bg="#b6fce6")
 
         #--------------Divisiones filas y columnas --------------
         for i in range(12):
             self.rowconfigure(i, weight=1)
 
-        for j in range(8):
+        for j in range(3):
             self.columnconfigure(j, weight=1)
             
         #----------------TITULO
-        frameCabecera = tk.Frame(self)
-        frameCabecera.grid(row=0, column=0, columnspan=4, padx=5, pady=5)
+        frameCabecera = tk.Frame(self) 
+        frameCabecera.grid(row=0, column=1, padx=5, pady=5)
         
        #GRID
         frameCabecera.columnconfigure(0, weight=1)  # Columna 0 con peso 1
         frameCabecera.rowconfigure(0, weight=1)     # Fila 0 con peso 1
-
-        titulo = tk.Label(frameCabecera, text='Envío de Pedidos', font=("Arial", 15))
-        titulo.grid(row=0, column=0, sticky="nsew")  # TITULO Centrado vertical y horizontalmente
+        frameCabecera.rowconfigure(1, weight=1)     # Fila 0 con peso 1
+        
+        titulo = tk.Label(frameCabecera, text='Envío de Pedidos', font=("Arial", 15, "bold"), bg ="#33a8d6", relief="raised", border=3 )
+        titulo.grid(row=0, column=0,pady=2, sticky="nsew")  # TITULO Centrado vertical y horizontalmente
         
         #---------------------Descripción
         textoDescripcion = """Aquí podrá seleccionar el cliente, productos a enviar, cliente de 
-        transporte y descuentos aplicables al pedido. Todo lo necesario para gestionar los pedidos de la empresa.
-         Intervienen las clases: Cliente, Tienda, Producto y Transporte.  """
-        descripcion = tk.Label(frameCabecera, text=textoDescripcion, font=("Arial", 10))
-        descripcion.grid(row=1, column=0, sticky="nsew")  # Centrado vertical y horizontalmente
+        transporte y descuentos aplicables al pedido.
+        Todo lo necesario para gestionar los pedidos de la empresa.
+        Intervienen las clases: Cliente, Tienda, Producto y Transporte. """ 
+        descripcion = tk.Label(frameCabecera, text=textoDescripcion, font=("Arial", 12), bg ="#93cfbc", relief="sunken", border=1 )
+        descripcion.grid(row=1, column=0,pady=4,padx=3 , sticky="nsew")  # Centrado vertical y horizontalmente
 
-
+        
         #-------------------------Eventos----------------------
 
         def clienteSeleccionado(evento):
@@ -83,14 +86,21 @@ class EnviarPedido(Frame):
             opcNum = desplegableNumProductos.get()
             cantidadProductos = opcNum
             if opcNum == "1":
-                frameproducto31.grid()       
-
-            elif opcNum =="2":
+                desplegableProductos2.configure(state="disabled")
+                desplegableProductos3.configure(state="disabled")
                 frameproducto31.grid()
                 frameproducto32.grid()
+                frameproducto33.grid()
+            elif opcNum =="2":
+                desplegableProductos2.configure(state="readonly")
+                desplegableProductos3.configure(state="disabled")
+                frameproducto31.grid()
+                frameproducto32.grid()
+                frameproducto33.grid()
             
-                
             elif opcNum == "3":
+                desplegableProductos2.configure(state="readonly")
+                desplegableProductos3.configure(state="readonly")
                 frameproducto31.grid()
                 frameproducto32.grid()
                 frameproducto33.grid()
@@ -107,7 +117,7 @@ class EnviarPedido(Frame):
                 EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.pesoProductos)
                 desplegableTransporte['values']=[x.value[0] for x in EnviarPedido.listaFiltradaTransportes]  
                 print("está entando a esta mondá") 
-                frameTransporte42.grid()
+            frameTransporte42.grid()
                     
         def numproductosSeleccionado2(evento):        
     
@@ -125,7 +135,7 @@ class EnviarPedido(Frame):
             if EnviarPedido.pesoProductos != 0 and EnviarPedido.pesoProducto2 != 0:    
                 EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.pesoProductos)
                 desplegableTransporte['values']=[x.value[0] for x in EnviarPedido.listaFiltradaTransportes]   
-                frameTransporte42.grid()
+            frameTransporte42.grid()
             
                         
 
@@ -148,7 +158,7 @@ class EnviarPedido(Frame):
                 EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.pesoProductos)
 
                 desplegableTransporte['values']=[x.value[0] for x in EnviarPedido.listaFiltradaTransportes]   
-                frameTransporte42.grid()
+            frameTransporte42.grid()
 
 
         def transporteSeleccionado(evento):
@@ -156,8 +166,8 @@ class EnviarPedido(Frame):
             EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.pesoProductos)
             EnviarPedido.tipoTransporte = list(filter(lambda x: x.value[0]==desplegableTransporte.get(),TipoTransporte))[0]
 
-            if EnviarPedido.transporteSeleccionado != None:
-                frameEnvioGratis52.grid()
+            #if EnviarPedido.transporteSeleccionado != None:
+            frameEnvioGratis52.grid()
                 
 
         def EnvioGratisAplicado(evento):
@@ -169,7 +179,7 @@ class EnviarPedido(Frame):
             opc = desplegableEnvioGratis.get()
             if opc == "Si":
                 print("El envío será gratis")
-                desplegableProductos1.bind("<<ComboboxSelected>>",numproductosSeleccionado1)
+                #desplegableProductos1.bind("<<ComboboxSelected>>",numproductosSeleccionado1)
                 EnviarPedido.transporteSeleccionado.recordarPrecioTransporte()
                 EnviarPedido.transporteSeleccionado.enviarGratis()
                 print(EnviarPedido.transporteSeleccionado)
@@ -194,126 +204,171 @@ class EnviarPedido(Frame):
 
         #para seleccionar cliente 
 
-        frameClientes1 = tk.Frame(self)
-        frameClientes1.grid(row=1, column=1, columnspan=2, padx=5, pady=5)
+        frameClientes1 = tk.Frame(self, bg="#33a8d6",relief="raised", border=2)
+        frameClientes1.grid(row=1, column=1, padx=5, pady=5)
 
-        frameClientes11 = tk.Frame(frameClientes1)
-        frameClientes11.grid(row=1, column=1, padx=5, pady=5)
+        for a in range(3):
+            frameClientes1.columnconfigure(a,weight=1)
 
+        for b in range(6):
+            frameClientes1.rowconfigure(b,weight=1)
+
+        frameClientes11 = tk.Frame(frameClientes1, relief="raised", border=3)
+        frameClientes11.grid(row=0, column=0, padx=5, pady=5, sticky="nsew")
+        frameClientes11.rowconfigure(1,weight=1)
+        frameClientes11.rowconfigure(1,weight=1)
+        frameClientes11.columnconfigure(0,weight=1)
         textoClientes = tk.Label(frameClientes11, text='Clientes', font=("Arial", 12))
-        textoClientes.pack(side='top', anchor='center')
+        textoClientes.grid(row=0, column=0)
 
         clientePredeterminado = tk.StringVar(value='Seleccionar cliente')
         desplegableClientes = ttk.Combobox(frameClientes11, values =[x.getNombre() for x in Cliente.getListaClientes()], textvariable=clientePredeterminado, state='readonly')
-        desplegableClientes.pack(side='top', anchor='center')
+        desplegableClientes.grid(row=1, column=0, padx=5, pady=5)
         desplegableClientes.bind("<<ComboboxSelected>>", clienteSeleccionado)
 
         #para seleccionar tienda 
 
-        frameTienda12 = tk.Frame(frameClientes1)
-        frameTienda12.grid(row=1, column=3, padx=5, pady=5)
+        frameTienda12 = tk.Frame(frameClientes1, relief="raised", border=3)
+        frameTienda12.grid(row=0, column=2, padx=5, pady=5, sticky="nsew")
         frameTienda12.grid_remove()
+        frameTienda12.rowconfigure(0,weight=1)
+        frameTienda12.rowconfigure(1,weight=1)
+        frameTienda12.columnconfigure(0,weight=1)
 
         textoTiendas = tk.Label(frameTienda12, text='Tiendas', font=("Arial", 12))
-        textoTiendas.pack(side='top', anchor='center')
+        textoTiendas.grid(row=0, column=2, padx=5, pady=5)
 
         trabajadorPredeterminado = tk.StringVar(value='Seleccionar Tienda')
         desplegableTiendas = ttk.Combobox(frameTienda12, values=[x.getNombre() for x in Fabrica.getListaFabricas()[0].getListaTienda()], textvariable=trabajadorPredeterminado,state='readonly')
-        desplegableTiendas.pack(side='top', anchor='center')
+        desplegableTiendas.grid(row=1, column=2, padx=5, pady=5)
         desplegableTiendas.bind("<<ComboboxSelected>>",tiendaSeleccionada)
 
 
 
         #para seleccionar una cantidad de productos
 
-        frameNumero22 = tk.Frame(frameClientes1)
-        frameNumero22.grid(row=2, column=2, padx=5, pady=5)
+        frameNumero22 = tk.Frame(frameClientes1, relief="raised", border=3)
+        frameNumero22.grid(row=1, column=1, padx=5, pady=5, sticky="nsew")
         frameNumero22.grid_remove()
+        frameNumero22.rowconfigure(0,weight=1)
+        frameNumero22.rowconfigure(1,weight=1)
+        frameNumero22.columnconfigure(0,weight=1)
 
         textoNumProductos = tk.Label(frameNumero22, text='Numero de Productos', font=("Arial", 12))
-        textoNumProductos.pack(side='top', anchor='center')
+        textoNumProductos.grid(row=0, column=1, padx=5, pady=5)
 
         numeroPredeterminado = tk.StringVar(value='Seleccionar numero de productos')
         desplegableNumProductos = ttk.Combobox(frameNumero22,values=["1", "2", "3"], textvariable=numeroPredeterminado, state='readonly')  
-        desplegableNumProductos.pack(side='top', anchor='center')
+        desplegableNumProductos.grid(row=1, column=1,padx=5, pady=5, sticky="nsew")
         desplegableNumProductos.bind("<<ComboboxSelected>>",numeroProductos)
 
         #----------------Primera casilla de productos---------------
 
-        frameproducto31 = tk.Frame(frameClientes1)
-        frameproducto31.grid(row=3, column=1, padx=5, pady=5)
+        frameproducto31 = tk.Frame(frameClientes1, relief="raised", border=3)
+        frameproducto31.grid(row=2, column=1, padx=5, pady=5, sticky="nsew")
         frameproducto31.grid_remove()
+        frameproducto31.rowconfigure(0,weight=1)
+        frameproducto31.rowconfigure(1,weight=1)
+        frameproducto31.columnconfigure(0,weight=1)
 
         textoSeleccProductos = tk.Label(frameproducto31, text='Productos', font=("Arial", 12))
-        textoSeleccProductos.pack(side='top', anchor='center')
+        textoSeleccProductos.grid(row=0, column=1, padx=5, pady=5)
 
         productoPredeterminado = tk.StringVar(value='Seleccionar productos')
         desplegableProductos1 = ttk.Combobox(frameproducto31, values=[x.getNombre() for x in Fabrica.getListaFabricas()[0].getListaProductos()], textvariable=productoPredeterminado, state='readonly')  
-        desplegableProductos1.pack(side='top', anchor='center')
+        desplegableProductos1.grid(row=1, column=1, padx=5, pady=5)
         desplegableProductos1.bind("<<ComboboxSelected>>",numproductosSeleccionado1)
 
 # -----------------segunda casilla productos------------------------
-        frameproducto32 = tk.Frame(frameClientes1)
-        frameproducto32.grid(row=3, column=2, padx=5, pady=5)
+        frameproducto32 = tk.Frame(frameClientes1, relief="raised", border=3)
+        frameproducto32.grid(row=2, column=0, padx=5, pady=5, sticky="nsew")
         frameproducto32.grid_remove()
+        frameproducto32.rowconfigure(0,weight=1)
+        frameproducto32.rowconfigure(1,weight=1)
+        frameproducto32.columnconfigure(0,weight=1)
 
         textoSeleccProductos = tk.Label(frameproducto32, text='Productos', font=("Arial", 12))
-        textoSeleccProductos.pack(side='top', anchor='center')
+        textoSeleccProductos.grid(row=0, column=1,padx=5, pady=5)
 
         productoPredeterminado = tk.StringVar(value='Seleccionar productos')
         desplegableProductos2 = ttk.Combobox(frameproducto32,values=[x.getNombre() for x in Fabrica.getListaFabricas()[0].getListaProductos()], textvariable=productoPredeterminado, state='readonly')  
-        desplegableProductos2.pack(side='top', anchor='center')
+        desplegableProductos2.grid(row=1, column=1,padx=5, pady=5)
         desplegableProductos2.bind("<<ComboboxSelected>>",numproductosSeleccionado2)
 
         #---------------tercera casilla de productos--------------
-        frameproducto33 = tk.Frame(frameClientes1)
-        frameproducto33.grid(row=3, column=3, padx=5, pady=5)
+        frameproducto33 = tk.Frame(frameClientes1, relief="raised", border=3)
+        frameproducto33.grid(row=2, column=2, padx=5, pady=5, sticky="nsew")
         frameproducto33.grid_remove()
+        frameproducto33.rowconfigure(0,weight=1)
+        frameproducto33.rowconfigure(1,weight=1)
+        frameproducto33.columnconfigure(0,weight=1)
 
         textoSeleccProductos = tk.Label(frameproducto33, text='Productos', font=("Arial", 12))
-        textoSeleccProductos.pack(side='top', anchor='center')
+        textoSeleccProductos.grid(row=0, column=1)
 
         productoPredeterminado = tk.StringVar(value='Seleccionar productos')
         desplegableProductos3 = ttk.Combobox(frameproducto33,values=[x.getNombre() for x in Fabrica.getListaFabricas()[0].getListaProductos()], textvariable=productoPredeterminado, state='readonly')  
-        desplegableProductos3.pack(side='top', anchor='center')
+        desplegableProductos3.grid(row=1, column=1,padx=5, pady=5)
         desplegableProductos3.bind("<<ComboboxSelected>>", numproductosSeleccionado3)
- 
+
+        #if desplegableNumProductos.get() == "1":
+
         #-----------------para seleccionar transporte-------------
-        frameTransporte42 = tk.Frame(frameClientes1)
-        frameTransporte42.grid(row=4, column=2, padx=5, pady=5)
+        frameTransporte42 = tk.Frame(frameClientes1, relief="raised", border=3)
+        frameTransporte42.grid(row=3, column=1, padx=5, pady=5, sticky="nsew")
         frameTransporte42.grid_remove()
+        frameTransporte42.rowconfigure(0,weight=1)
+        frameTransporte42.rowconfigure(1,weight=1)
+        frameTransporte42.columnconfigure(0,weight=1)
 
         textoSeleccTransporte = tk.Label(frameTransporte42, text='Transportes', font=("Arial", 12))
-        textoSeleccTransporte.pack(side='top', anchor='center')
+        textoSeleccTransporte.grid(row=0, column=1)
         TransportePredeterminado = tk.StringVar(value='Seleccionar transporte')
         desplegableTransporte = ttk.Combobox(frameTransporte42,values=["no disponible aún"], textvariable=TransportePredeterminado, state='readonly') 
-        desplegableTransporte.pack(side='top', anchor='center')
+        desplegableTransporte.grid(row=1, column=1,padx=5, pady=5, sticky="nsew")
         desplegableTransporte.bind("<<ComboboxSelected>>",transporteSeleccionado)
 
         #-----------------decidir si envío gratis-----------
 
-        frameEnvioGratis52 = tk.Frame(frameClientes1)
-        frameEnvioGratis52.grid(row=5, column=2, columnspan=2, rowspan=3 ,padx=5, pady=5)
+        frameEnvioGratis52 = tk.Frame(frameClientes1, relief="raised", border=3)
+        frameEnvioGratis52.grid(row=4, column=1, padx=5, pady=5, sticky="nsew")
         frameEnvioGratis52.grid_remove()
-        textoEnvioGratis = tk.Label(frameEnvioGratis52, text='Desea aplicar envío gratis?', font=("Arial", 12))
-        textoEnvioGratis.pack(side='top', anchor='center')
+        frameEnvioGratis52.rowconfigure(0,weight=1)
+        frameEnvioGratis52.rowconfigure(1,weight=1)
+        frameEnvioGratis52.columnconfigure(0,weight=1)
+        
+        textoEnvioGratis = tk.Label(frameEnvioGratis52, text='¿Desea aplicar\n envío gratis?', font=("Arial", 12))
+        textoEnvioGratis.grid(row=0, column=1)
         EnvioPredeterminado = tk.StringVar(value='Alplicar Envío Gratis')
         desplegableEnvioGratis = ttk.Combobox(frameEnvioGratis52,values=["Si", "No"], textvariable=EnvioPredeterminado, state='readonly')  
-        desplegableEnvioGratis.pack(side='top', anchor='center')
+        desplegableEnvioGratis.grid(row=1, column=1,padx=5, pady=5)
         desplegableEnvioGratis.bind("<<ComboboxSelected>>",EnvioGratisAplicado)
         
         #----------------seleccionar fecha--------------------
         
-        frameDiaMes62 = tk.Frame(frameClientes1)
-        frameDiaMes62.grid(row=6, column=2, columnspan=2, rowspan=3 ,padx=5, pady=5)
+        frameDiaMes62 = tk.Frame(frameClientes1, relief="raised", border=3)
+        frameDiaMes62.grid(row=5, column=1, padx=5, pady=5, sticky="nsew")
         frameDiaMes62.grid_remove()
+        frameDiaMes62.rowconfigure(0,weight=1)
+        frameDiaMes62.rowconfigure(1,weight=1)
+        frameDiaMes62.columnconfigure(0,weight=1)
         
-        textoDiaMes62 = tk.Label(frameTransporte42, text='Seleccione el día del mes', font=("Arial", 12))
-        textoDiaMes62.pack(side='top', anchor='center')
+        textoDiaMes62 = tk.Label(frameDiaMes62, text='Seleccione el día del mes', font=("Arial", 12))
+        textoDiaMes62.grid(row=0, column=1, padx=5, pady=5)
         diaPredeterminado = tk.StringVar(value='Dia Del Mes')
-        desplegableDiaMes62 = ttk.Combobox(frameTransporte42,values=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"],
+        desplegableDiaMes62 = ttk.Combobox(frameDiaMes62,values=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"],
                                            textvariable=diaPredeterminado, state='readonly')  
-        desplegableDiaMes62.pack(side='top', anchor='center')
+        desplegableDiaMes62.grid(row=1, column=1,padx=5, pady=5)
         desplegableDiaMes62.bind("<<ComboboxSelected>>", DiaDelMes)
+
+        frameDiaMes71 = tk.Frame(self, relief="raised", border=3)
+        frameDiaMes71.grid(row=3, column=1, padx=1, pady=3)
+        
+        boton = tk.Button(frameDiaMes71,text= "Realizar\nEnvio", width=10, height=2, bg="#1c71b8", font=("Franklin Gothic", 14, "bold"),border=2,relief="raised",
+                          command= "")
+        boton.grid(row=0, column=0)
+        #boton.grid_remove()
+
+        
 
 
