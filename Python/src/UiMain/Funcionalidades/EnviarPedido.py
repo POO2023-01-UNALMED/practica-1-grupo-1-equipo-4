@@ -76,7 +76,7 @@ class EnviarPedido(Frame):
             frameTienda12.grid() #llama a la siguiente 
             
             clienteSeleccionado = encontrarObjeto(desplegableClientes, Cliente.getListaClientes())[0]
-            print(clienteSeleccionado.getNombre())
+            #print(clienteSeleccionado.getNombre())
             
         #aqui poner para seleccionar tienda 
         def tiendaSeleccionada(evento):
@@ -84,7 +84,7 @@ class EnviarPedido(Frame):
             frameNumero22.grid()
 
             tiendaSeleccionada = encontrarObjeto(desplegableTiendas, Fabrica.getListaFabricas()[0].getListaTienda())[0]
-            print(tiendaSeleccionada.getNombre())
+            #print(tiendaSeleccionada.getNombre())
 
         def numeroProductos(evento):
             global opcNum
@@ -121,7 +121,7 @@ class EnviarPedido(Frame):
         #     if EnviarPedido.pesoProductos != 0:    
         #         EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.pesoProductos)
         #         desplegableTransporte['values']=[x.value[0] for x in EnviarPedido.listaFiltradaTransportes]  
-        #         print("está entando a esta mondá") 
+        #         #print("está entando a esta mondá") 
         #     frameTransporte42.grid()
                     
         # def numproductosSeleccionado2(evento):        
@@ -204,12 +204,12 @@ class EnviarPedido(Frame):
             EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.pesoProductos)
             desplegableTransporte['values']=[x.value[0] for x in EnviarPedido.listaFiltradaTransportes]   
             
-            print("el 1 --------------")
-            print(EnviarPedido.productoSeleccionado1)
-            print("el 2----------------")
-            print(EnviarPedido.productoSeleccionado2)
-            print("----------- el 3 ")
-            print(EnviarPedido.productoSeleccionado3)
+            #print("el 1 --------------")
+            #print(EnviarPedido.productoSeleccionado1)
+            #print("el 2----------------")
+            #print(EnviarPedido.productoSeleccionado2)
+            #print("----------- el 3 ")
+            #print(EnviarPedido.productoSeleccionado3)
 
                 
                 
@@ -218,11 +218,11 @@ class EnviarPedido(Frame):
             EnviarPedido.tipoTransporte = list(filter(lambda x: x.value[0]==desplegableTransporte.get(),TipoTransporte))[0]
 
 
-            print("########## el transporte ##################")
-            print(EnviarPedido.tipoTransporte)
+            #print("########## el transporte ##################")
+            #print(EnviarPedido.tipoTransporte)
             
             EnviarPedido.Dia = desplegableDiaMes62.get()
-            print(EnviarPedido.Dia)
+            #print(EnviarPedido.Dia)
            
             EnviarPedido.tipoTransporte = list(filter(lambda x: x.value[0]==desplegableTransporte.get(),TipoTransporte))[0]
 
@@ -385,7 +385,8 @@ class EnviarPedido(Frame):
         textoSeleccDia.grid(row=0, column=1)
         
 
-        desplegableDiaMes62 = ttk.Combobox(frameDiaMes62,values=["1", "2", "3", "4", "5"], textvariable=diaPredeterminado, state='readonly')  
+        desplegableDiaMes62 = ttk.Combobox(frameDiaMes62,values=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"]
+                                           , textvariable=diaPredeterminado, state='readonly')  
         desplegableDiaMes62.grid(row=1, column=1,padx=5, pady=5)
         desplegableDiaMes62.bind("<<ComboboxSelected>>", DiaDelMes)
 
