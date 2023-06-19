@@ -127,12 +127,15 @@
 # #"Facturas"
 
 # factura1 = Factura(tienda1,cliente1,transporte1 ,productos[0:4],1,"Nada", operario1 )
-# factura2 = Factura(tienda2,cliente2,  transporte1 ,productos[0:2],2,"Nada", operario1 )
+# factura2 = Factura(tienda2,cliente2,transporte1 ,productos[0:2],2,"Nada", operario1 )
 # factura3 = Factura(tienda3,cliente3,transporte1 ,productos[4:6],3,"Nada", operario1 )
-# factura4 = Factura(tienda3,cliente3,transporte1 ,productos[1:6],4,"Nada", operario1 )
-# factura5 = Factura(tienda3,cliente3,transporte1 ,productos[1:6], 4,"Nada", operario1 )
-# factura6 = Factura(tienda3,cliente3,transporte1 ,productos[2:-1],5,"Nada", operario1 )
-# factura7 = Factura(tienda3,cliente3,transporte1 ,productos[0:6],3,"Nada", operario1 )
+# factura4 = Factura(tienda3,cliente4,transporte1 ,productos[1:6],4,"Nada", operario1 )
+# factura5 = Factura(tienda3,cliente5,transporte1 ,productos[1:6],4,"Nada", operario1 )
+# factura6 = Factura(tienda3,cliente6,transporte1 ,productos[2:-1],5,"Nada",operario1 )
+# factura7 = Factura(tienda3,cliente7,transporte1 ,productos[0:6],3,"Nada", operario1 )
+# cliente1.setProductos(productos[0:4])
+# cliente2.setProductos(productos[0:2])
+
 
 # #Esto es para probar la funcionalidad pago a trabajadores
 # vendedor1.setTienda(tienda1)
