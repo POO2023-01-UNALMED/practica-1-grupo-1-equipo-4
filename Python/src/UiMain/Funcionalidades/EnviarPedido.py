@@ -160,37 +160,45 @@ class EnviarPedido(Frame):
                 EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado1)
             
             if opcNum == "2":
-                EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Fabrica.getListaFabricas()[0].getListaProductos())
-                EnviarPedido.productoSeleccionado1 = EnviarPedido.productoSeleccionado1[0]
-                EnviarPedido.pesoProducto1 = float(EnviarPedido.productoSeleccionado1.getPeso())
+                if desplegableProductos1 != 'Seleccionar Productos':
+                    EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Fabrica.getListaFabricas()[0].getListaProductos())
+                    EnviarPedido.productoSeleccionado1 = EnviarPedido.productoSeleccionado1[0]
+                    EnviarPedido.pesoProducto1 = float(EnviarPedido.productoSeleccionado1.getPeso())
+                    
+                   
                 
-                EnviarPedido.pesoProductos = EnviarPedido.pesoProducto1
-                EnviarPedido.productoSeleccionado2 = encontrarObjeto(desplegableProductos2, Fabrica.getListaFabricas()[0].getListaProductos())
-                EnviarPedido.productoSeleccionado2 = EnviarPedido.productoSeleccionado2[0]
-                EnviarPedido.pesoProducto2 = float(EnviarPedido.productoSeleccionado2.getPeso())
-                
-                EnviarPedido.pesoProductos = EnviarPedido.pesoProducto1 + EnviarPedido.pesoProducto2
-                EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado1)
-                EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado2)
+                if desplegableProductos2 != 'Seleccionar Productos':
+                    EnviarPedido.pesoProductos = EnviarPedido.pesoProducto1
+                    EnviarPedido.productoSeleccionado2 = encontrarObjeto(desplegableProductos2, Fabrica.getListaFabricas()[0].getListaProductos())
+                    EnviarPedido.productoSeleccionado2 = EnviarPedido.productoSeleccionado2[0]
+                    EnviarPedido.pesoProducto2 = float(EnviarPedido.productoSeleccionado2.getPeso())
+                    
+                    EnviarPedido.pesoProductos = EnviarPedido.pesoProducto1 + EnviarPedido.pesoProducto2
+                    EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado1)
+                    EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado2)
                 
             if opcNum == "3":
-                EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Fabrica.getListaFabricas()[0].getListaProductos())
-                EnviarPedido.productoSeleccionado1 = EnviarPedido.productoSeleccionado1[0]
-                EnviarPedido.pesoProducto1 = float(EnviarPedido.productoSeleccionado1.getPeso())
                 
-                EnviarPedido.pesoProductos = EnviarPedido.pesoProducto1
-                EnviarPedido.productoSeleccionado2 = encontrarObjeto(desplegableProductos2, Fabrica.getListaFabricas()[0].getListaProductos())
-                EnviarPedido.productoSeleccionado2 = EnviarPedido.productoSeleccionado2[0]
-                EnviarPedido.pesoProducto2 = float(EnviarPedido.productoSeleccionado2.getPeso())
+                if desplegableProductos1 != 'Seleccionar Productos':
+                    EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Fabrica.getListaFabricas()[0].getListaProductos())
+                    EnviarPedido.productoSeleccionado1 = EnviarPedido.productoSeleccionado1[0]
+                    EnviarPedido.pesoProducto1 = float(EnviarPedido.productoSeleccionado1.getPeso())
+                    
+                    
+                if desplegableProductos2 != 'Seleccionar Productos':
+                    EnviarPedido.productoSeleccionado2 = encontrarObjeto(desplegableProductos2, Fabrica.getListaFabricas()[0].getListaProductos())
+                    EnviarPedido.productoSeleccionado2 = EnviarPedido.productoSeleccionado2[0]
+                    EnviarPedido.pesoProducto2 = float(EnviarPedido.productoSeleccionado2.getPeso())
                 
-                EnviarPedido.productoSeleccionado3 = encontrarObjeto(desplegableProductos3, Fabrica.getListaFabricas()[0].getListaProductos())
-                EnviarPedido.productoSeleccionado3 = EnviarPedido.productoSeleccionado3[0]
-                EnviarPedido.pesoProducto3 = float(EnviarPedido.productoSeleccionado3.getPeso())
+                if desplegableProductos3 != 'Seleccionar Productos': 
+                    EnviarPedido.productoSeleccionado3 = encontrarObjeto(desplegableProductos3, Fabrica.getListaFabricas()[0].getListaProductos())
+                    EnviarPedido.productoSeleccionado3 = EnviarPedido.productoSeleccionado3[0]
+                    EnviarPedido.pesoProducto3 = float(EnviarPedido.productoSeleccionado3.getPeso())
 
-                EnviarPedido.pesoProductos = EnviarPedido.pesoProducto1 + EnviarPedido.pesoProducto2 + EnviarPedido.pesoProducto3
-                EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado1)
-                EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado2)
-                EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado2)
+                    EnviarPedido.pesoProductos = EnviarPedido.pesoProducto1 + EnviarPedido.pesoProducto2 + EnviarPedido.pesoProducto3
+                    EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado1)
+                    EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado2)
+                    EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado2)
                 
             EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.pesoProductos)
             desplegableTransporte['values']=[x.value[0] for x in EnviarPedido.listaFiltradaTransportes]   
@@ -206,6 +214,10 @@ class EnviarPedido(Frame):
                 
         def DiaDelMes(evento): 
             frameDiaMes62.grid()
+            EnviarPedido.tipoTransporte = list(filter(lambda x: x.value[0]==desplegableTransporte.get(),TipoTransporte))[0]
+            print("########## el transporte ##################")
+            print(EnviarPedido.tipoTransporte)
+            
             EnviarPedido.Dia = desplegableDiaMes62.get()
             print(EnviarPedido.Dia)
            
@@ -213,10 +225,11 @@ class EnviarPedido(Frame):
 
             
             
-        def GenerarFactura(evento):
+        def GenerarFactura():
             #factura = Factura(tienda, cliente, transporte, listaProductos, fecha_actual, disclaimer, operario)
-            facturaNueva= Factura(EnviarPedido.tiendaSeleccionada, EnviarPedido.clienteSeleccionado, EnviarPedido.tipoTransporte, EnviarPedido.listaProductos, EnviarPedido.Dia, "Nada", operario= Fabrica.getOperario())
-            print(facturaNueva)
+            facturaNueva= Factura(EnviarPedido.tiendaSeleccionada, EnviarPedido.clienteSeleccionado, EnviarPedido.tipoTransporte, EnviarPedido.listaProductos, EnviarPedido.Dia, "Nada", operario= Fabrica.getListaFabricas()[0].getOperario())
+            print(facturaNueva.getId())
+            
             
 
         

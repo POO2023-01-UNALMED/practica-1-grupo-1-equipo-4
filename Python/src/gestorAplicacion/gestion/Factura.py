@@ -1,5 +1,5 @@
 import pickle
-from excepciones import ExceptionFechasFueraDeRango, ExceptionFecha1MayorQueFecha2
+#from excepciones import ExceptionFechasFueraDeRango, ExceptionFecha1MayorQueFecha2
 
 
 class Factura:
@@ -29,10 +29,16 @@ class Factura:
         Factura.facturasCreadas += 1
 
     
-
     def calcularTarifaEnvio(self):
-
-        return  self.transporte.costo
+        print("--------------------------")
+        print(self.transporte.tipo)
+        TarifaEnvio = [x.value[0] for x in self.transporte.tipo]
+        TarifaEnvio = self.transporte.tipo(1)
+        
+        print("la tafiva añañai")
+        print(TarifaEnvio)
+        #TarifaEnvio = 69
+        return TarifaEnvio
 
     def calcularTotal(self):
         totalParcial = 0
@@ -265,4 +271,3 @@ class Factura:
     @staticmethod
     def setListaFacturas(facturas):
         Factura.listaFacturas = facturas
-

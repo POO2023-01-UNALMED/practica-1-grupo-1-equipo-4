@@ -185,6 +185,7 @@ class Fabrica:
     
     #----------- Getters and Setters ----------------
     
+    
     def getOperario(self):
         return self._operario
     
