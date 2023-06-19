@@ -61,7 +61,7 @@ class VentanaDeInicio(tk.Tk):
                 imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/moni2.png').resize((250,200), Image.ANTIALIAS)) 
                 imagen2 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/moni3.png').resize((250,200), Image.ANTIALIAS)) 
                 imagen3 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/moni4.png').resize((250,200), Image.ANTIALIAS)) 
-                imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/moni5.png').resize((250,200), Image.ANTIALIAS))
+                imagen4 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosMoni/moni1.png').resize((250,200), Image.ANTIALIAS))
             elif VentanaDeInicio.contador == 3:
             #fotos de Jaider
                 imagen1 = ImageTk.PhotoImage(Image.open(path+'/Ventanas/imagenes/fotosJaider/jaider1.png').resize((250,200), Image.ANTIALIAS)) 
@@ -102,7 +102,7 @@ class VentanaDeInicio(tk.Tk):
         VALUES  = [
         {"name": "Luis Alejandro Varela Ojeda", "description":"Amante de la Natacion y Waterpolo", "email":"luvarelao@unal.edu.co"},
         {"name":"Maria Fernanda Calle Agudelo", "description":"Apasionada por el baloncesto", "email":"mcalleag@unal.edu.co"},
-        {"name": "Monica Sofia Restrepo León", "description":"Amante de la ciencia de datos", "email":"aluribes@unal.edu.co" },
+        {"name": "Monica Sofia Restrepo León", "description":"Me gusta el morado, los caballos y la tecnología", "email":"morestrepol@unal.edu.co" },
         {"name": "Jaider Castañeda Villa", "description":"Entusiasta de la programacion", "email":"jcastanedavi@unal.edu.co" },
         {"name":"Joan Sebastian Salazar Montoya", "description":"Apasionado por la lectura", "email":"jtobonz@unal.edu.co"}
             ]
