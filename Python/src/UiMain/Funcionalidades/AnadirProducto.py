@@ -49,6 +49,10 @@ class AnadirProducto(Frame):
         botonBorrar = tk.Button(frameBotones, text = "Borrar", command = self.borrar, width=10, height=3, bg="#1c71b8", font=("Franklin Gothic", 14, "bold"), fg="#ffffff",border=2,relief="raised")
         botonBorrar.grid(row = 0, column = 1,padx=6)
 
+        lblCategorias = tk.Label(contenedorField, text = "En el campo de categorías los valores válidos son aseo, construccion y consumible." 
+                                 , font=("Arial", 12), bg ="#93cfbc", border=2,relief="sunken" )
+        lblCategorias.grid(row = 1, column = 1, padx = 6, )
+
 
     def ingresarProducto(self):
 
@@ -78,14 +82,11 @@ class AnadirProducto(Frame):
                 fabrica.anadirProducto(nuevoProducto)
 
             except(ProductoYaExistente):
-                
+               
                 messagebox.showerror('Error', str(ProductoYaExistente()))
-
             else:
-
                 messagebox.showinfo('Producto agregado', 
                                         'El producto fue agregado con éxito.')
-
                 self.borrar()
 
         except FaltanCamposPorLLenar:
