@@ -5,15 +5,15 @@ sys.path.append('../')  # Retrocede un nivel al directorio padre
 
 from gestorAplicacion.produccion.Fabrica import Fabrica
 from gestorAplicacion.gestion.Factura import Factura
-from gestorAplicacion.gestion.Cliente import Cliente
+from gestorAplicacion.gestion.Cliente import Cliente 
 from gestorAplicacion.produccion.Producto import Producto 
 from gestorAplicacion.gestion.CuentaBancaria import CuentaBancaria
-
+#from gestorAplicacion.gestion.Cliente import Cliente.getProductos
 
 class Devoluciones(Frame):
     #atributos de clase
     listaFacturas = []
-    clienteElegido = None
+    clienteElegido: Cliente
     listaProductos = []
     productoElegido = None
     def __init__(self, window):
@@ -28,8 +28,13 @@ class Devoluciones(Frame):
             for factura in Factura.getListaFacturas():
                 if f"{factura.getCliente()}" == Devoluciones.clienteElegido:
                     Devoluciones.clienteElegido = factura.getCliente()
-            
-            for producto in Devoluciones.clienteElegido.getProductos():
+
+            listaParaRecorrer = Devoluciones.clienteElegido.getProductos()
+            print("----------------------------------")
+            print(listaParaRecorrer)
+            print("----------------------------------")
+            print(type(listaParaRecorrer))
+            for producto in listaParaRecorrer:
                 if producto.isDevuelto() == False:
                     Devoluciones.listaProductos.append(producto.getNombre())
 

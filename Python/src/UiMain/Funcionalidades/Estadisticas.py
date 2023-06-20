@@ -87,7 +87,7 @@ class Estadisticas(Frame):
         buttonGananciasDiscretas = ttk.Button(self.frameEstadisticas, text='Ganancias discretas', command = self.mostrarGananciasDiscretas, style="Estilo.TButton")
         buttonGananciasDiscretas.grid(row=2, column=0, padx=5, pady=5)
 
-        buttonAumentoPorcentual = tk.Button(self.frameEstadisticas, text='Aumento porcentual', command = self.mostrarAumentoPorcentual)
+        buttonAumentoPorcentual = ttk.Button(self.frameEstadisticas, text='Aumento porcentual', command = self.mostrarAumentoPorcentual, style="Estilo.TButton")
         buttonAumentoPorcentual.grid(row=2, column=1, padx=5, pady=5)
 
         self.frameModas = tk.Frame(self)

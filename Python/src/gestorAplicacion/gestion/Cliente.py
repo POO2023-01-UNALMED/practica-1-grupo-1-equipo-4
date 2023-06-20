@@ -15,7 +15,7 @@ class Cliente:
         self._nombre = nombre
         self._direccion = direccion
         self._cuenta_bancaria = cuenta_bancaria
-        self._productos = [""]
+        self._productos = []
         Cliente._lista_clientes.append(self)
 
     #/*------------------- Metodos -------------------------*/
@@ -79,11 +79,11 @@ class Cliente:
     def setCuentaBancaria(self, cuenta_bancaria):
         self._cuenta_bancaria = cuenta_bancaria
 
-    def getProductos(self):
-        return self._productos
-
     def setProductos(self, productos):
         self._productos = productos
+
+    def getProductos(self):
+        return self._productos
 
     @classmethod
     def getListaClientes(cls):
