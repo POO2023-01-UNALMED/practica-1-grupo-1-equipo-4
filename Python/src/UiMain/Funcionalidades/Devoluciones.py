@@ -30,10 +30,7 @@ class Devoluciones(Frame):
                     Devoluciones.clienteElegido = factura.getCliente()
 
             listaParaRecorrer = Devoluciones.clienteElegido.getProductos()
-            print("----------------------------------")
-            print(listaParaRecorrer)
-            print("----------------------------------")
-            print(type(listaParaRecorrer))
+
             for producto in listaParaRecorrer:
                 if producto.isDevuelto() == False:
                     Devoluciones.listaProductos.append(producto.getNombre())
@@ -117,7 +114,8 @@ class Devoluciones(Frame):
         Devoluciones.listaFacturas = []
         for factura in Factura.getListaFacturas():
             cliente = factura.getCliente()
-            Devoluciones.listaFacturas.append(cliente)
+            if cliente not in Devoluciones.listaFacturas:
+                Devoluciones.listaFacturas.append(cliente)
         desplegableFactura = ttk.Combobox(Facturas,values= Devoluciones.listaFacturas, textvariable=seleccionarFactura, state='readonly', width=30)
         desplegableFactura.grid(row=1, padx=10, pady= 10, sticky="nsew")
         desplegableFactura.bind("<<ComboboxSelected>>", opcionFactura) #llamado a la funcion para mostrar los productos

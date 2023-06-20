@@ -211,14 +211,16 @@ class Tienda(Moda):
 
         # Agrego los productos al cliente
    
+        if (cliente.getProductos() == None):
+            cliente.setProductos([])
             
+        listaProvicional = cliente.getProductos()
+
         for producto in listaProductosPedidos:
-           listaProvicional =  cliente.getProductos().append(producto)
-        print("------------------------")
-        print(listaProvicional)
+           listaProvicional.append(producto)
+
         cliente.setProductos(listaProvicional) 
-        print("-------------------------------------")
-        print(cliente.getProductos())
+
         # Creo la factura
         factura = Factura(self, cliente, transporte, listaProductosPedidos, int(dia), "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.", operario)
         return factura
