@@ -71,15 +71,15 @@ class EnviarPedido(Frame):
         
         #-------------------------Eventos----------------------
 
-        def clienteSeleccionado(evento):
+        def clienteEscogido(evento):
             opc = desplegableClientes.get()
             frameTienda12.grid() #llama a la siguiente 
             
-            clienteSeleccionado = encontrarObjeto(desplegableClientes, Cliente.getListaClientes())[0]
+            EnviarPedido.clienteSeleccionado = encontrarObjeto(desplegableClientes, Cliente.getListaClientes())[0]
             #print(clienteSeleccionado.getNombre())
             
         #aqui poner para seleccionar tienda 
-        def tiendaSeleccionada(evento):
+        def tiendaEscogida(evento):
             opc=desplegableTiendas.get()
             frameNumero22.grid()
 
@@ -234,7 +234,10 @@ class EnviarPedido(Frame):
                                     EnviarPedido.tipoTransporte.value[2], EnviarPedido.tipoTransporte.value[1], Conductor.getListaConductores()[0])
             
             facturaNueva= Factura(EnviarPedido.tiendaSeleccionada, EnviarPedido.clienteSeleccionado, transporte, EnviarPedido.listaProductos, EnviarPedido.Dia, "Nada", operario= Fabrica.getListaFabricas()[0].getOperario())
-            print(facturaNueva)
+            print("-------------------------------")
+            print(facturaNueva.getCliente())
+            print(EnviarPedido.clienteSeleccionado.getProductos())
+            print(EnviarPedido.listaProductos)
             
             
 
@@ -268,7 +271,7 @@ class EnviarPedido(Frame):
         clientePredeterminado = tk.StringVar(value='Seleccionar cliente')
         desplegableClientes = ttk.Combobox(frameClientes11, values =[x.getNombre() for x in Cliente.getListaClientes()], textvariable=clientePredeterminado, state='readonly')
         desplegableClientes.grid(row=1, column=0, padx=5, pady=5)
-        desplegableClientes.bind("<<ComboboxSelected>>", clienteSeleccionado)
+        desplegableClientes.bind("<<ComboboxSelected>>", clienteEscogido)
 
         #para seleccionar tienda 
 
@@ -285,7 +288,7 @@ class EnviarPedido(Frame):
         trabajadorPredeterminado = tk.StringVar(value='Seleccionar Tienda')
         desplegableTiendas = ttk.Combobox(frameTienda12, values=[x.getNombre() for x in Fabrica.getListaFabricas()[0].getListaTienda()], textvariable=trabajadorPredeterminado,state='readonly')
         desplegableTiendas.grid(row=1, column=2, padx=5, pady=5)
-        desplegableTiendas.bind("<<ComboboxSelected>>",tiendaSeleccionada)
+        desplegableTiendas.bind("<<ComboboxSelected>>",tiendaEscogida)
 
 
 

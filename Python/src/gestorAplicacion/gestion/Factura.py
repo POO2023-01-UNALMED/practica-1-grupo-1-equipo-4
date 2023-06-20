@@ -2,7 +2,7 @@ import pickle
 
 from excepciones import ExceptionFechasFueraDeRango, ExceptionFecha1MayorQueFecha2
 #from excepciones import ExceptionFechasFueraDeRango, ExceptionFecha1MayorQueFecha2
-
+from .Cliente import Cliente
 
 class Factura:
     serialVersionUID = 1
@@ -17,7 +17,7 @@ class Factura:
         self.fecha = fecha
         self.disclaimer = disclaimer
         self.operario = operario
-
+        self.cliente.setProductos(listaProductos)
         self.infoAtributos = {}
 
         self.infoAtributos["tienda"] = tienda
