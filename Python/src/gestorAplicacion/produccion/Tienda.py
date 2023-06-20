@@ -161,13 +161,10 @@ class Tienda(Moda):
     # de productos disponibles cada vez que selecciones uno.
     
     def venderProducto(self, producto):
-        if producto in self._listaProductos:
-            self._listaProductos.remove(producto)
-            
-            if producto in self._listaCantidadProductos and self._listaCantidadProductos[producto] > 1:
-                self._listaCantidadProductos[producto] -= 1
-            else:
-                del self._listaCantidadProductos[producto]
+        for productos in self._listaProductos:
+            if producto.getNombre() == productos.getNombre():
+                self._listaProductos.remove(producto)
+
 
     # FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Enviar Pedido
     # 
