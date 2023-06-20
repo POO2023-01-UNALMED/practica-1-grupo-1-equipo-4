@@ -32,10 +32,11 @@ class Devoluciones(Frame):
             for producto in Devoluciones.clienteElegido.getProductos():
                 if producto.isDevuelto() == False:
                     Devoluciones.listaProductos.append(producto.getNombre())
+
             Productos.grid()
             desplegableProducto['value'] = Devoluciones.listaProductos
             Devoluciones.listaProductos = [] #se resetea la lista por si escoge otro cliente
-    
+            
 
         def opcionProducto(event):
             
@@ -87,26 +88,28 @@ class Devoluciones(Frame):
         Cabecera.grid(row=0, column=1,padx=5, pady=5, sticky="nsew")
         tituloCabecera = tk.Label(Cabecera, text='Gestionar Devoluciones', font=("Arial", 15, "bold"), bg ="#33a8d6", relief="raised", border=3 )
         tituloCabecera.grid(row=0, column=1,padx=10, pady=10, sticky="nsew")
-        variableD = "probando"
+        variableD = """En este apartado se pueden realizar devoluciones de los productos
+        de una una factura en base al nombre del cliente"""
         descripcionCabecera = tk.Label(Cabecera, text=variableD, font=("Arial", 12), bg ="#93cfbc", border=2,relief="sunken" )
         descripcionCabecera.grid(row=1, column=1,padx=10, pady=10, sticky="nsew")
 
         # Crear el contenedos para las facturas
         Facturas = tk.Frame(self, bg="#33a8d6",relief="raised", border=2)
         Facturas.columnconfigure(0, weight=1)
-        Facturas.grid(row=2, column=1,padx=10, pady=10, sticky="nsew")
+        Facturas.grid(row=1, column=1,padx=10, pady=10, sticky="nsew")
 
         # Crear el contenedorpara  la lista de productos de la factura
         Productos = tk.Frame(self, bg="#338dd6",relief="raised",  border=2)
         Productos.columnconfigure(0, weight=1)
-        Productos.grid(row=3, column=1,padx=10, pady=10, sticky="nsew")
+        Productos.grid(row=2, column=1,padx=10, pady=10, sticky="nsew")
         Productos.grid_remove()
 
         # --- Facturas 
-        textoFactura = "Seleccione el cliente que correponde a la factura\npara devolver el prducto"
+        textoFactura = "Seleccione el cliente que correponde a la factura\npara devolver el producto"
         descripcionFactura = tk.Label(Facturas, text=textoFactura,font=("Arial", 12, "bold"),border=1,relief="sunken")
         descripcionFactura.grid(row=0, padx=10, pady=10, sticky="nsew")
         seleccionarFactura = tk.StringVar(value='Seleccionar Factura')
+        Devoluciones.listaFacturas = []
         for factura in Factura.getListaFacturas():
             cliente = factura.getCliente()
             Devoluciones.listaFacturas.append(cliente)
@@ -125,7 +128,7 @@ class Devoluciones(Frame):
 
         boton = tk.Button(self, text= "Realizar\nDevolución", width=20, height=4, bg="#1c71b8", font=("Franklin Gothic", 14, "bold"), fg="#ffffff",border=2,relief="raised",
                           command= devolverProducto)
-        boton.grid(row=4, column=1)
+        boton.grid(row=3, column=1)
         boton.grid_remove()
 
 
