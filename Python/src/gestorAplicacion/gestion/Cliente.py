@@ -15,7 +15,7 @@ class Cliente:
         self._nombre = nombre
         self._direccion = direccion
         self._cuenta_bancaria = cuenta_bancaria
-        self._productos = []
+        self._productos = [""]
         Cliente._lista_clientes.append(self)
 
     #/*------------------- Metodos -------------------------*/

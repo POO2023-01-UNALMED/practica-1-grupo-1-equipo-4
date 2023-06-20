@@ -17,7 +17,6 @@ class Factura:
         self.fecha = fecha
         self.disclaimer = disclaimer
         self.operario = operario
-        self.cliente.setProductos(listaProductos)
         self.infoAtributos = {}
 
         self.infoAtributos["tienda"] = tienda
@@ -32,10 +31,10 @@ class Factura:
 
     
     
-    def __str__(self):
-        FacturaPaImprimir=  (f "Tienda: {tienda}\n Cliente: {cliente}\n Transporte: {transporte}\n Productos: {', '.join(str(producto) for producto in listaProductos)}\n \
-           Fecha: {fecha}\n Disclaimer: {disclaimer}\n Operario: {operario}\n Total: {total}")
-        return  FacturaPaImprimir
+    # def __str__(self):
+    #     FacturaPaImprimir=  (f"Tienda: {tienda}\n Cliente: {cliente}\n Transporte: {transporte}\n Productos: {', '.join(str(producto) for producto in listaProductos)}\n \
+    #        Fecha: {fecha}\n Disclaimer: {disclaimer}\n Operario: {operario}\n Total: {total}")
+    #     return  FacturaPaImprimir
     
     
     

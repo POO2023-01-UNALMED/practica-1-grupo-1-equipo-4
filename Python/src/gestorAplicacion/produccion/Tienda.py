@@ -23,7 +23,7 @@ class Tienda(Moda):
         self._vendedor = vendedor
         self._cuentaBancaria = cuentaBancaria
         self._listaProductos = []
-        self._listaCantidadProductos = {}
+        self._listaCantidadProductos = [{}]
         self._productosPorCategoria = {}
         self._productosDevueltos = []
         Tienda._numTiendas += 1
@@ -186,13 +186,13 @@ class Tienda(Moda):
     # operario y conductor), añade los productos pedidos a la lista del cliente y 
     # genera la factura asociada al envío.
 
-    def enviarPedido(self, listaProductosPedidos, transporte, cliente, dia, operario):
+    def enviarPedido(self,listaProductosPedidos, transporte, cliente, dia, operario):
         # Resto 1 unidad de las cantidades de los productos, pues se envió
-        for producto in listaProductosPedidos:
-            if producto in self._listaCantidadProductos and self._listaCantidadProductos[producto] > 1:
-                self._listaCantidadProductos[producto] -= 1
-            else:
-                del self._listaCantidadProductos[producto]
+        # for producto in listaProductosPedidos:
+        #     if producto in self._listaCantidadProductos and self._listaCantidadProductos[producto] > 1:
+        #         self._listaCantidadProductos[producto] -= 1
+        #     else:
+        #         del self._listaCantidadProductos[producto]
 
         # Añado la suma de trabajo a los trabajadores
 
@@ -203,13 +203,17 @@ class Tienda(Moda):
         # Al conductor
         transporte.getConductor().setTrabajo(transporte.getConductor().getTrabajo() + 1)
         for producto in listaProductosPedidos:
-            transporte.getConductor().setIndiceMeta(transporte.getConductor().getIndiceMeta() + producto.getPeso)
+            transporte.getConductor().setIndiceMeta(transporte.getConductor().getIndiceMeta() + producto.getPeso())
 
         # Al operario
         operario.setTrabajo(operario.getTrabajo()+1)
         operario.setIndiceMeta(operario.getIndiceMeta() + len(listaProductosPedidos))
 
         # Agrego los productos al cliente
+
+        print("-----------------------")     
+        print(cliente)     
+        print(cliente.getProductos())     
         for producto in listaProductosPedidos:
             cliente.setProductos(cliente.getProductos().append(producto))
 
