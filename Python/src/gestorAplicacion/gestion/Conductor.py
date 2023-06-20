@@ -44,8 +44,8 @@ class Conductor(Persona):
     def __str__(self):
         return "\nNombre: " + self.getNombre() + "\n" \
                + "Edad: " + str(self.getEdad()) + "\n" \
-               + "Cedula: " + str(self.getCedula()) + "\n" \
-               + "Transporte: " + str(self.getTransporte().getTipoTransporte()) + "\n"
+               + "Cedula: " + str(self.getCedula()) + "\n"
+          
             
     
     #	/*-------------------Getter y setter-------------------------*/
