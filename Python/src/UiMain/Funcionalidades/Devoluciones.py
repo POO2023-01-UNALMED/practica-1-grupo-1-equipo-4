@@ -35,10 +35,10 @@ class Devoluciones(Frame):
             Productos.grid()
             desplegableProducto['value'] = Devoluciones.listaProductos
             Devoluciones.listaProductos = [] #se resetea la lista por si escoge otro cliente
-        
     
 
         def opcionProducto(event):
+            
             boton.grid()
 
         def devolverProducto():
@@ -53,7 +53,7 @@ class Devoluciones(Frame):
             CuentaBancaria.devolverDinero(Devoluciones.clienteElegido.getCuentaBancaria(),Devoluciones.productoElegido.getValor(), Devoluciones.clienteElegido)   
 
             #quita el dinero de la cuenta de la distribuidora
-            CuentaBancaria.descontarFondos(Fabrica.getCuentaBancaria(), Devoluciones.productoElegido.getValor())
+            CuentaBancaria.descontarFondos(Fabrica.getListaFabricas()[0].getCuentaBancaria(), Devoluciones.productoElegido.getValor())
 
             #Cambiar el estado del producto para que no vuelva a salir en la lista en la proxima devolución
             dev = True
@@ -66,6 +66,7 @@ class Devoluciones(Frame):
 
             desplegableFactura.set('')
             desplegableProducto.set('')
+            desplegableProducto.config(values=Devoluciones.listaProductos)
             Devoluciones.productoElegido = None
             Devoluciones.clienteElegido = None
             Productos.grid_remove()

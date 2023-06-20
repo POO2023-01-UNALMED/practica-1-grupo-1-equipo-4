@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import ttk, Frame
+from tkinter import ttk, Frame, messagebox
 import sys
 from gestorAplicacion.gestion.Conductor import Conductor
 sys.path.append('../') 
@@ -49,7 +49,7 @@ class EnviarPedido(Frame):
             self.columnconfigure(j, weight=1)
             
         #----------------TITULO
-        frameCabecera = tk.Frame(self) 
+        frameCabecera = tk.Frame(self, bg="#b6fce6") 
         frameCabecera.grid(row=0, column=1, padx=5, pady=5)
         
        #GRID
@@ -110,39 +110,6 @@ class EnviarPedido(Frame):
                 frameproducto32.grid()
                 frameproducto33.grid()
     
-        # def numproductosSeleccionado1(evento):
-        #     opc1 = desplegableProductos1.get()
-               
-        #     EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Fabrica.getListaFabricas()[0].getListaProductos())[0]
-        #     EnviarPedido.pesoProducto1 = float(EnviarPedido.productoSeleccionado1.getPeso())
-            
-        #     EnviarPedido.pesoProductos = EnviarPedido.pesoProducto1
-
-        #     if EnviarPedido.pesoProductos != 0:    
-        #         EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.pesoProductos)
-        #         desplegableTransporte['values']=[x.value[0] for x in EnviarPedido.listaFiltradaTransportes]  
-        #         #print("está entando a esta mondá") 
-        #     frameTransporte42.grid()
-                    
-        # def numproductosSeleccionado2(evento):        
-    
-        #     opc1 = desplegableProductos1.get()
-        #     opc2 = desplegableProductos2.get()
-
-        #     EnviarPedido.productoSeleccionado1 = encontrarObjeto(desplegableProductos1, Fabrica.getListaFabricas()[0].getListaProductos())[0]
-        #     EnviarPedido.pesoProducto1 = float(EnviarPedido.productoSeleccionado1.getPeso())
-        #     EnviarPedido.productoSeleccionado2 = encontrarObjeto(desplegableProductos2, Fabrica.getListaFabricas()[0].getListaProductos())[0]
-        #     EnviarPedido.pesoProducto2 = float(EnviarPedido.productoSeleccionado2.getPeso())
-            
-        #     EnviarPedido.pesoProductos = EnviarPedido.pesoProducto1 + EnviarPedido.pesoProducto2
-            
-            
-        #     if EnviarPedido.pesoProductos != 0 and EnviarPedido.pesoProducto2 != 0:    
-        #         EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.pesoProductos)
-        #         desplegableTransporte['values']=[x.value[0] for x in EnviarPedido.listaFiltradaTransportes]   
-        #     frameTransporte42.grid()
-            
-                        
 
         def numproductosSeleccionado3(evento):           
             frameTransporte42.grid()
@@ -225,7 +192,11 @@ class EnviarPedido(Frame):
             #print(EnviarPedido.Dia)
            
             EnviarPedido.tipoTransporte = list(filter(lambda x: x.value[0]==desplegableTransporte.get(),TipoTransporte))[0]
+        
+        def opcionboton(event):
+            frameDiaMes71.grid()
 
+            
             
             
         def GenerarFactura():
@@ -234,12 +205,39 @@ class EnviarPedido(Frame):
                                     EnviarPedido.tipoTransporte.value[2], EnviarPedido.tipoTransporte.value[1], Conductor.getListaConductores()[0])
             
             facturaNueva= Factura(EnviarPedido.tiendaSeleccionada, EnviarPedido.clienteSeleccionado, transporte, EnviarPedido.listaProductos, EnviarPedido.Dia, "Nada", operario= Fabrica.getListaFabricas()[0].getOperario())
-            print("-------------------------------")
-            print(facturaNueva.getCliente())
-            print(EnviarPedido.clienteSeleccionado.getProductos())
-            print(EnviarPedido.listaProductos)
-            
-            
+            EnviarPedido.clienteSeleccionado = None
+            EnviarPedido.tiendaSeleccionada = None
+            EnviarPedido.listaProductos = []
+            EnviarPedido.cantidadProductos = 0
+            EnviarPedido.productoSeleccionado1 = None
+            EnviarPedido.productoSeleccionado2 = None
+            EnviarPedido.productoSeleccionado3 = None
+            EnviarPedido.pesoProductos= float
+            EnviarPedido.tipoTransporte = None
+            EnviarPedido.transporteSeleccionado = None
+            EnviarPedido.listaFiltradaTransportes = []
+            EnviarPedido.pesoProducto1 = float
+            EnviarPedido.pesoProducto2 = float
+            EnviarPedido.pesoProducto3 = float
+            EnviarPedido.opcNum = int
+            EnviarPedido.Dia=int
+            messagebox.showinfo("¡Devolucion Exitosa!",f"El producto devuelto fue:")
+            desplegableClientes.set('')
+            desplegableProductos1.set('')
+            desplegableProductos2.set('')
+            desplegableProductos3.set('')
+            desplegableTiendas.set('')
+            desplegableDiaMes62.set('')
+            desplegableNumProductos.set('')
+            desplegableTransporte.set('')
+            frameTienda12.grid_remove()
+            frameNumero22.grid_remove()
+            frameproducto31.grid_remove()
+            frameproducto32.grid_remove()
+            frameproducto33.grid_remove()
+            frameTransporte42.grid_remove()
+            frameDiaMes62.grid_remove()
+            frameDiaMes71.grid_remove()
 
         
         #métodos necesarios 
@@ -391,14 +389,14 @@ class EnviarPedido(Frame):
         desplegableDiaMes62 = ttk.Combobox(frameDiaMes62,values=["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"]
                                            , textvariable=diaPredeterminado, state='readonly')  
         desplegableDiaMes62.grid(row=1, column=1,padx=5, pady=5)
-        desplegableDiaMes62.bind("<<ComboboxSelected>>", DiaDelMes)
+        desplegableDiaMes62.bind("<<ComboboxSelected>>", opcionboton)
 
         frameDiaMes71 = tk.Frame(self, relief="raised", border=3)
         frameDiaMes71.grid(row=3, column=1, padx=1, pady=3)
-        boton = tk.Button(frameDiaMes71, text="Realizar Envio \n Generar Factura", width=10, height=2, bg="#1c71b8", font=("Franklin Gothic", 10, "bold"), border=2, relief="raised",
+        boton = tk.Button(frameDiaMes71, text="Realizar Envio \n Generar Factura", width=20, height=2, bg="#1c71b8", font=("Franklin Gothic", 10, "bold"), border=2, relief="raised",
                            fg="#ffffff", command= GenerarFactura)
         boton.grid(row=0, column=0)
-        #boton.grid_remove()
+        frameDiaMes71.grid_remove()
 
         
 
