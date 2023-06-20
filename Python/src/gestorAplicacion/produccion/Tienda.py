@@ -12,6 +12,7 @@ from gestorAplicacion.gestion.Moda import Moda
 from gestorAplicacion.gestion.Operario import Operario
 import pickle
 import random
+import copy
 
 class Tienda(Moda):
     
@@ -67,14 +68,14 @@ class Tienda(Moda):
             
         # Ciclo para agregar los valores al diccionario y hacer el conteo
         for producto in self._listaProductos:
-            if producto in self._listaCantidadProductos:
-                self._listaCantidadProductos[producto] += 1
+            if producto.getNombre() in self._listaCantidadProductos:
+                self._listaCantidadProductos[producto.getNombre()] += 1
             else:
-                self._listaCantidadProductos[producto] = 1
+                self._listaCantidadProductos[producto.getNombre()] = 1
 
         # Bucle for para generar la cadena con la cantidad de cada producto
         for producto, cantidad in self._listaCantidadProductos.items():
-            cadena += f"{producto.getNombre()}: {cantidad} \n"
+            cadena += f"{producto}: {cantidad} \n"
 
         return cadena
 
@@ -163,7 +164,8 @@ class Tienda(Moda):
     def venderProducto(self, producto):
         for productos in self._listaProductos:
             if producto.getNombre() == productos.getNombre():
-                self._listaProductos.remove(producto)
+                self._listaProductos.remove(productos)
+                break
 
 
     # FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Enviar Pedido
@@ -214,7 +216,7 @@ class Tienda(Moda):
         listaProvicional = cliente.getProductos()
 
         for producto in listaProductosPedidos:
-           listaProvicional.append(producto)
+           listaProvicional.append(copy.deepcopy(producto))
 
         cliente.setProductos(listaProvicional) 
 

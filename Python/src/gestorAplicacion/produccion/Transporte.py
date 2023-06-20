@@ -97,4 +97,3 @@ if __name__=='__main__':
 # Ejemplo de prueba
 
     resultado2 =Transporte.mostrarTransportes()
-    print(resultado2)

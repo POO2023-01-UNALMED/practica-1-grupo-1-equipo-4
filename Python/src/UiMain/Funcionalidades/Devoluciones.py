@@ -17,7 +17,6 @@ class Devoluciones(Frame):
     listaProductos = []
     productoElegido = None
     def __init__(self, window):
-        #print(prueba.Fabrica)
         super().__init__(window)
         
         #----  Funciones ----
@@ -51,6 +50,7 @@ class Devoluciones(Frame):
             for producto in Devoluciones.clienteElegido.getProductos():
                 if f"{producto.getNombre()}" == Devoluciones.productoElegido:
                     Devoluciones.productoElegido = producto
+                    break
 
             #se regresa el dinero al cliente
             CuentaBancaria.devolverDinero(Devoluciones.clienteElegido.getCuentaBancaria(),Devoluciones.productoElegido.getValor(), Devoluciones.clienteElegido)   

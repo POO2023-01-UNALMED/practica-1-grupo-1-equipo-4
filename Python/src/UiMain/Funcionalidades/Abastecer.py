@@ -110,6 +110,7 @@ class Abastecer(Frame):
                     Abastecer.tienda.descargarProducto(transporte)
                     messagebox.showinfo("Abasteciemintos",f"La tienda {Abastecer.tienda.getNombre()} ha sido abastecida exitosamente\
  con {Abastecer.cantidadProducto} unidades de {Abastecer.producto.getNombre()}")
+                    entradaProductosQa.delete(0, tk.END)
             except FaltaUno:
                 messagebox.showerror("Error", FaltaUno())
             except Abastecer0productos:

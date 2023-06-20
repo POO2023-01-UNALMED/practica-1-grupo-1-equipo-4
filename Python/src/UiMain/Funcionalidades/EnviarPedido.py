@@ -79,17 +79,15 @@ class EnviarPedido(Frame):
             frameTienda12.grid() #llama a la siguiente 
             
             EnviarPedido.clienteSeleccionado = encontrarObjeto(desplegableClientes, Cliente.getListaClientes())[0]
-            #print(clienteSeleccionado.getNombre())
             
         #aqui poner para seleccionar tienda 
         def tiendaEscogida(evento):
             opc=desplegableTiendas.get()
             frameNumero22.grid()
             EnviarPedido.tiendaSeleccionada = encontrarObjeto(desplegableTiendas, Fabrica.getListaFabricas()[0].getListaTienda())[0]
-            desplegableProductos1['values'] = [x.getNombre() for x in EnviarPedido.tiendaSeleccionada.getListaProductos()]
-            desplegableProductos2['values'] = [x.getNombre() for x in EnviarPedido.tiendaSeleccionada.getListaProductos()]
-            desplegableProductos3['values'] = [x.getNombre() for x in EnviarPedido.tiendaSeleccionada.getListaProductos()]
-            #print(tiendaSeleccionada.getNombre())
+            desplegableProductos1['values'] = list(set([x.getNombre() for x in EnviarPedido.tiendaSeleccionada.getListaProductos()]))
+            desplegableProductos2['values'] = list(set([x.getNombre() for x in EnviarPedido.tiendaSeleccionada.getListaProductos()]))
+            desplegableProductos3['values'] = list(set([x.getNombre() for x in EnviarPedido.tiendaSeleccionada.getListaProductos()]))
 
         def numeroProductos(evento):
             global opcNum
@@ -180,15 +178,7 @@ class EnviarPedido(Frame):
             finally:    
                 EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.pesoProductos)
                 desplegableTransporte['values']=[x.value[0] for x in EnviarPedido.listaFiltradaTransportes]   
-            
-                # print("el 1 --------------")
-                # print(EnviarPedido.productoSeleccionado1)
-                # print("el 2----------------")
-                # print(EnviarPedido.productoSeleccionado2)
-                # print("----------- el 3 ")
-                # print(EnviarPedido.productoSeleccionado3)
-                # print("La lista --------------------------")
-                # print(EnviarPedido.listaProductos)
+
                 
                 
         def DiaDelMes(evento): 
@@ -196,11 +186,8 @@ class EnviarPedido(Frame):
             EnviarPedido.tipoTransporte = list(filter(lambda x: x.value[0]==desplegableTransporte.get(),TipoTransporte))[0]
 
 
-            #print("########## el transporte ##################")
-            #print(EnviarPedido.tipoTransporte)
             
             EnviarPedido.Dia = desplegableDiaMes62.get()
-            #print(EnviarPedido.Dia)
            
             EnviarPedido.tipoTransporte = list(filter(lambda x: x.value[0]==desplegableTransporte.get(),TipoTransporte))[0]
         

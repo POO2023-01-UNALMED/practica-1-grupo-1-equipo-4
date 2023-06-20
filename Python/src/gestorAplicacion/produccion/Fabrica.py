@@ -228,7 +228,6 @@ class Fabrica:
         if( producto._nombre in [p._nombre for p in self._listaProductos]):
             
             raise ProductoYaExistente()
-
         else:
             self._listaProductos.append(producto)
 
