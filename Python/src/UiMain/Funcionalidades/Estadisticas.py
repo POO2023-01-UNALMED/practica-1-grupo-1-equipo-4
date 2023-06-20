@@ -99,7 +99,7 @@ class Estadisticas(Frame):
     def ingresar(self):
 
 
-        if(self.fieldFecha1.get() == "" or self.fieldFecha1.get() == ""):
+        if(self.fieldFecha1.get() == "" or self.fieldFecha2.get() == ""):
 
                   messagebox.showerror('Error', 
                                  'Debe llenar ambos campos de fecha')
