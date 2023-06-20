@@ -271,5 +271,5 @@ class VentanaDeInicio(tk.Tk):
 
     def abrir_ventana_principal(self):
         self.destroy()
-        Deserializador.deserializar()
+        #Deserializador.deserializar()
         VentanaBase()
