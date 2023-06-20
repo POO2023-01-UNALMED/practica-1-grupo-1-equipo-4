@@ -48,7 +48,7 @@ class PagoTrabajadores(Frame):
                 if values == []:
                     raise NoTrabajadores()
                 else:
-                    desplegableTrabajadores['values'] = values
+                    desplegableTrabajadores['values'] = list(set(values))
                     frameTipos12.grid()
             except NoTrabajadores:
                     messagebox.showerror("No es posible el pago", NoTrabajadores()) 
