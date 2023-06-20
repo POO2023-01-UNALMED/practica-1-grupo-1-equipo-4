@@ -56,17 +56,21 @@ class Abastecer(Frame):
             if event.keysym == "Return":
                 return
             try:
-                if len(entradaProductosQa.get())>0 and not isinstance(float(entradaProductosQa.get()),float):
-                    raise Letras
+                if event.char.isalpha():
+                    entradaProductosQa.delete(0, tk.END)
+                    raise ValueError
                 else:
                     desplegableTransporte.config(state=tk.NORMAL)
                     Abastecer.cantidadProducto = entradaProductosQa.get()
-                    print(isinstance(Abastecer.producto.getPeso(),str))
-                    Abastecer.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(Abastecer.producto.getPeso()*float(Abastecer.cantidadProducto))
+                    Abastecer.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga\
+                    (Abastecer.producto.getPeso()*float(Abastecer.cantidadProducto))
                     desplegableTransporte['values']=[x.value[0] for x in Abastecer.listaFiltradaTransportes]
-            except ValueError:
+            except  :
+                desplegableTransporte.config(state=DISABLED)
+                entradaProductosQa.delete(0, tk.END)
                 Abastecer.cantidadProducto = None
                 messagebox.showerror("Error", Letras())
+                return
             
 
         def deshabilitarTransporte(event):
@@ -81,6 +85,7 @@ class Abastecer(Frame):
             Abastecer.tipoTransporte = list(filter(lambda x: x.value[0]==desplegableTransporte.get(),TipoTransporte))[0]
             cadenaDeTexto = Abastecer.tipoTransporte.__str__()
             texto_widgetTransporte.insert(tk.END, cadenaDeTexto)
+            botonEnviar.config(state="normal")
             texto_widgetTransporte.config(state=DISABLED)
 
         def encontrarObjeto(comboBox,listaObjetos):
@@ -100,9 +105,9 @@ class Abastecer(Frame):
                     raise MayorA
                 else:
                     listaProductos = fabrica.getListaFabricas()[0].cantidadProductos(int(Abastecer.cantidadProducto),Abastecer.producto)
-                    machetazo = Transporte("Abastecer.tipoTransporte[0]",20,300,Conductor.getListaConductores()[0])
-                    machetazo.abastecerProducto(Abastecer.tienda,listaProductos)
-                    Abastecer.tienda.descargarProducto(machetazo)
+                    transporte = Transporte(Abastecer.tipoTransporte.value[0],Abastecer.tipoTransporte.value[1],Abastecer.tipoTransporte.value[2],Conductor.getListaConductores()[0])
+                    transporte.abastecerProducto(Abastecer.tienda,listaProductos)
+                    Abastecer.tienda.descargarProducto(transporte)
                     messagebox.showinfo("Abasteciemintos",f"La tienda {Abastecer.tienda.getNombre()} ha sido abastecida exitosamente\
  con {Abastecer.cantidadProducto} unidades de {Abastecer.producto.getNombre()}")
             except FaltaUno:
@@ -245,5 +250,4 @@ class Abastecer(Frame):
         # Crear un botón
         botonEnviar = tk.Button(self, text="Enviar",width=10, height=2, bg="#1c71b8", font=("Franklin Gothic", 14, "bold"), fg="#ffffff",border=2,relief="raised",command=envio)
         botonEnviar.grid(row=4, column=1, sticky="ew")
- 
-
+        botonEnviar.config(state=DISABLED)

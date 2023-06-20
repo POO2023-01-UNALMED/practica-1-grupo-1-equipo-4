@@ -215,6 +215,8 @@ class Tienda(Moda):
         print(cliente)     
         print(cliente.getProductos())     
         for producto in listaProductosPedidos:
+            print(cliente)
+            print(cliente.getProductos())
             cliente.setProductos(cliente.getProductos().append(producto))
 
         # Creo la factura

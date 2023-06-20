@@ -85,8 +85,10 @@ class EnviarPedido(Frame):
         def tiendaEscogida(evento):
             opc=desplegableTiendas.get()
             frameNumero22.grid()
-
             EnviarPedido.tiendaSeleccionada = encontrarObjeto(desplegableTiendas, Fabrica.getListaFabricas()[0].getListaTienda())[0]
+            desplegableProductos1['values'] = [x.getNombre() for x in EnviarPedido.tiendaSeleccionada.getListaProductos()]
+            desplegableProductos2['values'] = [x.getNombre() for x in EnviarPedido.tiendaSeleccionada.getListaProductos()]
+            desplegableProductos3['values'] = [x.getNombre() for x in EnviarPedido.tiendaSeleccionada.getListaProductos()]
             #print(tiendaSeleccionada.getNombre())
 
         def numeroProductos(evento):
@@ -334,7 +336,7 @@ class EnviarPedido(Frame):
         textoSeleccProductos.grid(row=0, column=1, padx=5, pady=5)
 
         productoPredeterminado = tk.StringVar(value='Seleccionar productos')
-        desplegableProductos1 = ttk.Combobox(frameproducto31, values=[x.getNombre() for x in Fabrica.getListaFabricas()[0].getListaProductos()], textvariable=productoPredeterminado, state='readonly')  
+        desplegableProductos1 = ttk.Combobox(frameproducto31, values=["tierra"], textvariable=productoPredeterminado, state='readonly')  
         desplegableProductos1.grid(row=1, column=1, padx=5, pady=5)
         desplegableProductos1.bind("<<ComboboxSelected>>",numproductosSeleccionado3)
 
@@ -350,7 +352,7 @@ class EnviarPedido(Frame):
         textoSeleccProductos.grid(row=0, column=1,padx=5, pady=5)
 
         productoPredeterminado = tk.StringVar(value='Seleccionar productos')
-        desplegableProductos2 = ttk.Combobox(frameproducto32,values=[x.getNombre() for x in Fabrica.getListaFabricas()[0].getListaProductos()], textvariable=productoPredeterminado, state='readonly')  
+        desplegableProductos2 = ttk.Combobox(frameproducto32,values=["tierra"], textvariable=productoPredeterminado, state='readonly')  
         desplegableProductos2.grid(row=1, column=1,padx=5, pady=5)
         desplegableProductos2.bind("<<ComboboxSelected>>",numproductosSeleccionado3)
 
@@ -366,7 +368,7 @@ class EnviarPedido(Frame):
         textoSeleccProductos.grid(row=0, column=1)
 
         productoPredeterminado = tk.StringVar(value='Seleccionar productos')
-        desplegableProductos3 = ttk.Combobox(frameproducto33,values=[x.getNombre() for x in Fabrica.getListaFabricas()[0].getListaProductos()], textvariable=productoPredeterminado, state='readonly')  
+        desplegableProductos3 = ttk.Combobox(frameproducto33,values=["tierra"], textvariable=productoPredeterminado, state='readonly')  
         desplegableProductos3.grid(row=1, column=1,padx=5, pady=5)
         desplegableProductos3.bind("<<ComboboxSelected>>", numproductosSeleccionado3)
 
