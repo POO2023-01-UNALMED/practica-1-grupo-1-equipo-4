@@ -117,34 +117,36 @@ class Abastecer(Frame):
             self.rowconfigure(i, weight=1)
 
         # Distribución uniforme de columnas
-        for j in range(6):
-            self.columnconfigure(j, weight=1)
+        self.columnconfigure(0, weight=1)
+        self.columnconfigure(1, weight=3)
+        self.columnconfigure(2, weight=1)
 
-        frameCabecera = tk.Frame(self)
+        frameCabecera = tk.Frame(self, bg="#b6fce6")
         frameCabecera.grid(row=0, column=0, columnspan=8, padx=5, pady=5)
 
         # Configurar el peso de la fila y columna para centrar el marco
         self.rowconfigure(0, weight=1)
         self.columnconfigure(0, weight=1)
 
-        titulo = tk.Label(frameCabecera, text='Abastecer', font=("Arial", 15))
-        titulo.pack()
+        titulo = tk.Label(frameCabecera, text='Abastecer', font=("Arial", 15, "bold"), bg ="#33a8d6", relief="raised", border=3 )
+        titulo.pack(pady=3, fill="x")
 
         textoDescripcion = """El administrador podrá abastecer ciertos productos que vienen predeterminados 
-        en la fábrica a algunas de las tiendas. Intervienen las clases Fabrica, Tienda y Transporte."""
-        descripcion = tk.Label(frameCabecera, text=textoDescripcion, font=("Arial", 10))
-        descripcion.pack()
+        en la fábrica a algunas de las tiendas.
+          Intervienen las clases Fabrica, Tienda y Transporte."""
+        descripcion = tk.Label(frameCabecera, text=textoDescripcion, font=("Arial", 12), bg ="#93cfbc", border=2,relief="sunken")
+        descripcion.pack(pady=3)
 
         # /*--------------Tiendas--------------*/
         # Stack para la parte de lista de tiendas
         predeterminadoTiendas = tk.StringVar(value='Seleccionar tienda')
-        casillaTiendas = tk.Frame(self, width=113, height=200)
-        casillaTiendas.grid(row=0 + 1, column=0, sticky="ew")
+        casillaTiendas = tk.Frame(self, width=100, height=200 ,bg="#338dd6",relief="raised",  border=2)
+        casillaTiendas.grid(row=1, column=0, sticky="ew")
 
-        stack = tk.Frame(casillaTiendas)
-        stack.pack()
+        stack = tk.Frame(casillaTiendas) 
+        stack.pack(pady=3)
 
-        textoTiedas = tk.Label(stack, text='Lista de tiendas')
+        textoTiedas = tk.Label(stack, text='Lista de tiendas',font=("Arial", 12, "bold"),border=1,relief="sunken")
         textoTiedas.pack(side='top', anchor='center')
         desplegableTiendas = ttk.Combobox(stack, values=[x.getNombre() for x in fabrica.getListaFabricas()[0].getListaTienda()], 
                                           textvariable=predeterminadoTiendas,state=tk.NORMAL)
@@ -152,11 +154,11 @@ class Abastecer(Frame):
 
         # Crear una casilla para contener el cuadro de texto
         casillaTextoTiendas = tk.Frame(self, width=113, height=200)
-        casillaTextoTiendas.grid(row=0 + 1, column=1, columnspan=1)
+        casillaTextoTiendas.grid(row=1, column=1, columnspan=1)
 
         # Crear un cuadro de texto para mostrar información
         informacion = "Texto de ejemplo"
-        texto_widget = scrolledtext.ScrolledText(casillaTextoTiendas, width=32, height=8, bg="grey")
+        texto_widget = scrolledtext.ScrolledText(casillaTextoTiendas, width=32, height=8, bg="#c5c4ff")
         texto_widget.pack()
         # Agregar contenido al widget de texto
         texto_widget.insert(tk.END, informacion)
@@ -168,13 +170,13 @@ class Abastecer(Frame):
         # /*--------------Productos--------------*/
         # Stack para la parte de productos
         predeterminadoProductos = tk.StringVar(value='Seleccionar producto')
-        casillaProductos = tk.Frame(self, width=113, height=200)
-        casillaProductos.grid(row=1 + 1, column=0, sticky="ew")
+        casillaProductos = tk.Frame(self, width=113, height=200, bg="#338dd6",relief="raised",  border=2)
+        casillaProductos.grid(row=2, column=0, sticky="ew")
 
         stack = tk.Frame(casillaProductos)
         stack.pack()
 
-        textoProductos = tk.Label(stack, text='Lista de Productos')
+        textoProductos = tk.Label(stack, text='Lista de Productos', font=("Arial", 12, "bold"),border=1,relief="sunken")
         textoProductos.pack(side='top', anchor='center')
 
         desplegableProductos = ttk.Combobox(stack, values=[x.getNombre() for x in fabrica.getListaFabricas()[0].getListaProductos()], textvariable=predeterminadoProductos,
@@ -183,10 +185,10 @@ class Abastecer(Frame):
 
         # Crear una casilla para contener el cuadro de texto
         casillaTextoProductos = tk.Frame(self, width=113, height=200)
-        casillaTextoProductos.grid(row=1 + 1, column=1, columnspan=1)
+        casillaTextoProductos.grid(row=2, column=1, columnspan=1)
         # Crear un cuadro de texto para mostrar información
         informacion = "Texto de ejemplo"
-        texto_widgetProductos = tk.Text(casillaTextoProductos, width=32,height=8,bg="grey")
+        texto_widgetProductos = tk.Text(casillaTextoProductos, width=32,height=8,bg="#c5c4ff")
         texto_widgetProductos.pack()
         # Agregar contenido al widget de texto
         texto_widgetProductos.insert(tk.END, informacion)
@@ -197,13 +199,13 @@ class Abastecer(Frame):
 
         # /*--------------Cantidad de Productos--------------*/
         # Stack para la parte de productos
-        casillaQaProductos = tk.Frame(self, width=113, height=200)
-        casillaQaProductos.grid(row=1 + 1, column=3, sticky="ew")
+        casillaQaProductos = tk.Frame(self, width=113, height=200, bg="#338dd6",relief="raised",  border=2)
+        casillaQaProductos.grid(row=2, column=2, sticky="ew")
 
         stack = tk.Frame(casillaQaProductos)
         stack.pack()
 
-        textoProductosQa = tk.Label(stack, text='Cantidad de productos')
+        textoProductosQa = tk.Label(stack, text='Cantidad de productos',font=("Arial", 12, "bold"),border=1,relief="sunken")
         textoProductosQa.pack(side='top', anchor='center')
 
         entradaProductosQa = tk.Entry(stack)
@@ -214,13 +216,13 @@ class Abastecer(Frame):
         # /*--------------Transporte--------------*/
         # Stack para la parte de productos
         predeterminadoTransporte = tk.StringVar(value='Seleccionar transporte')
-        casillaTransporte = tk.Frame(self, width=113, height=200)
-        casillaTransporte.grid(row=2 + 1, column=0, sticky="ew")
+        casillaTransporte = tk.Frame(self, width=113, height=200,bg="#338dd6",relief="raised",  border=2)
+        casillaTransporte.grid(row=3, column=0, sticky="ew")
 
         stack = tk.Frame(casillaTransporte)
         stack.pack()
 
-        textoTransporte = tk.Label(stack, text='Lista de Transporte')
+        textoTransporte = tk.Label(stack, text='Lista de Transporte', font=("Arial", 12, "bold"),border=1,relief="sunken")
         textoTransporte.pack(side='top', anchor='center')
         desplegableTransporte = ttk.Combobox(stack, values=["a"], textvariable=predeterminadoTransporte,
                                              state='readonly')
@@ -232,7 +234,7 @@ class Abastecer(Frame):
         casillaTextoTransporte.grid(row=2 + 1, column=1, columnspan=1)
         # Crear un cuadro de texto para mostrar información
         informacion = "Texto de ejemplo"
-        texto_widgetTransporte = tk.Text(casillaTextoTransporte, width=32, height=8, bg="grey")
+        texto_widgetTransporte = tk.Text(casillaTextoTransporte, width=32, height=8, bg="#c5c4ff")
         texto_widgetTransporte.pack()
         # Agregar contenido al widget de texto
         texto_widgetTransporte.insert(tk.END, informacion)
@@ -241,7 +243,7 @@ class Abastecer(Frame):
         desplegableTransporte.bind("<Button-1>",deshabilitarTransporte)
         # /*--------------Botones--------------*/
         # Crear un botón
-        botonEnviar = tk.Button(self, text="Enviar", width=10,command=envio)
-        botonEnviar.grid(row=3 + 1, column=1, sticky="ew")
+        botonEnviar = tk.Button(self, text="Enviar",width=10, height=2, bg="#1c71b8", font=("Franklin Gothic", 14, "bold"), fg="#ffffff",border=2,relief="raised",command=envio)
+        botonEnviar.grid(row=4, column=1, sticky="ew")
  
 

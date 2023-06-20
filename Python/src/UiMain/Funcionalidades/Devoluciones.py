@@ -73,7 +73,7 @@ class Devoluciones(Frame):
             
         #-----------Divisiones filas y columnas--------
         self.config(bg="#b6fce6")
-        for i in range(12):
+        for i in range(6):
             self.rowconfigure(i, weight=1)
         for j in range(3):
             self.columnconfigure(j, weight=1)
