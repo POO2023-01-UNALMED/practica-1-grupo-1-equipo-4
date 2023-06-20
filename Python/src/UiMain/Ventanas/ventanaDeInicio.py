@@ -104,7 +104,7 @@ class VentanaDeInicio(tk.Tk):
         {"name":"Maria Fernanda Calle Agudelo", "description":"Apasionada por el baloncesto", "email":"mcalleag@unal.edu.co"},
         {"name": "Monica Sofia Restrepo León", "description":"Me gusta el morado, los caballos y la tecnología", "email":"morestrepol@unal.edu.co" },
         {"name": "Jaider Castañeda Villa", "description":"Entusiasta de la programacion", "email":"jcastanedavi@unal.edu.co" },
-        {"name":"Joan Sebastian Salazar Montoya", "description":"Apasionado por la lectura", "email":"jtobonz@unal.edu.co"}
+        {"name":"Joan Sebastian Salazar Montoya", "description":"Amo la música y las matemáticas", "email":"josalazarmo@unal.edu.co"}
             ]
 
 

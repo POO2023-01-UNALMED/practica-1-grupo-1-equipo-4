@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import Frame, messagebox
-from excepciones import ProductoYaExistente, FaltanCamposPorLLenar, SoloNumeros
+from excepciones import ProductoYaExistente, FaltanCamposPorLLenar, SoloNumeros, CategoriaNoValida
 from gestorAplicacion.produccion.Fabrica import Fabrica
 from gestorAplicacion.produccion.Producto import Producto
 
@@ -64,6 +64,9 @@ class AnadirProducto(Frame):
             if(  len(self.fp.getEntrysVacios()) > 0):
                 raise FaltanCamposPorLLenar()
 
+            if categoria != "aseo" and categoria != "construccion" and categoria != "consumible":
+                raise CategoriaNoValida()
+
             self.validarCampos()            
             nuevoProducto = Producto(nombre, descripcion, int(valor), int(peso), int(tamano), int(costoProduccion), categoria)
 
@@ -94,6 +97,8 @@ class AnadirProducto(Frame):
         except SoloNumeros:
             messagebox.showerror("Error", str(SoloNumeros()))
 
+        except CategoriaNoValida:
+            messagebox.showerror("Error", str(CategoriaNoValida()))
             
         
 

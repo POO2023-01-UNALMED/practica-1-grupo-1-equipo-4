@@ -41,8 +41,10 @@ class FaltanCamposPorLLenar(ExceptionC1):
         super().__init__("Faltan campos por llenar en el formulario: " + campos)
 
 class SoloNumeros(ExceptionC1):
-    def __init__(self, campos = ""):
+    def __init__(self):
         super().__init__("En los campos de valor, peso, tamaño y costo de producción solo se pueden ingresar números.")
+
+
 
 
 #Segunda rama
@@ -57,4 +59,8 @@ class ExceptionFechasFueraDeRango(ExceptionC2):
 class ExceptionFecha1MayorQueFecha2(ExceptionC2):
     def __init__(self):
         super().__init__("La fecha 1 no puede ser mayor a la fecha 2")
+
+class CategoriaNoValida(ExceptionC2):
+    def __init__(self):
+        super().__init__("Se debe ingresar una categoría entre las permitidas: aseo, consumible y construccion")
 
