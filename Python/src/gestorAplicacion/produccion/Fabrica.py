@@ -14,7 +14,7 @@ from ..gestion.Factura import Factura
 from ..gestion.CuentaBancaria import CuentaBancaria
 from ..produccion.Producto import Producto
 from ..produccion.Tienda import Tienda
-
+import copy
 
 import pickle
 
@@ -127,7 +127,7 @@ class Fabrica:
     def cantidadProductos(self, cantidad, producto):
         listaAbastecer = []
         for i in range(cantidad):
-            listaAbastecer.append(producto)
+            listaAbastecer.append(copy.deepcopy(producto))
         return listaAbastecer
     
     #  * FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Pago a trabajadores
