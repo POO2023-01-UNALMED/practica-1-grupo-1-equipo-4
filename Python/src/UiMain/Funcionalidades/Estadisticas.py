@@ -4,7 +4,7 @@ import sys
 
 sys.path.append('../')
 from gestorAplicacion.gestion.Factura import Factura
-from excepciones import ExceptionFechasFueraDeRango, ExceptionFecha1MayorQueFecha2
+from excepciones import ExceptionFechasFueraDeRango, ExceptionFecha1MayorQueFecha2, Letras2
 
 from tkinter import ttk, Frame, messagebox
 
@@ -131,17 +131,17 @@ class Estadisticas(Frame):
             except(ExceptionFechasFueraDeRango):
 
                 messagebox.showerror('Error', 
-                                    'Debe ingresar fechas dentro del rango permitido: La fecha mínima es {} y la máxima es {}'.format(Factura.getFechaMin(), Factura.getFechaMax()))
+                                    str(ExceptionFechasFueraDeRango()) + '.La fecha mínima es {} y la máxima es {}'.format(Factura.getFechaMin(), Factura.getFechaMax()))
 
             except(ExceptionFecha1MayorQueFecha2):
 
                 messagebox.showerror('Error', 
-                                    'La fecha mínima no puede ser mayor que la fecha máxima')
+                                    str(ExceptionFecha1MayorQueFecha2()))
                 
             except(ValueError):
 
                 messagebox.showerror('Error', 
-                                    'Solo se pueden ingresar números enteros')
+                                    str(Letras2()))
 
 
     import tkinter as tk

@@ -1,6 +1,6 @@
 import pickle
 
-from excepciones import ExceptionFechasFueraDeRango
+from excepciones import ExceptionFechasFueraDeRango, ExceptionFecha1MayorQueFecha2
 #from excepciones import ExceptionFechasFueraDeRango, ExceptionFecha1MayorQueFecha2
 
 

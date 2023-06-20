@@ -44,6 +44,10 @@ class SoloNumeros(ExceptionC1):
     def __init__(self):
         super().__init__("En los campos de valor, peso, tamaño y costo de producción solo se pueden ingresar números.")
 
+class Letras2(ExceptionC1):
+    def __init__(self):
+        super().__init__("Solo se pueden ingresar números enteros")
+
 
 
 
