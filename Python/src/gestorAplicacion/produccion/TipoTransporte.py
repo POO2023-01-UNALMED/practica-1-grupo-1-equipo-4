@@ -22,9 +22,14 @@ class TipoTransporte(Enum):
     @classmethod
     def crearTipoTransporteSegunCarga(cls,PesoTotalProductos):
         listaTransFiltrada = []
-        for tipoTransporte in TipoTransporte:
-            if tipoTransporte.value[2] >= PesoTotalProductos:
-                listaTransFiltrada.append(tipoTransporte)
+        try:
+            for tipoTransporte in TipoTransporte:
+                CargaTipoTrans = 0
+                CargaTipoTrans = tipoTransporte.value[2]
+                if CargaTipoTrans >= PesoTotalProductos:
+                    listaTransFiltrada.append(tipoTransporte)
+        except TypeError:
+            pass
         return listaTransFiltrada
 
     def __str__(self):

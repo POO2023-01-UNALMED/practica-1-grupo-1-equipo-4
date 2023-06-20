@@ -31,6 +31,18 @@ class Factura:
         Factura.facturasCreadas += 1
 
     
+    
+    def __str__(self):
+        FacturaPaImprimir=  (f "Tienda: {tienda}\n Cliente: {cliente}\n Transporte: {transporte}\n Productos: {', '.join(str(producto) for producto in listaProductos)}\n \
+           Fecha: {fecha}\n Disclaimer: {disclaimer}\n Operario: {operario}\n Total: {total}")
+        return  FacturaPaImprimir
+    
+    
+    
+    
+    
+    
+    
     def calcularTarifaEnvio(self):
         return self.transporte.tipo[0].value[1]
 

@@ -47,6 +47,12 @@ class SoloNumeros(ExceptionC1):
 class Letras2(ExceptionC1):
     def __init__(self):
         super().__init__("Solo se pueden ingresar números enteros")
+        
+        
+class ListIndex(ExceptionC1):
+    def __init__(self):
+        super().__init__("Seleccione un producto en todas las casillas disponibles")
+    
 
 
 
