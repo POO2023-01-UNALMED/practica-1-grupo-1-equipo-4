@@ -199,7 +199,7 @@ class EnviarPedido(Frame):
                     EnviarPedido.pesoProductos = EnviarPedido.pesoProducto1 + EnviarPedido.pesoProducto2 + EnviarPedido.pesoProducto3
                     EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado1)
                     EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado2)
-                    EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado2)
+                    EnviarPedido.listaProductos.append(EnviarPedido.productoSeleccionado3)
                 
             EnviarPedido.listaFiltradaTransportes = TipoTransporte.crearTipoTransporteSegunCarga(EnviarPedido.pesoProductos)
             desplegableTransporte['values']=[x.value[0] for x in EnviarPedido.listaFiltradaTransportes]   
