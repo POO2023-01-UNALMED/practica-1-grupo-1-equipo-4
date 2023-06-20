@@ -5,15 +5,15 @@ sys.path.append('../')  # Retrocede un nivel al directorio padre
 
 from gestorAplicacion.produccion.Fabrica import Fabrica
 from gestorAplicacion.gestion.Factura import Factura
-from gestorAplicacion.gestion.Cliente import Cliente
+from gestorAplicacion.gestion.Cliente import Cliente 
 from gestorAplicacion.produccion.Producto import Producto 
 from gestorAplicacion.gestion.CuentaBancaria import CuentaBancaria
-
+#from gestorAplicacion.gestion.Cliente import Cliente.getProductos
 
 class Devoluciones(Frame):
     #atributos de clase
     listaFacturas = []
-    clienteElegido = None
+    clienteElegido: Cliente
     listaProductos = []
     productoElegido = None
     def __init__(self, window):
@@ -28,8 +28,10 @@ class Devoluciones(Frame):
             for factura in Factura.getListaFacturas():
                 if f"{factura.getCliente()}" == Devoluciones.clienteElegido:
                     Devoluciones.clienteElegido = factura.getCliente()
-            
-            for producto in Devoluciones.clienteElegido.getProductos():
+
+            listaParaRecorrer = Devoluciones.clienteElegido.getProductos()
+
+            for producto in listaParaRecorrer:
                 if producto.isDevuelto() == False:
                     Devoluciones.listaProductos.append(producto.getNombre())
 
@@ -112,7 +114,8 @@ class Devoluciones(Frame):
         Devoluciones.listaFacturas = []
         for factura in Factura.getListaFacturas():
             cliente = factura.getCliente()
-            Devoluciones.listaFacturas.append(cliente)
+            if cliente not in Devoluciones.listaFacturas:
+                Devoluciones.listaFacturas.append(cliente)
         desplegableFactura = ttk.Combobox(Facturas,values= Devoluciones.listaFacturas, textvariable=seleccionarFactura, state='readonly', width=30)
         desplegableFactura.grid(row=1, padx=10, pady= 10, sticky="nsew")
         desplegableFactura.bind("<<ComboboxSelected>>", opcionFactura) #llamado a la funcion para mostrar los productos

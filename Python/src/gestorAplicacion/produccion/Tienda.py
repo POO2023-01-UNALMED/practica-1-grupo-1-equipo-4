@@ -210,17 +210,19 @@ class Tienda(Moda):
         operario.setIndiceMeta(operario.getIndiceMeta() + len(listaProductosPedidos))
 
         # Agrego los productos al cliente
+   
+        if (cliente.getProductos() == None):
+            cliente.setProductos([])
+            
+        listaProvicional = cliente.getProductos()
 
-        print("-----------------------")     
-        print(cliente)     
-        print(cliente.getProductos())     
         for producto in listaProductosPedidos:
-            print(cliente)
-            print(cliente.getProductos())
-            cliente.setProductos(cliente.getProductos().append(producto))
+           listaProvicional.append(producto)
+
+        cliente.setProductos(listaProvicional) 
 
         # Creo la factura
-        factura = Factura(self, cliente, transporte, listaProductosPedidos, dia, "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.", operario)
+        factura = Factura(self, cliente, transporte, listaProductosPedidos, int(dia), "Las descripciones y cantidades de los materiales suministrados en esta factura se basan en nuestra mejor información y creencia.", operario)
         return factura
 
     # FUNCIONALIDADES EN LAS QUE ESTÁ INVOLUCRADO: Devoluciones
